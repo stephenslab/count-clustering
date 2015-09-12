@@ -1,0 +1,848 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  11 SEP 2015 15:17
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2014/05/01>
+Babel <3.9k> and hyphenation patterns for 78 languages loaded.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./header.tex
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks14
+\ex@=\dimen103
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen104
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count87
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count88
+\leftroot@=\count89
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count90
+\DOTSCASE@=\count91
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count92
+\c@MaxMatrixCols=\count93
+\dotsspace@=\muskip10
+\c@parentequation=\count94
+\dspbrk@lvl=\count95
+\tag@help=\toks15
+\row@=\count96
+\column@=\count97
+\maxfields@=\count98
+\andhelp@=\toks16
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks17
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks18
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2005/04/14 v1.61803 publication quality tables
+\heavyrulewidth=\dimen112
+\lightrulewidth=\dimen113
+\cmidrulewidth=\dimen114
+\belowrulesep=\dimen115
+\belowbottomsep=\dimen116
+\aboverulesep=\dimen117
+\abovetopsep=\dimen118
+\cmidrulesep=\dimen119
+\cmidrulekern=\dimen120
+\defaultaddspace=\dimen121
+\@cmidla=\count99
+\@cmidlb=\count100
+\@aboverulesep=\dimen122
+\@belowrulesep=\dimen123
+\@thisruleclass=\count101
+\@lastruleclass=\count102
+\@thisrulewidth=\dimen124
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count103
+))
+\Gin@req@height=\dimen125
+\Gin@req@width=\dimen126
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen127
+\captionmargin@=\dimen128
+\captionwidth=\dimen129
+\caption@tempdima=\dimen130
+\caption@indent=\dimen131
+\caption@parindent=\dimen132
+\caption@hangindent=\dimen133
+)
+\c@ContinuedFloat=\count104
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
+\c@subfigure=\count105
+\c@subtable=\count106
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2014/04/23 v1.1a Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 137.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
+\@enLab=\toks20
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen134
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/tools/xr.sty
+Package: xr 1994/05/28 v5.02 eXternal References (DPC)
+)
+\c@algorithm=\count107
+\c@proposition=\count108
+\c@restateproposition=\count109
+\c@lemma=\count110
+\c@corollary=\count111
+\c@result=\count112
+\c@note=\count113
+)
+\c@definition=\count114
+ (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+
+(/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count115
+\scratchdimen=\dimen135
+\scratchbox=\box28
+\nofMPsegments=\count116
+\nofMParguments=\count117
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count118
+\MPscratchDim=\dimen136
+\MPnumerator=\count119
+\makeMPintoPDFobject=\count120
+\everyMPtoPDFconversion=\toks22
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
+(./outline.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 13.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 13.
+LaTeX Font Info:    Try loading font information for U+msa on input line 44.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 44.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+]) (./methods.tex
+[2] [3]) (./results.tex [4]) (./discussion.tex [5] [6]) (./references.tex
+Underfull \hbox (badness 6094) in paragraph at lines 5--8
+[]\OT1/cmr/m/n/10.95 S An-ders, T P Pyl, W Hu-ber. \OT1/cmr/m/it/10.95 HT-Seq :
+ A Python frame-work to work
+ []
+
+
+Underfull \hbox (badness 3291) in paragraph at lines 5--8
+\OT1/cmr/m/it/10.95 with high-throughput se-quenc-ing data\OT1/cmr/m/n/10.95 . 
+Bioin-for-mat-ics, 2014, in print; on-line at
+ []
+
+[7]
+Missing character: There is no ñ in font cmr10!
+Missing character: There is no ö in font cmr10!
+Missing character: There is no é in font cmr10!
+Missing character: There is no ç in font cmr10!
+ [8]) (./tables.tex
+Overfull \vbox (13.60004pt too high) detected at line 9
+ []
+
+
+Underfull \hbox (badness 7433) in paragraph at lines 9--10
+[]\OT1/cmr/m/n/10.95 catalyze many re-ac-tions in-volved
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 9--10
+\OT1/cmr/m/n/10.95 in drug metabolism and syn-the-sis
+ []
+
+
+Underfull \hbox (badness 3209) in paragraph at lines 9--10
+\OT1/cmr/m/n/10.95 of choles-terol, steroids and other
+ []
+
+
+Underfull \hbox (badness 3271) in paragraph at lines 9--10
+\OT1/cmr/m/n/10.95 lipids, mu-ta-tions cause con-gen-i-tal
+ []
+
+
+Underfull \hbox (badness 7433) in paragraph at lines 10--11
+[]\OT1/cmr/m/n/10.95 catalyze many re-ac-tions in-volved
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 10--11
+\OT1/cmr/m/n/10.95 in drug metabolism and syn-the-sis
+ []
+
+
+Underfull \hbox (badness 3209) in paragraph at lines 10--11
+\OT1/cmr/m/n/10.95 of choles-terol, steroids and other
+ []
+
+
+Underfull \hbox (badness 6188) in paragraph at lines 10--11
+\OT1/cmr/m/n/10.95 lipids, mut-taions as-so-ci-ated with
+ []
+
+
+Underfull \hbox (badness 2707) in paragraph at lines 10--11
+\OT1/cmr/m/n/10.95 as-so-ci-ated with iso-lated steroid-17
+ []
+
+
+Overfull \vbox (27.20004pt too high) detected at line 13
+ []
+
+
+Overfull \hbox (8.63829pt too wide) in paragraph at lines 17--17
+\OT1/cmr/m/n/10.95 esophagus)|  
+ []
+
+
+Overfull \vbox (40.80005pt too high) detected at line 17
+ []
+
+
+Underfull \hbox (badness 3735) in paragraph at lines 17--17
+[]\OT1/cmr/m/n/10.95 actin, gamma 2, smooth
+ []
+
+
+Underfull \hbox (badness 5970) in paragraph at lines 18--18
+[]\OT1/cmr/m/n/10.95 myosin, heavy chain 11,
+ []
+
+
+Underfull \hbox (badness 6078) in paragraph at lines 18--19
+[]\OT1/cmr/m/n/10.95 functions as a ma-jor con-trac-tile
+ []
+
+
+Underfull \hbox (badness 4819) in paragraph at lines 18--19
+\OT1/cmr/m/n/10.95 is as-so-ci-ated with acute myeloid
+ []
+
+
+Overfull \hbox (45.1093pt too wide) in paragraph at lines 4--22
+ [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 43.09222pt on input line 23.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--37
+[]\OT1/cmr/m/n/10.95 synaptosomal-associated
+ []
+
+
+Underfull \hbox (badness 1242) in paragraph at lines 38--38
+\OT1/cmr/m/n/10.95 cotroph cells of the an-te-rior pi-tu-
+ []
+
+
+Underfull \hbox (badness 1087) in paragraph at lines 38--38
+\OT1/cmr/m/n/10.95 im-mune mod-u-la-tion,associated with
+ []
+
+
+Overfull \vbox (13.60004pt too high) detected at line 39
+ []
+
+
+Underfull \hbox (badness 5970) in paragraph at lines 39--39
+[]\OT1/cmr/m/n/10.95 myosin, heavy chain 11,
+ []
+
+
+Overfull \vbox (27.20004pt too high) detected at line 43
+ []
+
+
+Underfull \hbox (badness 1371) in paragraph at lines 43--44
+[]\OT1/cmr/m/n/10.95 produces highly con-served pro-teins
+ []
+
+
+Overfull \vbox (13.60004pt too high) detected at line 47
+ []
+
+
+Underfull \hbox (badness 1210) in paragraph at lines 49--49
+[]\OT1/cmr/m/n/10.95 maturin, neu-ral pro-gen-i-tor
+ []
+
+
+Overfull \hbox (45.1093pt too wide) in paragraph at lines 31--52
+ [] 
+ []
+
+
+LaTeX Warning: Float too large for page by 84.29219pt on input line 53.
+
+
+Overfull \vbox (27.20004pt too high) detected at line 67
+ []
+
+
+Underfull \hbox (badness 1874) in paragraph at lines 67--68
+[]\OT1/cmr/m/n/10.95 encodes a mem-ber of the type I
+ []
+
+
+Overfull \vbox (13.60004pt too high) detected at line 71
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--71
+[]\OT1/cmr/m/n/10.95 immunoglobulin heavy
+ []
+
+
+Underfull \hbox (badness 3690) in paragraph at lines 71--71
+\OT1/cmr/m/n/10.95 con-stant gamma 1 (G1m
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--72
+[]\OT1/cmr/m/n/10.95 immunoglobulin heavy
+ []
+
+
+Underfull \hbox (badness 3690) in paragraph at lines 72--72
+\OT1/cmr/m/n/10.95 con-stant gamma 2 (G2m
+ []
+
+
+Underfull \hbox (badness 1436) in paragraph at lines 73--74
+\OT1/cmr/m/n/10.95 cy-tokine macrophage mi-gra-tion in-
+ []
+
+
+Overfull \hbox (0.97328pt too wide) in paragraph at lines 75--75
+\OT1/cmr/m/n/10.95 intestine)|  
+ []
+
+
+Overfull \vbox (27.20004pt too high) detected at line 75
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+[]\OT1/cmr/m/n/10.95 thyroglobulin pro-duced pre-dom-i-
+ []
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 75--76
+\OT1/cmr/m/n/10.95 thy-rox-ine and tri-iodothy-ro-nine, as-
+ []
+
+
+Underfull \hbox (badness 3029) in paragraph at lines 75--76
+\OT1/cmr/m/n/10.95 so-ci-ated with Graves dis-ease and
+ []
+
+
+Underfull \hbox (badness 2846) in paragraph at lines 77--78
+\OT1/cmr/m/n/10.95 func-tion, as-so-ci-ated with con-gen-i-
+ []
+
+
+Overfull \hbox (9.88539pt too wide) in paragraph at lines 79--79
+\OT1/cmr/m/n/10.95 fibroblasts)|  
+ []
+
+
+Overfull \vbox (27.20004pt too high) detected at line 79
+ []
+
+
+Underfull \hbox (badness 2189) in paragraph at lines 80--81
+[]\OT1/cmr/m/n/10.95 Mutations in this gene as-so-ci-ated
+ []
+
+
+Overfull \hbox (45.1093pt too wide) in paragraph at lines 61--84
+ [] 
+ []
+
+
+Overfull \vbox (40.80005pt too high) detected at line 96
+ []
+
+
+Overfull \vbox (40.80005pt too high) detected at line 100
+ []
+
+
+Overfull \hbox (1.9162pt too wide) in paragraph at lines 104--104
+\OT1/cmr/m/n/10.95 pancreas)|  
+ []
+
+
+Overfull \vbox (13.60004pt too high) detected at line 104
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--106
+[]\OT1/cmr/m/n/10.95 glycoprotein 2 (zy-mo-gen
+ []
+
+
+Underfull \hbox (badness 4454) in paragraph at lines 106--107
+\OT1/cmr/m/n/10.95 gran-ules and as-so-ciates with the
+ []
+
+
+Overfull \vbox (13.60004pt too high) detected at line 108
+ []
+
+
+Underfull \hbox (badness 4048) in paragraph at lines 108--109
+[]\OT1/cmr/m/n/10.95 Protamines are the ma-jor DNA-
+ []
+
+
+Underfull \hbox (badness 1038) in paragraph at lines 108--109
+\OT1/cmr/m/n/10.95 binding pro-teins in the nu-cleus of
+ []
+
+
+Overfull \hbox (45.1093pt too wide) in paragraph at lines 91--113
+ [] 
+ []
+
+) (./figures.tex
+<../plots/heart_muscle_admixture_heatmap.png, id=41, 481.8pt x 481.8pt>
+File: ../plots/heart_muscle_admixture_heatmap.png Graphic file (type png)
+
+<use ../plots/heart_muscle_admixture_heatmap.png>
+Package pdftex.def Info: ../plots/heart_muscle_admixture_heatmap.png used on in
+put line 5.
+(pdftex.def)             Requested size: 216.80798pt x 216.81pt.
+
+<../plots/heart_muscle_hierarchical_heatmap.png, id=43, 481.8pt x 481.8pt>
+File: ../plots/heart_muscle_hierarchical_heatmap.png Graphic file (type png)
+
+<use ../plots/heart_muscle_hierarchical_heatmap.png>
+Package pdftex.def Info: ../plots/heart_muscle_hierarchical_heatmap.png used on
+ input line 11.
+(pdftex.def)             Requested size: 216.80798pt x 216.81pt.
+
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 3--14
+ [][]  [] 
+ []
+
+<../plots/whole_tissue_structure_15.png, id=44, 702.625pt x 301.125pt>
+File: ../plots/whole_tissue_structure_15.png Graphic file (type png)
+
+<use ../plots/whole_tissue_structure_15.png>
+Package pdftex.def Info: ../plots/whole_tissue_structure_15.png used on input l
+ine 19.
+(pdftex.def)             Requested size: 469.76996pt x 216.81902pt.
+
+Overfull \hbox (14.52588pt too wide) in paragraph at lines 19--20
+ [][]
+ []
+
+
+<../plots/whole_tissue_structure_15_thinned.png, id=45, 702.625pt x 301.125pt>
+File: ../plots/whole_tissue_structure_15_thinned.png Graphic file (type png)
+
+<use ../plots/whole_tissue_structure_15_thinned.png>
+Package pdftex.def Info: ../plots/whole_tissue_structure_15_thinned.png used on
+ input line 25.
+(pdftex.def)             Requested size: 469.76996pt x 216.81902pt.
+
+Overfull \hbox (14.52588pt too wide) in paragraph at lines 25--26
+ [][]
+ []
+
+<../plots/brain_structure_plot.png, id=46, 481.8pt x 481.8pt>
+File: ../plots/brain_structure_plot.png Graphic file (type png)
+
+<use ../plots/brain_structure_plot.png>
+Package pdftex.def Info: ../plots/brain_structure_plot.png used on input line 3
+1.
+(pdftex.def)             Requested size: 325.223pt x 216.80798pt.
+
+<../plots/gtex_thinned_clus_12_version_1.png, id=47, 702.625pt x 301.125pt>
+File: ../plots/gtex_thinned_clus_12_version_1.png Graphic file (type png)
+
+<use ../plots/gtex_thinned_clus_12_version_1.png>
+Package pdftex.def Info: ../plots/gtex_thinned_clus_12_version_1.png used on in
+put line 39.
+(pdftex.def)             Requested size: 455.3178pt x 195.12877pt.
+
+Overfull \hbox (341.50677pt too wide) in paragraph at lines 39--40
+ [][]
+ []
+
+<../plots/gtex_thinned_clus_12_version_2.png, id=48, 702.625pt x 301.125pt>
+File: ../plots/gtex_thinned_clus_12_version_2.png Graphic file (type png)
+
+<use ../plots/gtex_thinned_clus_12_version_2.png>
+Package pdftex.def Info: ../plots/gtex_thinned_clus_12_version_2.png used on in
+put line 44.
+(pdftex.def)             Requested size: 455.3178pt x 195.12877pt.
+
+Overfull \hbox (341.50677pt too wide) in paragraph at lines 44--45
+ [][]
+ []
+
+<../plots/true_structure_setup_1.png, id=49, 481.8pt x 481.8pt>
+File: ../plots/true_structure_setup_1.png Graphic file (type png)
+
+<use ../plots/true_structure_setup_1.png>
+Package pdftex.def Info: ../plots/true_structure_setup_1.png used on input line
+ 56.
+(pdftex.def)             Requested size: 216.80798pt x 216.81pt.
+
+<../plots/est_structure_setup_1.png, id=50, 481.8pt x 481.8pt>
+File: ../plots/est_structure_setup_1.png Graphic file (type png)
+
+<use ../plots/est_structure_setup_1.png>
+Package pdftex.def Info: ../plots/est_structure_setup_1.png used on input line 
+62.
+(pdftex.def)             Requested size: 216.80798pt x 216.81pt.
+
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 54--64
+ [][]  [] 
+ []
+
+<../plots/true_structure_setup_2.png, id=51, 481.8pt x 481.8pt>
+File: ../plots/true_structure_setup_2.png Graphic file (type png)
+
+<use ../plots/true_structure_setup_2.png>
+Package pdftex.def Info: ../plots/true_structure_setup_2.png used on input line
+ 68.
+(pdftex.def)             Requested size: 216.80798pt x 216.81pt.
+
+<../plots/est_structure_setup_2.png, id=52, 481.8pt x 481.8pt>
+File: ../plots/est_structure_setup_2.png Graphic file (type png)
+
+<use ../plots/est_structure_setup_2.png>
+Package pdftex.def Info: ../plots/est_structure_setup_2.png used on input line 
+74.
+(pdftex.def)             Requested size: 216.80798pt x 216.81pt.
+
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 66--77
+ [][]  [] 
+ []
+
+<../plots/phase_plot_50.png, id=53, 545.03625pt x 488.82625pt>
+File: ../plots/phase_plot_50.png Graphic file (type png)
+
+<use ../plots/phase_plot_50.png>
+Package pdftex.def Info: ../plots/phase_plot_50.png used on input line 85.
+(pdftex.def)             Requested size: 241.74614pt x 216.81pt.
+
+Overfull \hbox (14.1241pt too wide) in paragraph at lines 85--86
+ [][] 
+ []
+
+<../plots/phase_plot_100.png, id=54, 545.03625pt x 488.82625pt>
+File: ../plots/phase_plot_100.png Graphic file (type png)
+
+<use ../plots/phase_plot_100.png>
+Package pdftex.def Info: ../plots/phase_plot_100.png used on input line 91.
+(pdftex.def)             Requested size: 241.74614pt x 216.81pt.
+
+Overfull \hbox (14.1241pt too wide) in paragraph at lines 91--92
+ [][] 
+ []
+
+<../plots/phase_plot_200.png, id=55, 495.8525pt x 488.82625pt>
+File: ../plots/phase_plot_200.png Graphic file (type png)
+
+<use ../plots/phase_plot_200.png>
+Package pdftex.def Info: ../plots/phase_plot_200.png used on input line 97.
+(pdftex.def)             Requested size: 219.9311pt x 216.81pt.
+
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 83--100
+ [][]  [] 
+ []
+
+<../plots/true_structure_setup_3.png, id=56, 481.8pt x 481.8pt>
+File: ../plots/true_structure_setup_3.png Graphic file (type png)
+
+<use ../plots/true_structure_setup_3.png>
+Package pdftex.def Info: ../plots/true_structure_setup_3.png used on input line
+ 108.
+(pdftex.def)             Requested size: 216.80798pt x 216.81pt.
+
+<../plots/est_structure_setup_3.png, id=57, 481.8pt x 481.8pt>
+File: ../plots/est_structure_setup_3.png Graphic file (type png)
+
+<use ../plots/est_structure_setup_3.png>
+Package pdftex.def Info: ../plots/est_structure_setup_3.png used on input line 
+114.
+(pdftex.def)             Requested size: 216.80798pt x 216.81pt.
+
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 106--117
+ [][]  [] 
+ []
+
+
+<../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png, id=58, 803.0pt x 301.12
+5pt>
+File: ../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png Graphic file (type 
+png)
+ <use ../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png>
+Package pdftex.def Info: ../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png 
+used on input line 125.
+(pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
+
+Overfull \hbox (345.24138pt too wide) in paragraph at lines 125--127
+[][] 
+ []
+
+
+<../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png, id=59, 803.0pt x 301.12
+5pt>
+File: ../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png Graphic file (type 
+png)
+ <use ../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png>
+Package pdftex.def Info: ../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png 
+used on input line 131.
+(pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
+
+Overfull \hbox (254.19394pt too wide) in paragraph at lines 131--133
+[][] 
+ []
+
+
+<../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png, id=60, 803.0pt x 301.
+125pt>
+File: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png Graphic file (typ
+e png)
+ <use ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png>
+Package pdftex.def Info: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.pn
+g used on input line 137.
+(pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
+
+Overfull \hbox (254.19394pt too wide) in paragraph at lines 137--139
+[][] 
+ []
+
+) [9 <../plots/heart_muscle_admixture_heatmap.png> <../plots/heart_muscle_hiera
+rchical_heatmap.png>] [10] [11] [12] [13] [14 <../plots/whole_tissue_structure_
+15.png> <../plots/whole_tissue_structure_15_thinned.png>] [15 <../plots/brain_s
+tructure_plot.png>] [16 <../plots/gtex_thinned_clus_12_version_1.png> <../plots
+/gtex_thinned_clus_12_version_2.png>] [17 <../plots/true_structure_setup_1.png>
+ <../plots/est_structure_setup_1.png> <../plots/true_structure_setup_2.png> <..
+/plots/est_structure_setup_2.png>] [18 <../plots/phase_plot_50.png> <../plots/p
+hase_plot_100.png> <../plots/phase_plot_200.png>] [19 <../plots/true_structure_
+setup_3.png> <../plots/est_structure_setup_3.png>] [20 <../plots/Zeisel/clus_2/
+struct_clus_2_cell_subtype.png> <../plots/Zeisel/clus_5/struct_clus_5_cell_subt
+ype.png> <../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png>] (./main.aux
+) ) 
+Here is how much of TeX's memory you used:
+ 4027 strings out of 493117
+ 61560 string characters out of 6135433
+ 159369 words of memory out of 5000000
+ 7377 multiletter control sequences out of 15000+600000
+ 12512 words of font info for 48 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,10n,38p,2230b,506s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pf
+b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></u
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/
+texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (20 pages, 1255483 bytes).
+PDF statistics:
+ 164 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 96 words of extra memory for PDF output out of 10000 (max. 10000000)
+

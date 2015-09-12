@@ -1,0 +1,51 @@
+\section{Outline}
+
+The outline for this paper (in the format of George M. Whitesides)
+
+Title: 
+
+Authors: Kushal Dey and Matthew Stephens
+
+\section{Introduction}
+
+\begin{itemize}
+
+\item \textit{objectives of the work}: to devise a completely unsupervised method to cluster the samples (tissue or single cell samples) into biologically meaningful sub-types based on the RNA-seq gene counts data
+
+\item \textit{justification of objectives} : 
+\begin{enumerate}
+
+\item  People have mainly used hierarchical clustering from GTEx consortium paper to most single cell RNA seq papers I have come across. We have evidence Admixture model does better than hierarchical clustering from  a biological viewpoint ( see structure.beats.hierarchical.html).
+
+\item Hierarchical clustering does not give us directly the genes that drive the clusters, Admixture model does, and it also provides us with a log likelihood to fix how many clusters to choose, based on Bayes factor. 
+
+\item We can predict the admixture proportions of cell types in any new sample coming in, so we can easily cluster new samples in cancer biopsy where the sub-types may involve cancer or non-cancer samples.
+
+ 
+
+\end{enumerate}
+
+\item \textit{Background}
+\begin{enumerate}
+\item The BackSpin algorithm used by Zeisel et al. Claim is it does better than hierarchical but not model based (also not convincingly proven to be better)
+
+\item Use of downsampling and then modified hierarchical clustering scheme as applied by Jaitin et al.
+
+\item Mainly, people have used hierarchical clustering scheme
+
+\item Population genetics uses Admixture model on a regular basis. We think we can generalize that to RNA-seq data. The only question is do we really see the tissue samples as cell type admixture, as we observe individuals as population admixture. The answer seems to be yes.
+
+\end{enumerate}
+
+\item \textit{Guidance to the reader}
+\begin{enumerate}
+\item The Structure plot and t-SNE plots  for GTEx tissues and for Zeisel data. Much better visualization than the regular heatmaps that we tend to see in RNA-seq papers. 
+
+\item The Structure plot analysis for Brain samples that shows $80\%$ one cluster in cerebellum tissue samples and then from gene annotations, it is revealed this  cluster is indeed associated with synaptic activities implying it must be neuronal cell types. This is pretty cool because we have a priori knowledge from cell type specific markers that around $80\%$ of cells in cerebellum are neurons.
+
+\item Also the strategy is similar to the topic model strategy in natural language processing and it is a really nice technique to use for RNA-seq datasets clustering.
+
+\end{enumerate}
+
+\end{itemize}
+

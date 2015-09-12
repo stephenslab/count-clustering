@@ -1,0 +1,230 @@
+---
+title: "SQUAREM Normal Topic Model with Random Batch Effect"
+author: "Kushal Kumar Dey"
+date: "Tuesday, March 03, 2015"
+output: html_document
+---
+
+In this script, we handle Normal Topic Model (NTM) with the added implication that apart from the fixed effect sizes, there are also random effect components and overdispersion terms involved in the model. we shall first describe the simulation set up for this process, where we now have non zero overdispersion and systematic random  effects.
+
+```{r,echo=TRUE,eval=TRUE}
+
+
+############   Normal  Topic Model with Random Effect  ####################
+
+###  We have solved the problem of normal topic model, now we introduce a random
+
+###  effect in the normal topic model and see how the methods work.  We shall 
+
+###  focus on the case with a single rando effect in the model 
+
+
+##################   Set  up 1   for Counts  Table  ########################
+K=4;
+G=100;
+N=500;
+
+alpha_true=matrix(rnorm((K)*G,0.5,1),nrow=(K)); ### the matrix of fixed effects
+
+Label.Batch=c(rep(1,N/4),rep(2,N/4),rep(3,N/4),rep(4,N/4));
+
+B=max(Label.Batch);
+
+sigmab_true=2;
+
+beta_true=matrix(0,B,G);       ###  the matrix of the random effect
+
+for(g in 1:G)
+{
+  beta_true[,g]=rnorm(B,mean=0,sd=sigmab_true);
+}
+
+over_dis=0.3;
+
+noise_true=matrix(0,N,G);
+
+for(n in 1:N)
+{
+	noise_true[n,]=over_dis*rnorm(G,0,1);
+}
+
+library(gtools)
+T=10;
+omega_true=matrix(rbind(rdirichlet(T*10,c(3,4,2,6)),rdirichlet(T*10,c(1,4,6,3)),
+			rdirichlet(T*10,c(4,1,2,2)),rdirichlet(T*10,c(2,6,3,2)),
+			rdirichlet(T*10,c(3,3,5,4))), nrow=N);
+
+
+H_true=alpha_true;
+
+###  generating the table 
+
+read_counts=matrix(0,N,G);
+
+for(n in 1:N)
+{
+	read_counts[n,]=omega_true[n,]%*%H_true +beta_true[Label.Batch[n],]+noise_true[n,];
+}
+
+k=K
+windows()
+barplot(t(omega_true),col=2:(k+1),axisnames=F,space=0,border=NA,main="",las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
+title(main=paste("Structure Plot of true topic proportions,k=",K))
+
+```
+
+We once again state the transformation and the reverse transformation functions mapping the topic proportion vector $\omega$ to the entire Euclidean space.
+
+```{r,echo=TRUE,eval=TRUE}
+
+ reverse_transform=function(x) 
+  {
+    out=array(0,K-1);
+  	for(i in 1:(K-1))
+		{
+			out[i]=log((x[i]+10^(-5))/(x[K]+10^(-5)));
+		}
+		return(out)
+	}
+
+# Data
+  
+
+	# Log-Likelihood
+	loglik_norm <- function(u,y,x) sum((y - x %*% u)^2)
+
+	# Transform the parameters: we just have
+	# to find a bijection between R^3 
+	# and {(a,b,c,d) \in [0,1]^4 : a+b+c+d=1}.
+
+  transform <- function(v) 
+  {
+  	# Ensure they in [0,1]
+  	temp =c(exp(v),1);
+  	out=temp/(1+sum(exp(v)));
+  	return(out)
+	}
+
+
+```
+
+
+We now give the Squarem procedure that deals with the iterative algorithm updating the topic proportion parameters $\omega$ and the effect sizes $\omega$ and since we have a random effect incorporated in our Normal model, we use the function **lmer** in the R package **lme4** with one random effect due to the $\beta$- batch effect. Note that we do not have to worry about the overdispersion in the modeling because that overdispersion term will be confounded in the error and hence will not be identifiable.
+
+```{r,echo=TRUE,eval=TRUE}
+#######  SQUAREM implementaion Normal Random Batch Topic Model ################
+
+omega_loglik_rand = function(omega_vec,counts_vec,alpha,beta,lab)
+{
+
+  G=length(counts_vec);
+	sum=0;
+	for(g in 1:G)
+	{
+		sum=sum+0.5*(counts_vec[g] - omega_vec%*%alpha[,g] -beta[lab,g])^2;
+		#cat(sum,"\n");
+	}
+
+	return(sum);
+}
+
+counts=read_counts;
+y=matrix(counts,1,N*G);
+scale=3; K=4;
+omega0=matrix(rdirichlet(N,c(scale/K,scale/K,scale/K,scale/K)), nrow=N);
+alpha0=matrix(rnorm((K)*G,0.5,1),nrow=(K)); ### the matrix of fixed effects
+
+
+windows()
+k=K
+barplot(t(omega0),col=2:(k+1),axisnames=F,space=0,border=NA,main="",las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
+title(main=paste("Structure Plot of initial chosen topic proportions,k=",K))
+
+param0=c(matrix(omega0,1,N*K),matrix(alpha0,1,K*G));
+
+library(SQUAREM)
+library(lme4)
+
+normal_topic.randeff <- function(param_vec,y)
+{
+	counts=matrix(y,N,G);
+	omega0=matrix(param_vec[1:(N*K)],N,K);
+	alpha0=matrix(param_vec[-(1:(N*K))],K,G);
+	
+##############  Estimating the alpha, beta and overdis ####################
+	alpha=matrix(0,K,G);
+	beta=matrix(0,B,G);
+	
+
+	for(g in 1:G)
+	{
+		counts_col=counts[,g];
+		rand_col=as.factor(Label.Batch);
+		#noise_col=1:N;
+		fit=lmer(counts_col~omega0[,1]+omega0[,2]+omega0[,3]+omega0[,4]+(1|rand_col)-1,
+						REML=TRUE);
+		#vec_intercept=c(0,rep(as.numeric(fixef(fit))[1],(length(as.numeric(fixef(fit)))-1)));
+		alpha[,g]=as.numeric(fixef(fit));
+		beta[,g]=as.numeric(as.matrix(ranef(fit)$rand_col));
+	}
+
+###################  Topic proportion omega esimate ########################
+
+	omega=matrix(0,N,K);
+	for(n in 1:dim(counts)[1])
+	{
+		omega_vec=omega0[n,];
+		counts_vec=counts[n,];
+		lab=Label.Batch[n];
+		#noise_vec=noise[n,]
+		res=optim(reverse_transform(omega_vec), function(v) omega_loglik_rand(transform(v),counts_vec,alpha,beta,lab) );
+		omega[n,]=transform(res$par);
+	}
+
+	param_vec_omega=matrix(omega,1,N*K);
+	param_vec_alpha=matrix(alpha,1,K*G);
+	param_new_vec=c(param_vec_omega,param_vec_alpha);
+	param_vec=param_new_vec
+	return(param_new_vec)
+}
+
+options(warn=-1)
+system.time(res <- squarem(p=param0,y=y, fixptfn=normal_topic.randeff, control=list(maxiter = 20, trace = FALSE)));
+
+omega_final=matrix(res$par[1:(N*K)],N,K);
+alpha_final=matrix(res$par[-(1:(N*K))],K,G)
+
+
+docweights=omega_final;
+library(permute);
+library("BioPhysConnectoR");
+perm_set=rbind(1:K,allPerms(1:K));
+diff=array(0,dim(perm_set)[1]);
+for (p in 1:dim(perm_set)[1])
+{
+	temp=docweights[,perm_set[p,]];
+	diff[p]=fnorm(temp,omega_true);
+}
+
+p_star=which(diff==min(diff));
+docweights=docweights[,perm_set[p_star,]];
+
+omega_final=docweights;
+alpha_final=alpha_final[perm_set[p_star,],];
+
+
+windows()
+par(mar=c(8,5.25,2.5,2.5))
+
+# - get rid of space space between leftmost bar and y axis
+par(xaxs="i")
+
+k=K
+# Make plot 
+# - plot data
+barplot(t(omega_final),col=2:(k+1),axisnames=F,space=0,border=NA,main="",las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
+title(main=paste("Structure Plot of final estd. topic proportions,k=",K))
+
+
+```
+

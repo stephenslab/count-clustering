@@ -1,0 +1,386 @@
+---
+title: 'Gene Annotation : GTEx'
+author: "Kushal K Dey"
+date: "July 5, 2015"
+output: html_document
+---
+
+```{r packages, echo=FALSE, eval=TRUE}
+suppressMessages(suppressWarnings(library(maptpx)))
+suppressMessages(suppressWarnings(library(qtlcharts)))
+suppressMessages(suppressWarnings(library(data.table)))
+suppressMessages(suppressWarnings(library(mygene)))
+
+```
+
+In this script, we give the gene annotations of the genes that seem to vary greatly between the clusters we get. This would  be indicative of the markers that are driving the different clusters. If we can find that for a cluster which is mainly represented in a particular tissue type, if the genes significantly differentially expressed in that cluster are indeed related to the tissue in terms of its annotation, then we can say that the clustering makes biological sense. 
+
+
+```{r gene_annotation, echo=TRUE, eval=TRUE}
+
+#topics_theta <- data.frame(fread("/Users/kushal/Documents/Matthew Stephens Project/counts_clustering/Topic_theta_clus_10.txt"))[,-1];
+
+topics_theta <- data.frame(fread("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/topics_theta_clus_12_version_1.txt"))[,-1];
+
+
+
+sqrt_zscore <- t(apply(topics_theta, 1, function(x)
+                                      {
+                                          y=sqrt(x);
+                                          return((y-mean(y))/sd(y));
+                                      }))
+
+log_zscore <- t(apply(topics_theta, 1, function(x)
+                                      {
+                                          y=log((x)/(1-x));
+                                          return((y-mean(y))/sd(y));
+                                      }))
+K=dim(topics_theta)[2];
+
+KL_score_poisson <- lapply(1:K, function(n) 
+                                {
+                                    out <- t(apply(topics_theta, 1, function(x)
+                                                                    {
+                                                                      y=x[n] *log(x[n]/x) + x - x[n];
+                                                                      return(y)
+                                                                     }));
+                                    return(out)
+                                })
+                   
+KL_score_bernoulli <- lapply(1:K, function(n) 
+                                {
+                                    out <- t(apply(topics_theta, 1, function(x)
+                                                                    {
+                                                                      y=x[n] *log(x[n]/x) + (1 - x[n])*log((1-x[n])/(1-x));
+                                                                      return(y)
+                                                                     }));
+                                    return(out)
+                                })
+                   
+```
+
+We used four divergence conditions 
+
+- Square root z - transform 
+
+- Log z- transform
+
+- Bernoulli K-L divergence
+
+- Poisson K-L divergence 
+
+Out of these conditions, Square root z- transform and Log z-transform gave close results. On the other hand, Bernoulli K-L divergence and Poisson K-L divergence gave practically identical results (almost). So, we focused on the Poisson K-L divergence and the Square root Z- transform instead. 
+
+## Poisson K-L divergence 
+
+```{r echo=FALSE, eval=TRUE}
+
+indices_mat_poisson=matrix(0,dim(topics_theta)[2],10);
+
+for(k in 1:dim(topics_theta)[2])
+{
+  temp_mat <- KL_score_poisson[[k]][,-k];
+  vec <- apply(temp_mat, 1, function(x) min(x))
+  indices_mat_poisson[k,] = order(vec, decreasing = TRUE)[1:10]
+}
+
+gene_snp_names_gtex <- data.frame(fread('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/gene_snp_names.txt',header=FALSE));
+gene_names <- substring(gene_snp_names_gtex[,2],1,15);
+
+gene_names_mat_poisson = matrix(gene_names[as.vector(indices_mat_poisson)],nrow=dim(topics_theta)[2]);
+
+color=c("red","blue","cornflowerblue","black","cyan","darkblue",
+        "brown4","burlywood","darkgoldenrod1","darkgray","deepskyblue","darkkhaki",
+        "firebrick","darkorchid","hotpink","green","magenta","yellow", "azure1","azure4");
+
+
+
+```
+
+Use **mygene** R package to get information about all the cis- genes used in the GTEx data.
+It creates a database of the cis genes with summary level information.
+
+```{r, echo=FALSE, eval=TRUE}
+
+#xli  <-  gene_names;
+#out <- queryMany(xli, scopes="ensembl.gene", fields=c("name", "summary"), species="human");
+
+# write.table(out, "/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/cis_gene_complete_summary_gtex.txt");
+
+out <- read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/cis_gene_complete_summary_gtex.txt");
+
+par(mfrow=c(1,1))
+barplot(rep(1,12),col=color[1:12])
+```
+
+
+## Gene summaries individual clusters 
+
+
+### Brown cluster (muscle)
+
+```{r echo=FALSE, eval=TRUE}
+
+gene_names_mat_poisson[7,]
+lapply(1:10, function(n) out[grep(gene_names_mat_poisson[7,n], out$query),])
+
+```
+
+### navy blue cluster (pancreas)
+
+```{r echo=FALSE, eval=TRUE}
+
+gene_names_mat_poisson[11,]
+lapply(1:10, function(n) out[grep(gene_names_mat_poisson[11,n], out$query),])
+
+```
+
+### greyscale  cluster (Whole Blood)
+
+```{r echo=FALSE, eval=TRUE}
+
+gene_names_mat_poisson[10,]
+lapply(1:10, function(n) out[grep(gene_names_mat_poisson[10,n], out$query),])
+
+```
+
+
+### Shallow green cluster (Liver)
+
+```{r echo=FALSE, eval=TRUE}
+
+gene_names_mat_poisson[12,]
+lapply(1:10, function(n) out[grep(gene_names_mat_poisson[12,n], out$query),])
+
+```
+
+### Yellow cluster (Cells transformed fibroblasts)
+
+```{r echo=FALSE, eval=TRUE}
+
+gene_names_mat_poisson[9,]
+lapply(1:10, function(n) out[grep(gene_names_mat_poisson[9,n], out$query),])
+
+```
+
+### Shady Blue cluster (Arteries)
+
+```{r echo=FALSE, eval=TRUE}
+
+gene_names_mat_poisson[3,]
+lapply(1:10, function(n) out[grep(gene_names_mat_poisson[3,n], out$query),])
+
+```
+
+### Blue cluster (Brain)
+
+```{r echo=FALSE, eval=TRUE}
+
+gene_names_mat_poisson[2,]
+lapply(1:10, function(n) out[grep(gene_names_mat_poisson[2,n], out$query),])
+
+```
+
+One thing we find is that we are getting a gene ENSG00000244734 in multiple tissue clusters. It is a hemoglobin related gene. We look at the topic expression for that gene.
+
+```{r echo=FALSE, eval=TRUE}
+
+colnames(topics_theta)=paste("V_",1:12);
+topics_theta[grep("ENSG00000244734", gene_names),]
+
+```
+
+Note that this has very high expression in the 10th cluster (grey cluster) which corresponds to blood, but since it is divergent from other tissues, other tissues are also reporting it. Is that what we want??
+
+We also look at the Brain sub tissues and cluster them separately. Here Brain cerebellum and cerebellur hemisphere are pretty different from the basal ganglia and hippocampus etc, that is because cerebellum and cerebellur hemisphere contain very high percentage of neurons compared to other parts. Does that egt reflected in the clusters we get? What does gene annotations say?
+
+
+## Brian samples clustering (Structure)
+
+```{r brain_structure, echo=FALSE, eval=TRUE}
+
+samples_id=read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/samples_id.txt")
+
+brain_indices=which(samples_id[,2]=='Brain');
+brain_subgroups_id =samples_id[brain_indices,3];
+
+docweights= read.table('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/topics_brain_thinned_omega_clus_4.txt');
+
+K=4
+barplot(t(docweights),col=1:K,axisnames=F,space=0,border=NA,main=paste("No. of clusters=",K),las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
+brain_subgroups_id[394]=brain_subgroups_id[395];
+labels=match(unique(brain_subgroups_id), brain_subgroups_id);
+abline(v=labels)
+
+labels_low=labels;
+labels_up=c(labels[2:length(labels)],dim(docweights)[1]);
+mid_point=labels_low +0.5*(labels_up-labels_low);
+
+axis(1,at=mid_point, unique(brain_subgroups_id),las=2);
+
+
+```
+
+
+## Brian topics expression data 
+
+```{r brain_expr, echo=FALSE, eval=TRUE}
+
+
+data <- data.frame(fread("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/gtex_thinned_version_1.txt"));
+
+brain_samples=data[,brain_indices];
+
+#Topic_Clus <- topics(t(brain_samples),K=4, tol=0.001);
+
+#write.table(Topic_Clus$omega, '/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/topics_brain_thinned_omega_clus_4.txt');
+
+
+#write.table(Topic_Clus$theta, '/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/topics_brain_thinned_theta_clus_4.txt');
+
+topics_theta <- read.table('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/topics_brain_thinned_theta_clus_4.txt');
+
+KL_score_poisson <- lapply(1:K, function(n) 
+                                {
+                                    out <- t(apply(topics_theta, 1, function(x)
+                                                                    {
+                                                                      y=x[n] *log(x[n]/x) + x - x[n];
+                                                                      return(y)
+                                                                     }));
+                                    return(out)
+                                })
+                   
+
+
+```
+
+We use the KL Poisson model to get a set of genes that were highly expressed in one cluster compared to another.
+
+```{r echo=FALSE, eval=TRUE}
+
+indices_mat_poisson=matrix(0,dim(topics_theta)[2],10);
+
+for(k in 1:dim(topics_theta)[2])
+{
+  temp_mat <- KL_score_poisson[[k]][,-k];
+  vec <- apply(temp_mat, 1, function(x) min(x))
+  indices_mat_poisson[k,] = order(vec, decreasing = TRUE)[1:10]
+}
+
+gene_snp_names_gtex <- data.frame(fread('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/gene_snp_names.txt',header=FALSE));
+gene_names <- substring(gene_snp_names_gtex[,2],1,15);
+
+
+
+gene_names_mat_poisson = matrix(gene_names[as.vector(indices_mat_poisson)],nrow=dim(topics_theta)[2]);
+
+par(mfrow=c(1,1))
+barplot(rep(1,4),col=2:5)
+
+```
+
+## Green cluster (Cerebellum and Cerebellur Hemisphere)
+
+```{r echo=FALSE, eval=TRUE}
+
+gene_names_mat_poisson[3,]
+lapply(1:10, function(n) out[grep(gene_names_mat_poisson[3,n], out$query),])
+
+```
+
+## Blue cluster (Spinal cord + Substantia nigra)
+
+```{r echo=FALSE, eval=TRUE}
+
+gene_names_mat_poisson[4,]
+lapply(1:10, function(n) out[grep(gene_names_mat_poisson[4,n], out$query),])
+
+```
+
+
+## Red cluster (Ganglia?)
+
+```{r echo=FALSE, eval=TRUE}
+
+gene_names_mat_poisson[1,]
+lapply(1:10, function(n) out[grep(gene_names_mat_poisson[1,n], out$query),])
+
+```
+
+
+
+
+<!-- Two genes that seem to crop up a numebr of times in the above analysis are **ENSG00000197971** and **ENSG00000132639**.
+
+Let us see how the topic expressions for these two genes look like
+
+**ENSG00000197971** -->
+
+
+
+```{r, echo=FALSE, eval=FALSE}
+
+topics_theta[grep("ENSG00000197971", gene_names),]
+```
+
+```{r, echo=FALSE, eval=FALSE}
+
+topics_theta[grep("ENSG00000132639", gene_names),]
+
+```
+
+
+
+
+```{r, echo=FALSE, eval=FALSE}
+
+## Bernoulli K-L divergence comparison
+
+indices_mat_bernoulli=matrix(0,dim(topics_theta)[2],20);
+
+for(k in 1:dim(topics_theta)[2])
+{
+  temp_mat <- KL_score_bernoulli[[k]][,-k];
+  vec <- apply(temp_mat, 1, function(x) max(abs(x)) )
+  indices_mat_bernoulli[k,] = order(vec, decreasing = TRUE)[1:20]
+}
+
+significant_indices_bernoulli = unique(as.vector(indices_mat_bernoulli));
+
+topics_theta[significant_indices_bernoulli,];
+
+#gene_names_eberwine=data.frame(fread("/Users/kushal/Documents/Matthew Stephens Project/counts_clustering/counts_data.txt", header=FALSE))[,2];
+
+gene_snp_names_gtex <- data.frame(fread('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/gene_snp_names.txt',header=FALSE));
+gene_names <- substring(gene_snp_names_gtex[,2],1,15);
+
+gene_names_sig_bernoulli = gene_names[significant_indices_bernoulli];
+
+gene_names_mat_bernoulli = matrix(gene_names[as.vector(indices_mat_bernoulli)],nrow=dim(topics_theta)[2]);
+
+color=c("red","blue","cornflowerblue","black","cyan","darkblue",
+        "brown4","burlywood","darkgoldenrod1","darkgray","deepskyblue","darkkhaki",
+        "firebrick","darkorchid","hotpink","green","magenta","yellow", "azure1","azure4");
+
+```
+
+
+
+
+
+```{r, echo=FALSE, eval=FALSE}
+
+## sqrt z score comparison
+
+temp_mat <- sqrt_zscore;
+
+vec <- apply(temp_mat, 1, function(x) max(abs(x)) )
+indices_mat_sqrt_zscore = order(vec, decreasing = TRUE)[1:500];
+
+gene_names_sig_zscore = gene_names_eberwine[indices_mat_sqrt_zscore];
+
+apply(topics_theta[indices_mat_sqrt_zscore,],1,which.max)
+
+
+```
+
