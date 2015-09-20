@@ -1,18 +1,3 @@
-\begin{figure*}[ht]
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=3in]{../plots/heart_muscle_admixture_heatmap.png}
-        \caption{Admixture proportions heatmap}
-    \end{subfigure}%
-    ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=3in]{../plots/heart_muscle_hierarchical_heatmap.png}
-        \caption{Hierarchical cluster heatmap}
-    \end{subfigure}
-    \caption{Comparison of heatmap of the admixture proportions and heatmap due to hierarchical clustering on  a randomly drawn 50 samples from the pool of Muscle-Skeletal and Heart-Left Ventricle samples in GTEx Version 4 RNA-seq counts data. The distance method used euclidean and the linkage used was average linkage. Color scale provided in the figure. It seems that for admixture model heatmap, all the Muscle-skeletal and Heart Left-Ventricle samples cluster separately, while for the hierarchical model heatmap, they are mixed with each other. This suggests Admixture is better equipped at picking tissue separation than hierarchical clustering.}
-\end{figure*}
 
 \begin{figure*}[ht]
 	\raggedleft
@@ -47,7 +32,47 @@
     \caption{Structure plot of all tissue samples in GTEx version 4 data for K=12 under different values of the thinning parameter $p_{thin}$. The three values of the thinning parameter chosen are $0.01$, $0.001$ and $0.0001$. It seems the results are pretty robust, though some of the cluster patterns seem to change. For instance, Muscle Skeletal and Heart tissue samples separate out at $p_{thin}=0.0001$ but cluster together at $p_{thin}=0.001$ for the same number of topics.}
     \end{figure*}
     
+    \begin{figure*}[ht]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/heart_muscle_hierarchical_heatmap_complete.png}
+        \caption{counts- complete linkage}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/heart_muscle_hierarchical_heatmap_average.png}
+        \caption{counts- average linkage}
+    \end{subfigure} \\
     
+     \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png}
+        \caption{cpm- complete linkage}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/heart_muscle_hierarchical_heatmap_cpm_average.png}
+        \caption{cpm- average linkage}
+    \end{subfigure}\\
+    
+     \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/heart_muscle_admix_heatmap_complete.png}
+        \caption{admix prop- complete linkage}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/heart_muscle_admix_heatmap_average.png}
+        \caption{admix prop- average linkage}
+    \end{subfigure}\\
+
+    \caption{Comparison of heatmap of the counts data (\textit{top panel}), the cpm normalized data (\textit{middle panel}) and the admixture proportions data (\textit{bottom panel}) on  a randomly drawn 50 samples from the pool of Muscle-Skeletal and Heart-Left Ventricle samples in GTEx Version 4 RNA-seq counts data. The distance method used euclidean and the linkage used was average linkage. Color scale provided in the figure. It seems that for admixture model heatmap, all the Muscle-skeletal and Heart Left-Ventricle samples cluster separately, while for the hierarchical model heatmap, they are mixed with each other. This suggests Admixture is better equipped at picking tissue separation than hierarchical clustering.}
+\end{figure*}
+
 
 \begin{figure*}[ht]
     \centering

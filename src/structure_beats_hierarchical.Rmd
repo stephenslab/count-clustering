@@ -123,22 +123,46 @@ A GTEx example of that would be Heart - Left Ventricle and Heart - Atrial Append
 We use the GTEx thinned data (thining scale =0.0001). First we show the correlation heatmap for the counts data of 50 samples coming from the tissue pool of Muscle Skeletal and Heart - Left Ventricle, without applying the Structure model. the heatmap seems to be separating out the two tissues clearly. 
 
 ```{r echo=FALSE, ecal=TRUE}
+
+
+library(data.table)
+library(limma)
+library(philentropy)
+library(maptpx)
+library(gplots)
+
+setwd("/Users/kushal/Documents/count-clustering/src/")
+
 data= data.frame(fread('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/gtex_thinned_version_1.txt'))[,-1];
 samples_id=read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/samples_id.txt");
 
 test_indices <- which(samples_id[,3]=='Heart - Left Ventricle' | samples_id[,3]=='Muscle - Skeletal');
+set.seed(40)
 test_indices_sampled <- sample(test_indices, 50, replace=FALSE);
 
 samples <- data[,test_indices_sampled];
 
 col = c(rgb(seq(0,1,length=15),1,seq(0,1,length=15)), rgb(1,seq(1,0,length=15),seq(1,0,length=15)));
 
-
-heatmap.2(as.matrix(dist(t(samples), method="euclidean")),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col, hclustfun = function(x) hclust(x,method="average"));
-
-png(filename="../plots/heart_muscle_hierarchical_heatmap.png")
+png(filename="../plots/heart_muscle_hierarchical_heatmap_average.png")
 heatmap.2(distance(t(samples),method="euclidean"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col, hclustfun = function(x) hclust(x,method="average"));
 dev.off()
+
+png(filename="../plots/heart_muscle_hierarchical_heatmap_complete.png")
+heatmap.2(distance(t(samples),method="euclidean"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col, hclustfun = function(x) hclust(x,method="complete"));
+dev.off()
+
+cpm <- apply(voom(t(samples))$E, 1, function(x) x/mean(x));
+
+png(filename="../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png")
+heatmap.2(distance(t(cpm),method="euclidean"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col, hclustfun = function(x) hclust(x,method="complete"));
+dev.off()
+
+png(filename="../plots/heart_muscle_hierarchical_heatmap_cpm_average.png")
+heatmap.2(distance(t(cpm),method="euclidean"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col, hclustfun = function(x) hclust(x,method="average"));
+dev.off()
+
+
 ```
 
 
@@ -147,6 +171,7 @@ However, the Structure clusters the two tissues almost together at K=10 but with
 ```{r echo=FALSE, eval=TRUE}
 docweights_thinned_version_1 <- as.matrix(read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/topics_omega_clus_12_version_1.txt"));
 K=12;
+
 color=c("red","blue","cornflowerblue","black","cyan","darkblue",
         "brown4","burlywood","darkgoldenrod1","darkgray","deepskyblue","darkkhaki",
         "firebrick","darkorchid","hotpink","green","magenta","yellow", "azure1","azure4");
@@ -184,9 +209,21 @@ If we do kullback-leibler heatmap of the Structure topic proportions for Heart L
 
 ```{r echo=FALSE, eval=TRUE}
 
+set.seed(40)
+
+test_indices_sampled <- sample(test_indices, 50, replace=FALSE);
+
 docweights_samples <- docweights_thinned_version_1[test_indices_sampled,];
 
-heatmap.2(distance(docweights_samples,method="kullback-leibler"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col);
+png(filename="../plots/heart_muscle_admix_heatmap_complete.png")
+heatmap.2(distance(docweights_samples,method="euclidean"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col,hclustfun = function(x) hclust(x,method="complete"));
+dev.off()
+
+
+png(filename="../plots/heart_muscle_admix_heatmap_average.png")
+heatmap.2(distance(docweights_samples,method="euclidean"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col,hclustfun = function(x) hclust(x,method="average"));
+dev.off()
+
 
 
 ```
@@ -200,7 +237,7 @@ Topic_Clus = topics(t(samples), K=2, tol=0.0001);
 docweights_samples=Topic_Clus$omega;
 
 png(filename="../plots/heart_muscle_admixture_heatmap.png")
-heatmap.2(distance(docweights_samples,method="kullback-leibler"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col);
+heatmap.2(distance(docweights_samples,method="kullback-leibler"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col,hclustfun = function(x) hclust(x,method="complete"));
 dev.off()
 
 
