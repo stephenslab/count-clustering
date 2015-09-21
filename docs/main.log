@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  21 SEP 2015 01:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  21 SEP 2015 02:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -303,61 +303,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]) (./methods.tex
-
-LaTeX Warning: Citation `Li2009' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Sanders2014' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Liao2013' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Robinson2010' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Ritchie2015' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Frazee2011' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Zeisel2015' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Citation `GTEX2013' on page 2 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Taddy2012' on page 2 undefined on input line 13.
-
-[2]
-
-LaTeX Warning: Citation `Taddy2012' on page 3 undefined on input line 27.
-
-
-LaTeX Warning: Citation `Pritchard2000' on page 3 undefined on input line 31.
-
-
-LaTeX Warning: Citation `Raj2014' on page 3 undefined on input line 31.
-
-
-LaTeX Warning: Citation `Maaten2008' on page 3 undefined on input line 31.
-
-
-LaTeX Warning: Citation `Maaten2014' on page 3 undefined on input line 31.
-
-[3]
-
-LaTeX Warning: Citation `Thompson2014' on page 4 undefined on input line 40.
-
-) (./results.tex [4]) (./discussion.tex
-
-LaTeX Warning: Citation `Robinson2010' on page 5 undefined on input line 5.
-
-
-LaTeX Warning: Citation `Law2014' on page 5 undefined on input line 5.
-
-[5] [6]) (./references.tex
+[2] [3]) (./results.tex [4]) (./discussion.tex [5] [6] [7]) (./references.tex
 Underfull \hbox (badness 6094) in paragraph at lines 5--8
 []\OT1/cmr/m/n/10.95 S An-ders, T P Pyl, W Hu-ber. \OT1/cmr/m/it/10.95 HT-Seq :
  A Python frame-work to work
@@ -369,12 +315,13 @@ Underfull \hbox (badness 3291) in paragraph at lines 5--8
 Bioin-for-mat-ics, 2014, in print; on-line at
  []
 
-[7]
 Missing character: There is no ñ in font cmr10!
 Missing character: There is no ö in font cmr10!
 Missing character: There is no é in font cmr10!
 Missing character: There is no ç in font cmr10!
- [8]) (./tables.tex
+[8]
+Missing character: There is no é in font cmr10!
+) (./tables.tex
 Overfull \vbox (13.60004pt too high) detected at line 9
  []
 
@@ -947,12 +894,6 @@ Overfull \hbox (254.19394pt too wide) in paragraph at lines 184--186
 [][] 
  []
 
-
-LaTeX Warning: Citation `Zeisel2015' on page 9 undefined on input line 188.
-
-
-LaTeX Warning: Citation `Zeisel2015' on page 9 undefined on input line 188.
-
 <../plots/Jaitin_struct_clus_7_amp_batch.png, id=68, 602.25pt x 401.5pt>
 File: ../plots/Jaitin_struct_clus_7_amp_batch.png Graphic file (type png)
 
@@ -970,15 +911,9 @@ put line 201.
 (pdftex.def)             Requested size: 433.64723pt x 289.07999pt.
 
 
-LaTeX Warning: Citation `Jaitin2015' on page 9 undefined on input line 205.
-
-
-LaTeX Warning: Citation `Jaitin2015' on page 9 undefined on input line 205.
-
-
 LaTeX Warning: Float too large for page by 14.58214pt on input line 206.
 
-) [9 <../plots/whole_tissue_structure_15.png>] [10] [11] [12] [13] [14 <../plot
+) [9] [10] [11] [12] [13] [14 <../plots/whole_tissue_structure_15.png> <../plot
 s/whole_tissue_structure_15_thinned.png>] [15 <../plots/brain_structure_plot.pn
 g>] [16 <../plots/gtex_thinned_clus_12_version_1.png> <../plots/gtex_thinned_cl
 us_12_version_2.png>] [17 <../plots/multiple_thinned_1.png> <../plots/multiple_
@@ -994,37 +929,31 @@ plot_200.png>] [21 <../plots/true_structure_setup_3.png> <../plots/est_structur
 e_setup_3.png>] [22 <../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png> <..
 /plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png> <../plots/Zeisel/clus_10/s
 truct_clus_10_cell_subtype.png>] [23 <../plots/Jaitin_struct_clus_7_amp_batch.p
-ng> <../plots/Jaitin_struct_clus_7_seq_batch.png>] (./main.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+ng> <../plots/Jaitin_struct_clus_7_seq_batch.png>] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 4073 strings out of 493117
- 63717 string characters out of 6135433
- 166457 words of memory out of 5000000
- 7414 multiletter control sequences out of 15000+600000
+ 4075 strings out of 493117
+ 63738 string characters out of 6135433
+ 170741 words of memory out of 5000000
+ 7416 multiletter control sequences out of 15000+600000
  12512 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,10n,38p,2230b,505s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
-cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
-ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
-/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
-014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (23 pages, 1591225 bytes).
+</usr/local/te
+xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/
+2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/20
+14/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2014
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (23 pages, 1593069 bytes).
 PDF statistics:
  191 PDF objects out of 1000 (max. 8388607)
  95 compressed objects within 1 object stream
