@@ -36,15 +36,18 @@ omega <- as.matrix(docweights)
 
 write.table(omega,"../internal_data/jaitin_omega_7.txt");
 
+omega <- as.matrix(read.table("../internal_data/jaitin_omega_7.txt"))
+
 library(CountClust)
 
-if(!dir.exists("../internal_data/Jaitin/Structure")) dir.create("../internal_data/Jaitin/Structure")
+if(!dir.exists("../internal_data/Structure")) dir.create("../internal_data/Structure")
 
 samp_metadata <- cbind.data.frame(Exp_details_reduced$sequencing_batch, Exp_details_reduced$amplification_batch);
 colnames(samp_metadata) = c("seq.batch", "amp.batch");
 
 library(CountClust)
-obj <- StructureObj_omega(omega, samp_metadata = samp_metadata, batch_lab = NULL, path="../internal_data/Jaitin/Structure",partition = c("TRUE","TRUE"));
+obj <- StructureObj_omega(omega, samp_metadata = samp_metadata, batch_lab = NULL, path="../internal_data/Structure",partition = c("TRUE","TRUE"),
+                          control=list(cex.axis=1));
 
 
 

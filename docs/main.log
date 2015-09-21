@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  20 SEP 2015 01:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  21 SEP 2015 01:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -303,7 +303,61 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]) (./methods.tex
-[2] [3]) (./results.tex [4]) (./discussion.tex [5] [6]) (./references.tex
+
+LaTeX Warning: Citation `Li2009' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Sanders2014' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Liao2013' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Robinson2010' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Ritchie2015' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Frazee2011' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Zeisel2015' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `GTEX2013' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Taddy2012' on page 2 undefined on input line 13.
+
+[2]
+
+LaTeX Warning: Citation `Taddy2012' on page 3 undefined on input line 27.
+
+
+LaTeX Warning: Citation `Pritchard2000' on page 3 undefined on input line 31.
+
+
+LaTeX Warning: Citation `Raj2014' on page 3 undefined on input line 31.
+
+
+LaTeX Warning: Citation `Maaten2008' on page 3 undefined on input line 31.
+
+
+LaTeX Warning: Citation `Maaten2014' on page 3 undefined on input line 31.
+
+[3]
+
+LaTeX Warning: Citation `Thompson2014' on page 4 undefined on input line 40.
+
+) (./results.tex [4]) (./discussion.tex
+
+LaTeX Warning: Citation `Robinson2010' on page 5 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Law2014' on page 5 undefined on input line 5.
+
+[5] [6]) (./references.tex
 Underfull \hbox (badness 6094) in paragraph at lines 5--8
 []\OT1/cmr/m/n/10.95 S An-ders, T P Pyl, W Hu-ber. \OT1/cmr/m/it/10.95 HT-Seq :
  A Python frame-work to work
@@ -650,251 +704,330 @@ Overfull \hbox (341.50677pt too wide) in paragraph at lines 29--30
  [][]
  []
 
+<../plots/multiple_thinned_1.png, id=47, 702.625pt x 301.125pt>
+File: ../plots/multiple_thinned_1.png Graphic file (type png)
 
-<../plots/heart_muscle_hierarchical_heatmap_complete.png, id=47, 481.8pt x 481.
+<use ../plots/multiple_thinned_1.png>
+Package pdftex.def Info: ../plots/multiple_thinned_1.png used on input line 40.
+
+(pdftex.def)             Requested size: 421.58897pt x 180.67499pt.
+
+Overfull \hbox (307.77795pt too wide) in paragraph at lines 40--41
+ [][]
+ []
+
+<../plots/multiple_thinned_2.png, id=48, 702.625pt x 301.125pt>
+File: ../plots/multiple_thinned_2.png Graphic file (type png)
+
+<use ../plots/multiple_thinned_2.png>
+Package pdftex.def Info: ../plots/multiple_thinned_2.png used on input line 45.
+
+(pdftex.def)             Requested size: 421.58897pt x 180.67499pt.
+
+Overfull \hbox (307.77795pt too wide) in paragraph at lines 45--46
+ [][]
+ []
+
+<../plots/multiple_thinned_4.png, id=49, 702.625pt x 301.125pt>
+File: ../plots/multiple_thinned_4.png Graphic file (type png)
+
+<use ../plots/multiple_thinned_4.png>
+Package pdftex.def Info: ../plots/multiple_thinned_4.png used on input line 50.
+
+(pdftex.def)             Requested size: 421.58897pt x 180.67499pt.
+
+Overfull \hbox (307.77795pt too wide) in paragraph at lines 50--51
+ [][]
+ []
+
+
+LaTeX Warning: Float too large for page by 64.9171pt on input line 54.
+
+
+<../plots/heart_muscle_hierarchical_heatmap_complete.png, id=50, 481.8pt x 481.
 8pt>
 File: ../plots/heart_muscle_hierarchical_heatmap_complete.png Graphic file (typ
 e png)
  <use ../plots/heart_muscle_hierarchical_heatmap_complete.png>
 Package pdftex.def Info: ../plots/heart_muscle_hierarchical_heatmap_complete.pn
-g used on input line 39.
+g used on input line 61.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/heart_muscle_hierarchical_heatmap_average.png, id=48, 481.8pt x 481.8
+<../plots/heart_muscle_hierarchical_heatmap_average.png, id=51, 481.8pt x 481.8
 pt>
 File: ../plots/heart_muscle_hierarchical_heatmap_average.png Graphic file (type
  png)
  <use ../plots/heart_muscle_hierarchical_heatmap_average.png>
 Package pdftex.def Info: ../plots/heart_muscle_hierarchical_heatmap_average.png
- used on input line 45.
+ used on input line 67.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 37--47
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 59--69
  [][]  [] 
  []
 
 
-<../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png, id=49, 481.8pt x 
+<../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png, id=52, 481.8pt x 
 481.8pt>
 File: ../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png Graphic file 
 (type png)
  <use ../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png>
 Package pdftex.def Info: ../plots/heart_muscle_hierarchical_heatmap_cpm_complet
-e.png used on input line 51.
+e.png used on input line 73.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/heart_muscle_hierarchical_heatmap_cpm_average.png, id=50, 481.8pt x 4
+<../plots/heart_muscle_hierarchical_heatmap_cpm_average.png, id=53, 481.8pt x 4
 81.8pt>
 File: ../plots/heart_muscle_hierarchical_heatmap_cpm_average.png Graphic file (
 type png)
  <use ../plots/heart_muscle_hierarchical_heatmap_cpm_average.png>
 Package pdftex.def Info: ../plots/heart_muscle_hierarchical_heatmap_cpm_average
-.png used on input line 57.
+.png used on input line 79.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 49--59
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 71--81
  [][]  [] 
  []
 
-<../plots/heart_muscle_admix_heatmap_complete.png, id=51, 481.8pt x 481.8pt>
+<../plots/heart_muscle_admix_heatmap_complete.png, id=54, 481.8pt x 481.8pt>
 File: ../plots/heart_muscle_admix_heatmap_complete.png Graphic file (type png)
 
 <use ../plots/heart_muscle_admix_heatmap_complete.png>
 Package pdftex.def Info: ../plots/heart_muscle_admix_heatmap_complete.png used 
-on input line 63.
+on input line 85.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/heart_muscle_admix_heatmap_average.png, id=52, 481.8pt x 481.8pt>
+<../plots/heart_muscle_admix_heatmap_average.png, id=55, 481.8pt x 481.8pt>
 File: ../plots/heart_muscle_admix_heatmap_average.png Graphic file (type png)
 
 <use ../plots/heart_muscle_admix_heatmap_average.png>
 Package pdftex.def Info: ../plots/heart_muscle_admix_heatmap_average.png used o
-n input line 69.
+n input line 91.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 61--71
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 83--93
  [][]  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 119.31712pt on input line 74.
+LaTeX Warning: Float too large for page by 119.31712pt on input line 96.
 
-<../plots/true_structure_setup_1.png, id=53, 481.8pt x 481.8pt>
+<../plots/true_structure_setup_1.png, id=56, 481.8pt x 481.8pt>
 File: ../plots/true_structure_setup_1.png Graphic file (type png)
 
 <use ../plots/true_structure_setup_1.png>
 Package pdftex.def Info: ../plots/true_structure_setup_1.png used on input line
- 81.
+ 103.
 (pdftex.def)             Requested size: 216.80798pt x 216.81pt.
 
-<../plots/est_structure_setup_1.png, id=54, 481.8pt x 481.8pt>
+<../plots/est_structure_setup_1.png, id=57, 481.8pt x 481.8pt>
 File: ../plots/est_structure_setup_1.png Graphic file (type png)
 
 <use ../plots/est_structure_setup_1.png>
 Package pdftex.def Info: ../plots/est_structure_setup_1.png used on input line 
-87.
+109.
 (pdftex.def)             Requested size: 216.80798pt x 216.81pt.
 
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 79--89
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 101--111
  [][]  [] 
  []
 
-<../plots/true_structure_setup_2.png, id=55, 481.8pt x 481.8pt>
+<../plots/true_structure_setup_2.png, id=58, 481.8pt x 481.8pt>
 File: ../plots/true_structure_setup_2.png Graphic file (type png)
 
 <use ../plots/true_structure_setup_2.png>
 Package pdftex.def Info: ../plots/true_structure_setup_2.png used on input line
- 93.
+ 115.
 (pdftex.def)             Requested size: 216.80798pt x 216.81pt.
 
-<../plots/est_structure_setup_2.png, id=56, 481.8pt x 481.8pt>
+<../plots/est_structure_setup_2.png, id=59, 481.8pt x 481.8pt>
 File: ../plots/est_structure_setup_2.png Graphic file (type png)
 
 <use ../plots/est_structure_setup_2.png>
 Package pdftex.def Info: ../plots/est_structure_setup_2.png used on input line 
-99.
+121.
 (pdftex.def)             Requested size: 216.80798pt x 216.81pt.
 
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 91--102
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 113--124
  [][]  [] 
  []
 
-<../plots/phase_plot_50.png, id=57, 545.03625pt x 488.82625pt>
+<../plots/phase_plot_50.png, id=60, 545.03625pt x 488.82625pt>
 File: ../plots/phase_plot_50.png Graphic file (type png)
 
 <use ../plots/phase_plot_50.png>
-Package pdftex.def Info: ../plots/phase_plot_50.png used on input line 110.
+Package pdftex.def Info: ../plots/phase_plot_50.png used on input line 132.
 (pdftex.def)             Requested size: 241.74614pt x 216.81pt.
 
-Overfull \hbox (14.1241pt too wide) in paragraph at lines 110--111
+Overfull \hbox (14.1241pt too wide) in paragraph at lines 132--133
  [][] 
  []
 
-<../plots/phase_plot_100.png, id=58, 545.03625pt x 488.82625pt>
+<../plots/phase_plot_100.png, id=61, 545.03625pt x 488.82625pt>
 File: ../plots/phase_plot_100.png Graphic file (type png)
 
 <use ../plots/phase_plot_100.png>
-Package pdftex.def Info: ../plots/phase_plot_100.png used on input line 116.
+Package pdftex.def Info: ../plots/phase_plot_100.png used on input line 138.
 (pdftex.def)             Requested size: 241.74614pt x 216.81pt.
 
-Overfull \hbox (14.1241pt too wide) in paragraph at lines 116--117
+Overfull \hbox (14.1241pt too wide) in paragraph at lines 138--139
  [][] 
  []
 
-<../plots/phase_plot_200.png, id=59, 495.8525pt x 488.82625pt>
+<../plots/phase_plot_200.png, id=62, 495.8525pt x 488.82625pt>
 File: ../plots/phase_plot_200.png Graphic file (type png)
 
 <use ../plots/phase_plot_200.png>
-Package pdftex.def Info: ../plots/phase_plot_200.png used on input line 122.
+Package pdftex.def Info: ../plots/phase_plot_200.png used on input line 144.
 (pdftex.def)             Requested size: 219.9311pt x 216.81pt.
 
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 108--125
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 130--147
  [][]  [] 
  []
 
-<../plots/true_structure_setup_3.png, id=60, 481.8pt x 481.8pt>
+<../plots/true_structure_setup_3.png, id=63, 481.8pt x 481.8pt>
 File: ../plots/true_structure_setup_3.png Graphic file (type png)
 
 <use ../plots/true_structure_setup_3.png>
 Package pdftex.def Info: ../plots/true_structure_setup_3.png used on input line
- 133.
+ 155.
 (pdftex.def)             Requested size: 216.80798pt x 216.81pt.
 
-<../plots/est_structure_setup_3.png, id=61, 481.8pt x 481.8pt>
+<../plots/est_structure_setup_3.png, id=64, 481.8pt x 481.8pt>
 File: ../plots/est_structure_setup_3.png Graphic file (type png)
 
 <use ../plots/est_structure_setup_3.png>
 Package pdftex.def Info: ../plots/est_structure_setup_3.png used on input line 
-139.
+161.
 (pdftex.def)             Requested size: 216.80798pt x 216.81pt.
 
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 131--142
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 153--164
  [][]  [] 
  []
 
 
-<../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png, id=62, 803.0pt x 301.12
+<../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png, id=65, 803.0pt x 301.12
 5pt>
 File: ../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png Graphic file (type 
 png)
  <use ../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png>
 Package pdftex.def Info: ../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png 
-used on input line 150.
+used on input line 172.
 (pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
 
-Overfull \hbox (345.24138pt too wide) in paragraph at lines 150--152
+Overfull \hbox (345.24138pt too wide) in paragraph at lines 172--174
 [][] 
  []
 
 
-<../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png, id=63, 803.0pt x 301.12
+<../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png, id=66, 803.0pt x 301.12
 5pt>
 File: ../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png Graphic file (type 
 png)
  <use ../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png>
 Package pdftex.def Info: ../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png 
-used on input line 156.
+used on input line 178.
 (pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
 
-Overfull \hbox (254.19394pt too wide) in paragraph at lines 156--158
+Overfull \hbox (254.19394pt too wide) in paragraph at lines 178--180
 [][] 
  []
 
 
-<../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png, id=64, 803.0pt x 301.
+<../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png, id=67, 803.0pt x 301.
 125pt>
 File: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png Graphic file (typ
 e png)
  <use ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png>
 Package pdftex.def Info: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.pn
-g used on input line 162.
+g used on input line 184.
 (pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
 
-Overfull \hbox (254.19394pt too wide) in paragraph at lines 162--164
+Overfull \hbox (254.19394pt too wide) in paragraph at lines 184--186
 [][] 
  []
+
+
+LaTeX Warning: Citation `Zeisel2015' on page 9 undefined on input line 188.
+
+
+LaTeX Warning: Citation `Zeisel2015' on page 9 undefined on input line 188.
+
+<../plots/Jaitin_struct_clus_7_amp_batch.png, id=68, 602.25pt x 401.5pt>
+File: ../plots/Jaitin_struct_clus_7_amp_batch.png Graphic file (type png)
+
+<use ../plots/Jaitin_struct_clus_7_amp_batch.png>
+Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_amp_batch.png used on in
+put line 196.
+(pdftex.def)             Requested size: 433.64723pt x 289.07999pt.
+
+<../plots/Jaitin_struct_clus_7_seq_batch.png, id=69, 602.25pt x 401.5pt>
+File: ../plots/Jaitin_struct_clus_7_seq_batch.png Graphic file (type png)
+
+<use ../plots/Jaitin_struct_clus_7_seq_batch.png>
+Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_seq_batch.png used on in
+put line 201.
+(pdftex.def)             Requested size: 433.64723pt x 289.07999pt.
+
+
+LaTeX Warning: Citation `Jaitin2015' on page 9 undefined on input line 205.
+
+
+LaTeX Warning: Citation `Jaitin2015' on page 9 undefined on input line 205.
+
+
+LaTeX Warning: Float too large for page by 14.58214pt on input line 206.
 
 ) [9 <../plots/whole_tissue_structure_15.png>] [10] [11] [12] [13] [14 <../plot
 s/whole_tissue_structure_15_thinned.png>] [15 <../plots/brain_structure_plot.pn
 g>] [16 <../plots/gtex_thinned_clus_12_version_1.png> <../plots/gtex_thinned_cl
-us_12_version_2.png>] [17 <../plots/heart_muscle_hierarchical_heatmap_complete.
-png> <../plots/heart_muscle_hierarchical_heatmap_average.png> <../plots/heart_m
-uscle_hierarchical_heatmap_cpm_complete.png> <../plots/heart_muscle_hierarchica
-l_heatmap_cpm_average.png> <../plots/heart_muscle_admix_heatmap_complete.png> <
-../plots/heart_muscle_admix_heatmap_average.png>] [18 <../plots/true_structure_
-setup_1.png> <../plots/est_structure_setup_1.png> <../plots/true_structure_setu
-p_2.png> <../plots/est_structure_setup_2.png>] [19 <../plots/phase_plot_50.png>
- <../plots/phase_plot_100.png> <../plots/phase_plot_200.png>] [20 <../plots/tru
-e_structure_setup_3.png> <../plots/est_structure_setup_3.png>] [21 <../plots/Ze
-isel/clus_2/struct_clus_2_cell_subtype.png> <../plots/Zeisel/clus_5/struct_clus
-_5_cell_subtype.png> <../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png>]
-(./main.aux) ) 
+us_12_version_2.png>] [17 <../plots/multiple_thinned_1.png> <../plots/multiple_
+thinned_2.png> <../plots/multiple_thinned_4.png>] [18 <../plots/heart_muscle_hi
+erarchical_heatmap_complete.png> <../plots/heart_muscle_hierarchical_heatmap_av
+erage.png> <../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png> <../pl
+ots/heart_muscle_hierarchical_heatmap_cpm_average.png> <../plots/heart_muscle_a
+dmix_heatmap_complete.png> <../plots/heart_muscle_admix_heatmap_average.png>]
+[19 <../plots/true_structure_setup_1.png> <../plots/est_structure_setup_1.png> 
+<../plots/true_structure_setup_2.png> <../plots/est_structure_setup_2.png>]
+[20 <../plots/phase_plot_50.png> <../plots/phase_plot_100.png> <../plots/phase_
+plot_200.png>] [21 <../plots/true_structure_setup_3.png> <../plots/est_structur
+e_setup_3.png>] [22 <../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png> <..
+/plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png> <../plots/Zeisel/clus_10/s
+truct_clus_10_cell_subtype.png>] [23 <../plots/Jaitin_struct_clus_7_amp_batch.p
+ng> <../plots/Jaitin_struct_clus_7_seq_batch.png>] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4047 strings out of 493117
- 62760 string characters out of 6135433
- 160843 words of memory out of 5000000
- 7393 multiletter control sequences out of 15000+600000
+ 4073 strings out of 493117
+ 63717 string characters out of 6135433
+ 166457 words of memory out of 5000000
+ 7414 multiletter control sequences out of 15000+600000
  12512 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,10n,38p,2230b,505s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmex10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.
-pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
-b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
-r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/loc
-al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (21 pages, 1380444 bytes).
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
+/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (23 pages, 1591225 bytes).
 PDF statistics:
- 175 PDF objects out of 1000 (max. 8388607)
- 91 compressed objects within 1 object stream
+ 191 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 116 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
