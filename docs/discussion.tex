@@ -27,42 +27,42 @@ One of the important factors that may impact the clustering or differential anal
  
 
 
-\subsection{Performance analysis of the Admixture model}
-
-We carried out a few simulation studies to analyze the performance of the Admixture model under different scenarios. The main focus was to figure out how sensitive the method is to the admixture proportions or the relative gene expression differences. For instance, if we have data coming from 2 clusters, then under how well does our model do under different choices of the admixture proportions and the gene expression. We first consider a scenario where we have 1000 samples and 500 genes and the admixture proportion for sample $n$ is of the form $(\frac{n}{1000}, \frac{1000-n}{1000})$ and the allele frequency vectors $\theta_1$ and $\theta_2$  for the two clusters are given by 
-
-$$ \theta_1 = (0.01, 0.05, \frac{0.94}{498}, \frac{0.94}{498}, \cdots, \frac{0.94}{498}) $$
-$$ \theta_2 = (0.05, 0.01, \frac{0.94}{498}, \frac{0.94}{498}, \cdots, \frac{0.94}{498}) $$
-
-The true admixture graph and the estimated admixture graph on the simulated counts table for $1000$ samples and $500$ genes is provided in Fig ?? (top panel). The top  two significantly enriched genes for the clustering (as per Subsection 3.3) were found to be genes $1$ and $2$, which is clearly the case. 
-
-Now we consider a second scenario with the same set up as before  but now the admixture proportion for $n$ th  sample is of the form $(0.4 +0.2 \times \frac{n}{1000}, 0.6 -0.2\times \frac{n}{1000})$. This means that the variation in admixture proportions is less compared to the previous set up. The true admixture graph and the estimated admixture graph on the simulated counts table under this set up is presented in Fig ?? (bottom panel). The top significantly enriched genes for the clustering were found to be $483$ and $224$ which are way off.  This shows that keeping the gene expression the same, admixture model is more successful in detecting clusters with large differences in admixture proportions between them. 
-
-Next we present a phase diagram analysis to show that the sensitivity of the admixture model depends both on how close the admixture proportions of the two subgroups or clusters are as well as how close the relative gene expression patterns for the two clusters are. For this analysis, we again assume that we have $K=2$ clusters, we chose the number of samples to be $200$ and we vary over the number of genes to be $50,100$ and $200$. We assume two phase parameters, $\alpha$ and $\gamma$. $\alpha$ is the phase parameter for the admixture proportions and we assume that for sample $n$, the admixture proportion is of the form $(\alpha, 1-\alpha)$. On the other hand, for $G$ genes, we assume that the phase parameter $\gamma < \frac{2}{G}$ and the relative gene expression $\theta_1$ and $\theta_2$ are of the form 
-
-$$ \theta_1 =  \left ( \gamma, \frac{2}{G} - \gamma, \frac{1}{G}, \frac{1}{G}, \cdots, \frac{1}{G} \right ) $$
-$$ \theta_2 =  \left ( \frac{2}{G} - \gamma, \gamma, \frac{1}{G}, \frac{1}{G}, \cdots, \frac{1}{G} \right ) $$
-
-We varied over $\alpha$ and $\gamma$, for each choice generated a counts table with $200$ samples and $G$ genes and then carried out admixture. We then observed whether the estimated admixture proportions match with the true proportions and whether we are detecting the significantly enriched genes for clustering, in this case genes $1$ and $2$. If $\Omega$ is the $ N \times K$  true topic proportion matrix and $\hat{\Omega}$ be the estimated topic proportion matrix. We say \textit{omega match} if 
-
-$$ min \left ( || \hat{\Omega} - \Omega ||_2, ||1 - \hat{\Omega} - \Omega ||_2  \right )  < 0.05 $$
-
-We say \textit{theta match} if the top two genes detected by the clustering method to be driving the clusters (as per Subsection 3.3) are genes 1 and 2. We present the phase diagram to see for which values of $\alpha$ and $\gamma$, there is \textit{omega match} or \textit{theta match} or both (Fig ??).
-
-
-Finally, it must also be emphasized that if there are more than two clusters in the data and we fit just $2$ clusters, then the clusters obtained may not be driven by any of the real clusters but by a mix of the clusters present. We performed a simulation scenario where we have samples coming from a mix of $5$ clusters with varying admixture proportions (true admixture proportion design shown in Fig ?? (a) ). The relative gene expression profiles  of $500$ genes considered for the $5$ clusters were assumed to be 
-
-$$ \theta_1 = (0.01,0.02,\frac{0.97}{498}, \frac{0.97}{498}, \cdots, \frac{0.97}{498}) $$
-$$ \theta_2 = (\frac{0.98}{498}, \frac{0.98}{498}, \cdots, \frac{0.98}{498}, 0.01,0.01) $$
-$$ \theta_3 = (\frac{0.97}{498}, \frac{0.97}{498}, \cdots, \frac{0.97}{498}, 0.01,0.02) $$
-$$ \theta_4 = (0.01, 0.01, 0.1,0.2, \frac{0.68}{498}, \frac{0.68}{498}, \cdots, \frac{0.68}{498}) $$
-$$ \theta_5 =(0.1,0.1,0.1,0.1,0.1, \frac{0.5}{495}, \frac{0.5}{495}, \cdots, \frac{0.5}{495}) $$
-
-
-We drew $1000$ samples from the above set up of admixture proportions and relative gene expression of the clusters for $500$ genes and then applied the admixture model to the counts data. The true and the estimated Structure plot are presented in Fig ??. 
-
-
- 
+%\subsection{Performance analysis of the Admixture model}
+%
+%We carried out a few simulation studies to analyze the performance of the Admixture model under different scenarios. The main focus was to figure out how sensitive the method is to the admixture proportions or the relative gene expression differences. For instance, if we have data coming from 2 clusters, then under how well does our model do under different choices of the admixture proportions and the gene expression. We first consider a scenario where we have 1000 samples and 500 genes and the admixture proportion for sample $n$ is of the form $(\frac{n}{1000}, \frac{1000-n}{1000})$ and the allele frequency vectors $\theta_1$ and $\theta_2$  for the two clusters are given by 
+%
+%$$ \theta_1 = (0.01, 0.05, \frac{0.94}{498}, \frac{0.94}{498}, \cdots, \frac{0.94}{498}) $$
+%$$ \theta_2 = (0.05, 0.01, \frac{0.94}{498}, \frac{0.94}{498}, \cdots, \frac{0.94}{498}) $$
+%
+%The true admixture graph and the estimated admixture graph on the simulated counts table for $1000$ samples and $500$ genes is provided in Fig ?? (top panel). The top  two significantly enriched genes for the clustering (as per Subsection 3.3) were found to be genes $1$ and $2$, which is clearly the case. 
+%
+%Now we consider a second scenario with the same set up as before  but now the admixture proportion for $n$ th  sample is of the form $(0.4 +0.2 \times \frac{n}{1000}, 0.6 -0.2\times \frac{n}{1000})$. This means that the variation in admixture proportions is less compared to the previous set up. The true admixture graph and the estimated admixture graph on the simulated counts table under this set up is presented in Fig ?? (bottom panel). The top significantly enriched genes for the clustering were found to be $483$ and $224$ which are way off.  This shows that keeping the gene expression the same, admixture model is more successful in detecting clusters with large differences in admixture proportions between them. 
+%
+%Next we present a phase diagram analysis to show that the sensitivity of the admixture model depends both on how close the admixture proportions of the two subgroups or clusters are as well as how close the relative gene expression patterns for the two clusters are. For this analysis, we again assume that we have $K=2$ clusters, we chose the number of samples to be $200$ and we vary over the number of genes to be $50,100$ and $200$. We assume two phase parameters, $\alpha$ and $\gamma$. $\alpha$ is the phase parameter for the admixture proportions and we assume that for sample $n$, the admixture proportion is of the form $(\alpha, 1-\alpha)$. On the other hand, for $G$ genes, we assume that the phase parameter $\gamma < \frac{2}{G}$ and the relative gene expression $\theta_1$ and $\theta_2$ are of the form 
+%
+%$$ \theta_1 =  \left ( \gamma, \frac{2}{G} - \gamma, \frac{1}{G}, \frac{1}{G}, \cdots, \frac{1}{G} \right ) $$
+%$$ \theta_2 =  \left ( \frac{2}{G} - \gamma, \gamma, \frac{1}{G}, \frac{1}{G}, \cdots, \frac{1}{G} \right ) $$
+%
+%We varied over $\alpha$ and $\gamma$, for each choice generated a counts table with $200$ samples and $G$ genes and then carried out admixture. We then observed whether the estimated admixture proportions match with the true proportions and whether we are detecting the significantly enriched genes for clustering, in this case genes $1$ and $2$. If $\Omega$ is the $ N \times K$  true topic proportion matrix and $\hat{\Omega}$ be the estimated topic proportion matrix. We say \textit{omega match} if 
+%
+%$$ min \left ( || \hat{\Omega} - \Omega ||_2, ||1 - \hat{\Omega} - \Omega ||_2  \right )  < 0.05 $$
+%
+%We say \textit{theta match} if the top two genes detected by the clustering method to be driving the clusters (as per Subsection 3.3) are genes 1 and 2. We present the phase diagram to see for which values of $\alpha$ and $\gamma$, there is \textit{omega match} or \textit{theta match} or both (Fig ??).
+%
+%
+%Finally, it must also be emphasized that if there are more than two clusters in the data and we fit just $2$ clusters, then the clusters obtained may not be driven by any of the real clusters but by a mix of the clusters present. We performed a simulation scenario where we have samples coming from a mix of $5$ clusters with varying admixture proportions (true admixture proportion design shown in Fig ?? (a) ). The relative gene expression profiles  of $500$ genes considered for the $5$ clusters were assumed to be 
+%
+%$$ \theta_1 = (0.01,0.02,\frac{0.97}{498}, \frac{0.97}{498}, \cdots, \frac{0.97}{498}) $$
+%$$ \theta_2 = (\frac{0.98}{498}, \frac{0.98}{498}, \cdots, \frac{0.98}{498}, 0.01,0.01) $$
+%$$ \theta_3 = (\frac{0.97}{498}, \frac{0.97}{498}, \cdots, \frac{0.97}{498}, 0.01,0.02) $$
+%$$ \theta_4 = (0.01, 0.01, 0.1,0.2, \frac{0.68}{498}, \frac{0.68}{498}, \cdots, \frac{0.68}{498}) $$
+%$$ \theta_5 =(0.1,0.1,0.1,0.1,0.1, \frac{0.5}{495}, \frac{0.5}{495}, \cdots, \frac{0.5}{495}) $$
+%
+%
+%We drew $1000$ samples from the above set up of admixture proportions and relative gene expression of the clusters for $500$ genes and then applied the admixture model to the counts data. The true and the estimated Structure plot are presented in Fig ??. 
+%
+%
+% 
 
 
 
