@@ -8,3 +8,4 @@ out <- topics(test_data,K=4,tol=0.01);
 
 
 
+
