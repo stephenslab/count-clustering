@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  21 SEP 2015 03:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  29 SEP 2015 02:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -303,7 +303,77 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]) (./methods.tex
-[2] [3]) (./results.tex [4]) (./discussion.tex [5] [6]) (./references.tex
+
+LaTeX Warning: Citation `Li2009' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Sanders2014' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Liao2013' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Robinson2010' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Ritchie2015' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Frazee2011' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Zeisel2015' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `GTEX2013' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Taddy2012' on page 2 undefined on input line 13.
+
+[2]
+
+LaTeX Warning: Citation `Taddy2012' on page 3 undefined on input line 27.
+
+
+LaTeX Warning: Citation `Pritchard2000' on page 3 undefined on input line 31.
+
+
+LaTeX Warning: Citation `Raj2014' on page 3 undefined on input line 31.
+
+
+LaTeX Warning: Citation `Maaten2008' on page 3 undefined on input line 31.
+
+
+LaTeX Warning: Citation `Maaten2014' on page 3 undefined on input line 31.
+
+[3]
+
+LaTeX Warning: Citation `Thompson2014' on page 4 undefined on input line 40.
+
+) (./results.tex [4]) (./discussion.tex
+
+LaTeX Warning: Citation `Robinson2010' on page 5 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Law2014' on page 5 undefined on input line 5.
+
+[5]
+
+LaTeX Warning: Citation `Leek2010' on page 6 undefined on input line 25.
+
+
+LaTeX Warning: Citation `Hicks2015' on page 6 undefined on input line 25.
+
+
+LaTeX Warning: Citation `Jaitin2015' on page 6 undefined on input line 25.
+
+
+LaTeX Warning: Citation `GTEX2013' on page 6 undefined on input line 29.
+
+
+LaTeX Warning: Citation `Jaitin2015' on page 6 undefined on input line 29.
+
+[6]) (./references.tex
 Underfull \hbox (badness 6094) in paragraph at lines 5--8
 []\OT1/cmr/m/n/10.95 S An-ders, T P Pyl, W Hu-ber. \OT1/cmr/m/it/10.95 HT-Seq :
  A Python frame-work to work
@@ -759,66 +829,165 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 83--93
 
 LaTeX Warning: Float too large for page by 132.91713pt on input line 96.
 
+<../plots/hierarchical_admix_2.png, id=53, 539.01375pt x 391.4625pt>
+File: ../plots/hierarchical_admix_2.png Graphic file (type png)
 
-<../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png, id=53, 803.0pt x 301.12
+<use ../plots/hierarchical_admix_2.png>
+Package pdftex.def Info: ../plots/hierarchical_admix_2.png used on input line 1
+04.
+(pdftex.def)             Requested size: 248.78001pt x 180.67499pt.
+
+Overfull \hbox (21.15797pt too wide) in paragraph at lines 104--105
+ [][] 
+ []
+
+<../plots/hierarchical_admix_3.png, id=54, 539.01375pt x 391.4625pt>
+File: ../plots/hierarchical_admix_3.png Graphic file (type png)
+
+<use ../plots/hierarchical_admix_3.png>
+Package pdftex.def Info: ../plots/hierarchical_admix_3.png used on input line 1
+10.
+(pdftex.def)             Requested size: 248.78001pt x 180.67499pt.
+
+Overfull \hbox (21.15797pt too wide) in paragraph at lines 110--111
+ [][] 
+ []
+
+
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 102--112
+ [][]  [] 
+ []
+
+<../plots/hierarchical_admix_4.png, id=55, 539.01375pt x 391.4625pt>
+File: ../plots/hierarchical_admix_4.png Graphic file (type png)
+
+<use ../plots/hierarchical_admix_4.png>
+Package pdftex.def Info: ../plots/hierarchical_admix_4.png used on input line 1
+16.
+(pdftex.def)             Requested size: 248.78001pt x 180.67499pt.
+
+Overfull \hbox (21.15797pt too wide) in paragraph at lines 116--117
+ [][] 
+ []
+
+<../plots/hierarchical_admix_5.png, id=56, 539.01375pt x 391.4625pt>
+File: ../plots/hierarchical_admix_5.png Graphic file (type png)
+
+<use ../plots/hierarchical_admix_5.png>
+Package pdftex.def Info: ../plots/hierarchical_admix_5.png used on input line 1
+22.
+(pdftex.def)             Requested size: 248.78001pt x 180.67499pt.
+
+Overfull \hbox (21.15797pt too wide) in paragraph at lines 122--123
+ [][] 
+ []
+
+
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 114--124
+ [][]  [] 
+ []
+
+<../plots/Fscore_compare_average.png, id=57, 539.01375pt x 391.4625pt>
+File: ../plots/Fscore_compare_average.png Graphic file (type png)
+
+<use ../plots/Fscore_compare_average.png>
+Package pdftex.def Info: ../plots/Fscore_compare_average.png used on input line
+ 133.
+(pdftex.def)             Requested size: 248.78001pt x 180.67499pt.
+
+Overfull \hbox (21.15797pt too wide) in paragraph at lines 133--134
+ [][] 
+ []
+
+<../plots/Fscore_compare_complete.png, id=58, 539.01375pt x 391.4625pt>
+File: ../plots/Fscore_compare_complete.png Graphic file (type png)
+
+<use ../plots/Fscore_compare_complete.png>
+Package pdftex.def Info: ../plots/Fscore_compare_complete.png used on input lin
+e 139.
+(pdftex.def)             Requested size: 248.78001pt x 180.67499pt.
+
+Overfull \hbox (21.15797pt too wide) in paragraph at lines 139--140
+ [][] 
+ []
+
+
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 131--142
+ [][]  [] 
+ []
+
+
+<../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png, id=59, 803.0pt x 301.12
 5pt>
 File: ../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png Graphic file (type 
 png)
  <use ../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png>
 Package pdftex.def Info: ../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png 
-used on input line 172.
+used on input line 219.
 (pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
 
-Overfull \hbox (345.24138pt too wide) in paragraph at lines 172--174
+Overfull \hbox (345.24138pt too wide) in paragraph at lines 219--221
 [][] 
  []
 
 
-<../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png, id=54, 803.0pt x 301.12
+<../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png, id=60, 803.0pt x 301.12
 5pt>
 File: ../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png Graphic file (type 
 png)
  <use ../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png>
 Package pdftex.def Info: ../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png 
-used on input line 178.
+used on input line 225.
 (pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
 
-Overfull \hbox (254.19394pt too wide) in paragraph at lines 178--180
+Overfull \hbox (254.19394pt too wide) in paragraph at lines 225--227
 [][] 
  []
 
 
-<../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png, id=55, 803.0pt x 301.
+<../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png, id=61, 803.0pt x 301.
 125pt>
 File: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png Graphic file (typ
 e png)
  <use ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png>
 Package pdftex.def Info: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.pn
-g used on input line 184.
+g used on input line 231.
 (pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
 
-Overfull \hbox (254.19394pt too wide) in paragraph at lines 184--186
+Overfull \hbox (254.19394pt too wide) in paragraph at lines 231--233
 [][] 
  []
 
-<../plots/Jaitin_struct_clus_7_amp_batch.png, id=56, 602.25pt x 401.5pt>
+
+LaTeX Warning: Citation `Zeisel2015' on page 8 undefined on input line 235.
+
+
+LaTeX Warning: Citation `Zeisel2015' on page 8 undefined on input line 235.
+
+<../plots/Jaitin_struct_clus_7_amp_batch.png, id=62, 602.25pt x 401.5pt>
 File: ../plots/Jaitin_struct_clus_7_amp_batch.png Graphic file (type png)
 
 <use ../plots/Jaitin_struct_clus_7_amp_batch.png>
 Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_amp_batch.png used on in
-put line 196.
+put line 243.
 (pdftex.def)             Requested size: 433.64723pt x 289.07999pt.
 
-<../plots/Jaitin_struct_clus_7_seq_batch.png, id=57, 602.25pt x 401.5pt>
+<../plots/Jaitin_struct_clus_7_seq_batch.png, id=63, 602.25pt x 401.5pt>
 File: ../plots/Jaitin_struct_clus_7_seq_batch.png Graphic file (type png)
 
 <use ../plots/Jaitin_struct_clus_7_seq_batch.png>
 Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_seq_batch.png used on in
-put line 201.
+put line 248.
 (pdftex.def)             Requested size: 433.64723pt x 289.07999pt.
 
 
-LaTeX Warning: Float too large for page by 14.58214pt on input line 206.
+LaTeX Warning: Citation `Jaitin2015' on page 8 undefined on input line 252.
+
+
+LaTeX Warning: Citation `Jaitin2015' on page 8 undefined on input line 252.
+
+
+LaTeX Warning: Float too large for page by 14.58214pt on input line 253.
 
 ) [8] [9] [10] [11] [12] [13 <../plots/whole_tissue_structure_15.png> <../plots
 /whole_tissue_structure_15_thinned.png>] [14 <../plots/brain_structure_plot.png
@@ -829,37 +998,46 @@ rarchical_heatmap_complete.png> <../plots/heart_muscle_hierarchical_heatmap_ave
 rage.png> <../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png> <../plo
 ts/heart_muscle_hierarchical_heatmap_cpm_average.png> <../plots/heart_muscle_ad
 mix_heatmap_complete.png> <../plots/heart_muscle_admix_heatmap_average.png>]
-[18 <../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png> <../plots/Zeisel/cl
+[18 <../plots/hierarchical_admix_2.png> <../plots/hierarchical_admix_3.png> <..
+/plots/hierarchical_admix_4.png> <../plots/hierarchical_admix_5.png>] [19 <../p
+lots/Fscore_compare_average.png> <../plots/Fscore_compare_complete.png>]
+[20 <../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png> <../plots/Zeisel/cl
 us_5/struct_clus_5_cell_subtype.png> <../plots/Zeisel/clus_10/struct_clus_10_ce
-ll_subtype.png>] [19 <../plots/Jaitin_struct_clus_7_amp_batch.png> <../plots/Ja
-itin_struct_clus_7_seq_batch.png>] (./main.aux) ) 
+ll_subtype.png>] [21 <../plots/Jaitin_struct_clus_7_amp_batch.png> <../plots/Ja
+itin_struct_clus_7_seq_batch.png>] (./main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4030 strings out of 493117
- 62213 string characters out of 6135433
- 160976 words of memory out of 5000000
- 7380 multiletter control sequences out of 15000+600000
+ 4060 strings out of 493117
+ 63288 string characters out of 6135433
+ 165454 words of memory out of 5000000
+ 7404 multiletter control sequences out of 15000+600000
  12512 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,10n,38p,2230b,505s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf
--dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2014/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2014/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2014/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (19 pages, 936859 bytes).
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/t
+exlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive
+/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2
+014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (21 pages, 1066642 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
+ 179 PDF objects out of 1000 (max. 8388607)
+ 91 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 96 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -96,6 +96,53 @@
 \end{figure*}
 
 
+
+  \begin{figure*}[ht]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/hierarchical_admix_2.png}
+        \caption{k=2}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/hierarchical_admix_3.png}
+        \caption{k=3}
+    \end{subfigure} \\
+    
+     \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/hierarchical_admix_4.png}
+        \caption{k=4}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/hierarchical_admix_5.png}
+        \caption{k=5}
+    \end{subfigure}\\
+
+ \caption{The heatmap of the admixture topic proportion matrix (low dimensional compared to the original counts data) under four different choices of clusters or topics namely $2,3,4$ and $5$. Here we assume complete linkage and the distance is taken to be Euclidean distance.}
+\end{figure*}
+
+ \begin{figure*}[ht]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/Fscore_compare_average.png}
+        \caption{average linkage}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/Fscore_compare_complete.png}
+        \caption{complete linkage}
+    \end{subfigure} 
+ \caption{The comparison of the F score of quality assessment between the hierarchical clustering on the actual counts data and the admixture model topic proportion matrix for number of topics $2$, $3$, $4$ and $5$. Higher values of $F$ imply better correspondence of the cluster labels with the pre-assigned class labels - in this case there being 2 classes, namely Muscle Skeletal and Heart Left Ventricle. The F scores are compared for both average and complete linkages.}
+\end{figure*}
+
+
 %%\begin{figure*}[ht]
 %    \centering
 %    \begin{subfigure}[t]{0.5\textwidth}
