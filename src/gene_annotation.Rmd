@@ -18,9 +18,9 @@ In this script, we give the gene annotations of the genes that seem to vary grea
 
 ```{r gene_annotation, echo=TRUE, eval=TRUE}
 
-#topics_theta <- data.frame(fread("/Users/kushal/Documents/Matthew Stephens Project/counts_clustering/Topic_theta_clus_10.txt"))[,-1];
+topics_theta <- data.frame(fread("/Users/kushal/Documents/count-clustering/internal_data/gtex_reads/theta_reads.txt"))[,-1];
 
-topics_theta <- data.frame(fread("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/topics_theta_clus_12_version_1.txt"))[,-1];
+#topics_theta <- data.frame(fread("/Users/kushal/Documents/count-clustering/internal_data/gtex_thinned/topics_theta_clus_15_version_1.txt"))[,-1];
 
 
 
@@ -84,9 +84,11 @@ for(k in 1:dim(topics_theta)[2])
   indices_mat_poisson[k,] = order(vec, decreasing = TRUE)[1:10]
 }
 
-gene_snp_names_gtex <- data.frame(fread('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/gene_snp_names.txt',header=FALSE));
-gene_names <- substring(gene_snp_names_gtex[,2],1,15);
+#gene_snp_names_gtex <- data.frame(fread('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/gene_snp_names.txt',header=FALSE));
+#gene_names <- substring(gene_snp_names_gtex[,2],1,15);
 
+gene_names <- as.vector(as.matrix(read.table("/Users/kushal/Documents/count-clustering/internal_data/gtex_reads/gene_names_top_5000.txt")))
+gene_names <- substring(gene_names,1,15);
 gene_names_mat_poisson = matrix(gene_names[as.vector(indices_mat_poisson)],nrow=dim(topics_theta)[2]);
 
 color=c("red","blue","cornflowerblue","black","cyan","darkblue",
@@ -102,17 +104,50 @@ It creates a database of the cis genes with summary level information.
 
 ```{r, echo=FALSE, eval=TRUE}
 
-#xli  <-  gene_names;
-#out <- queryMany(xli, scopes="ensembl.gene", fields=c("name", "summary"), species="human");
+xli  <-  gene_names;
+out <- queryMany(xli, scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 
-# write.table(out, "/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/cis_gene_complete_summary_gtex.txt");
+#write.table(out, "/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/cis_gene_complete_summary_gtex.txt");
 
-out <- read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/cis_gene_complete_summary_gtex.txt");
+write.table(out, "/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/reads_gene_complete_summary_gtex.txt");
+
+
+out <- read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/reads_gene_complete_summary_gtex.txt");
 
 par(mfrow=c(1,1))
-barplot(rep(1,12),col=color[1:12])
+barplot(rep(1,15),col=color[1:15])
 ```
 
+
+```{r}
+
+omega <- data.frame(fread("/Users/kushal/Documents/count-clustering/internal_data/gtex_reads/omega_reads.txt"))[,-1];
+
+samples_id=read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/samples_id.txt")[,3];
+docweights_per_tissue_mean <- apply(omega,2,function(x) tapply(x,samples_id,mean));
+
+ordering=heatmap(docweights_per_tissue_mean)$rowInd;
+
+unique_samples_id_ordered = unique(samples_id)[ordering];
+clus_ordered =unlist(lapply(1:53, function(x) which(samples_id == unique_samples_id_ordered[x])));
+samples_id_ordered = samples_id[clus_ordered];
+
+docweights_ordering = omega[clus_ordered,];
+
+par(mar=c(14,2.5,1,1))
+barplot(t(docweights_ordering),col=color[1:K],axisnames=F,space=0,border=NA,main=paste("No. of clusters=",K),las=1,ylim=c(0,1),cex.axis=1.2,cex.main=1.4)
+  
+labels = match(unique(samples_id_ordered), samples_id_ordered);
+#abline(v=labels)
+  
+labels_low=labels;
+labels_up=c(labels[2:length(labels)],dim(docweights_ordering)[1]);
+mid_point=labels_low +0.5*(labels_up-labels_low);
+axis(1,at=mid_point, unique(samples_id_ordered),las=2);
+
+  
+
+```
 
 ## Gene summaries individual clusters 
 
@@ -122,7 +157,10 @@ barplot(rep(1,12),col=color[1:12])
 ```{r echo=FALSE, eval=TRUE}
 
 gene_names_mat_poisson[7,]
-lapply(1:10, function(n) out[grep(gene_names_mat_poisson[7,n], out$query),])
+indices <- sapply(1:length(gene_names_mat_poisson[7,]), function(n) grep(gene_names_mat_poisson[7,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==7);
+new_genes <- gene_names_mat_poisson[indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
 
 ```
 
@@ -135,12 +173,251 @@ lapply(1:10, function(n) out[grep(gene_names_mat_poisson[11,n], out$query),])
 
 ```
 
-### greyscale  cluster (Whole Blood)
+### red (nerve, adrenal)
 
 ```{r echo=FALSE, eval=TRUE}
 
-gene_names_mat_poisson[10,]
-lapply(1:10, function(n) out[grep(gene_names_mat_poisson[10,n], out$query),])
+clus <- 1
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+
+### blue (adipose and lung)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 2
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+
+### shallow blue (colon and esophagus)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 3
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+### black cluster (brain)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 4
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+### light blue cluster (artery)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 5
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+### deep blue cluster (muscle and heart)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 6
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+
+### dark brown cluster (brain mainly)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 7
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+### shallow yellow cluster (skin and stomach)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 8
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+
+### yellow cluster (cell transformed fibroblasts)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 9
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+
+### grey cluster (thyroid, small intestine)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 10
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+### cyan cluster (Cells transformed fibroblasts)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 11
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+### shallow green cluster (Whole blood)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 12
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+
+### light brown cluster (esophagus mucosa)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 13
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+
+### violet  cluster (Liver and Pancreas)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 14
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
+
+```
+
+
+### salmon  cluster (testis)
+
+```{r echo=FALSE, eval=TRUE}
+
+clus <- 15
+gene_names_mat_poisson[clus,]
+indices <- sapply(1:length(gene_names_mat_poisson[clus,]), function(n) grep(gene_names_mat_poisson[clus,n],gene_names))
+indices_to_consider <- which(apply(topics_theta[indices,],1, function(x) which.max(x))==clus);
+new_genes <- gene_names_mat_poisson[clus,indices_to_consider];
+lapply(1:length(new_genes), function(n) out[grep(as.character(new_genes[n]), out$query),])
+lapply(1:length(gene_names_mat_poisson[clus,]
+), function(n) out[grep(as.character(gene_names_mat_poisson[clus,n]
+), out$query), ])
 
 ```
 

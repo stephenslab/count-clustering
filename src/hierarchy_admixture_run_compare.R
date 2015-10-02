@@ -13,6 +13,30 @@ samples_id=read.table("../data/gtex_data/samples_id.txt");
 
 test_indices <- which(samples_id[,3]=='Heart - Left Ventricle' | samples_id[,3]=='Muscle - Skeletal');
 
+test_indices_sampled <- sample(test_indices, 50, replace=FALSE);
+samples_id_sub <- droplevels(samples_id[test_indices_sampled,3]);
+
+##  assign  numeric class labels
+
+samples_id_sub <- revalue(samples_id_sub,c('Heart - Left Ventricle'='0', 'Muscle - Skeletal'='1'))
+sample_data <- t(data[,test_indices_sampled]);
+
+topic_clus <- topics(sample_data,K=4,tol=0.001)
+docweights <- topic_clus$omega;
+metadata_vec <- samples_id[test_indices_sampled,3];
+metadata_ordered <- metadata_vec[order(metadata_vec)];
+docweights_ordered <- docweights[order(metadata_vec),];
+barplot(t(docweights_ordered),col=2:5,axisnames=F,space=0,border=NA,
+        las=las,ylim=c(0,1),ylab="admix prop",
+        cex.axis=cex.axis,cex.main=cex.main);
+labels = match(unique(metadata_ordered), metadata_ordered);
+abline(v=labels-1, lty=1, lwd=2)
+
+labels_low=labels-1;
+labels_up=c(labels_low[2:length(labels_low)],dim(docweights_ordered)[1]);
+mid_point <- labels_low +0.5*(labels_up-labels_low);
+axis(1,at=mid_point, unique(metadata_ordered),las=las,cex.axis=cex.axis,lwd=lwd);
+
 N_run <- 200;
 
 misclass_admix <- array(0, N_run);
@@ -45,7 +69,7 @@ for(run in 1:N_run)
   
   samples_id_sub <- revalue(samples_id_sub,c('Heart - Left Ventricle'='0', 'Muscle - Skeletal'='1'))
   sample_data <- t(data[,test_indices_sampled]);
-  hc <- hclust(dist(sample_data), "ave");
+  hc <- hclust(dist(sample_data), "complete");
   nclus <- 11
   
   F_score <- array(0,nclus-1);
@@ -66,35 +90,49 @@ for(run in 1:N_run)
   
   col = c(rgb(seq(0,1,length=15),1,seq(0,1,length=15)), rgb(1,seq(1,0,length=15),seq(1,0,length=15)));
   
-  png(filename = "../plots/heart_muscle_hierarchical_heatmap_average.png")
+  #png(filename = "../plots/heart_muscle_hierarchical_heatmap_complete.png")
   heatmap.2(as.matrix(dist(sample_data)),
             labCol=samples_id[test_indices_sampled,3],
             labRow=samples_id[test_indices_sampled,3],
             scale="none", trace="none", 
             distfun=function(x) dist(x,method="euclidean"), 
+            col=col, hclustfun = function(x) hclust(x,method="complete"));
+  #dev.off()
+  
+  voom_data <- voom(sample_data)$E;
+  
+  #png(filename = "../plots/heart_muscle_hierarchical_heatmap_cpm_average.png")
+  heatmap.2(as.matrix(dist(voom_data)),
+            labCol=samples_id[test_indices_sampled,3],
+            labRow=samples_id[test_indices_sampled,3],
+            scale="none", trace="none", 
+            distfun=function(x) dist(x,method="euclidean"), 
             col=col, hclustfun = function(x) hclust(x,method="average"));
-  dev.off()
+  #dev.off()
   
   num_topics <- c(2,3,4,5);
   
   E_score_topics <- matrix(0,length(num_topics),nclus-1);
   F_score_topics <- matrix(0,length(num_topics),nclus-1);
+  cophenetic_topics <- array(0,nclus-1)
 
   for(num in 1:length(num_topics))
   {
-    Topic_Clus = topics(sample_data, K=num_topics[num], tol=0.005);
+    Topic_Clus = topics(sample_data, K=num_topics[num], tol=0.0005);
     docweights_samples=Topic_Clus$omega;
-    png(filename = "../plots/heart_muscle_admix_heatmap_average.png")
+    #png(filename = "../plots/heart_muscle_admix_heatmap_complete.png")
     heatmap.2(as.matrix(dist(docweights_samples)),
               labCol=samples_id[test_indices_sampled,3],
               labRow=samples_id[test_indices_sampled,3],
               scale="none", trace="none", 
               distfun=function(x) dist(x,method="euclidean"), 
-              col=col, hclustfun = function(x) hclust(x,method="average"));
-    dev.off()
+              col=col, hclustfun = function(x) hclust(x,method="complete"));
+    #dev.off()
     
     
-    hc_topic <- hclust(dist(docweights_samples), "ave")
+    hc_topic <- hclust(dist(docweights_samples), "complete")
+    cophenetic_topics[num-1] <- cor(cophenetic(hc_topic),cophenetic(hc));
+    
     for(clus in 2:nclus)
     {
       clus_lab <- cutree(hc_topic, k = clus)

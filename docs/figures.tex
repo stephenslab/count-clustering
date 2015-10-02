@@ -142,6 +142,49 @@
  \caption{The comparison of the F score of quality assessment between the hierarchical clustering on the actual counts data and the admixture model topic proportion matrix for number of topics $2$, $3$, $4$ and $5$. Higher values of $F$ imply better correspondence of the cluster labels with the pre-assigned class labels - in this case there being 2 classes, namely Muscle Skeletal and Heart Left Ventricle. The F scores are compared for both average and complete linkages.}
 \end{figure*}
 
+  \begin{figure*}[ht]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/hierarchy_F_thin_0_1.png}
+        \caption{hierarchy thin 0.1}
+    \end{subfigure}%
+    ~ 
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/admixture_F_thin_0_1.png}
+        \caption{admixture thin 0.1}
+    \end{subfigure} \\
+    
+     \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/hierarchy_F_thin_0_01.png}
+        \caption{hierarchy thin 0.01}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/admixture_F_thin_0_01.png}
+        \caption{admixture thin 0.01}
+    \end{subfigure}\\
+    
+     \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/hierarchy_F_thin_0_001.png}
+        \caption{hierarchy 0.001}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/admixture_F_thin_0_001.png}
+        \caption{admixture thin 0.001}
+    \end{subfigure}\\
+
+    \caption{F score comparison of hierarchical clustering cut at 2 clusters on the actual counts data and on the topic proportion data obtained on fitting admixture. It is clearly seen that the F score for the latter scenario  is usually higher under all thinning scenarios. Also it seems that as we increase thinning, the F score indeed decreases for the pairwise comparisons.}
+\end{figure*}
+
+
+
 
 %%\begin{figure*}[ht]
 %    \centering
