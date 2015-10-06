@@ -2,8 +2,11 @@
 
 ## plot hierarchical and admixture F for GTEX data
 setwd("/Users/kushal/Documents/count-clustering/src/")
-hierarchy_F <- read.table("../internal_data/hierarchy_F_thin_2.txt")
-admixture_F <- read.table("../internal_data/admixture_F_thin_2.txt")
+hierarchy_F <- read.table("../internal_data/hierarchy_F_thin_1.txt")
+admixture_F <- read.table("../internal_data/admixture_F_thin_1.txt")
+
+hierarchy_F[hierarchy_F < 1] = 0;
+admixture_F[admixture_F < 1] = 0
 
 hierarchy_F <- hierarchy_F[1:48,1:48];
 admixture_F <- admixture_F[1:48,1:48];
@@ -32,11 +35,13 @@ rownames(hierarchy_F) <- unique_tissues
 colnames(admixture_F) <- unique_tissues
 rownames(admixture_F) <- unique_tissues
 
-png(filename="../plots/hierarchy_F_thin_2.png", res=100)
+library(cape)
+
+png(filename="../plots/hierarchy_F_thin_1.png", res=100)
 myImagePlot(as.matrix(hierarchy_F))
 dev.off()
 
-png(filename="../plots/admixture_F_thin_2.png", res=100)
+png(filename="../plots/admixture_F_thin_1.png", res=100)
 myImagePlot(as.matrix(admixture_F))
 dev.off()
 
