@@ -1,145 +1,22 @@
 
-\begin{figure*}[ht]
-	\raggedleft
-	\includegraphics[height=3in, width=6.5in]{../plots/whole_tissue_structure_15.png}
-        \caption{Structure plot of the admixture proportions (with 15 topics/clusters) for all the tissue samples in GTEX Version 4 data based on $5000$ genes with the highest mean expression. Some of the tissues form very distinct clusters, for instance Whole Blood, Pancreas, Skin, Arteries etc while there is a lot of similarity in cluster patterns between Muscle Skeletal and Heart Left Ventricle, or among the different sub-tissues of the Brain.}
-\end{figure*}
+%\begin{figure*}[ht]
+%	\raggedleft
+%	\includegraphics[height=3in, width=6.5in]{../plots/whole_tissue_structure_15.png}
+%        \caption{Structure plot of the admixture proportions (with 15 topics/clusters) for all the tissue samples in GTEX Version 4 data based on $5000$ genes with the highest mean expression. Some of the tissues form very distinct clusters, for instance Whole Blood, Pancreas, Skin, Arteries etc while there is a lot of similarity in cluster patterns between Muscle Skeletal and Heart Left Ventricle, or among the different sub-tissues of the Brain.}
+%\end{figure*}
 
 \begin{figure*}[ht]
 	\raggedleft
 	\includegraphics[height=3in, width=6.5in]{../plots/whole_tissue_structure_15_thinned.png}
-        \caption{Structure plot of the admixture proportions (with 15 topics/clusters) for all the tissue samples in GTEX Version 4 data based on 16407 cis genes from the eQTL study conducted by the GTEx Consortium. Many of the patterns in this Structure plot are retained from the Structure plot based on the $5000$ genes with highest mean expression. }
+        \caption{Structure plot of the admixture proportions (with 15 topics/clusters) for the $8555$ tissue samples coming from $53$ tissues  in GTEX Version 4 data based on 16407 cis genes derived using eQtlbma (due to Flutre et al \cite{Flutre2013}). Note that there the samples coming from the same tissue are pretty homogeneous. Also tissues of same origin, for instance all the brain tissues, all the arteries seem to cluster together. There are other interesting patterns as well- for instance, Muscle Skeletal has similar clustering patterns as Heart tissues and Breast mammary tissue has similar patterns as Adipose tissues.}
+\label{fig:fig1}
 \end{figure*}
 
 \begin{figure*}[ht]
 \centering
   \includegraphics[height=3in, width=4.5in]{../plots/brain_structure_plot.png}
-    \caption{Structure plot of the admixture proportions (with 4 clusters) for the brain tissue samples drawn from GTEX Version 4 data. Quite clearly, brain cerebellum and cerebellar hemisphere seem to be dominated by the blue cluster while the Spinal cord and Substantia nigra by the cyan cluster. Prior marker based approaches have verified (?) that $80 \%$ of cells in brain cerebellum correspond to neurons. So, the blue cluster seems to be driven by the neuron cell type. This fact is further attested by the gene annotations of the top genes driving the blue cluster (Subsection 3.3).}
-\end{figure*}
-
- \begin{figure*}[ht]
-    \raggedright
-     \begin{subfigure}[t]{0.25\textwidth}
-        \raggedleft
-        \includegraphics[height=2.7in]{../plots/gtex_thinned_clus_12_version_1.png}
-        \caption{$p_{thin}=0.001$}
-    \end{subfigure}    \\
-    \begin{subfigure}[t]{0.25\textwidth}
-        \raggedleft
-        \includegraphics[height=2.7in]{../plots/gtex_thinned_clus_12_version_2.png}
-        \caption{$p_{thin}=0.0001$}
-    \end{subfigure}   
-    \caption{Structure plot of all tissue samples in GTEx version 4 data for K=12 under different values of the thinning parameter $p_{thin}$. The three values of the thinning parameter chosen are $0.01$, $0.001$ and $0.0001$. It seems the results are pretty robust, though some of the cluster patterns seem to change. For instance, Muscle Skeletal and Heart tissue samples separate out at $p_{thin}=0.0001$ but cluster together at $p_{thin}=0.001$ for the same number of topics.}
-    \end{figure*}
-    
-    
-     \begin{figure*}[ht]
-    \raggedright
-     \begin{subfigure}[t]{0.25\textwidth}
-        \raggedleft
-        \includegraphics[height=2.5in]{../plots/multiple_thinned_1.png}
-        \caption{Run 1}
-    \end{subfigure}    \\
-    \begin{subfigure}[t]{0.25\textwidth}
-        \raggedleft
-        \includegraphics[height=2.5in]{../plots/multiple_thinned_2.png}
-        \caption{Run 2}
-    \end{subfigure}   \\
-    \begin{subfigure}[t]{0.25\textwidth}
-        \raggedleft
-        \includegraphics[height=2.5in]{../plots/multiple_thinned_4.png}
-        \caption{Run 3}
-    \end{subfigure} 
-    \caption{Structure plot of all tissue samples in 3 runs of the GTEx version 4 data for for K=10 for the thinning parameter $p_{thin}=0.01$. For the 3 runs, the datasets are randomly generated from the actual counts data using $p_{thin}=0.01$, so the datasets are different across the 3 runs. However, it seems the results are pretty robust.}
-    \end{figure*}
-
-    
-    \begin{figure*}[ht]
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/heart_muscle_hierarchical_heatmap_complete.png}
-        \caption{counts- complete linkage}
-    \end{subfigure}%
-    ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/heart_muscle_hierarchical_heatmap_average.png}
-        \caption{counts- average linkage}
-    \end{subfigure} \\
-    
-     \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png}
-        \caption{cpm- complete linkage}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/heart_muscle_hierarchical_heatmap_cpm_average.png}
-        \caption{cpm- average linkage}
-    \end{subfigure}\\
-    
-     \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/heart_muscle_admix_heatmap_complete.png}
-        \caption{admix prop- complete linkage}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/heart_muscle_admix_heatmap_average.png}
-        \caption{admix prop- average linkage}
-    \end{subfigure}\\
-
-    \caption{Comparison of heatmap of the counts data (\textit{top panel}), the cpm normalized data (\textit{middle panel}) and the admixture proportions data (\textit{bottom panel}) on  a randomly drawn 50 samples from the pool of Muscle-Skeletal and Heart-Left Ventricle samples in GTEx Version 4 RNA-seq thinned counts data with the thinning parameter $p_{thin}=0.001$. The distance method used euclidean and the linkage used was average linkage. Color scale provided in the figure. It seems that for admixture model heatmap, all the Muscle-skeletal and Heart Left-Ventricle samples cluster separately, while for the hierarchical model heatmap, they are mixed with each other. This suggests Admixture is better equipped at picking tissue separation than hierarchical clustering.}
-\end{figure*}
-
-
-
-  \begin{figure*}[ht]
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/hierarchical_admix_2.png}
-        \caption{k=2}
-    \end{subfigure}%
-    ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/hierarchical_admix_3.png}
-        \caption{k=3}
-    \end{subfigure} \\
-    
-     \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/hierarchical_admix_4.png}
-        \caption{k=4}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/hierarchical_admix_5.png}
-        \caption{k=5}
-    \end{subfigure}\\
-
- \caption{The heatmap of the admixture topic proportion matrix (low dimensional compared to the original counts data) under four different choices of clusters or topics namely $2,3,4$ and $5$. Here we assume complete linkage and the distance is taken to be Euclidean distance.}
-\end{figure*}
-
- \begin{figure*}[ht]
-    \centering
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/Fscore_compare_average.png}
-        \caption{average linkage}
-    \end{subfigure}%
-    ~ 
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/Fscore_compare_complete.png}
-        \caption{complete linkage}
-    \end{subfigure} 
- \caption{The comparison of the F score of quality assessment between the hierarchical clustering on the actual counts data and the admixture model topic proportion matrix for number of topics $2$, $3$, $4$ and $5$. Higher values of $F$ imply better correspondence of the cluster labels with the pre-assigned class labels - in this case there being 2 classes, namely Muscle Skeletal and Heart Left Ventricle. The F scores are compared for both average and complete linkages.}
+    \caption{Structure plot of the admixture proportions (with 4 clusters) for the brain tissue samples drawn from GTEX Version 4 data. Quite clearly, brain cerebellum and cerebellar hemisphere seem to be dominated by the blue cluster while the Spinal cord and Substantia nigra by the cyan cluster. Prior marker based approaches have verified that $> 80 \%$ of cells in brain cerebellum correspond to neurons \cite{Houzel2005}. So, the blue cluster seems to be driven by the neuron cell type. This fact is further attested by the gene annotations of the top genes driving the blue cluster (Supplementary Table 1).}
+\label{fig:fig2}
 \end{figure*}
 
   \begin{figure*}[ht]
@@ -155,33 +32,127 @@
         \includegraphics[height=2.5in]{../plots/admixture_F_thin_0_1.png}
         \caption{admixture thin 0.1}
     \end{subfigure} \\
-    
-     \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/hierarchy_F_thin_0_01.png}
-        \caption{hierarchy thin 0.01}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/admixture_F_thin_0_01.png}
-        \caption{admixture thin 0.01}
-    \end{subfigure}\\
-    
-     \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/hierarchy_F_thin_0_001.png}
-        \caption{hierarchy 0.001}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../plots/admixture_F_thin_0_001.png}
-        \caption{admixture thin 0.001}
-    \end{subfigure}\\
-
-    \caption{F score comparison of hierarchical clustering cut at 2 clusters on the actual counts data and on the topic proportion data obtained on fitting admixture. It is clearly seen that the F score for the latter scenario  is usually higher under all thinning scenarios. Also it seems that as we increase thinning, the F score indeed decreases for the pairwise comparisons.}
+\caption{A comparison of the hierarchical method with the admixture method. For each pair of tissues, we selected randomly $50$ samples and then on the reads data for these $50$ samples, we applied the hierarchical clustering method with complete linkage and Euclidean distance and then cut the tree at $K=2$. We then observed if it separates out the samples coming from the two tissues, in case it does, we color the cell corresponding to that pair of tissues. We apply admixture model on the same data for $K=2$. Then we fixed one cluster, observed the proportions for that cluster, sorted the samples based on the proportions for that cluster and separated out the samples at the point of maximum jump/fall in the proportions for that cluster. If that separates out the two tissues, we color the cell, else keep it blank. From the graph it seems that the admixture model has been far more successful in separating out different tissues compared to the hierarchical method.}
+\label{fig:fig3}
 \end{figure*}
+
+
+ \begin{figure*}[ht]
+        \centering
+        \includegraphics[height=2.7in]{../plots/gtex_thinned_clus_12_version_2.png}
+    \caption{Structure plot of all tissue samples in GTEx version 4 data thinned data with $p_{thin}=0.0001$ for K=12. The thinning parameter has been chosen so that the GTEx RNA-seq data can be interpreted at the same scale as a scRNA-seq data.  It seems the results are pretty robust. This suggests that most of the structure in the clustering patterns we observed in textbf{Fig \ref{fig:fig1}} is retained even after thinning. }
+ \label{fig:fig4}
+    \end{figure*}
+    
+    
+%     \begin{figure*}[ht]
+%    \raggedright
+%     \begin{subfigure}[t]{0.25\textwidth}
+%        \raggedleft
+%        \includegraphics[height=2.5in]{../plots/multiple_thinned_1.png}
+%        \caption{Run 1}
+%    \end{subfigure}    \\
+%    \begin{subfigure}[t]{0.25\textwidth}
+%        \raggedleft
+%        \includegraphics[height=2.5in]{../plots/multiple_thinned_2.png}
+%        \caption{Run 2}
+%    \end{subfigure}   \\
+%    \begin{subfigure}[t]{0.25\textwidth}
+%        \raggedleft
+%        \includegraphics[height=2.5in]{../plots/multiple_thinned_4.png}
+%        \caption{Run 3}
+%    \end{subfigure} 
+%    \caption{Structure plot of all tissue samples in 3 runs of the GTEx version 4 data for for K=10 for the thinning parameter $p_{thin}=0.01$. For the 3 runs, the datasets are randomly generated from the actual counts data using $p_{thin}=0.01$, so the datasets are different across the 3 runs. However, it seems the results are pretty robust.}
+%    \end{figure*}
+%
+    
+%    \begin{figure*}[ht]
+%    \centering
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in]{../plots/heart_muscle_hierarchical_heatmap_complete.png}
+%        \caption{counts- complete linkage}
+%    \end{subfigure}%
+%    ~ 
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in]{../plots/heart_muscle_hierarchical_heatmap_average.png}
+%        \caption{counts- average linkage}
+%    \end{subfigure} \\
+%    
+%     \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in]{../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png}
+%        \caption{cpm- complete linkage}
+%    \end{subfigure}%
+%    ~
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in]{../plots/heart_muscle_hierarchical_heatmap_cpm_average.png}
+%        \caption{cpm- average linkage}
+%    \end{subfigure}\\
+%    
+%     \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in]{../plots/heart_muscle_admix_heatmap_complete.png}
+%        \caption{admix prop- complete linkage}
+%    \end{subfigure}%
+%    ~
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in]{../plots/heart_muscle_admix_heatmap_average.png}
+%        \caption{admix prop- average linkage}
+%    \end{subfigure}\\
+%
+%    \caption{Comparison of heatmap of the counts data (\textit{top panel}), the cpm normalized data (\textit{middle panel}) and the admixture proportions data (\textit{bottom panel}) on  a randomly drawn 50 samples from the pool of Muscle-Skeletal and Heart-Left Ventricle samples in GTEx Version 4 RNA-seq thinned counts data with the thinning parameter $p_{thin}=0.001$. The distance method used euclidean and the linkage used was average linkage. Color scale provided in the figure. It seems that for admixture model heatmap, all the Muscle-skeletal and Heart Left-Ventricle samples cluster separately, while for the hierarchical model heatmap, they are mixed with each other. This suggests Admixture is better equipped at picking tissue separation than hierarchical clustering.}
+%\end{figure*}
+%
+
+
+%  \begin{figure*}[ht]
+%    \centering
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in]{../plots/hierarchical_admix_2.png}
+%        \caption{k=2}
+%    \end{subfigure}%
+%    ~ 
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in]{../plots/hierarchical_admix_3.png}
+%        \caption{k=3}
+%    \end{subfigure} \\
+%    
+%     \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in]{../plots/hierarchical_admix_4.png}
+%        \caption{k=4}
+%    \end{subfigure}%
+%    ~
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in]{../plots/hierarchical_admix_5.png}
+%        \caption{k=5}
+%    \end{subfigure}\\
+%
+% \caption{The heatmap of the admixture topic proportion matrix (low dimensional compared to the original counts data) under four different choices of clusters or topics namely $2,3,4$ and $5$. Here we assume complete linkage and the distance is taken to be Euclidean distance.}
+%\end{figure*}
+
+% \begin{figure*}[ht]
+%    \centering
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in]{../plots/Fscore_compare_average.png}
+%        \caption{average linkage}
+%    \end{subfigure}%
+%    ~ 
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in]{../plots/Fscore_compare_complete.png}
+%        \caption{complete linkage}
+%    \end{subfigure} 
+% \caption{The comparison of the F score of quality assessment between the hierarchical clustering on the actual counts data and the admixture model topic proportion matrix for number of topics $2$, $3$, $4$ and $5$. Higher values of $F$ imply better correspondence of the cluster labels with the pre-assigned class labels - in this case there being 2 classes, namely Muscle Skeletal and Heart Left Ventricle. The F scores are compared for both average and complete linkages.}
+%\end{figure*}
 
 
 
@@ -254,44 +225,123 @@
 %    \caption{The true structure plot for a simulation set up with $N=1000$ samples nd $G=500$ genes with $K=5$ clusters where the admixture proportions are given in (a). Counts data were generated under this true simulation set up. Then admixture model was fitted for $K=2$ and the estimated Structure plot from the model fit is shown in (b).}
 %\end{figure*}
 
+%\clearpage
+%
+%\begin{figure*}[ht]
+%    \centering
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in,width=2.5in]{../plots/hierarchy_F_thin_clus_5_0_1.png}
+%        \caption{hierarchy thin 0.1}
+%    \end{subfigure}%
+%    ~ 
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in,width=2.5in]{../plots/admixture_F_thin_clus_5_0_1.png}
+%        \caption{admixture thin 0.1}
+%    \end{subfigure} \\
+%    
+%     \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in,width=2.5in]{../plots/hierarchy_F_thin_clus_5_0_01.png}
+%        \caption{hierarchy thin 0.01}
+%    \end{subfigure}%
+%    ~
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in,width=2.5in]{../plots/admixture_F_thin_clus_5_0_01.png}
+%        \caption{admixture thin 0.01}
+%    \end{subfigure}\\
+%    
+%     \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in,width=2.5in]{../plots/hierarchy_F_thin_clus_5_0_001.png}
+%        \caption{hierarchy 0.001}
+%    \end{subfigure}%
+%    ~
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=2.5in,width=2.5in]{../plots/admixture_F_thin_clus_5_0_001.png}
+%        \caption{admixture thin 0.001}
+%    \end{subfigure}\\
+% \caption{F score comparison of hierarchical clustering cut at 2 clusters on the actual counts data and on admixture proportions matrix  with 5 topics, where the F score is thresholded at $0.8$. In terms of F score, the performance of the admixture model in separating out the two clusters is much better than the hierarchical model. Also it seems that as we increase thinning, the performance does indeed deteriorate, as is intuitive. However, the relative efficiency of admixture over hierarchical clustering is maintained at all levels of thinning.}
+%\end{figure*}
+%
+%
 
- \begin{figure*}[ht]
-    \raggedright
-     \begin{subfigure}[t]{0.3\textwidth}
-        \raggedleft
-        \includegraphics[height=2.5in]{../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png}
-        \raggedright 
-        \vspace{-0.5in} \qquad  \qquad  \caption{$k=2$}
-    \end{subfigure}    \\
-    \begin{subfigure}[t]{0.5\textwidth}
-        \raggedleft
-        \includegraphics[height=2.5in]{../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png}
-        \raggedright
-        \vspace{-0.5in}  \qquad  \qquad \caption{$k=5$}
-    \end{subfigure}    \\
-    \begin{subfigure}[t]{0.5\textwidth}
-        \raggedleft
-        \includegraphics[height=2.5in]{../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png}
-        \raggedright
-        \vspace{-0.5in}  \qquad \qquad \caption{   $k=10$}
-    \end{subfigure}    
-    \caption{Structure plot of all  samples in Zeisel et al data \cite{Zeisel2015} arranged by the cell subtype labels that were determined by the authors using their BackSpin algorithm and subsequent marker gene annotations. Here we present the Structure plots for number of topics $k=2,5,10$. }
-    \end{figure*}
+% \begin{figure*}[ht]
+%    \raggedright
+%     \begin{subfigure}[t]{0.3\textwidth}
+%        \raggedleft
+%        \includegraphics[height=2.5in]{../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png}
+%        \raggedright 
+%        \vspace{-0.5in} \qquad  \qquad  \caption{$k=2$}
+%    \end{subfigure}    \\
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \raggedleft
+%        \includegraphics[height=2.5in]{../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png}
+%        \raggedright
+%        \vspace{-0.5in}  \qquad  \qquad \caption{$k=5$}
+%    \end{subfigure}    \\
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \raggedleft
+%        \includegraphics[height=2.5in]{../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png}
+%        \raggedright
+%        \vspace{-0.5in}  \qquad \qquad \caption{   $k=10$}
+%    \end{subfigure}    
+%    \caption{Structure plot of all  samples in Zeisel et al data \cite{Zeisel2015} arranged by the cell subtype labels that were determined by the authors using their BackSpin algorithm and subsequent marker gene annotations. Here we present the Structure plots for number of topics $k=2,5,10$. }
+%    \end{figure*}
 
 
  \begin{figure*}[ht]
     \raggedright
      \begin{subfigure}[t]{1\textwidth}
         \centering
-        \includegraphics[height=4in]{../plots/Jaitin_struct_clus_7_amp_batch.png}
+        \includegraphics[height=2.5in, width=6in]{../plots/Jaitin_struct_clus_7_amp_batch.png}
         \vspace{-1in} \qquad  \qquad  
     \end{subfigure}    \\
     \begin{subfigure}[t]{1\textwidth}
+       \centering
+        \includegraphics[height=2.5in]{../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png}
+        \vspace{-0.5in}  \qquad \qquad \caption{   $k=10$}
+      \end{subfigure}
+    \caption{ (\textit{top panel})  Structure plot of the1041 single cells for K=7 of the Jaitin \textit{et al} data \cite{Jaitin2015} arranged by the amplification batch. It is observed that the clustering patterns in each batch are pretty homogeneous and so, either the amplification batch is driving the clustering or it is confounded with the actual biological effects, making it difficult to interpret these clusters. (\textit{bottom panel}) Structure plot of all samples for $K=10$ of Zeisel et al data \cite{Zeisel2015}, arranged by the cell subtype labels that were determined by the authors using their BackSpin algorithm and subsequent marker gene annotations. While the admixture patterns in cell subtypes are pretty homogeneous, the first few samples in Oligo6 show mild presence of red cluster and are pretty different from the rest of the samples in Oligo6 which do not show any trace of red cluster. These first few samples of Oligo6 look similar in pattern to some Oligo4 samples with mild red cluster presence. Oligo4 samples also shows some heterogeneity in terms of the proportion of red cluster present. This could either be due to misclassification of the Backspin algorithm, or some technical effects.}
+ \label{fig:fig5}
+ \end{figure*}
+ 
+
+ \clearpage
+ 
+ \subsection{Supplemental figures}
+ 
+  \begin{figure*}[ht]
+    \centering    
+     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[height=4in]{../plots/Jaitin_struct_clus_7_seq_batch.png}
-          \vspace{-1in}  \qquad  \qquad 
-    \end{subfigure}      
-    \vspace{-1in} 
-    \caption{Structure plot of the 1041 single cells for K=7 used for clustering in Jaitin et al data \cite{Jaitin2015} arranged by the amplification (\textit{top panel})and the sequencing batches (\textit{bottom panel}). It was claimed that the $7$ topics corresponded to $7$ cell types. However there is a potential batch effect that may be confounded with the biological factors or may be driving the clusters altogether. Also there seems to be confounding between the sequencing batch and the amplification batch.}
-    \end{figure*}
+        \includegraphics[height=2.5in]{../plots/hierarchy_F_thin_0_01.png}
+        \caption{hierarchy thin 0.01}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/admixture_F_thin_0_01.png}
+        \caption{admixture thin 0.01}
+    \end{subfigure}\\
+    
+     \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/hierarchy_F_thin_0_001.png}
+        \caption{hierarchy 0.001}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/admixture_F_thin_0_001.png}
+        \caption{admixture thin 0.001}
+    \end{subfigure}\\
+
+    \caption{In this graph, we compare the hierarchical clustering method with the admixture method for thinned data with thinning parameters being $p_{thin}=0.001$ and $p_{thin}=0.0001$. The color coding scheme is similar to \textbf{Fig \ref{fig:fig3}}. Note that the performance of the admixture indeed deteriorates from \textbf{Fig \ref{fig:fig3}} in separating out the clusters as is expected. But it still outperforms the hierarchical clustering.}
+ \label{fig:figS2}
+\end{figure*}
+
 

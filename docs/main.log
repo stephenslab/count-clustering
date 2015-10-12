@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  6 OCT 2015 11:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  11 OCT 2015 21:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -115,13 +115,128 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
 )
-(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/05/08 v1.15 key=value parser (DPC)
 \KV@toks@=\toks19
 )
+(/usr/local/texlive/2014/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen125
+\Hy@linkcounter=\count103
+\Hy@pagecounter=\count104
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count105
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count106
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen126
+\Fld@menulength=\count107
+\Field@Width=\dimen127
+\Fld@charsize=\dimen128
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count108
+\c@Item=\count109
+\c@Hfootnote=\count110
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count111
+\c@bookmark@seq@number=\count112
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip46
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
 (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
@@ -135,17 +250,10 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
-)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count103
+\Gread@gobject=\count113
 ))
-\Gin@req@height=\dimen125
-\Gin@req@width=\dimen126
+\Gin@req@height=\dimen129
+\Gin@req@width=\dimen130
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/cite/cite.sty
 LaTeX Info: Redefining \cite on input line 302.
@@ -158,20 +266,21 @@ Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
-\captionmargin=\dimen127
-\captionmargin@=\dimen128
-\captionwidth=\dimen129
-\caption@tempdima=\dimen130
-\caption@indent=\dimen131
-\caption@parindent=\dimen132
-\caption@hangindent=\dimen133
+\captionmargin=\dimen131
+\captionmargin@=\dimen132
+\captionwidth=\dimen133
+\caption@tempdima=\dimen134
+\caption@indent=\dimen135
+\caption@parindent=\dimen136
+\caption@hangindent=\dimen137
 )
-\c@ContinuedFloat=\count104
+\c@ContinuedFloat=\count114
+Package caption Info: hyperref package is loaded.
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
-\c@subfigure=\count105
-\c@subtable=\count106
+\c@subfigure=\count115
+\c@subtable=\count116
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2014/04/23 v1.1a Standard LaTeX Color (DPC)
@@ -186,25 +295,25 @@ Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks20
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen134
-)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip11
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+\bigstrutjot=\dimen138
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/xr.sty
 Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 )
-\c@algorithm=\count107
-\c@proposition=\count108
-\c@restateproposition=\count109
-\c@lemma=\count110
-\c@corollary=\count111
-\c@result=\count112
-\c@note=\count113
+\c@algorithm=\count117
+\c@proposition=\count118
+\c@restateproposition=\count119
+\c@lemma=\count120
+\c@corollary=\count121
+\c@result=\count122
+\c@note=\count123
 )
-\c@definition=\count114
- (./main.aux)
+\c@definition=\count124
+ (./main.aux
+
+LaTeX Warning: Label `Thompson2014' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
@@ -219,59 +328,46 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 3.
+LaTeX Font Info:    ... okay on input line 3.
+\AtBeginShipoutBox=\box28
+Package hyperref Info: Link coloring OFF on input line 3.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count125
+)
+LaTeX Info: Redefining \ref on input line 3.
+LaTeX Info: Redefining \pageref on input line 3.
+LaTeX Info: Redefining \nameref on input line 3.
+
+(./main.out) (./main.out)
+\@outlinefile=\write3
+\openout3 = `main.out'.
+
 
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count115
-\scratchdimen=\dimen135
-\scratchbox=\box28
-\nofMPsegments=\count116
-\nofMParguments=\count117
+\scratchcounter=\count126
+\scratchdimen=\dimen139
+\scratchbox=\box29
+\nofMPsegments=\count127
+\nofMParguments=\count128
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count118
-\MPscratchDim=\dimen136
-\MPnumerator=\count119
-\makeMPintoPDFobject=\count120
+\MPscratchCnt=\count129
+\MPscratchDim=\dimen140
+\MPnumerator=\count130
+\makeMPintoPDFobject=\count131
 \everyMPtoPDFconversion=\toks22
-) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-))
-(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-
-(/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
+)
 Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
@@ -303,7 +399,50 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]) (./methods.tex
-[2] [3]) (./results.tex [4]) (./discussion.tex [5] [6]) (./references.tex
+[2] [3]) (./results.tex
+
+LaTeX Warning: Reference `fig:figS1' on page 4 undefined on input line 27.
+
+
+LaTeX Warning: Reference `tab:tab1' on page 4 undefined on input line 27.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+[4]
+
+LaTeX Warning: Citation `Grun2015' on page 5 undefined on input line 29.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+[5]
+
+LaTeX Warning: Citation `Jaitin2014' on page 6 undefined on input line 33.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--34
+
+ []
+
+
+LaTeX Warning: Citation `Jaitin2014' on page 6 undefined on input line 35.
+
+[6]) (./discussion.tex
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+[7]) (./references.tex
 Underfull \hbox (badness 6094) in paragraph at lines 5--8
 []\OT1/cmr/m/n/10.95 S An-ders, T P Pyl, W Hu-ber. \OT1/cmr/m/it/10.95 HT-Seq :
  A Python frame-work to work
@@ -319,8 +458,21 @@ Missing character: There is no ñ in font cmr10!
 Missing character: There is no ö in font cmr10!
 Missing character: There is no é in font cmr10!
 Missing character: There is no ç in font cmr10!
-[7]
+[8]
 Missing character: There is no é in font cmr10!
+Missing character: There is no ü in font cmr10!
+
+Underfull \hbox (badness 2359) in paragraph at lines 115--118
+[]\OT1/cmr/m/n/10.95 Flutre T, Wen X, Pritchard J and Stephens M. \OT1/cmr/m/it
+/10.95 A Sta-tis-ti-cal Frame-work for
+ []
+
+
+Underfull \hbox (badness 3612) in paragraph at lines 115--118
+\OT1/cmr/m/it/10.95 Joint eQTL Anal-y-sis in Mul-ti-ple Tis-sues \OT1/cmr/m/n/1
+0.95 PLoS Genet 2013, 9(5): e1003486.
+ []
+
 ) (./tables.tex
 Overfull \vbox (13.60004pt too high) detected at line 9
  []
@@ -593,199 +745,9 @@ Overfull \hbox (45.1093pt too wide) in paragraph at lines 91--113
  [] 
  []
 
-
-Overfull \vbox (13.60004pt too high) detected at line 128
- []
-
-
-Underfull \hbox (badness 1354) in paragraph at lines 128--129
-\OT1/cmr/m/n/10.95 tein found in adipocytes, in-volved
- []
-
-
-Overfull \hbox (3.77164pt too wide) in paragraph at lines 132--132
-\OT1/cmr/m/n/10.95 prostrate)|  
- []
-
-
-Overfull \vbox (27.20004pt too high) detected at line 132
- []
-
-
-Overfull \hbox (8.63829pt too wide) in paragraph at lines 136--136
-\OT1/cmr/m/n/10.95 esophagus)|  
- []
-
-
-Overfull \vbox (40.80005pt too high) detected at line 136
- []
-
-
-Overfull \hbox (45.1093pt too wide) in paragraph at lines 123--141
- [] 
- []
-
-
-Underfull \hbox (badness 3735) in paragraph at lines 153--153
-[]\OT1/cmr/m/n/10.95 actin, gamma 2, smooth
- []
-
-
-Underfull \hbox (badness 5970) in paragraph at lines 154--154
-[]\OT1/cmr/m/n/10.95 myosin, heavy chain 11,
- []
-
-
-Underfull \hbox (badness 1924) in paragraph at lines 155--156
-[]\OT1/cmr/m/n/10.95 encodes myosin light chain ki-nase
- []
-
-
-Overfull \vbox (13.60004pt too high) detected at line 157
- []
-
-
-Overfull \vbox (27.20004pt too high) detected at line 161
- []
-
-
-Underfull \hbox (badness 1371) in paragraph at lines 161--162
-[]\OT1/cmr/m/n/10.95 produces highly con-served pro-teins
- []
-
-
-Overfull \vbox (13.60004pt too high) detected at line 165
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
-[]\OT1/cmr/m/n/10.95 encodes the pulmonary-associated
- []
-
-
-Underfull \hbox (badness 1661) in paragraph at lines 165--166
-\OT1/cmr/m/n/10.95 for lung func-tion and home-osta-sis
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
-[]\OT1/cmr/m/n/10.95 encodes the pulmonary-associated
- []
-
-
-Underfull \hbox (badness 7925) in paragraph at lines 167--168
-\OT1/cmr/m/n/10.95 sur-fac-tant pro-tein C (SPC), an
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
-\OT1/cmr/m/n/10.95 ex-tremely hy-dropho-bic sur-fac-tant
- []
-
-
-Underfull \hbox (badness 1762) in paragraph at lines 167--168
-\OT1/cmr/m/n/10.95 home-osta-sis af-ter birth, as-so-ci-ated
- []
-
-
-Overfull \hbox (45.1093pt too wide) in paragraph at lines 148--170
- [] 
- []
-
-
-LaTeX Warning: Float too large for page by 465.09236pt on input line 171.
-
-
-Overfull \vbox (27.20004pt too high) detected at line 183
- []
-
-
-Underfull \hbox (badness 1874) in paragraph at lines 183--184
-[]\OT1/cmr/m/n/10.95 encodes a mem-ber of the type I
- []
-
-
-Underfull \hbox (badness 1184) in paragraph at lines 184--185
-\OT1/cmr/m/n/10.95 and gran-u-lar lay-ers of the epi-der-
- []
-
-
-Underfull \hbox (badness 3068) in paragraph at lines 184--185
-\OT1/cmr/m/n/10.95 as-so-ci-ated with bul-lous con-gen-i-tal
- []
-
-
-Overfull \vbox (13.60004pt too high) detected at line 187
- []
-
-
-Underfull \hbox (badness 1478) in paragraph at lines 188--189
-\OT1/cmr/m/n/10.95 volved in the di-ges-tion of di-etary
- []
-
-
-Underfull \hbox (badness 1571) in paragraph at lines 188--189
-\OT1/cmr/m/n/10.95 triglyc-erides in the gas-troin-testi-nal
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 189--189
-[]\OT1/cmr/m/n/10.95 pepsinogen 3, group I
- []
-
-
-Overfull \hbox (9.88539pt too wide) in paragraph at lines 191--191
-\OT1/cmr/m/n/10.95 fibroblasts)|  
- []
-
-
-Overfull \vbox (27.20004pt too high) detected at line 191
- []
-
-
-Underfull \hbox (badness 2189) in paragraph at lines 192--193
-[]\OT1/cmr/m/n/10.95 Mutations in this gene as-so-ci-ated
- []
-
-
-Overfull \hbox (9.88539pt too wide) in paragraph at lines 195--195
-\OT1/cmr/m/n/10.95 fibroblasts)|  
- []
-
-
-Overfull \vbox (27.20004pt too high) detected at line 195
- []
-
-
-Underfull \hbox (badness 2189) in paragraph at lines 196--197
-[]\OT1/cmr/m/n/10.95 Mutations in this gene as-so-ci-ated
- []
-
-
-Overfull \hbox (45.1093pt too wide) in paragraph at lines 177--200
- [] 
- []
-
-
-LaTeX Warning: Float too large for page by 97.8922pt on input line 201.
-
 ) (./figures.tex
-<../plots/whole_tissue_structure_15.png, id=38, 702.625pt x 301.125pt>
-File: ../plots/whole_tissue_structure_15.png Graphic file (type png)
-
-<use ../plots/whole_tissue_structure_15.png>
-Package pdftex.def Info: ../plots/whole_tissue_structure_15.png used on input l
-ine 4.
-(pdftex.def)             Requested size: 469.76996pt x 216.81902pt.
-
-Overfull \hbox (14.52588pt too wide) in paragraph at lines 4--5
- [][]
- []
-
-
-<../plots/whole_tissue_structure_15_thinned.png, id=40, 702.625pt x 301.125pt>
+<../plots/whole_tissue_structure_15_thinned.png, id=161, 702.625pt x 301.125pt>
 File: ../plots/whole_tissue_structure_15_thinned.png Graphic file (type png)
-
 <use ../plots/whole_tissue_structure_15_thinned.png>
 Package pdftex.def Info: ../plots/whole_tissue_structure_15_thinned.png used on
  input line 10.
@@ -795,403 +757,158 @@ Overfull \hbox (14.52588pt too wide) in paragraph at lines 10--11
  [][]
  []
 
-<../plots/brain_structure_plot.png, id=41, 481.8pt x 481.8pt>
+<../plots/brain_structure_plot.png, id=165, 481.8pt x 481.8pt>
 File: ../plots/brain_structure_plot.png Graphic file (type png)
 
 <use ../plots/brain_structure_plot.png>
 Package pdftex.def Info: ../plots/brain_structure_plot.png used on input line 1
-6.
+7.
 (pdftex.def)             Requested size: 325.223pt x 216.80798pt.
 
-<../plots/gtex_thinned_clus_12_version_1.png, id=42, 702.625pt x 301.125pt>
-File: ../plots/gtex_thinned_clus_12_version_1.png Graphic file (type png)
+<../plots/hierarchy_F_thin_0_1.png, id=168, 481.8pt x 481.8pt>
+File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
 
-<use ../plots/gtex_thinned_clus_12_version_1.png>
-Package pdftex.def Info: ../plots/gtex_thinned_clus_12_version_1.png used on in
-put line 24.
-(pdftex.def)             Requested size: 455.3178pt x 195.12877pt.
+<use ../plots/hierarchy_F_thin_0_1.png>
+Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 2
+6.
+(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-Overfull \hbox (341.50677pt too wide) in paragraph at lines 24--25
- [][]
+<../plots/admixture_F_thin_0_1.png, id=169, 481.8pt x 481.8pt>
+File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
+
+<use ../plots/admixture_F_thin_0_1.png>
+Package pdftex.def Info: ../plots/admixture_F_thin_0_1.png used on input line 3
+2.
+(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
+
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 24--34
+ [][]  [] 
  []
 
-<../plots/gtex_thinned_clus_12_version_2.png, id=43, 702.625pt x 301.125pt>
+<../plots/gtex_thinned_clus_12_version_2.png, id=170, 702.625pt x 301.125pt>
 File: ../plots/gtex_thinned_clus_12_version_2.png Graphic file (type png)
 
 <use ../plots/gtex_thinned_clus_12_version_2.png>
 Package pdftex.def Info: ../plots/gtex_thinned_clus_12_version_2.png used on in
-put line 29.
+put line 42.
 (pdftex.def)             Requested size: 455.3178pt x 195.12877pt.
 
-Overfull \hbox (341.50677pt too wide) in paragraph at lines 29--30
- [][]
- []
-
-<../plots/multiple_thinned_1.png, id=44, 702.625pt x 301.125pt>
-File: ../plots/multiple_thinned_1.png Graphic file (type png)
-
-<use ../plots/multiple_thinned_1.png>
-Package pdftex.def Info: ../plots/multiple_thinned_1.png used on input line 40.
-
-(pdftex.def)             Requested size: 421.58897pt x 180.67499pt.
-
-Overfull \hbox (307.77795pt too wide) in paragraph at lines 40--41
- [][]
- []
-
-<../plots/multiple_thinned_2.png, id=45, 702.625pt x 301.125pt>
-File: ../plots/multiple_thinned_2.png Graphic file (type png)
-
-<use ../plots/multiple_thinned_2.png>
-Package pdftex.def Info: ../plots/multiple_thinned_2.png used on input line 45.
-
-(pdftex.def)             Requested size: 421.58897pt x 180.67499pt.
-
-Overfull \hbox (307.77795pt too wide) in paragraph at lines 45--46
- [][]
- []
-
-<../plots/multiple_thinned_4.png, id=46, 702.625pt x 301.125pt>
-File: ../plots/multiple_thinned_4.png Graphic file (type png)
-
-<use ../plots/multiple_thinned_4.png>
-Package pdftex.def Info: ../plots/multiple_thinned_4.png used on input line 50.
-
-(pdftex.def)             Requested size: 421.58897pt x 180.67499pt.
-
-Overfull \hbox (307.77795pt too wide) in paragraph at lines 50--51
- [][]
- []
-
-
-LaTeX Warning: Float too large for page by 64.9171pt on input line 54.
-
-
-<../plots/heart_muscle_hierarchical_heatmap_complete.png, id=47, 481.8pt x 481.
-8pt>
-File: ../plots/heart_muscle_hierarchical_heatmap_complete.png Graphic file (typ
-e png)
- <use ../plots/heart_muscle_hierarchical_heatmap_complete.png>
-Package pdftex.def Info: ../plots/heart_muscle_hierarchical_heatmap_complete.pn
-g used on input line 61.
-(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
-
-<../plots/heart_muscle_hierarchical_heatmap_average.png, id=48, 481.8pt x 481.8
-pt>
-File: ../plots/heart_muscle_hierarchical_heatmap_average.png Graphic file (type
- png)
- <use ../plots/heart_muscle_hierarchical_heatmap_average.png>
-Package pdftex.def Info: ../plots/heart_muscle_hierarchical_heatmap_average.png
- used on input line 67.
-(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
-
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 59--69
- [][]  [] 
- []
-
-
-<../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png, id=49, 481.8pt x 
-481.8pt>
-File: ../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png Graphic file 
-(type png)
- <use ../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png>
-Package pdftex.def Info: ../plots/heart_muscle_hierarchical_heatmap_cpm_complet
-e.png used on input line 73.
-(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
-
-<../plots/heart_muscle_hierarchical_heatmap_cpm_average.png, id=50, 481.8pt x 4
-81.8pt>
-File: ../plots/heart_muscle_hierarchical_heatmap_cpm_average.png Graphic file (
-type png)
- <use ../plots/heart_muscle_hierarchical_heatmap_cpm_average.png>
-Package pdftex.def Info: ../plots/heart_muscle_hierarchical_heatmap_cpm_average
-.png used on input line 79.
-(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
-
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 71--81
- [][]  [] 
- []
-
-<../plots/heart_muscle_admix_heatmap_complete.png, id=51, 481.8pt x 481.8pt>
-File: ../plots/heart_muscle_admix_heatmap_complete.png Graphic file (type png)
-
-<use ../plots/heart_muscle_admix_heatmap_complete.png>
-Package pdftex.def Info: ../plots/heart_muscle_admix_heatmap_complete.png used 
-on input line 85.
-(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
-
-<../plots/heart_muscle_admix_heatmap_average.png, id=52, 481.8pt x 481.8pt>
-File: ../plots/heart_muscle_admix_heatmap_average.png Graphic file (type png)
-
-<use ../plots/heart_muscle_admix_heatmap_average.png>
-Package pdftex.def Info: ../plots/heart_muscle_admix_heatmap_average.png used o
-n input line 91.
-(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
-
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 83--93
- [][]  [] 
- []
-
-
-LaTeX Warning: Float too large for page by 132.91713pt on input line 96.
-
-<../plots/hierarchical_admix_2.png, id=53, 539.01375pt x 391.4625pt>
-File: ../plots/hierarchical_admix_2.png Graphic file (type png)
-
-<use ../plots/hierarchical_admix_2.png>
-Package pdftex.def Info: ../plots/hierarchical_admix_2.png used on input line 1
-04.
-(pdftex.def)             Requested size: 248.78001pt x 180.67499pt.
-
-Overfull \hbox (21.15797pt too wide) in paragraph at lines 104--105
- [][] 
- []
-
-<../plots/hierarchical_admix_3.png, id=54, 539.01375pt x 391.4625pt>
-File: ../plots/hierarchical_admix_3.png Graphic file (type png)
-
-<use ../plots/hierarchical_admix_3.png>
-Package pdftex.def Info: ../plots/hierarchical_admix_3.png used on input line 1
-10.
-(pdftex.def)             Requested size: 248.78001pt x 180.67499pt.
-
-Overfull \hbox (21.15797pt too wide) in paragraph at lines 110--111
- [][] 
- []
-
-
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 102--112
- [][]  [] 
- []
-
-<../plots/hierarchical_admix_4.png, id=55, 539.01375pt x 391.4625pt>
-File: ../plots/hierarchical_admix_4.png Graphic file (type png)
-
-<use ../plots/hierarchical_admix_4.png>
-Package pdftex.def Info: ../plots/hierarchical_admix_4.png used on input line 1
-16.
-(pdftex.def)             Requested size: 248.78001pt x 180.67499pt.
-
-Overfull \hbox (21.15797pt too wide) in paragraph at lines 116--117
- [][] 
- []
-
-<../plots/hierarchical_admix_5.png, id=56, 539.01375pt x 391.4625pt>
-File: ../plots/hierarchical_admix_5.png Graphic file (type png)
-
-<use ../plots/hierarchical_admix_5.png>
-Package pdftex.def Info: ../plots/hierarchical_admix_5.png used on input line 1
-22.
-(pdftex.def)             Requested size: 248.78001pt x 180.67499pt.
-
-Overfull \hbox (21.15797pt too wide) in paragraph at lines 122--123
- [][] 
- []
-
-
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 114--124
- [][]  [] 
- []
-
-<../plots/Fscore_compare_average.png, id=57, 539.01375pt x 391.4625pt>
-File: ../plots/Fscore_compare_average.png Graphic file (type png)
-
-<use ../plots/Fscore_compare_average.png>
-Package pdftex.def Info: ../plots/Fscore_compare_average.png used on input line
- 133.
-(pdftex.def)             Requested size: 248.78001pt x 180.67499pt.
-
-Overfull \hbox (21.15797pt too wide) in paragraph at lines 133--134
- [][] 
- []
-
-<../plots/Fscore_compare_complete.png, id=58, 539.01375pt x 391.4625pt>
-File: ../plots/Fscore_compare_complete.png Graphic file (type png)
-
-<use ../plots/Fscore_compare_complete.png>
-Package pdftex.def Info: ../plots/Fscore_compare_complete.png used on input lin
-e 139.
-(pdftex.def)             Requested size: 248.78001pt x 180.67499pt.
-
-Overfull \hbox (21.15797pt too wide) in paragraph at lines 139--140
- [][] 
- []
-
-
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 131--142
- [][]  [] 
- []
-
-<../plots/hierarchy_F_thin_0_1.png, id=59, 481.8pt x 481.8pt>
-File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
-
-<use ../plots/hierarchy_F_thin_0_1.png>
-Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 1
-49.
-(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
-
-<../plots/admixture_F_thin_0_1.png, id=60, 481.8pt x 481.8pt>
-File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
-
-<use ../plots/admixture_F_thin_0_1.png>
-Package pdftex.def Info: ../plots/admixture_F_thin_0_1.png used on input line 1
-55.
-(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
-
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 147--157
- [][]  [] 
- []
-
-<../plots/hierarchy_F_thin_0_01.png, id=61, 481.8pt x 481.8pt>
-File: ../plots/hierarchy_F_thin_0_01.png Graphic file (type png)
-
-<use ../plots/hierarchy_F_thin_0_01.png>
-Package pdftex.def Info: ../plots/hierarchy_F_thin_0_01.png used on input line 
-161.
-(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
-
-<../plots/admixture_F_thin_0_01.png, id=62, 481.8pt x 481.8pt>
-File: ../plots/admixture_F_thin_0_01.png Graphic file (type png)
-
-<use ../plots/admixture_F_thin_0_01.png>
-Package pdftex.def Info: ../plots/admixture_F_thin_0_01.png used on input line 
-167.
-(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
-
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 159--169
- [][]  [] 
- []
-
-<../plots/hierarchy_F_thin_0_001.png, id=63, 481.8pt x 481.8pt>
-File: ../plots/hierarchy_F_thin_0_001.png Graphic file (type png)
-
-<use ../plots/hierarchy_F_thin_0_001.png>
-Package pdftex.def Info: ../plots/hierarchy_F_thin_0_001.png used on input line
- 173.
-(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
-
-<../plots/admixture_F_thin_0_001.png, id=64, 481.8pt x 481.8pt>
-File: ../plots/admixture_F_thin_0_001.png Graphic file (type png)
-
-<use ../plots/admixture_F_thin_0_001.png>
-Package pdftex.def Info: ../plots/admixture_F_thin_0_001.png used on input line
- 179.
-(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
-
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 171--181
- [][]  [] 
- []
-
-
-LaTeX Warning: Float too large for page by 64.9171pt on input line 184.
-
-
-<../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png, id=65, 803.0pt x 301.12
-5pt>
-File: ../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png Graphic file (type 
-png)
- <use ../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png>
-Package pdftex.def Info: ../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png 
-used on input line 262.
-(pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
-
-Overfull \hbox (345.24138pt too wide) in paragraph at lines 262--264
-[][] 
- []
-
-
-<../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png, id=66, 803.0pt x 301.12
-5pt>
-File: ../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png Graphic file (type 
-png)
- <use ../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png>
-Package pdftex.def Info: ../plots/Zeisel/clus_5/struct_clus_5_cell_subtype.png 
-used on input line 268.
-(pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
-
-Overfull \hbox (254.19394pt too wide) in paragraph at lines 268--270
-[][] 
- []
-
-
-<../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png, id=67, 803.0pt x 301.
-125pt>
-File: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png Graphic file (typ
-e png)
- <use ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png>
-Package pdftex.def Info: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.pn
-g used on input line 274.
-(pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
-
-Overfull \hbox (254.19394pt too wide) in paragraph at lines 274--276
-[][] 
- []
-
-<../plots/Jaitin_struct_clus_7_amp_batch.png, id=68, 602.25pt x 401.5pt>
+<../plots/Jaitin_struct_clus_7_amp_batch.png, id=173, 602.25pt x 401.5pt>
 File: ../plots/Jaitin_struct_clus_7_amp_batch.png Graphic file (type png)
 
 <use ../plots/Jaitin_struct_clus_7_amp_batch.png>
 Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_amp_batch.png used on in
-put line 286.
-(pdftex.def)             Requested size: 433.64723pt x 289.07999pt.
+put line 300.
+(pdftex.def)             Requested size: 433.63805pt x 180.67944pt.
 
-<../plots/Jaitin_struct_clus_7_seq_batch.png, id=69, 602.25pt x 401.5pt>
-File: ../plots/Jaitin_struct_clus_7_seq_batch.png Graphic file (type png)
+<../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png, id=174, 803.0pt x 301
+.125pt>
+File: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png Graphic file (typ
+e png)
+ <use ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png>
+Package pdftex.def Info: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.pn
+g used on input line 305.
+(pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
 
-<use ../plots/Jaitin_struct_clus_7_seq_batch.png>
-Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_seq_batch.png used on in
-put line 291.
-(pdftex.def)             Requested size: 433.64723pt x 289.07999pt.
+Overfull \hbox (26.5719pt too wide) in paragraph at lines 305--306
+ [][] 
+ []
+
+[9pdfTeX warning (ext4): destination with the same identifier (name{cite.Thomps
+on2014}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.313  \clearpage
+                 ] [10] [11] [12] [13] [14 <../plots/whole_tissue_structure_15_
+thinned.png>] [15 <../plots/brain_structure_plot.png>] [16 <../plots/hierarchy_
+F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>] [17 <../plots/gtex_thinned
+_clus_12_version_2.png>] [18 <../plots/Jaitin_struct_clus_7_amp_batch.png> <../
+plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png>]
+<../plots/hierarchy_F_thin_0_01.png, id=234, 481.8pt x 481.8pt>
+File: ../plots/hierarchy_F_thin_0_01.png Graphic file (type png)
+
+<use ../plots/hierarchy_F_thin_0_01.png>
+Package pdftex.def Info: ../plots/hierarchy_F_thin_0_01.png used on input line 
+321.
+(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
+
+<../plots/admixture_F_thin_0_01.png, id=235, 481.8pt x 481.8pt>
+File: ../plots/admixture_F_thin_0_01.png Graphic file (type png)
+
+<use ../plots/admixture_F_thin_0_01.png>
+Package pdftex.def Info: ../plots/admixture_F_thin_0_01.png used on input line 
+327.
+(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
+
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 319--329
+ [][]  [] 
+ []
+
+<../plots/hierarchy_F_thin_0_001.png, id=236, 481.8pt x 481.8pt>
+File: ../plots/hierarchy_F_thin_0_001.png Graphic file (type png)
+
+<use ../plots/hierarchy_F_thin_0_001.png>
+Package pdftex.def Info: ../plots/hierarchy_F_thin_0_001.png used on input line
+ 333.
+(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
+
+<../plots/admixture_F_thin_0_001.png, id=237, 481.8pt x 481.8pt>
+File: ../plots/admixture_F_thin_0_001.png Graphic file (type png)
+
+<use ../plots/admixture_F_thin_0_001.png>
+Package pdftex.def Info: ../plots/admixture_F_thin_0_001.png used on input line
+ 339.
+(pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
+
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 331--341
+ [][]  [] 
+ []
+
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 12.
+ [19
+
+] [20 <../plots/hierarchy_F_thin_0_01.png> <../plots/admixture_F_thin_0_01.png>
+ <../plots/hierarchy_F_thin_0_001.png> <../plots/admixture_F_thin_0_001.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 12.
+ (./main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 12.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 12.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 9BBF60454EED9ECEF885CF378220A866;507.
 
 
-LaTeX Warning: Float too large for page by 14.58214pt on input line 296.
+LaTeX Warning: There were undefined references.
 
-) [8] [9] [10] [11] [12] [13] [14] [15] [16 <../plots/whole_tissue_structure_15
-.png> <../plots/whole_tissue_structure_15_thinned.png>] [17 <../plots/brain_str
-ucture_plot.png>] [18 <../plots/gtex_thinned_clus_12_version_1.png> <../plots/g
-tex_thinned_clus_12_version_2.png>] [19 <../plots/multiple_thinned_1.png> <../p
-lots/multiple_thinned_2.png> <../plots/multiple_thinned_4.png>] [20 <../plots/h
-eart_muscle_hierarchical_heatmap_complete.png> <../plots/heart_muscle_hierarchi
-cal_heatmap_average.png> <../plots/heart_muscle_hierarchical_heatmap_cpm_comple
-te.png> <../plots/heart_muscle_hierarchical_heatmap_cpm_average.png> <../plots/
-heart_muscle_admix_heatmap_complete.png> <../plots/heart_muscle_admix_heatmap_a
-verage.png>] [21 <../plots/hierarchical_admix_2.png> <../plots/hierarchical_adm
-ix_3.png> <../plots/hierarchical_admix_4.png> <../plots/hierarchical_admix_5.pn
-g>] [22 <../plots/Fscore_compare_average.png> <../plots/Fscore_compare_complete
-.png>] [23 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.p
-ng> <../plots/hierarchy_F_thin_0_01.png> <../plots/admixture_F_thin_0_01.png> <
-../plots/hierarchy_F_thin_0_001.png> <../plots/admixture_F_thin_0_001.png>]
-[24 <../plots/Zeisel/clus_2/struct_clus_2_cell_subtype.png> <../plots/Zeisel/cl
-us_5/struct_clus_5_cell_subtype.png> <../plots/Zeisel/clus_10/struct_clus_10_ce
-ll_subtype.png>] [25 <../plots/Jaitin_struct_clus_7_amp_batch.png> <../plots/Ja
-itin_struct_clus_7_seq_batch.png>] (./main.aux) ) 
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 12.
+ ) 
 Here is how much of TeX's memory you used:
- 4090 strings out of 493117
- 64368 string characters out of 6135433
- 201439 words of memory out of 5000000
- 7428 multiletter control sequences out of 15000+600000
+ 7517 strings out of 493117
+ 113243 string characters out of 6135433
+ 251072 words of memory out of 5000000
+ 10790 multiletter control sequences out of 15000+600000
  12512 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,38p,2230b,505s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf
--dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2014/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2014/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2014/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2014/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2014/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (25 pages, 1391960 bytes).
+ 38i,10n,38p,2726b,522s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
+r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
+l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/
+texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/te
+xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (20 pages, 701066 bytes).
 PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
- 100 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 156 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 311 PDF objects out of 1000 (max. 8388607)
+ 246 compressed objects within 3 object streams
+ 73 named destinations out of 1000 (max. 500000)
+ 128 words of extra memory for PDF output out of 10000 (max. 10000000)
 
