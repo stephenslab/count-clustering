@@ -109,7 +109,7 @@ out <- queryMany(xli, scopes="ensembl.gene", fields=c("name", "summary"), specie
 
 #write.table(out, "/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/cis_gene_complete_summary_gtex.txt");
 
-write.table(out, "/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/reads_gene_complete_summary_gtex.txt");
+#write.table(out, "/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/reads_gene_complete_summary_gtex.txt");
 
 
 out <- read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/reads_gene_complete_summary_gtex.txt");
@@ -484,7 +484,7 @@ brain_subgroups_id =samples_id[brain_indices,3];
 docweights= read.table('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/topics_brain_thinned_omega_clus_4.txt');
 
 K=4
-barplot(t(docweights),col=1:K,axisnames=F,space=0,border=NA,main=paste("No. of clusters=",K),las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
+barplot(t(docweights),col=2:(K+1),axisnames=F,space=0,border=NA,main=paste("No. of clusters=",K),las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
 brain_subgroups_id[394]=brain_subgroups_id[395];
 labels=match(unique(brain_subgroups_id), brain_subgroups_id);
 abline(v=labels)
@@ -515,53 +515,32 @@ brain_samples=data[,brain_indices];
 
 #write.table(Topic_Clus$theta, '/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/topics_brain_thinned_theta_clus_4.txt');
 
+gene_snp_names_gtex <- data.frame(fread('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/gene_snp_names.txt',header=FALSE));
+gene_names <- substring(gene_snp_names_gtex[,2],1,15);
+
+
 topics_theta <- read.table('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/topics_brain_thinned_theta_clus_4.txt');
 
-KL_score_poisson <- lapply(1:K, function(n) 
-                                {
-                                    out <- t(apply(topics_theta, 1, function(x)
-                                                                    {
-                                                                      y=x[n] *log(x[n]/x) + x - x[n];
-                                                                      return(y)
-                                                                     }));
-                                    return(out)
-                                })
-                   
+features <- ExtractTopFeatures(topics_theta,top_features = 20, method="poisson")
+features_vec <- unique(as.vector(features));
 
+class <- as.numeric(apply(topics_theta[features_vec,], 1, which.max))
+
+imp_gene_names <- gene_names[features_vec];
+
+imp_genes_per_class <- lapply(1:dim(topics_theta)[2], function(x) imp_gene_names[which(class==x)]);
 
 ```
 
 We use the KL Poisson model to get a set of genes that were highly expressed in one cluster compared to another.
 
-```{r echo=FALSE, eval=TRUE}
-
-indices_mat_poisson=matrix(0,dim(topics_theta)[2],10);
-
-for(k in 1:dim(topics_theta)[2])
-{
-  temp_mat <- KL_score_poisson[[k]][,-k];
-  vec <- apply(temp_mat, 1, function(x) min(x))
-  indices_mat_poisson[k,] = order(vec, decreasing = TRUE)[1:10]
-}
-
-gene_snp_names_gtex <- data.frame(fread('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/gene_snp_names.txt',header=FALSE));
-gene_names <- substring(gene_snp_names_gtex[,2],1,15);
-
-
-
-gene_names_mat_poisson = matrix(gene_names[as.vector(indices_mat_poisson)],nrow=dim(topics_theta)[2]);
-
-par(mfrow=c(1,1))
-barplot(rep(1,4),col=2:5)
-
-```
-
 ## Green cluster (Cerebellum and Cerebellur Hemisphere)
 
 ```{r echo=FALSE, eval=TRUE}
 
-gene_names_mat_poisson[3,]
-lapply(1:10, function(n) out[grep(gene_names_mat_poisson[3,n], out$query),])
+out <- queryMany(imp_genes_per_class[[3]], scopes="ensembl.gene", fields=c("name", "summary"), species="human");
+
+out
 
 ```
 
@@ -569,9 +548,9 @@ lapply(1:10, function(n) out[grep(gene_names_mat_poisson[3,n], out$query),])
 
 ```{r echo=FALSE, eval=TRUE}
 
-gene_names_mat_poisson[4,]
-lapply(1:10, function(n) out[grep(gene_names_mat_poisson[4,n], out$query),])
+out <- queryMany(imp_genes_per_class[[4]], scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 
+out
 ```
 
 
@@ -579,13 +558,20 @@ lapply(1:10, function(n) out[grep(gene_names_mat_poisson[4,n], out$query),])
 
 ```{r echo=FALSE, eval=TRUE}
 
-gene_names_mat_poisson[1,]
-lapply(1:10, function(n) out[grep(gene_names_mat_poisson[1,n], out$query),])
+out <- queryMany(imp_genes_per_class[[1]], scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 
+out
 ```
 
 
+## green cluster (cerebellum)
 
+```{r echo=FALSE, eval=TRUE}
+
+out <- queryMany(imp_genes_per_class[[2]], scopes="ensembl.gene", fields=c("name", "summary"), species="human");
+
+out
+```
 
 <!-- Two genes that seem to crop up a numebr of times in the above analysis are **ENSG00000197971** and **ENSG00000132639**.
 
