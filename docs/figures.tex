@@ -7,8 +7,8 @@
 
 \begin{figure*}[ht]
 	\raggedleft
-	\includegraphics[height=3in, width=6.5in]{../plots/whole_tissue_structure_15_thinned.png}
-        \caption{Structure plot of the admixture proportions (with 15 topics/clusters) for the $8555$ tissue samples coming from $53$ tissues  in GTEX Version 4 data based on 16407 cis genes derived using eQtlbma (due to Flutre et al \cite{Flutre2013}). Note that there the samples coming from the same tissue are pretty homogeneous. Also tissues of same origin, for instance all the brain tissues, all the arteries seem to cluster together. There are other interesting patterns as well- for instance, Muscle Skeletal has similar clustering patterns as Heart tissues and Breast mammary tissue has similar patterns as Adipose tissues.}
+	\includegraphics[height=3in, width=6.5in]{../plots/GTEX_V6_thin_0.png}
+        \caption{Structure plot of the admixture proportions (with 15 topics/clusters) for the $8555$ tissue samples coming from $53$ tissues  in GTEX V6 data based on 16069 cis genes derived using PEER analysis MatrixEQTL . Note that the samples coming from the same tissue have similar admixing patterns. Tissues of same origin, for instance all the brain tissues, all the arteries seem to cluster together. Also, some other tissues, presumably not of same origin, show markedly similar clustering patterns - for instance Breast mammary tissue, Nerve Tibial and Adipose tissues are very similar in clustering patterns.}
 \label{fig:fig1}
 \end{figure*}
 
@@ -39,8 +39,8 @@
 
  \begin{figure*}[ht]
         \centering
-        \includegraphics[height=2.7in]{../plots/gtex_thinned_clus_12_version_2.png}
-    \caption{Structure plot of all tissue samples in GTEx version 4 data thinned data with $p_{thin}=0.0001$ for K=12. The thinning parameter has been chosen so that the GTEx RNA-seq data can be interpreted at the same scale as a scRNA-seq data.  It seems the results are pretty robust. This suggests that most of the structure in the clustering patterns we observed in textbf{Fig \ref{fig:fig1}} is retained even after thinning. }
+        \includegraphics[height=2.7in]{../plots/GTEX_V6_thin_2.png}
+    \caption{Structure plot of all tissue samples in GTEx V6 data thinned data with $p_{thin}=0.0001$ for $K=15$. The thinning parameter has been chosen so that the GTEx RNA-seq data can be interpreted at the same scale as a scRNA-seq data.  The clustering patterns are more noisy compared to the non-thinned data in Fig \ref{fig:fig1}, but overall, the similarity patterns across the tissues are retained. For instance, the brain tissues and the arteries still seem to be clustering together.}
  \label{fig:fig4}
     \end{figure*}
     

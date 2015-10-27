@@ -18,7 +18,7 @@ In this script, we give the gene annotations of the genes that seem to vary grea
 
 ```{r gene_annotation, echo=TRUE, eval=TRUE}
 
-topics_theta <- data.frame(fread("/Users/kushal/Documents/count-clustering/internal_data/gtex_reads/theta_reads.txt"))[,-1];
+topics_theta <- data.frame(fread("/Users/kushal/Documents/count-clustering/data/GTEX_V6/admix_out_GTEX_V6/theta_cis_genes_0_1_2.txt"))[,-1];
 
 #topics_theta <- data.frame(fread("/Users/kushal/Documents/count-clustering/internal_data/gtex_thinned/topics_theta_clus_15_version_1.txt"))[,-1];
 
