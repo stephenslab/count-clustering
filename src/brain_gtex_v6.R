@@ -10,3 +10,7 @@ colnames(brain_data) <- samples_id[brain_indices];
 brain_data_frame <- cbind.data.frame(data[,2],brain_data);
 
 write.table(brain_data_frame, '../data/GTEX_V6/cis_gene_expression_brain.txt');
+
+gene_names <- cbind.data.frame(data[,2]);
+colnames(gene_names) <- "cis_gene_names"
+write.table(gene_names, "../data/GTEX_V6/gene_names_GTEX_V6.txt");
