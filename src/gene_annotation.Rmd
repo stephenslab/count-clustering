@@ -84,10 +84,9 @@ for(k in 1:dim(topics_theta)[2])
   indices_mat_poisson[k,] = order(vec, decreasing = TRUE)[1:10]
 }
 
-#gene_snp_names_gtex <- data.frame(fread('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/gene_snp_names.txt',header=FALSE));
 #gene_names <- substring(gene_snp_names_gtex[,2],1,15);
 
-gene_names <- as.vector(as.matrix(read.table("/Users/kushal/Documents/count-clustering/internal_data/gtex_reads/gene_names_top_5000.txt")))
+gene_names <- as.vector(as.matrix(read.table("/Users/kushal/Documents/count-clustering/data/GTEX_V6/gene_names_GTEX_V6.txt")))
 gene_names <- substring(gene_names,1,15);
 gene_names_mat_poisson = matrix(gene_names[as.vector(indices_mat_poisson)],nrow=dim(topics_theta)[2]);
 
