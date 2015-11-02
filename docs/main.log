@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  27 OCT 2015 15:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  1 NOV 2015 18:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -314,22 +314,32 @@ Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 LaTeX Warning: Label `Thompson2014' multiply defined.
 
 )
-\openout1 = `main.aux'.
+Runaway argument?
+{{6}{15}{In this graph, we compare the hierarchical clustering method\ETC.
+./main.tex:3: File ended while scanning use of \@newl@bel.
+<inserted text> 
+                \par 
+l.3 \begin{document}
+                    
+? 
+./main.tex:3: Emergency stop.
+<inserted text> 
+                \par 
+l.3 \begin{document}
+                    
+End of file on the terminal!
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
+ 
+Here is how much of TeX's memory you used:
+ 6695 strings out of 493117
+ 99823 string characters out of 6135433
+ 188284 words of memory out of 5000000
+ 10133 multiletter control sequences out of 15000+600000
+ 3940 words of font info for 15 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,0n,38p,1349b,43s stack positions out of 5000i,500n,10000p,200000b,80000s
+./main.tex:3:  ==> Fatal error occurred, no output PDF file produced!
+ne 3.
 \AtBeginShipoutBox=\box28
 Package hyperref Info: Link coloring OFF on input line 3.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -381,38 +391,42 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
 (./outline.tex
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 13.
- (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 13.
-LaTeX Font Info:    Try loading font information for U+msa on input line 44.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 44.
+LaTeX Font Info:    Try loading font information for U+msb on input line 5.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+)
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
-]) (./methods.tex
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+[1
+
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+(./methods.tex
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
 [2] [3]) (./results.tex
 
-Package caption Warning: \label without proper \caption on input line 25.
+Package caption Warning: \label without proper \caption on input line 23.
 See the caption package documentation for explanation.
 
 
 LaTeX Warning: Reference `tab:tab1' on page 4 undefined on input line 30.
 
 
-Package caption Warning: \label without proper \caption on input line 25.
+Package caption Warning: \label without proper \caption on input line 23.
 See the caption package documentation for explanation.
 
 
@@ -444,11 +458,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--41
  []
 
 [5]) (./discussion.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 5.
 
- []
-
-[6]) (./references.tex
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 5.
+ [6])
+(./references.tex
 Underfull \hbox (badness 6094) in paragraph at lines 5--8
 []\OT1/cmr/m/n/10.95 S An-ders, T P Pyl, W Hu-ber. \OT1/cmr/m/it/10.95 HT-Seq :
  A Python frame-work to work
@@ -472,20 +490,20 @@ son2014}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.114 \bibitem{Flutre2013}
+l.114 \bibitem{Palmer2005}
                           ]
-Underfull \hbox (badness 2359) in paragraph at lines 115--118
+Underfull \hbox (badness 2359) in paragraph at lines 120--123
 []\OT1/cmr/m/n/10.95 Flutre T, Wen X, Pritchard J and Stephens M. \OT1/cmr/m/it
 /10.95 A Sta-tis-ti-cal Frame-work for
  []
 
 
-Underfull \hbox (badness 3612) in paragraph at lines 115--118
+Underfull \hbox (badness 3612) in paragraph at lines 120--123
 \OT1/cmr/m/it/10.95 Joint eQTL Anal-y-sis in Mul-ti-ple Tis-sues \OT1/cmr/m/n/1
 0.95 PLoS Genet 2013, 9(5): e1003486.
  []
 
-) (./figures.tex <../plots/GTEX_V6_thin_0.png, id=176, 702.625pt x 301.125pt>
+) (./figures.tex <../plots/GTEX_V6_thin_0.png, id=175, 702.625pt x 301.125pt>
 File: ../plots/GTEX_V6_thin_0.png Graphic file (type png)
 
 <use ../plots/GTEX_V6_thin_0.png>
@@ -496,7 +514,7 @@ Overfull \hbox (14.52588pt too wide) in paragraph at lines 10--11
  [][]
  []
 
-<../plots/GTEX_V6_brain_thin_0.png, id=178, 702.625pt x 301.125pt>
+<../plots/GTEX_V6_brain_thin_0.png, id=177, 702.625pt x 301.125pt>
 File: ../plots/GTEX_V6_brain_thin_0.png Graphic file (type png)
 
 <use ../plots/GTEX_V6_brain_thin_0.png>
@@ -504,7 +522,7 @@ Package pdftex.def Info: ../plots/GTEX_V6_brain_thin_0.png used on input line 1
 7.
 (pdftex.def)             Requested size: 325.227pt x 216.81902pt.
 
-<../plots/hierarchy_F_thin_0_1.png, id=181, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_1.png, id=180, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_1.png>
@@ -512,7 +530,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 2
 6.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_1.png, id=182, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_1.png, id=181, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_1.png>
@@ -524,33 +542,29 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 24--34
  [][]  [] 
  []
 
-<../plots/GTEX_V6_thin_2.png, id=183, 702.625pt x 301.125pt>
+<../plots/GTEX_V6_thin_2.png, id=182, 702.625pt x 301.125pt>
 File: ../plots/GTEX_V6_thin_2.png Graphic file (type png)
 
 <use ../plots/GTEX_V6_thin_2.png>
 Package pdftex.def Info: ../plots/GTEX_V6_thin_2.png used on input line 42.
 (pdftex.def)             Requested size: 455.3178pt x 195.12877pt.
 
-<../plots/Jaitin_struct_clus_7_amp_batch.png, id=186, 602.25pt x 401.5pt>
+<../plots/Jaitin_struct_clus_7_amp_batch.png, id=185, 602.25pt x 401.5pt>
 File: ../plots/Jaitin_struct_clus_7_amp_batch.png Graphic file (type png)
 
 <use ../plots/Jaitin_struct_clus_7_amp_batch.png>
 Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_amp_batch.png used on in
 put line 300.
-(pdftex.def)             Requested size: 433.63805pt x 180.67944pt.
+(pdftex.def)             Requested size: 325.22853pt x 180.67944pt.
 
-<../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png, id=187, 803.0pt x 301
+<../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png, id=186, 803.0pt x 301
 .125pt>
 File: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png Graphic file (typ
 e png)
  <use ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png>
 Package pdftex.def Info: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.pn
 g used on input line 305.
-(pdftex.def)             Requested size: 481.81598pt x 180.67499pt.
-
-Overfull \hbox (26.5719pt too wide) in paragraph at lines 305--306
- [][] 
- []
+(pdftex.def)             Requested size: 397.49236pt x 180.68097pt.
 
 
 LaTeX Warning: Citation `Jaitin2015' on page 9 undefined on input line 308.
@@ -562,7 +576,7 @@ LaTeX Warning: Citation `Jaitin2015' on page 9 undefined on input line 308.
 [11 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>]
 [12 <../plots/GTEX_V6_thin_2.png>] [13 <../plots/Jaitin_struct_clus_7_amp_batch
 .png> <../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png>]
-<../plots/hierarchy_F_thin_0_01.png, id=220, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_01.png, id=219, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_01.png>
@@ -570,7 +584,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_01.png used on input line
 321.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_01.png, id=221, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_01.png, id=220, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_01.png>
@@ -582,7 +596,7 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 319--329
  [][]  [] 
  []
 
-<../plots/hierarchy_F_thin_0_001.png, id=222, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_001.png, id=221, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_001.png>
@@ -590,7 +604,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_001.png used on input line
  333.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_001.png, id=223, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_001.png, id=222, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_001.png>
@@ -606,299 +620,279 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 331--341
 
 ] [15 <../plots/hierarchy_F_thin_0_01.png> <../plots/admixture_F_thin_0_01.png>
  <../plots/hierarchy_F_thin_0_001.png> <../plots/admixture_F_thin_0_001.png>]
-Overfull \vbox (13.60004pt too high) detected at line 11
+Overfull \vbox (13.60004pt too high) detected at line 9
  []
 
 
-Underfull \hbox (badness 1270) in paragraph at lines 12--13
+Underfull \hbox (badness 1270) in paragraph at lines 10--11
 []\OT1/cmr/m/n/10 encodes a com-po-nent of high den-sity
  []
 
 
-Overfull \hbox (11.22371pt too wide) in paragraph at lines 15--15
+Overfull \hbox (11.22371pt too wide) in paragraph at lines 13--13
 \OT1/cmr/m/n/10.95 Esophagus)|  
  []
 
 
-Overfull \vbox (13.60004pt too high) detected at line 15
+Overfull \vbox (13.60004pt too high) detected at line 13
  []
 
 
-Underfull \hbox (badness 5970) in paragraph at lines 15--15
+Underfull \hbox (badness 5970) in paragraph at lines 13--13
 []\OT1/cmr/m/n/10.95 myosin, heavy chain 11,
  []
 
 
-Underfull \hbox (badness 3735) in paragraph at lines 17--17
+Underfull \hbox (badness 3735) in paragraph at lines 15--15
 []\OT1/cmr/m/n/10.95 actin, gamma 2, smooth
  []
 
 
-Overfull \vbox (13.60004pt too high) detected at line 19
+Overfull \vbox (13.60004pt too high) detected at line 17
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--21
+Underfull \hbox (badness 10000) in paragraph at lines 19--19
 []\OT1/cmr/m/n/10.95 synaptosomal-associated
  []
 
 
-Overfull \hbox (45.1093pt too wide) in paragraph at lines 6--24
+Overfull \hbox (45.1093pt too wide) in paragraph at lines 4--22
  [] 
  []
 
 
-Overfull \vbox (40.80005pt too high) detected at line 43
+Overfull \vbox (40.80005pt too high) detected at line 41
  []
 
 
-Overfull \vbox (13.60004pt too high) detected at line 47
+Overfull \vbox (13.60004pt too high) detected at line 45
  []
 
 
-Underfull \hbox (badness 1092) in paragraph at lines 48--49
+Underfull \hbox (badness 1092) in paragraph at lines 46--47
 \OT1/cmr/m/n/10 ily mem-ber KRT10 and mu-ta-tions in
  []
 
 
-Overfull \hbox (9.88539pt too wide) in paragraph at lines 51--51
+Overfull \hbox (9.88539pt too wide) in paragraph at lines 49--49
 \OT1/cmr/m/n/10.95 fibroblasts)|  
  []
 
 
-Overfull \vbox (27.20004pt too high) detected at line 51
+Overfull \vbox (27.20004pt too high) detected at line 49
  []
 
 
-Overfull \hbox (45.1093pt too wide) in paragraph at lines 34--56
+Overfull \hbox (45.1093pt too wide) in paragraph at lines 32--54
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 26.69197pt on input line 57.
+LaTeX Warning: Float too large for page by 26.69197pt on input line 55.
 
 [16
 
 ] [17]
-Overfull \vbox (13.60004pt too high) detected at line 72
+Overfull \vbox (13.60004pt too high) detected at line 70
  []
 
 
-Overfull \vbox (13.60004pt too high) detected at line 76
+Overfull \vbox (13.60004pt too high) detected at line 74
  []
 
 
-Overfull \vbox (13.60004pt too high) detected at line 80
+Overfull \vbox (13.60004pt too high) detected at line 78
  []
 
 
-Underfull \hbox (badness 1158) in paragraph at lines 87--88
+Underfull \hbox (badness 1158) in paragraph at lines 85--86
 []\OT1/cmr/m/n/10 protein en-coded by this gene be-longs
  []
 
 
-Overfull \hbox (45.1093pt too wide) in paragraph at lines 66--90
+Overfull \hbox (45.1093pt too wide) in paragraph at lines 64--88
  [] 
  []
 
 
-Overfull \vbox (40.80005pt too high) detected at line 102
+Overfull \vbox (40.80005pt too high) detected at line 100
  []
 
 
-Overfull \hbox (7.2391pt too wide) in paragraph at lines 106--106
+Overfull \hbox (7.2391pt too wide) in paragraph at lines 104--104
 \OT1/cmr/m/n/10.95 (Pancreas)|  
  []
 
 
-Overfull \vbox (13.60004pt too high) detected at line 106
+Overfull \vbox (13.60004pt too high) detected at line 104
  []
 
 
-Underfull \hbox (badness 1466) in paragraph at lines 106--107
+Underfull \hbox (badness 1466) in paragraph at lines 104--105
 []\OT1/cmr/m/n/10 secreted by pan-creas, as-so-ci-ated with
  []
 
 
-Underfull \hbox (badness 1796) in paragraph at lines 108--109
+Underfull \hbox (badness 1796) in paragraph at lines 106--107
 []\OT1/cmr/m/n/10 encodes a car-boxyl es-terase that hy-
  []
 
 
-Underfull \hbox (badness 4739) in paragraph at lines 108--109
+Underfull \hbox (badness 4739) in paragraph at lines 106--107
 \OT1/cmr/m/n/10 drolyzes in-sol-u-ble, emul-si-fied triglyc-
  []
 
 
-Underfull \hbox (badness 1509) in paragraph at lines 112--113
+Underfull \hbox (badness 1509) in paragraph at lines 110--111
 \OT1/cmr/m/n/10 cessed to yield both al-pha and beta
  []
 
 
-Overfull \hbox (8.395pt too wide) in paragraph at lines 114--114
+Overfull \hbox (8.395pt too wide) in paragraph at lines 112--112
 \OT1/cmr/m/n/10.95 (Pituitary)|  
  []
 
 
-Overfull \hbox (45.1093pt too wide) in paragraph at lines 97--119
+Overfull \hbox (45.1093pt too wide) in paragraph at lines 95--117
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 62.69197pt on input line 120.
+LaTeX Warning: Float too large for page by 62.69197pt on input line 118.
 
 [18] [19]
-Overfull \hbox (7.66512pt too wide) in paragraph at lines 133--133
+Overfull \hbox (7.66512pt too wide) in paragraph at lines 130--130
 [][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--133
-[]\OT1/cmr/m/n/10.95 calmodulin 3
+Underfull \hbox (badness 10000) in paragraph at lines 130--130
+[]\OT1/cmr/m/n/10 ATPase,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--133
-\OT1/cmr/m/n/10.95 (phos-pho-ry-lase
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 134--134
-[]\OT1/cmr/m/n/10.95 F-box and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 134--134
-\OT1/cmr/m/n/10.95 leucine-rich
- []
-
-
-Underfull \hbox (badness 1377) in paragraph at lines 134--134
-\OT1/cmr/m/n/10.95 re-peat pro-tein
- []
-
-
-Underfull \hbox (badness 1810) in paragraph at lines 134--135
-[]\OT1/cmr/m/n/10.95 Members of the F-box pro-tein fam-ily, such as
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
-[]\OT1/cmr/m/n/10.95 ubiquitin
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
-\OT1/cmr/m/n/10.95 carboxyl-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--135
-\OT1/cmr/m/n/10.95 terminal
- []
-
-
-Overfull \hbox (7.66512pt too wide) in paragraph at lines 137--137
-[][]| 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 137--137
-[]\OT1/cmr/m/n/10.95 ATPase,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 137--137
-\OT1/cmr/m/n/10.95 Na+/K+
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 137--137
-\OT1/cmr/m/n/10.95 trans-port-
- []
-
-
-Underfull \hbox (badness 5578) in paragraph at lines 137--137
-\OT1/cmr/m/n/10.95 ing, al-pha 2
- []
-
-
-Underfull \hbox (badness 2042) in paragraph at lines 139--139
+Underfull \hbox (badness 2042) in paragraph at lines 132--132
 []\OT1/cmr/m/n/10.95 DnaJ (Hsp40)
  []
 
 
-Underfull \hbox (badness 1248) in paragraph at lines 139--139
+Underfull \hbox (badness 1248) in paragraph at lines 132--132
 \OT1/cmr/m/n/10.95 ho-molog, sub-
  []
 
 
-Overfull \hbox (7.66512pt too wide) in paragraph at lines 141--141
+Overfull \hbox (7.66512pt too wide) in paragraph at lines 134--134
 [][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--141
+Underfull \hbox (badness 10000) in paragraph at lines 134--134
 []\OT1/cmr/m/n/10.95 synaptosomal-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--141
+Underfull \hbox (badness 10000) in paragraph at lines 134--134
 \OT1/cmr/m/n/10.95 associated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
+Underfull \hbox (badness 10000) in paragraph at lines 135--135
 []\OT1/cmr/m/n/10.95 enolase 2
  []
 
 
-Underfull \hbox (badness 1783) in paragraph at lines 142--142
+Underfull \hbox (badness 1783) in paragraph at lines 135--135
 \OT1/cmr/m/n/10.95 (gamma, neu-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+Underfull \hbox (badness 10000) in paragraph at lines 136--136
 []\OT1/cmr/m/n/10.95 chromogranin
  []
 
 
-Overfull \hbox (7.66512pt too wide) in paragraph at lines 145--145
+Overfull \hbox (7.66512pt too wide) in paragraph at lines 139--139
 [][]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+[]\OT1/cmr/m/n/10.95 calmodulin 3
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+\OT1/cmr/m/n/10.95 (phos-pho-ry-lase
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
+[]\OT1/cmr/m/n/10.95 F-box and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--140
+\OT1/cmr/m/n/10.95 leucine-rich
+ []
+
+
+Underfull \hbox (badness 1377) in paragraph at lines 140--140
+\OT1/cmr/m/n/10.95 re-peat pro-tein
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+[]\OT1/cmr/m/n/10.95 ubiquitin
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+\OT1/cmr/m/n/10.95 carboxyl-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+\OT1/cmr/m/n/10.95 terminal
+ []
+
+
+Overfull \hbox (7.66512pt too wide) in paragraph at lines 143--143
+[][]| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 []\OT1/cmr/m/n/10.95 myelin ba-sic
  []
 
 
-Underfull \hbox (badness 6708) in paragraph at lines 146--146
+Underfull \hbox (badness 6708) in paragraph at lines 144--144
 []\OT1/cmr/m/n/10.95 glial fib-ril-lary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 []\OT1/cmr/m/n/10.95 secreted pro-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 \OT1/cmr/m/n/10.95 tein, acidic,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--147
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 \OT1/cmr/m/n/10.95 cysteine-rich
  []
 
 
-Overfull \hbox (44.67163pt too wide) in paragraph at lines 128--150
+Overfull \hbox (44.67163pt too wide) in paragraph at lines 126--148
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 97.8922pt on input line 151.
+LaTeX Warning: Float too large for page by 36.2921pt on input line 149.
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 12.
@@ -910,7 +904,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 12.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 12.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 12.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 6D40DA30F76826864104F147AF353DFD;633.
+(rerunfilecheck)             Checksum: 31B1B7789AE51A93EF1FDD6F637B0606;590.
 
 
 LaTeX Warning: There were undefined references.
@@ -921,29 +915,30 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 12.
  ) 
 Here is how much of TeX's memory you used:
- 7524 strings out of 493117
- 113164 string characters out of 6135433
- 216477 words of memory out of 5000000
- 10792 multiletter control sequences out of 15000+600000
- 12680 words of font info for 49 fonts, out of 8000000 for 9000
+ 7527 strings out of 493117
+ 113272 string characters out of 6135433
+ 216990 words of memory out of 5000000
+ 10801 multiletter control sequences out of 15000+600000
+ 14394 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,13n,38p,2454b,522s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,13n,38p,2361b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
 usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
 r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
-al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/
-texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/te
-xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/tex
-live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (21 pages, 692074 bytes).
+local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
+/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
+texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/te
+xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
+ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on main.pdf (21 pages, 704061 bytes).
 PDF statistics:
  328 PDF objects out of 1000 (max. 8388607)
- 263 compressed objects within 3 object streams
- 77 named destinations out of 1000 (max. 500000)
- 144 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 262 compressed objects within 3 object streams
+ 69 named destinations out of 1000 (max. 500000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

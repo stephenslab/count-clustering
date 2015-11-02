@@ -1,51 +1,60 @@
-\section{Outline}
+\title{\Large{\textbf{On model based clustering of RNA-seq expression data}}}
+\author{ Kushal K Dey  \qquad Matthew Stephens}
 
-The outline for this paper (in the format of George M. Whitesides)
+\maketitle
 
-Title: 
-
-Authors: Kushal Dey and Matthew Stephens
+\begin{abstract}
+We propose a model based approach to clustering the reads level expression for bulk RNA and single cell RNA-seq data. Besides providing us with nice and easily interpretable cluster visualization, our model detects the underlying structure in the data better than distance based approaches and also extracts the important genes that drive the clusters. It provides measures of model fit to assess the strength of clustering. Also, we show that this method is pretty robust under low coverage of reads. We apply this method on the GTEx tissue level bulk RNA expression data as well as two single cell RNA-seq data. Our methods are implemented in a R package \textbf{CountClust}, available at \url{https://github.com/kkdey/CountClust}.
+\end{abstract}
 
 \section{Introduction}
 
-\begin{itemize}
+Clustering of samples based on gene expression data is a popular exploratory mechanism in bulk RNA-seq or single cell RNA-seq (scRNA-seq) experiments that aids quality control and helps in understanding the heterogeneity across tissue samples (bulk RNA-seq) or single cells (scRNA-seq). Usually the clustering approach more commonly used in RNA-seq literature are the distance based clustering approaches- mainly hierarchical and k-means clustering (see Jaitin \textit{et al} 2014 \cite{Jaitin2014}, Buettner \textit{et al} 2015 \cite{Buettner2015}, GTEx Consortium paper \cite{GTEX2013}). However, the data obtained from the RNA sequencing experiments are counts data, representing the number of reads mapping to different genes. There exist model based clustering methods based on counts which seem to be directly applicable to the RNA-seq reads data. The clustering model we propose in this paper is similar to the topic model approach, widely used in Natural Language Processing (see Blei, Ng and Jordan 2003 \cite{Blei2003}, Blei and Lafferty 2009 \cite{Blei2009}), which is derived from the Admixture model in population genetics (see Pritchard, Stephens and Donnelly 2000 \cite{Pritchard2000}). \\[2 pt]
 
-\item \textit{objectives of the work}: to devise a completely unsupervised method to cluster the samples (tissue or single cell samples) into biologically meaningful sub-types based on the RNA-seq gene counts data
+This clustering approach models each tissue sample as having some proportion of its reads coming from each cluster. This is biologically meaningful since in reality, each tissue sample indeed is a mixture of different cell types and presumably, the clusters under this model could be driven by the cell types. Also, such mixed membership approach is capable of representing more continuous cluster patterns. \\[2 pt]
 
-\item \textit{justification of objectives} : 
-\begin{enumerate}
+In this paper, we demonstrate that for RNA-seq (bulk or single cell) data with known structural patterns, such count clustering approach identifies the structure better than hierarchical clustering. It also allows one to interpret each cluster by providing information about genes that are playing a significant role in driving the clusters and these genes may be important from both biological and medical standpoint. Also we show our method to be pretty robust even for low coverage data as might be the case for single cell RNA-seq (scRNA-seq) data.
+We illustrate the performance of our method on GTEx tissue level  bulk-RNA seq data as well as on a couple of single cell data. 
 
-\item  People have mainly used hierarchical clustering from GTEx consortium paper to most single cell RNA seq papers I have come across. We have evidence Admixture model does better than hierarchical clustering from  a biological viewpoint ( see structure.beats.hierarchical.html).
 
-\item Hierarchical clustering does not give us directly the genes that drive the clusters, Admixture model does, and it also provides us with a log likelihood to fix how many clusters to choose, based on Bayes factor. 
-
-\item We can predict the admixture proportions of cell types in any new sample coming in, so we can easily cluster new samples in cancer biopsy where the sub-types may involve cancer or non-cancer samples.
-
- 
-
-\end{enumerate}
-
-\item \textit{Background}
-\begin{enumerate}
-\item The BackSpin algorithm used by Zeisel et al. Claim is it does better than hierarchical but not model based (also not convincingly proven to be better)
-
-\item Use of downsampling and then modified hierarchical clustering scheme as applied by Jaitin et al.
-
-\item Mainly, people have used hierarchical clustering scheme
-
-\item Population genetics uses Admixture model on a regular basis. We think we can generalize that to RNA-seq data. The only question is do we really see the tissue samples as cell type admixture, as we observe individuals as population admixture. The answer seems to be yes.
-
-\end{enumerate}
-
-\item \textit{Guidance to the reader}
-\begin{enumerate}
-\item The Structure plot and t-SNE plots  for GTEx tissues and for Zeisel data. Much better visualization than the regular heatmaps that we tend to see in RNA-seq papers. 
-
-\item The Structure plot analysis for Brain samples that shows $80\%$ one cluster in cerebellum tissue samples and then from gene annotations, it is revealed this  cluster is indeed associated with synaptic activities implying it must be neuronal cell types. This is pretty cool because we have a priori knowledge from cell type specific markers that around $80\%$ of cells in cerebellum are neurons.
-
-\item Also the strategy is similar to the topic model strategy in natural language processing and it is a really nice technique to use for RNA-seq datasets clustering.
-
-\end{enumerate}
-
-\end{itemize}
-
+%\begin{itemize}
+%
+%\item \textit{objectives of the work}: to devise a completely unsupervised method to cluster the samples (tissue or single cell samples) into biologically meaningful sub-types based on the RNA-seq gene counts data
+%
+%\item \textit{justification of objectives} : 
+%\begin{enumerate}
+%
+%\item  People have mainly used hierarchical clustering from GTEx consortium paper to most single cell RNA seq papers I have come across. We have evidence Admixture model does better than hierarchical clustering from  a biological viewpoint ( see structure.beats.hierarchical.html).
+%
+%\item Hierarchical clustering does not give us directly the genes that drive the clusters, Admixture model does, and it also provides us with a log likelihood to fix how many clusters to choose, based on Bayes factor. 
+%
+%\item We can predict the admixture proportions of cell types in any new sample coming in, so we can easily cluster new samples in cancer biopsy where the sub-types may involve cancer or non-cancer samples.
+%
+% 
+%
+%\end{enumerate}
+%
+%\item \textit{Background}
+%\begin{enumerate}
+%\item The BackSpin algorithm used by Zeisel et al. Claim is it does better than hierarchical but not model based (also not convincingly proven to be better)
+%
+%\item Use of downsampling and then modified hierarchical clustering scheme as applied by Jaitin et al.
+%
+%\item Mainly, people have used hierarchical clustering scheme
+%
+%\item Population genetics uses Admixture model on a regular basis. We think we can generalize that to RNA-seq data. The only question is do we really see the tissue samples as cell type admixture, as we observe individuals as population admixture. The answer seems to be yes.
+%
+%\end{enumerate}
+%
+%\item \textit{Guidance to the reader}
+%\begin{enumerate}
+%\item The Structure plot and t-SNE plots  for GTEx tissues and for Zeisel data. Much better visualization than the regular heatmaps that we tend to see in RNA-seq papers. 
+%
+%\item The Structure plot analysis for Brain samples that shows $80\%$ one cluster in cerebellum tissue samples and then from gene annotations, it is revealed this  cluster is indeed associated with synaptic activities implying it must be neuronal cell types. This is pretty cool because we have a priori knowledge from cell type specific markers that around $80\%$ of cells in cerebellum are neurons.
+%
+%\item Also the strategy is similar to the topic model strategy in natural language processing and it is a really nice technique to use for RNA-seq datasets clustering.
+%
+%\end{enumerate}
+%
+%\end{itemize}
+%
