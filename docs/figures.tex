@@ -19,6 +19,14 @@
 \label{fig:fig2}
 \end{figure*}
 
+ \begin{figure*}[ht]
+        \centering
+        \includegraphics[height=2.7in]{../plots/GTEX_V6_thin_2.png}
+    \caption{Structure plot of all tissue samples in GTEx V6 data thinned data with $p_{thin}=0.0001$ for $K=15$. The thinning parameter has been chosen so that the GTEx RNA-seq data can be interpreted at the same scale as a scRNA-seq data.  The clustering patterns are more noisy compared to the non-thinned data in Fig \ref{fig:fig1}, but overall, the similarity patterns across the tissues are retained. For instance, the brain tissues and the arteries still seem to be clustering together.}
+ \label{fig:fig4}
+    \end{figure*}
+
+
   \begin{figure*}[ht]
     \centering
     \begin{subfigure}[t]{0.5\textwidth}
@@ -37,12 +45,6 @@
 \end{figure*}
 
 
- \begin{figure*}[ht]
-        \centering
-        \includegraphics[height=2.7in]{../plots/GTEX_V6_thin_2.png}
-    \caption{Structure plot of all tissue samples in GTEx V6 data thinned data with $p_{thin}=0.0001$ for $K=15$. The thinning parameter has been chosen so that the GTEx RNA-seq data can be interpreted at the same scale as a scRNA-seq data.  The clustering patterns are more noisy compared to the non-thinned data in Fig \ref{fig:fig1}, but overall, the similarity patterns across the tissues are retained. For instance, the brain tissues and the arteries still seem to be clustering together.}
- \label{fig:fig4}
-    \end{figure*}
     
     
 %     \begin{figure*}[ht]
@@ -305,7 +307,7 @@
         \includegraphics[height=2.5in, width=5.5in]{../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png}
         \vspace{-0.5in}  \qquad \qquad \caption{   $k=10$}
       \end{subfigure}
-    \caption{ (\textit{top panel})  Structure plot of the1041 single cells for K=7 of the Jaitin \textit{et al} data \cite{Jaitin2015} arranged by the amplification batch. It is observed that the clustering patterns in each batch are pretty homogeneous and so, either the amplification batch is driving the clustering or it is confounded with the actual biological effects, making it difficult to interpret these clusters. (\textit{bottom panel}) Structure plot of all samples for $K=10$ of Zeisel et al data \cite{Zeisel2015}, arranged by the cell subtype labels that were determined by the authors using their BackSpin algorithm and subsequent marker gene annotations. While the admixture patterns in cell subtypes are pretty homogeneous, the first few samples in Oligo6 show mild presence of red cluster and are pretty different from the rest of the samples in Oligo6 which do not show any trace of red cluster. These first few samples of Oligo6 look similar in pattern to some Oligo4 samples with mild red cluster presence. Oligo4 samples also shows some heterogeneity in terms of the proportion of red cluster present. This could either be due to misclassification of the Backspin algorithm, or some technical effects.}
+    \caption{ (\textit{top panel})  Structure plot of the1041 single cells for K=7 of the Jaitin \textit{et al} data \cite{Jaitin2014} arranged by the amplification batch. It is observed that the clustering patterns within each batch are similar and so, either the amplification batch is driving the clustering or it is confounded with the actual biological effects, making it difficult to interpret these clusters. (\textit{bottom panel}) Structure plot of all samples for $K=10$ of Zeisel et al data \cite{Zeisel2015}, arranged by the cell subtype labels that were determined by the authors using their BackSpin algorithm and subsequent marker gene annotations. While the cluster patterns within these cell subtypes are similar in general, the first few samples in Oligo6 show mild presence of red cluster and are markedly different from the rest of the samples in Oligo6 which do not show any trace of red cluster. These first few samples of Oligo6 look similar in pattern to some Oligo4 samples with mild red cluster presence. Oligo4 samples also shows some heterogeneity in terms of the proportion of red cluster present. This could either be due to misclassification of the Backspin algorithm, or due to technical effects unaccounted for (like plate effect, lane effect etc).}
  \label{fig:fig5}
  \end{figure*}
  
