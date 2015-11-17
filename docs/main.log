@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  17 NOV 2015 12:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  17 NOV 2015 15:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -487,9 +487,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--4
  []
 
 
-LaTeX Warning: Citation `Shen-orr2010' on page 6 undefined on input line 5.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
@@ -531,7 +528,7 @@ on2014}) has been already used, duplicate ignored
                                                   \fi \fi 
 l.133 
       ]) (./figures.tex
-<../plots/GTEX_V6_thin_0.png, id=169, 702.625pt x 301.125pt>
+<../plots/GTEX_V6_thin_0.png, id=171, 702.625pt x 301.125pt>
 File: ../plots/GTEX_V6_thin_0.png Graphic file (type png)
 
 <use ../plots/GTEX_V6_thin_0.png>
@@ -542,7 +539,7 @@ Overfull \hbox (14.52588pt too wide) in paragraph at lines 10--11
  [][]
  []
 
-<../plots/GTEX_V6_brain_thin_0.png, id=171, 702.625pt x 301.125pt>
+<../plots/GTEX_V6_brain_thin_0.png, id=173, 702.625pt x 301.125pt>
 File: ../plots/GTEX_V6_brain_thin_0.png Graphic file (type png)
 
 <use ../plots/GTEX_V6_brain_thin_0.png>
@@ -550,14 +547,14 @@ Package pdftex.def Info: ../plots/GTEX_V6_brain_thin_0.png used on input line 1
 7.
 (pdftex.def)             Requested size: 325.227pt x 216.81902pt.
 
-<../plots/GTEX_V6_thin_2.png, id=174, 702.625pt x 301.125pt>
+<../plots/GTEX_V6_thin_2.png, id=176, 702.625pt x 301.125pt>
 File: ../plots/GTEX_V6_thin_2.png Graphic file (type png)
 
 <use ../plots/GTEX_V6_thin_2.png>
 Package pdftex.def Info: ../plots/GTEX_V6_thin_2.png used on input line 24.
 (pdftex.def)             Requested size: 455.3178pt x 195.12877pt.
 
-<../plots/hierarchy_F_thin_0_1.png, id=177, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_1.png, id=179, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_1.png>
@@ -565,7 +562,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 3
 4.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_1.png, id=178, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_1.png, id=180, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_1.png>
@@ -577,7 +574,7 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 32--42
  [][]  [] 
  []
 
-<../plots/Jaitin_struct_clus_7_amp_batch.png, id=179, 602.25pt x 401.5pt>
+<../plots/Jaitin_struct_clus_7_amp_batch.png, id=181, 602.25pt x 401.5pt>
 File: ../plots/Jaitin_struct_clus_7_amp_batch.png Graphic file (type png)
 
 <use ../plots/Jaitin_struct_clus_7_amp_batch.png>
@@ -585,7 +582,7 @@ Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_amp_batch.png used on in
 put line 302.
 (pdftex.def)             Requested size: 325.22853pt x 180.67944pt.
 
-<../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png, id=180, 803.0pt x 301
+<../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png, id=182, 803.0pt x 301
 .125pt>
 File: ../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png Graphic file (typ
 e png)
@@ -598,7 +595,7 @@ g used on input line 307.
 [12 <../plots/GTEX_V6_thin_2.png>] [13 <../plots/hierarchy_F_thin_0_1.png> <../
 plots/admixture_F_thin_0_1.png>] [14 <../plots/Jaitin_struct_clus_7_amp_batch.p
 ng> <../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png>]
-<../plots/hierarchy_F_thin_0_01.png, id=219, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_01.png, id=220, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_01.png>
@@ -606,7 +603,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_01.png used on input line
 323.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_01.png, id=220, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_01.png, id=221, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_01.png>
@@ -618,7 +615,7 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 321--331
  [][]  [] 
  []
 
-<../plots/hierarchy_F_thin_0_001.png, id=221, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_001.png, id=222, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_001.png>
@@ -626,7 +623,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_001.png used on input line
  335.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_001.png, id=222, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_001.png, id=223, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_001.png>
@@ -937,10 +934,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 12.
  ) 
 Here is how much of TeX's memory you used:
- 7513 strings out of 493117
- 113029 string characters out of 6135433
+ 7512 strings out of 493117
+ 113015 string characters out of 6135433
  218377 words of memory out of 5000000
- 10788 multiletter control sequences out of 15000+600000
+ 10787 multiletter control sequences out of 15000+600000
  14394 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,13n,38p,2361b,482s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -956,10 +953,10 @@ cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
 texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/te
 xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (22 pages, 695709 bytes).
+Output written on main.pdf (22 pages, 695751 bytes).
 PDF statistics:
- 325 PDF objects out of 1000 (max. 8388607)
- 258 compressed objects within 3 object streams
+ 326 PDF objects out of 1000 (max. 8388607)
+ 259 compressed objects within 3 object streams
  71 named destinations out of 1000 (max. 500000)
  136 words of extra memory for PDF output out of 10000 (max. 10000000)
 
