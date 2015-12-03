@@ -7,24 +7,24 @@
 
 \begin{figure*}[ht]
 	\raggedleft
-	\includegraphics[height=3in, width=6.5in]{../plots/GTEX_V6_thin_0.png}
-        \caption{Structure plot of the admixture proportions (with 15 topics/clusters) for the $8555$ tissue samples coming from $53$ tissues  in GTEX V6 data based on 16069 cis genes derived using PEER analysis MatrixEQTL . Note that the samples coming from the same tissue have similar admixing patterns. Tissues of same origin, for instance all the brain tissues, all the arteries seem to cluster together. Also, some other tissues, presumably not of same origin, show markedly similar clustering patterns - for instance Breast mammary tissue, Nerve Tibial and Adipose tissues are very similar in clustering patterns.}
+	\includegraphics[height=5in, width=6.5in]{../plots/fig1_paper/fig1.pdf}
+        \caption{ \textbf{(a)}: Structure plot of the admixture proportions from model fit with 15 topics/clusters for the $8555$ tissue samples coming from $53$ tissues  in GTEX V6 data based on 16069 cis genes derived using a quality assessment procedure (check Results) . Note that the samples coming from the same tissue have similar admixing patterns. Tissues of same origin, for instance all the Brain tissues, all the arteries seem to cluster together. Also, some other tissues, presumably not of same origin, show markedly similar clustering patterns - for instance Breast mammary tissue, Nerve Tibial and Adipose tissues are very similar in clustering patterns. \textbf{(b)}: Structure plot of the cluster memberships from model fit with 4 clusters on just the brain tissue samples. We see more clustering patterns across the Brain tissues in this plot, that was masked by inter tissue variation in (a).  Brain cerebellum and cerebellar hemisphere seem to be represented by the green cluster while the Spinal cord and Substantia nigra have high grades of membership in cyan cluster.  \textbf{(c)}:  Structure plot of all tissue samples in GTEx V6 data thinned data with $p_{thin}=0.0001$ for $K=15$. The thinning parameter has been chosen so that the GTEx RNA-seq data can be interpreted at the same scale as a scRNA-seq data.  The clustering patterns are slightly more noisy compared to the non-thinned version in (a), but overall, the similarity patterns across the tissues are retained.}
 \label{fig:fig1}
 \end{figure*}
-
-\begin{figure*}[ht]
-\centering
-  \includegraphics[height=3in, width=4.5in]{../plots/GTEX_V6_brain_thin_0.png}
-    \caption{Structure plot of the admixture proportions (with 4 clusters) for the brain tissue samples drawn from GTEX Version 4 data. Quite clearly, brain cerebellum and cerebellar hemisphere seem to be dominated by the blue cluster while the Spinal cord and Substantia nigra by the cyan cluster. Prior marker based approaches have verified that $> 80 \%$ of cells in brain cerebellum correspond to neurons \cite{Houzel2005}. So, the blue cluster seems to be driven by the neuron cell type. This fact is further attested by the gene annotations of the top genes driving the blue cluster (Supplementary Table 1).}
-\label{fig:fig2}
-\end{figure*}
-
- \begin{figure*}[ht]
-        \centering
-        \includegraphics[height=2.7in]{../plots/GTEX_V6_thin_2.png}
-    \caption{Structure plot of all tissue samples in GTEx V6 data thinned data with $p_{thin}=0.0001$ for $K=15$. The thinning parameter has been chosen so that the GTEx RNA-seq data can be interpreted at the same scale as a scRNA-seq data.  The clustering patterns are more noisy compared to the non-thinned data in Fig \ref{fig:fig1}, but overall, the similarity patterns across the tissues are retained. For instance, the brain tissues and the arteries still seem to be clustering together.}
- \label{fig:fig4}
-    \end{figure*}
+%
+%\begin{figure*}[ht]
+%\centering
+%  \includegraphics[height=3in, width=4.5in]{../plots/GTEX_V6_brain_thin_0.png}
+%    \caption{Structure plot of the admixture proportions (with 4 clusters) for the brain tissue samples drawn from GTEX Version 4 data. Quite clearly, brain cerebellum and cerebellar hemisphere seem to be dominated by the blue cluster while the Spinal cord and Substantia nigra by the cyan cluster. Prior marker based approaches have verified that $> 80 \%$ of cells in brain cerebellum correspond to neurons \cite{Houzel2005}. So, the blue cluster seems to be driven by the neuron cell type. This fact is further attested by the gene annotations of the top genes driving the blue cluster (Supplementary Table 1).}
+%\label{fig:fig2}
+%\end{figure*}
+%
+% \begin{figure*}[ht]
+%        \centering
+%        \includegraphics[height=2.7in]{../plots/GTEX_V6_thin_2.png}
+%    \caption{Structure plot of all tissue samples in GTEx V6 data thinned data with $p_{thin}=0.0001$ for $K=15$. The thinning parameter has been chosen so that the GTEx RNA-seq data can be interpreted at the same scale as a scRNA-seq data.  The clustering patterns are more noisy compared to the non-thinned data in Fig \ref{fig:fig1}, but overall, the similarity patterns across the tissues are retained. For instance, the brain tissues and the arteries still seem to be clustering together.}
+% \label{fig:fig4}
+%    \end{figure*}
 
 
   \begin{figure*}[ht]
@@ -41,7 +41,7 @@
         \caption{admixture thin 0.1}
     \end{subfigure} \\
 \caption{A comparison of the hierarchical method with the admixture method. For each pair of tissues, we selected randomly $50$ samples and then on the reads data for these $50$ samples, we applied the hierarchical clustering method with complete linkage and Euclidean distance and then cut the tree at $K=2$. We then observed if it separates out the samples coming from the two tissues, in case it does, we color the cell corresponding to that pair of tissues. We apply admixture model on the same data for $K=2$. Then we fixed one cluster, observed the proportions for that cluster, sorted the samples based on the proportions for that cluster and separated out the samples at the point of maximum jump/fall in the proportions for that cluster. If that separates out the two tissues, we color the cell, else keep it blank. From the graph it seems that the admixture model has been far more successful in separating out different tissues compared to the hierarchical method.}
-\label{fig:fig3}
+\label{fig:fig2}
 \end{figure*}
 
 
@@ -304,11 +304,11 @@
     \end{subfigure}    \\
     \begin{subfigure}[t]{1\textwidth}
        \centering
-        \includegraphics[height=2.5in, width=5.5in]{../plots/Zeisel/clus_10/struct_clus_10_cell_subtype.png}
-        \vspace{-0.5in}  \qquad \qquad \caption{   $k=10$}
+        \includegraphics[height=2.5in, width=4.5in]{../plots/deng_structure_4.png}
+        \vspace{-0.5in}  \qquad \qquad 
       \end{subfigure}
-    \caption{ (\textit{top panel})  Structure plot of the1041 single cells for K=7 of the Jaitin \textit{et al} data \cite{Jaitin2014} arranged by the amplification batch. It is observed that the clustering patterns within each batch are similar and so, either the amplification batch is driving the clustering or it is confounded with the actual biological effects, making it difficult to interpret these clusters. (\textit{bottom panel}) Structure plot of all samples for $K=10$ of Zeisel et al data \cite{Zeisel2015}, arranged by the cell subtype labels that were determined by the authors using their BackSpin algorithm and subsequent marker gene annotations. While the cluster patterns within these cell subtypes are similar in general, the first few samples in Oligo6 show mild presence of red cluster and are markedly different from the rest of the samples in Oligo6 which do not show any trace of red cluster. These first few samples of Oligo6 look similar in pattern to some Oligo4 samples with mild red cluster presence. Oligo4 samples also shows some heterogeneity in terms of the proportion of red cluster present. This could either be due to misclassification of the Backspin algorithm, or due to technical effects unaccounted for (like plate effect, lane effect etc).}
- \label{fig:fig5}
+    \caption{ (\textit{top panel})  Structure plot of the1041 single cells for K=7 of the Jaitin \textit{et al} data \cite{Jaitin2014} arranged by the amplification batch. It is observed that the clustering patterns within each batch are similar and so, either the amplification batch is driving the clustering or it is confounded with the actual biological effects, making it difficult to interpret these clusters. (\textit{bottom panel}) Structure plot of all samples for $K=4$ of Deng et al data \cite{Deng2014}, arranged by the preimplantation development phases of the cells and within each phase, arranged in the same order as in the data. Some developmental phases are represented by a single cluster, for example- \textit{zygote/early2cell}, \textit{mid/late2cell}, \textit{8cell/16cell} and \textit{lateblast}, while some developmental phases can be written as a mix of two clusters. For example, \textit{4cell} phase can be written as a mix of the cluster representing the \textit{mid/late2cell} and the \textit{8cell/16cell} phase}. 
+ \label{fig:fig3}
  \end{figure*}
  
 
