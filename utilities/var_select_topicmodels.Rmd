@@ -1,0 +1,35 @@
+---
+title: "Chapter 2 Preview: Variable Selection in Admixture"
+author: "Kushal K Dey"
+date: "December 3, 2015"
+output: pdf_document
+---
+
+## Why Variable Selection?
+
+The topic model due to Matt Taddy's package ran for almost 2 days on the $8555$ GTEX samples with roughly $56000$ genes. There are obviously a set of genes that have tissue specific expression patterns and it was these genes that mostly drove the clusters in the GTEX global analysis across tissues with all the genes. Now, if we could have removed the noisy genes which are non-informative for clustering or in this case, do not differ much across tissues, then we could have significantly reduced the computational time. At the same time our analysis would be free from noisy genes and will have higher predictive power. 
+
+Also for cellcycleR, for Yoav's data, we observed mostly ribosomal genes and mitochondrial genes kept getting picked up when the analysis was carried on all genes, it was when we focus just on the genes with supposedly cell phase specific expression patterns, then we seem to get more biologically meaningful ordering of the single cells. 
+
+Both these examples, though very different in their implementation, do signify why variable selection is an important thing to consider. In summary, the three main advantages of variable selection in topic models/ cellcycleR are 
+
+- Computational expenditure is less
+
+- Removes noisy genes and leads to higher predictive power
+
+- Variable selection is amenable to be driven biologically, pooling in slightly more biological information about the genes, something we have not tried with admixture as the latter is a completely blind unsupervised scheme.
+
+## What has been done
+
+People have studied variable selection in clustering and regression models for ease of computation and better predicitve accuracy. Some of these approaches are pretty ad-hoc, others that involve model based approaches are not too feasible for big data like the GTEx counts data. The package **clustvarsel** implements the variable selection algorithm due to Dean and Raftery (2006). However the number of parameters that requires estimation is often quadratic in data dimensionality, this approach is pretty slow in high dimensions. A related approach is due to Maugis, Celeux, and Martin-Magniette (2009) who developed a package **selvarclust** and relaxed some assumptions on the role of variables from the method due to Dean and Raftery. Besides these, there are a few implicit 
+approaches such as mixtures of factor analyzers (Ghahramani and Hinton 1997, Montanari and Viroli 2010; Viroli 2010, Andrews and McNicholas 2011a,b) and some explicit methods, Bouveyron and Brunet (2012). 
+
+## What actually is variable selection?
+
+In variable selection, the prime desire is to find variables that show differentiation between the a priori *completely unknown* or *partially known* groups and eliminate variables that do not.  An example of *partially known* would be genes for GTEx analysis, where we know that they would be pretty much homogeneous within each tissue type and would vary between tissue types. An example of *completely unknown* would be a scenario where we do not have sufficient metadata to biologically interpret the clusters.
+
+
+## Thoughts 
+
+
+
