@@ -15,19 +15,13 @@ Under topic model settings, we use a mixed membership approach to determine the 
 
 #### Reads model 
 
-If we model the counts of reads, then we may use the following Poisson framework. Let $c_{ng}$ be the number of counts of reads from sample $n$ that get mapped to gene $g$.
+If we model the counts of reads, then we may use the following Poisson framework. Let $c_{ng}$ be the number of counts of reads from sample $n$ that get mapped to gene $g$. Suppose there are $N$ samples and $G$ genes. Then for $n$th sample and $g$ the gene, assume the model 
 
 MODEL 1 - Idnetity link model
 
-$$ c_{ng} \sim c_{n+} Poi (\sum_{k=1}^{K} \omega_{nk} exp(\alpha_{kg})) \hspace{1 cm} \sum_{k=1}^{K} \omega_{nk} =1 \forall n \hspace{1 cm} \sum_{g=1}^{G} \theta_{kg} =1 \forall k $$
+$$ c_{ng} \sim c_{n+} Poi (\sum_{k=1}^{K} \omega_{nk} \theta_{kg}) \hspace{1 cm} \sum_{k=1}^{K} \omega_{nk} =1 \forall n \hspace{1 cm} \sum_{g=1}^{G} \theta_{kg} =1 \forall k $$
 
-
-MODEL 2 - log link model
-
-$$ c_{ng} \sim Poi (exp(\sum_{k=1}^{K} \omega_{nk} \alpha_{kg})) \hspace{1 cm} \sum_{k=1}^{K} \omega_{nk} =1 $$
-
-
-We may assume the priors for $\omega$ as follows 
+where $c_{n+}$ is the sum of counts across $G$ features. The prior for $\omega$ may be considered as 
 
 CHOICE 1 
 
@@ -37,13 +31,9 @@ CHOICE 2
 
 $$ (\omega_{n1}, \omega_{n2}, \cdots, \omega_{nK}) \sim Dir_{K}(1, 1, \cdots, 1) $$
 
-We assume the prior for $\alpha$ to be as follows 
+For $\theta$, choose the prior
 
-$$ \alpha_{kg} \sim N(. | 0, 1000) $$
-
-This is not fully non-informative theoretically but close to being non-informative practically and eaiser to handle as well. 
-
-The MODEL 1 or the identity link model is biologically more meaningful whereas MODEL 2 is basically the topic model equivalent of the generalized linear model under Poisson family with log link, and easier to estimate using stepwise iterative estimation of parameters. 
+$$ (\theta_{k1}, \theta_{k2}, \cdots, \theta_{kG}) \sim Dir_{G}(\frac{1}{KG}, \frac{1}{KG}, \cdots, \frac{1}{KG}) $$
 
 #### RPKM model
 
@@ -51,15 +41,16 @@ If we are provided with the RPKM values, which are log transformed and scaled va
 
 Let $r_{ng}$ be the RPKM for sample $n$ and gene $g$. Then we can write 
 
-$$ r_{ng} \sim N(\sum_{k=1}^{K} \omega_{nk} \alpha_{kg}) $$
+$$ r_{ng} \sim N(\bar{r}_{n} + \sum_{k=1}^{K} \omega_{nk} \alpha_{kg}) \hspace{1 cm} \sum_{k=1}^{K} \omega_{nk}=1 \hspace{0.3 cm} \forall \hspace{0.1 cm} n \hspace{1 cm} \sum_{g=1}^{G} \alpha_{kg}=0 \hspace{0.3 cm} \forall \hspace{0.1 cm} k $$
 
-with the prior choices as reported above.
+where $\bar{r}_{n}$ is the mean RPKM value for $n$ th sample. The prior choice for $\omega$ taken similar to the reads model described above and treat $\alpha$ more like a hyperparameter with constraint.
+
 
 ## Simulation experiments 
 
 I am providing the simulated data for the three models so that they are ready to be applied the model and tested for whether the method works on these examples (the estimated $\omega$ and $\alpha$ should match with the true values from which the data has been simulated from). 
 
-### MODEL 1 - Identiy link model
+### MODEL 1 - Reads level Poisson model
 
 ```{r echo=TRUE, eval=TRUE}
 K=4;
@@ -74,23 +65,28 @@ omega_true=matrix(rbind(rdirichlet(T*10,c(3,4,2,6)),rdirichlet(T*10,c(1,4,6,3)),
 			rdirichlet(T*10,c(4,1,2,2)),rdirichlet(T*10,c(2,6,3,2)),
 			rdirichlet(T*10,c(3,3,5,4))), nrow=N);
 
+theta_true <- matrix(rbind(rdirichlet(1,c(2,2,rep(1,G-2))),rdirichlet(1,c(rep(2,G-2),1,1)),
+                  rdirichlet(1, c(1, rep(2,G-2),1)),rdirichlet(1, c(1,1,2,2,2,rep(1,G-5)))),
+                  nrow=4);
+
+
 ###  generating the table 
 
-read_counts_model1=matrix(0,N,G);
+read_counts_model=matrix(0,N,G);
 for(n in 1:N)
 {
 	for(g in 1:G)
 	{
 
-		mean=omega_true[n,]%*%exp(alpha_true[,g]);
-		read_counts_model1[n,g]=rpois(1,mean);
+		mean=1000*omega_true[n,]%*%theta_true[,g];
+		read_counts_model[n,g]=rpois(1,mean);
 	}
 }
 
 ```
 
 
-### MODEL 2 - Log link model
+### MODEL 2 - RPKM Normal model
 
 ```{r echo=TRUE, eval=TRUE}
 K=4;
@@ -107,45 +103,14 @@ omega_true=matrix(rbind(rdirichlet(T*10,c(3,4,2,6)),rdirichlet(T*10,c(1,4,6,3)),
 
 ###  generating the table 
 
-read_counts_model2=matrix(0,N,G);
-for(n in 1:N)
-{
-	for(g in 1:G)
-	{
-
-		mean=exp(omega_true[n,]%*%alpha_true[,g]);
-		read_counts_model2[n,g]=rpois(1,mean);
-	}
-}
-
-```
-
-
-### MODEL 3 - normal RPKM model
-
-```{r echo=TRUE, eval=TRUE}
-K=4;
-G=100;
-N=500;
-
-alpha_true=matrix(rnorm((K)*G,0.5),nrow=(K)); ### the matrix of fixed effects
-
-library(gtools)
-T=10;
-omega_true=matrix(rbind(rdirichlet(T*10,c(3,4,2,6)),rdirichlet(T*10,c(1,4,6,3)),
-			rdirichlet(T*10,c(4,1,2,2)),rdirichlet(T*10,c(2,6,3,2)),
-			rdirichlet(T*10,c(3,3,5,4))), nrow=N);
-
-###  generating the table 
-
-rpkm_model3=matrix(0,N,G);
+rpkm_model=matrix(0,N,G);
 for(n in 1:N)
 {
 	for(g in 1:G)
 	{
 
 		mean=omega_true[n,]%*%alpha_true[,g];
-		rpkm_model3[n,g]=rnorm(1,mean);
+		rpkm_model[n,g]=rnorm(1,mean);
 	}
 }
 
@@ -155,7 +120,9 @@ for(n in 1:N)
 
 - Of the parameters, only $\omega$ are constrained, they sum to 1 for each $n$. The idea would be to de-simplex them using 
 
-$$ \nu_{nk} = log (\frac{\omega_{nk}+ 1e-06}{\omega_{n1}+ 1e-06}) \hspace{1 cm} k=2,3,,\cdots,K  $$
+$$ \nu_{nk} = log (\frac{\omega_{nk}+ 1e-06}{\omega_{n1}+ 1e-06}) \hspace{1 cm} k=2,3,,\cdots,K  \hspace{1 cm} \forall n$$
+
+$$ \psi_{kg} = log (\frac{\theta_{kg}+ 1e-06}{\theta_{k1}+ 1e-06}) \hspace{1 cm} g=2,3,,\cdots,G \hspace{1 cm} \forall k$$  
 
   Carry out the optimization on $\nu_{nk}$ and then reverse transform them. 
 
