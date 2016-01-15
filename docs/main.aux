@@ -49,9 +49,13 @@
 \citation{Jaitin2014}
 \citation{Jaitin2014}
 \citation{Deng2014}
+\citation{Jaitin2014}
 \citation{Leek2010}
 \citation{Hicks2015}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Discussions}{6}{section.4}}
+\citation{Leek2007}
+\citation{Stegle2012}
+\citation{Jaitin2014}
+\citation{Deng2014}
 \citation{Jaitin2014}
 \citation{Taddy2012}
 \bibcite{Jiang2011}{1}
@@ -59,6 +63,7 @@
 \bibcite{Zeisel2015}{3}
 \bibcite{GTEX2013}{4}
 \bibcite{Taddy2012}{5}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussions}{7}{section.4}}
 \bibcite{Pritchard2000}{6}
 \bibcite{Rosenberg2002}{7}
 \bibcite{Raj2014}{8}
@@ -67,21 +72,23 @@
 \bibcite{Thompson2014}{11}
 \bibcite{Jaitin2014}{12}
 \bibcite{Deng2014}{13}
-\bibcite{Leek2010}{14}
-\bibcite{Hicks2015}{15}
-\bibcite{Houzel2005}{16}
-\bibcite{Thompson2014}{17}
-\bibcite{Grün2015}{18}
-\bibcite{Buettner2015}{19}
-\bibcite{Palmer2005}{20}
-\bibcite{Flutre2013}{21}
-\bibcite{Blei2003}{22}
-\bibcite{Blei2009}{23}
-\bibcite{Shen-Orr2010}{24}
-\bibcite{Qiao2012}{25}
-\bibcite{Repsilber2010}{26}
-\bibcite{Schwartz2010}{27}
-\bibcite{Lindsay2013}{28}
+\bibcite{Leek2007}{14}
+\bibcite{Stegle2012}{15}
+\bibcite{Leek2010}{16}
+\bibcite{Hicks2015}{17}
+\bibcite{Houzel2005}{18}
+\bibcite{Thompson2014}{19}
+\bibcite{Grün2015}{20}
+\bibcite{Buettner2015}{21}
+\bibcite{Palmer2005}{22}
+\bibcite{Flutre2013}{23}
+\bibcite{Blei2003}{24}
+\bibcite{Blei2009}{25}
+\bibcite{Shen-Orr2010}{26}
+\bibcite{Qiao2012}{27}
+\bibcite{Repsilber2010}{28}
+\bibcite{Schwartz2010}{29}
+\bibcite{Lindsay2013}{30}
 \citation{Jaitin2014}
 \citation{Deng2014}
 \citation{Jaitin2014}
@@ -91,8 +98,8 @@
 \newlabel{fig:fig1}{{1}{10}{\textbf {(a)}: Structure plot of the admixture proportions from model fit with 15 topics/clusters for the $8555$ tissue samples coming from $53$ tissues in GTEX V6 data based on 16069 cis genes derived using a quality assessment procedure (check Results) . Note that the samples coming from the same tissue have similar admixing patterns. Tissues of same origin, for instance all the Brain tissues, all the arteries seem to cluster together. Also, some other tissues, presumably not of same origin, show markedly similar clustering patterns - for instance Breast mammary tissue, Nerve Tibial and Adipose tissues are very similar in clustering patterns. \textbf {(b)}: Structure plot of the cluster memberships from model fit with 4 clusters on just the brain tissue samples. We see more clustering patterns across the Brain tissues in this plot, that was masked by inter tissue variation in (a). Brain cerebellum and cerebellar hemisphere seem to be represented by the green cluster while the Spinal cord and Substantia nigra have high grades of membership in cyan cluster. \textbf {(c)}: Structure plot of all tissue samples in GTEx V6 data thinned data with $p_{thin}=0.0001$ for $K=15$. The thinning parameter has been chosen so that the GTEx RNA-seq data can be interpreted at the same scale as a scRNA-seq data. The clustering patterns are slightly more noisy compared to the non-thinned version in (a), but overall, the similarity patterns across the tissues are retained.\relax }{figure.caption.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces A comparison of the hierarchical method with the admixture method. For each pair of tissues, we selected randomly $50$ samples and then on the reads data for these $50$ samples, we applied the hierarchical clustering method with complete linkage and Euclidean distance and then cut the tree at $K=2$. We then observed if it separates out the samples coming from the two tissues, in case it does, we color the cell corresponding to that pair of tissues. We apply admixture model on the same data for $K=2$. Then we fixed one cluster, observed the proportions for that cluster, sorted the samples based on the proportions for that cluster and separated out the samples at the point of maximum jump/fall in the proportions for that cluster. If that separates out the two tissues, we color the cell, else keep it blank. From the graph it seems that the admixture model has been far more successful in separating out different tissues compared to the hierarchical method.\relax }}{11}{figure.caption.3}}
 \newlabel{fig:fig2}{{2}{11}{A comparison of the hierarchical method with the admixture method. For each pair of tissues, we selected randomly $50$ samples and then on the reads data for these $50$ samples, we applied the hierarchical clustering method with complete linkage and Euclidean distance and then cut the tree at $K=2$. We then observed if it separates out the samples coming from the two tissues, in case it does, we color the cell corresponding to that pair of tissues. We apply admixture model on the same data for $K=2$. Then we fixed one cluster, observed the proportions for that cluster, sorted the samples based on the proportions for that cluster and separated out the samples at the point of maximum jump/fall in the proportions for that cluster. If that separates out the two tissues, we color the cell, else keep it blank. From the graph it seems that the admixture model has been far more successful in separating out different tissues compared to the hierarchical method.\relax }{figure.caption.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  (\textit  {top panel}) Structure plot of the1041 single cells for K=7 of the Jaitin \textit  {et al} data \cite  {Jaitin2014} arranged by the amplification batch. It is observed that the clustering patterns within each batch are similar and so, either the amplification batch is driving the clustering or it is confounded with the actual biological effects, making it difficult to interpret these clusters. (\textit  {bottom panel}) Structure plot of all samples for $K=4$ of Deng et al data \cite  {Deng2014}, arranged by the preimplantation development phases of the cells and within each phase, arranged in the same order as in the data. Some developmental phases are represented by a single cluster, for example- \textit  {zygote/early2cell}, \textit  {mid/late2cell}, \textit  {8cell/16cell} and \textit  {lateblast}, while some developmental phases can be written as a mix of two clusters. For example, \textit  {4cell} phase can be written as a mix of the cluster representing the \textit  {mid/late2cell} and the \textit  {8cell/16cell} phase\relax }}{12}{figure.caption.4}}
-\newlabel{fig:fig3}{{3}{12}{(\textit {top panel}) Structure plot of the1041 single cells for K=7 of the Jaitin \textit {et al} data \cite {Jaitin2014} arranged by the amplification batch. It is observed that the clustering patterns within each batch are similar and so, either the amplification batch is driving the clustering or it is confounded with the actual biological effects, making it difficult to interpret these clusters. (\textit {bottom panel}) Structure plot of all samples for $K=4$ of Deng et al data \cite {Deng2014}, arranged by the preimplantation development phases of the cells and within each phase, arranged in the same order as in the data. Some developmental phases are represented by a single cluster, for example- \textit {zygote/early2cell}, \textit {mid/late2cell}, \textit {8cell/16cell} and \textit {lateblast}, while some developmental phases can be written as a mix of two clusters. For example, \textit {4cell} phase can be written as a mix of the cluster representing the \textit {mid/late2cell} and the \textit {8cell/16cell} phase\relax }{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  (\textit  {top panel}) Structure plot of the1041 single cells for K=7 of the Jaitin \textit  {et al} data \cite  {Jaitin2014} arranged by the amplification batch. It is observed that the clustering patterns within each batch are similar and so, either the amplification batch is driving the clustering or it is confounded with the actual biological effects, making it difficult to interpret these clusters. (\textit  {bottom panel}) Structure plot of all samples for $K=6$ of Deng et al data \cite  {Deng2014}, arranged by the preimplantation development phases of the cells and within each phase, arranged in the same order as in the data. Some developmental phases are represented by a single cluster, for example- \textit  {zygote/early2cell} while some developmental phases can be written as a mix of two clusters or more clusters.\relax }}{12}{figure.caption.4}}
+\newlabel{fig:fig3}{{3}{12}{(\textit {top panel}) Structure plot of the1041 single cells for K=7 of the Jaitin \textit {et al} data \cite {Jaitin2014} arranged by the amplification batch. It is observed that the clustering patterns within each batch are similar and so, either the amplification batch is driving the clustering or it is confounded with the actual biological effects, making it difficult to interpret these clusters. (\textit {bottom panel}) Structure plot of all samples for $K=6$ of Deng et al data \cite {Deng2014}, arranged by the preimplantation development phases of the cells and within each phase, arranged in the same order as in the data. Some developmental phases are represented by a single cluster, for example- \textit {zygote/early2cell} while some developmental phases can be written as a mix of two clusters or more clusters.\relax }{figure.caption.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Supplemental figures}{13}{subsection.4.1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces In this graph, we compare the hierarchical clustering method with the admixture method for thinned data with thinning parameters being $p_{thin}=0.001$ and $p_{thin}=0.0001$. The color coding scheme is similar to \textbf  {Fig \ref  {fig:fig3}}. Note that the performance of the admixture indeed deteriorates from \textbf  {Fig \ref  {fig:fig3}} in separating out the clusters as is expected. But it still outperforms the hierarchical clustering.\relax }}{14}{figure.caption.5}}
 \newlabel{fig:figS2}{{4}{14}{In this graph, we compare the hierarchical clustering method with the admixture method for thinned data with thinning parameters being $p_{thin}=0.001$ and $p_{thin}=0.0001$. The color coding scheme is similar to \textbf {Fig \ref {fig:fig3}}. Note that the performance of the admixture indeed deteriorates from \textbf {Fig \ref {fig:fig3}} in separating out the clusters as is expected. But it still outperforms the hierarchical clustering.\relax }{figure.caption.5}{}}

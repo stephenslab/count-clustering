@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  3 DEC 2015 13:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  15 JAN 2016 15:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -478,13 +478,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--46
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 47--48
+Underfull \hbox (badness 10000) in paragraph at lines 49--50
 
  []
 
 Missing character: There is no × in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
 
  []
 
@@ -511,26 +511,19 @@ Missing character: There is no ç in font cmr10!
  [7]
 Missing character: There is no é in font cmr10!
 Missing character: There is no ü in font cmr10!
-
-Underfull \hbox (badness 2359) in paragraph at lines 136--139
+ [8]
+Underfull \hbox (badness 2359) in paragraph at lines 147--150
 []\OT1/cmr/m/n/10.95 Flutre T, Wen X, Pritchard J and Stephens M. \OT1/cmr/m/it
 /10.95 A Sta-tis-ti-cal Frame-work for
  []
 
 
-Underfull \hbox (badness 3612) in paragraph at lines 136--139
+Underfull \hbox (badness 3612) in paragraph at lines 147--150
 \OT1/cmr/m/it/10.95 Joint eQTL Anal-y-sis in Mul-ti-ple Tis-sues \OT1/cmr/m/n/1
 0.95 PLoS Genet 2013, 9(5): e1003486.
  []
 
-[8pdfTeX warning (ext4): destination with the same identifier (name{cite.Thomps
-on2014}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.144 
-      ]) (./figures.tex
-<../plots/fig1_paper/fig1.pdf, id=168, 1027.84pt x 770.88pt>
+) (./figures.tex <../plots/fig1_paper/fig1.pdf, id=174, 1027.84pt x 770.88pt>
 File: ../plots/fig1_paper/fig1.pdf Graphic file (type pdf)
 
 <use ../plots/fig1_paper/fig1.pdf>
@@ -541,7 +534,7 @@ Overfull \hbox (14.50977pt too wide) in paragraph at lines 10--11
  [][]
  []
 
-<../plots/hierarchy_F_thin_0_1.png, id=169, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_1.png, id=175, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_1.png>
@@ -549,7 +542,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 3
 4.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_1.png, id=171, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_1.png, id=177, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_1.png>
@@ -561,7 +554,7 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 32--42
  [][]  [] 
  []
 
-<../plots/Jaitin_struct_clus_7_amp_batch.png, id=172, 602.25pt x 401.5pt>
+<../plots/Jaitin_struct_clus_7_amp_batch.png, id=178, 602.25pt x 401.5pt>
 File: ../plots/Jaitin_struct_clus_7_amp_batch.png Graphic file (type png)
 
 <use ../plots/Jaitin_struct_clus_7_amp_batch.png>
@@ -569,16 +562,22 @@ Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_amp_batch.png used on in
 put line 302.
 (pdftex.def)             Requested size: 325.22853pt x 180.67944pt.
 
-<../plots/deng_structure_4.png, id=173, 602.25pt x 401.5pt>
-File: ../plots/deng_structure_4.png Graphic file (type png)
+<../plots/deng_structure_6.png, id=179, 602.25pt x 401.5pt>
+File: ../plots/deng_structure_6.png Graphic file (type png)
 
-<use ../plots/deng_structure_4.png>
-Package pdftex.def Info: ../plots/deng_structure_4.png used on input line 307.
+<use ../plots/deng_structure_6.png>
+Package pdftex.def Info: ../plots/deng_structure_6.png used on input line 307.
 (pdftex.def)             Requested size: 325.22853pt x 180.67944pt.
- [9] [10 <../plots/fig1_paper/fig1.pdf>]
-[11 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>]
-[12 <../plots/Jaitin_struct_clus_7_amp_batch.png> <../plots/deng_structure_4.pn
-g>] <../plots/hierarchy_F_thin_0_01.png, id=224, 481.8pt x 481.8pt>
+ [9pdfTeX warning (ext4): destination with the same identifier (name{cite.Thomp
+son2014}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.315  \clearpage
+                 ] [10 <../plots/fig1_paper/fig1.pdf>] [11 <../plots/hierarchy_
+F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>] [12 <../plots/Jaitin_struc
+t_clus_7_amp_batch.png> <../plots/deng_structure_6.png>]
+<../plots/hierarchy_F_thin_0_01.png, id=232, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_01.png>
@@ -586,7 +585,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_01.png used on input line
 323.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_01.png, id=225, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_01.png, id=233, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_01.png>
@@ -598,7 +597,7 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 321--331
  [][]  [] 
  []
 
-<../plots/hierarchy_F_thin_0_001.png, id=226, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_001.png, id=234, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_001.png>
@@ -606,7 +605,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_001.png used on input line
  335.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_001.png, id=227, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_001.png, id=235, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_001.png>
@@ -819,10 +818,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 12.
  ) 
 Here is how much of TeX's memory you used:
- 7495 strings out of 493117
- 112490 string characters out of 6135433
- 227483 words of memory out of 5000000
- 10779 multiletter control sequences out of 15000+600000
+ 7499 strings out of 493117
+ 112540 string characters out of 6135433
+ 228298 words of memory out of 5000000
+ 10781 multiletter control sequences out of 15000+600000
  14693 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,13n,38p,2361b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -839,10 +838,10 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (17 pages, 722489 bytes).
+Output written on main.pdf (17 pages, 724318 bytes).
 PDF statistics:
- 319 PDF objects out of 1000 (max. 8388607)
- 255 compressed objects within 3 object streams
- 63 named destinations out of 1000 (max. 500000)
+ 327 PDF objects out of 1000 (max. 8388607)
+ 263 compressed objects within 3 object streams
+ 65 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
