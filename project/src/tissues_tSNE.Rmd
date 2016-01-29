@@ -1,0 +1,41 @@
+---
+title: "t-SNE plots for GTEX tissues"
+author: "Stephens Lab"
+date: "June 19, 2015"
+output: html_document
+---
+
+```{r packages,echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+library(tsne)
+library(qtlcharts)
+library(data.table)
+library(maptpx)
+```
+
+
+The t-SNE plot of the 8555 GTEX samples based on the reads data of the top 5000 genes based on the mean expression levels is given as follows 
+
+```{r tissue_tSNE, message=FALSE, warning=FALSE}
+
+sample_id_sub <- read.table("../external_data/GTEX_V6/samples_id.txt")[,3];
+
+males_identifier=as.numeric(as.matrix(read.table("../external_data/GTEX_V6/males_identifier.txt")));
+females_identifier=as.numeric(as.matrix(read.table("../external_data/GTEX_V6/females_identifier.txt")));
+
+gender_label=array(0,length(males_identifier)+length(females_identifier));
+
+gender_label[males_identifier]="MALE";
+gender_label[females_identifier]="FEMALE";
+sample_id_sub_gender=paste0(sample_id_sub,"_",gender_label);
+
+tsne_samples <- read.table("../external_data/GTEX_V6/tsne_samples.txt");
+iplot(tsne_samples[,1],tsne_samples[,2],as.numeric(sample_id_sub),sample_id_sub_gender)
+```
+
+We then fitted the Admixture model and applied the t-SNE on the topic proportion matrix of the Admixture model. It is presented below.
+
+```{r topicmodel_tsne_tissue, message=FALSE, warning=FALSE}
+topicmodel_tsne_15 = read.table("../external_data/GTEX_V6/topicmodel_samples_tsne_15.txt");
+iplot(topicmodel_tsne_15[,1],topicmodel_tsne_15[,2],as.numeric(sample_id_sub),sample_id_sub_gender)
+```
+
