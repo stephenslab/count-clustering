@@ -152,7 +152,7 @@ dev.off()
 
 ```
 
-### Structur based on development phase 
+### Structure plots based on development phase 
 
 The Structure plots clearly show cell phase effects
 
@@ -163,7 +163,7 @@ The Structure plots clearly show cell phase effects
 <img src='../plots/deng_structure/clus_6/struct_clus_6_dev_phase.png' style="width:350px;height:300px;">
 <img src='../plots/deng_structure/clus_7/struct_clus_7_dev_phase.png' style="width:350px;height:300px;">
 
-### Structur based on development phase + embryo
+### Structure plots based on development phase + embryo
 
 The Structure plots clearly show cell phase effects
 
