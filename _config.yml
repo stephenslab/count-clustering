@@ -8,7 +8,7 @@ highlighter: pygments
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Model based Clustering of RNA-Seq data 
+title : Clustering of RNA-Seq data 
 author :
   name : Kushal K Dey 
   email : kkdey@uchicago.com
@@ -48,7 +48,7 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : http://kkdey.github.io/wave-sfa
+  BASE_PATH : http://stephenslab.github.io/count-clustering
 
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
