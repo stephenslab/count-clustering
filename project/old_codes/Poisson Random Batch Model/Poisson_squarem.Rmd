@@ -1,0 +1,264 @@
+---
+title: "SQUAREM implementation of Poisson Reads model"
+author: "Kushal Kumar Dey"
+date: "Tuesday, March 03, 2015"
+output: html_document
+---
+
+This is the first script in the Poisson modeling of the RNA reads data. We assume that the mean intensity of the Poisson counts is a mixture of the intensities corresponding to $K$ topics, which represents the different cell types that constitute the tissue from which the sample is drawn. We shall also introduce a random batch effect term and also an overdisperion term which will correct for the lack of fit of the Poisson distribution to the data.
+
+We shall start off by depicting the simulation set up. Since this is a count data we are generating, we can apply the usual topic model due to Matt Taddy on this data and try to see if the topic modeling approach actually succeeds in revealing the true topic proportions or if it is affected by the random batch effects.
+
+```{r,echo=TRUE,eval=TRUE}
+ 
+
+K=4;
+G=100;
+N=500;
+
+alpha_true=matrix(rnorm((K)*G,0.5,1),nrow=(K)); ### the matrix of fixed effects
+
+Label.Batch=c(rep(1,N/2),rep(2,N/2));
+
+B=max(Label.Batch);
+
+sigmab_true=2;
+
+beta_true=matrix(0,B,G);       ###  the matrix of the random effect
+
+for(g in 1:G)
+{
+  beta_true[,g]=rnorm(B,mean=0,sd=sigmab_true);
+}
+
+library(gtools)
+T=10;
+omega_true=matrix(rbind(rdirichlet(T*10,c(3,4,2,6)),rdirichlet(T*10,c(1,4,6,3)),
+			rdirichlet(T*10,c(4,1,2,2)),rdirichlet(T*10,c(2,6,3,2)),
+			rdirichlet(T*10,c(3,3,5,4))), nrow=N);
+
+
+over_dis=0.5;
+
+noise_true=matrix(0,N,G);
+
+for(n in 1:N)
+{
+	noise_true[n,]=over_dis*rnorm(G,0,1);
+}
+
+
+
+
+###  generating the table 
+
+
+read_counts=matrix(0,N,G);
+
+
+for(n in 1:N)
+{
+	for(g in 1:G)
+	{
+		mean=exp(omega_true[n,]%*%alpha_true[,g] +beta_true[Label.Batch[n],g]+noise_true[n,g]);
+		read_counts[n,g]=rpois(1,mean);
+	}
+	
+}
+
+
+#########  Topic model fit   ####################
+
+############  usual topic model  fit  ##########################
+
+	library(maptpx)
+	Topic_Clus=topics(read_counts,K,kill=0,tol=0.01);
+	docweights_topics=Topic_Clus$omega;
+	library(permute);
+	library("BioPhysConnectoR");
+	perm_set=rbind(1:K,allPerms(1:K));
+	diff=array(0,dim(perm_set)[1]);
+	for (p in 1:dim(perm_set)[1])
+	{
+		temp=docweights_topics[,perm_set[p,]];
+		diff[p]=fnorm(temp,omega_true);
+	}
+
+p_star=which(diff==min(diff));
+docweights_topics=docweights_topics[,perm_set[p_star,]];
+
+windows()
+k=K
+barplot(t(omega_true),col=2:(k+1),axisnames=F,space=0,border=NA,main="",las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
+title(main=paste("Structure Plot of true topic proportions,k=",K))
+
+
+windows()
+par(mar=c(8,5.25,2.5,2.5))
+
+	# - get rid of space space between leftmost bar and y axis
+par(xaxs="i")
+k=K;
+barplot(t(docweights_topics),col=2:(k+1),axisnames=F,space=0,border=NA,main="",las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
+title(main=paste("Structure Plot of topicmodel topic proportions,k=",K))
+
+```
+
+
+Now we state the transformation and the reverse trnasformation functions that map the simplex vectors $\omega$ to the Euclidean space and back.
+
+```{r,echo=TRUE,eval=TRUE}
+ reverse_transform=function(x) 
+  {
+    out=array(0,K-1);
+    for(i in 1:(K-1))
+		{
+			out[i]=log((x[i]+10^(-5))/(x[K]+10^(-5)));
+		}
+		return(out)
+	}
+
+# Data
+  
+
+	# Log-Likelihood
+	loglik_norm <- function(u,y,x) sum((y - x %*% u)^2)
+
+	# Transform the parameters: we just have
+	# to find a bijection between R^3 
+	# and {(a,b,c,d) \in [0,1]^4 : a+b+c+d=1}.
+
+  transform <- function(v) 
+  {
+  	# Ensure they in [0,1]
+  	temp =c(exp(v),1);
+  	out=temp/(1+sum(exp(v)));
+  	return(out)
+	}
+
+
+```
+
+Now, we shall proceed to the actual iterative algorithm for finding the optimizing values of the topic proportion vectors and the effect size vectors that takes into account the random effect terms and the dispersion effect terms. We shall use the **squarem** approach to speed up the process and **glmer** function from the **lme4** package for fitting the Poisson generalized linear model with random effects. There are wo random effects in this case, one the systematic batch effect $\beta$ and the other, the overdispersion effect. 
+
+```{r,echo=TRUE,eval=TRUE}
+
+omega_loglik_Poisson = function(omega_vec,counts_vec,alpha,beta,lab,noise_vec)
+{
+
+  G=length(counts_vec);
+	sum=0;
+	for(g in 1:G)
+	{
+		lambda=exp(omega_vec%*%alpha[,g] +beta[lab,g]+noise_vec[g]);
+		#cat(lambda,"\n")
+		sum=sum +lambda - counts_vec[g]*log(lambda) ;
+		#cat(sum,"\n");
+	}
+
+	return(sum);
+}
+
+counts=read_counts;
+y=matrix(counts,1,N*G);
+scale=3; K=4;
+omega0=matrix(rdirichlet(N,c(scale/K,scale/K,scale/K,scale/K)), nrow=N);
+alpha0=matrix(rnorm((K)*G,0.5,1),nrow=(K)); ### the matrix of fixed effects
+
+
+windows()
+k=K
+barplot(t(omega0),col=2:(k+1),axisnames=F,space=0,border=NA,main="",las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
+title(main=paste("Structure Plot of initial chosen topic proportions,k=",K))
+
+
+param0=c(matrix(omega0,1,N*K),matrix(alpha0,1,K*G));
+
+library(SQUAREM)
+library(lme4)
+
+Poisson_topic.randeff <- function(param_vec,y)
+{
+	counts=matrix(y,N,G);
+	omega0=matrix(param_vec[1:(N*K)],N,K);
+	alpha0=matrix(param_vec[-(1:(N*K))],K,G);
+	
+##############  Estimating the alpha, beta and overdis ####################
+	
+	alpha=matrix(0,K,G);
+	beta=matrix(0,B,G);
+	noise=matrix(0,N,G);
+	
+
+	for(g in 1:G)
+	{
+		counts_col=counts[,g];
+		rand_col=as.factor(Label.Batch);
+		seq=as.factor(1:N);
+		
+		fit=glmer(counts_col~omega0[,2]+omega0[,3]+omega0[,4]+(1|rand_col)
+					+(1|seq),family=poisson());
+		vec_intercept=c(0,rep(as.numeric(fixef(fit))[1],(length(as.numeric(fixef(fit)))-1)));
+		alpha[,g]=as.numeric(fixef(fit))+vec_intercept;
+		beta[,g]=as.numeric(as.matrix(ranef(fit)$rand_col));
+		noise[,g]=as.numeric(as.matrix(ranef(fit)$seq));
+	}
+
+	omega=matrix(0,N,K);
+	for(n in 1:dim(counts)[1])
+	{
+		omega_vec=omega0[n,];
+		counts_vec=counts[n,];
+		lab=Label.Batch[n];
+		noise_vec=noise[n,];
+		res=optim(reverse_transform(omega_vec), function(v) omega_loglik_Poisson(transform(v),counts_vec,alpha,beta,lab,noise_vec) );
+		omega[n,]=transform(res$par);
+	}
+
+	param_vec_omega=matrix(omega,1,N*K);
+	param_vec_alpha=matrix(alpha,1,K*G);
+	param_new_vec=c(param_vec_omega,param_vec_alpha);
+	param_vec=param_new_vec
+	return(param_new_vec)
+}
+
+options(warn=-1)
+system.time(res <- squarem(p=param0,y=y, fixptfn=Poisson_topic.randeff, control=list(maxiter = 30, trace = FALSE)));
+
+omega_final=matrix(res$par[1:(N*K)],N,K);
+alpha_final=matrix(res$par[-(1:(N*K))],K,G)
+
+
+docweights=omega_final;
+library(permute);
+library("BioPhysConnectoR");
+perm_set=rbind(1:K,allPerms(1:K));
+diff=array(0,dim(perm_set)[1]);
+for (p in 1:dim(perm_set)[1])
+{
+	temp=docweights[,perm_set[p,]];
+	diff[p]=fnorm(temp,omega_true);
+}
+
+p_star=which(diff==min(diff));
+docweights=docweights[,perm_set[p_star,]];
+
+omega_final=docweights;
+alpha_final=alpha_final[perm_set[p_star,],];
+
+
+windows()
+par(mar=c(8,5.25,2.5,2.5))
+
+# - get rid of space space between leftmost bar and y axis
+par(xaxs="i")
+
+k=K
+# Make plot 
+# - plot data
+barplot(t(omega_final),col=2:(k+1),axisnames=F,space=0,border=NA,main="",las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
+title(main=paste("Structure Plot of final estd. topic proportions,k=",K))
+
+```
+
+
