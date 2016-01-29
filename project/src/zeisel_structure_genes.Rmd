@@ -1,0 +1,41 @@
+---
+title: "Zeisel single cell analysis"
+author: "Kushal K Dey"
+date: "January 28, 2016"
+output: 
+  html_document:
+    css: floating-toc.css
+    toc: true
+---
+
+## Objective
+
+In this script, we analyze the dataset due to Zeisel \emph{et al}. Check their [paper](http://science.sciencemag.org/content/347/6226/1138).
+
+In this dataset, we analyze the single cells from the cortex and hippocampus regions of the mouse brain. We cluster the single cells with respect to the different tissues or subtissues of the brain cortex and hippocampus identified by the BackSpin algorithm used by the authors. 
+
+
+```{r echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
+rm(list=ls())
+library(data.table)
+#install_github('kkdey/maptpx') 
+library(maptpx)
+library(CountClust)
+library(data.table)
+
+```
+
+We read the counts data and extract the cell type metadata from the column names in the data file.
+
+```{r echo=TRUE, eval=TRUE}
+data=suppressWarnings(suppressMessages(data.frame(fread("../data/expression_mRNA_17-Aug-2014.txt"))));
+
+counts_data=as.matrix(data[-(1:10),-(1:2)]);
+
+counts_data <- apply(counts_data,2,as.numeric)
+counts_data <- t(counts_data);
+
+cell_type = unlist(lapply(strsplit(rownames(counts_data),"\\."),function(x) x[1]));
+
+```
+
