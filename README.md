@@ -1,5 +1,5 @@
 # count-clustering
-a repo for model based rna seq clustering etc. Check [here](https://kkdey.github.io/count-clustering).
+a repo for model based rna seq clustering etc, check [here](https://stephenslab.github.io/count-clustering).
 
 Authors: Kushal K Dey  and Matthew Stephens 
 
