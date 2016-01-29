@@ -30,6 +30,6 @@ tagline:
 
   Here we present the topic model fit and Structure plot on this data for a range of values of $K$ to see how patterns change with increasing number of topics.
 
-  *[Deng et al 2014 sc-RNA analysis](project/src/deng_structure_genes.html)
+  *[Deng et al 2014 sc-RNA analysis](project/src/deng_structure_all_genes.html)
 
 
