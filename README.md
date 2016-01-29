@@ -1,7 +1,7 @@
 # count-clustering
-a repo for Kushal's work related to rna seq clustering etc. 
+a repo for model based rna seq clustering etc. Check [here](https://kkdey.github.io/count-clustering).
 
-View our website [here](https://kkdey.github.io/count-clustering).
+Authors: Kushal K Dey  and Matthew Stephens 
 
 The R package corresponding to this work is `CountClust`. Check the package details [here]
 (https://github.com/kkdey/CountClust).
