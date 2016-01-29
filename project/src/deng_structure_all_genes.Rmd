@@ -10,7 +10,9 @@ output:
 
 ## Objective
 
-The Deng dataset has single cells sequenced starting from zygote through the 2 cell, 4 cell all the way up to blastocyst. We want to cluster the development phase and try to see which genes are actually driving the clusters in the development phase. These would be the genes that would also play a significant part in differentiating the various stages of the development.
+In this script, we perform the graded membership model on the dataset obtained from the study due to Deng \emph{et al}. Check the [paper](http://science.sciencemag.org/content/343/6167/193).
+
+The dataset has single cells sequenced starting from zygote through the 2 cell, 4 cell all the way up to blastocyst. We want to cluster the cells by  development phase, also taking into account the information about the embryo of the origin of the cells and try to see which genes are actually driving the clusters in the development phase. These would be the genes that would also play a significant part in differentiating the various stages of the development.
 
 
 ```{r echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
