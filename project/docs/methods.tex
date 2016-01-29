@@ -18,7 +18,7 @@ We assume that the data from an RNA-seq experiment have been summarized by a tab
 
 \subsection{Model overview}
 
-The method we adopt allows each sample to have a grade of membership in the underlying clusters. This type of approach was first used in population genetics to model population samples as having parts of its genome derived from different clusters that represented ancestries (see Pritchard, Stephens and Donnelly 2000 \cite{Pritchard2000}). Later, a similar approach was used to model documents to have grades of membership in different clusters, representing topics, depending on the frequencies of different words used (see Blei, Ng and Jordan 2003 \cite{Blei2003}). In RNA-sequencing data too, each sample is viewed as having grades of membership in different underlying subpopulations (for e.g. cell types for tissue samples, cell phases for single cells etc). \\[1 pt]
+The method we adopt allows each sample to have a grade of membership in the underlying clusters. This type of approach was first used in population genetics to model population samples as having parts of its genome derived from different clusters that represented ancestries (see Pritchard, Stephens and Donnelly 2000 \cite{Pritchard2000}). Later, a similar approach was used to model documents to have grades of membership in different clusters, representing topics, depending on the frequencies of different words used (see Blei, Ng and Jordan 2003 \cite{Blei2003}). In RNA-sequencing data too, each sample is viewed as having grades of membership in different underlying subpopulations (for e.g. cell types for tissue samples, cell phases for single cells etc). 
 
 We assume that the row vector of counts for each sample $n$ across the genes follows a multinomial distribution.
 
@@ -28,7 +28,7 @@ where $c_{n*}$ is the count vector for the $n$ th sample, $c_{n..}$ is the sum o
 
 $$ p_{ng} = \sum_{k=1}^{K} q_{nk}\theta_{kg}   \hspace{1 cm}  \sum_{k=1}^{K} q_{nk}=1 \hspace{1 cm} \sum_{g=1}^{G} \theta_{kg}=1 $$
 
-This model has $N \times (K-1) + K \times (G-1)$ many unconstrained parameters, which is much smaller than the $N \times G$  data values of counts. Usually for RNA-seq samples $N$ varies in the region of $100$s to $1000$s  and $G$ ranges from $10,000$ to $50,000$ (depending on the underlying species and the types of genes tokenized) and $K << \{N,G \}$. \\[1 pt]
+This model has $N \times (K-1) + K \times (G-1)$ many unconstrained parameters, which is much smaller than the $N \times G$  data values of counts. Usually for RNA-seq samples $N$ varies in the region of $100$s to $1000$s  and $G$ ranges from $10,000$ to $50,000$ (depending on the underlying species and the types of genes tokenized) and $K << \{N,G \}$. 
 
 Due to the widespread use of topic models in Natural Language Processing literature, many softwares are available for fitting such models on document collections. Here, we use a Maximum a posteriori (MAP)  estimation procedure implemented in R package  \textbf{maptpx}(see Taddy 2012 \cite{Taddy2012}).
 
@@ -42,7 +42,7 @@ Due to the widespread use of topic models in Natural Language Processing literat
 \subsection{Visualization}
 
 A nice way to visualize the amount of relatedness among the samples is through the Structure plot, which is a popular tool to visualize the admixture patterns in population genetics based on SNP/ microsatellite data (see Rosenberg \textit{et al} 2002 \cite{Rosenberg2002}).  
-For each sample $n$, $q_{nk}$  represents the relative abundance of  hidden subgroup $k$ in the sample. The Structure plot  assigns a color to each of the subgroups and then presents a vertical stacked barchart for each individual, with stack heights representing subgroup proportions and each subgroup assigned a particular color. If the colored patterns of two bars are similar, then the two samples must be closely related.  \\[1 pt]
+For each sample $n$, $q_{nk}$  represents the relative abundance of  hidden subgroup $k$ in the sample. The Structure plot  assigns a color to each of the subgroups and then presents a vertical stacked barchart for each individual, with stack heights representing subgroup proportions and each subgroup assigned a particular color. If the colored patterns of two bars are similar, then the two samples must be closely related.  
 
 Another visualizing tool we recommend is t-distributed Stochastic Neighbor Embedding (t-SNE), which is well-suited for visualizing the high dimensional datasets on 2D, preserving the relative distance between samples in high dimension to a fair extent in 2D (see L.J.P. van der Maaten \cite{Maaten2014} and L.J.P. van der Maaten and Hinton \cite{Maaten2008}). t-SNE shows us which samples are close to each other when the data is projected on 2D. t-SNE is not a clustering tool and unlike Structure plot, does not show the relative abundance patterns of different subgroups in the sample. However, both Structure plot and t-SNE give a lot more interpretable visualization of the clustering compared to the heatmap and hierarchical clustering (see Results for illustration).
 
