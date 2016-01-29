@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  29 JAN 2016 03:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  29 JAN 2016 03:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -309,11 +309,7 @@ Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 \c@note=\count123
 )
 \c@definition=\count124
- (./main.aux
-
-LaTeX Warning: Label `Thompson2014' multiply defined.
-
-)
+ (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
@@ -332,7 +328,8 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 \AtBeginShipoutBox=\box28
 Package hyperref Info: Link coloring OFF on input line 3.
- (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -389,14 +386,79 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 5.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+)
 
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./met
-hods.tex
-[2] [3]
+LaTeX Warning: Citation `Jaitin2014' on page 1 undefined on input line 12.
+
+
+LaTeX Warning: Citation `Buettner2015' on page 1 undefined on input line 12.
+
+
+LaTeX Warning: Citation `GTEX2013' on page 1 undefined on input line 12.
+
+
+LaTeX Warning: Citation `Blei2003' on page 1 undefined on input line 14.
+
+
+LaTeX Warning: Citation `Blei2009' on page 1 undefined on input line 14.
+
+
+LaTeX Warning: Citation `Pritchard2000' on page 1 undefined on input line 14.
+
+
+LaTeX Warning: Citation `Schwartz2010' on page 1 undefined on input line 16.
+
+
+LaTeX Warning: Citation `Repsilber2010' on page 1 undefined on input line 16.
+
+
+LaTeX Warning: Citation `Shen-Orr2010' on page 1 undefined on input line 16.
+
+
+LaTeX Warning: Citation `Qiao2012' on page 1 undefined on input line 16.
+
+[1
+
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+
+LaTeX Warning: Citation `Jaitin2014' on page 2 undefined on input line 19.
+
+
+LaTeX Warning: Citation `Deng2014' on page 2 undefined on input line 19.
+
+) (./methods.tex
+
+LaTeX Warning: Citation `Frazee2011' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Jiang2011' on page 2 undefined on input line 5.
+
+
+LaTeX Warning: Citation `Pritchard2000' on page 2 undefined on input line 21.
+
+
+LaTeX Warning: Citation `Blei2003' on page 2 undefined on input line 21.
+
+[2]
+
+LaTeX Warning: Citation `Taddy2012' on page 3 undefined on input line 33.
+
+
+LaTeX Warning: Citation `Rosenberg2002' on page 3 undefined on input line 44.
+
+
+LaTeX Warning: Citation `Maaten2014' on page 3 undefined on input line 47.
+
+
+LaTeX Warning: Citation `Maaten2008' on page 3 undefined on input line 47.
+
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
+
+
+LaTeX Warning: Citation `Thompson2014' on page 4 undefined on input line 61.
 
 ) (./results.tex
 Overfull \hbox (20.15106pt too wide) in paragraph at lines 27--28
@@ -412,27 +474,90 @@ Overfull \hbox (5.15094pt too wide) in paragraph at lines 27--28
 
 [4]
 
-Package caption Warning: \label without proper \caption on input line 39.
-See the caption package documentation for explanation.
+LaTeX Warning: Reference `fig:fig1' on page 5 undefined on input line 29.
+
+
+LaTeX Warning: Reference `fig:fig1' on page 5 undefined on input line 32.
 
 
 LaTeX Warning: Reference `tab:tab1' on page 5 undefined on input line 32.
 
 
-Package caption Warning: \label without proper \caption on input line 39.
-See the caption package documentation for explanation.
-
-
 LaTeX Warning: Reference `tab:tab1' on page 5 undefined on input line 32.
 
-[5] [6]
+
+LaTeX Warning: Reference `fig:fig1' on page 5 undefined on input line 36.
+
+
+LaTeX Warning: Reference `fig:fig1' on page 5 undefined on input line 36.
+
+
+LaTeX Warning: Citation `Houzel2005' on page 5 undefined on input line 36.
+
+[5]
+
+LaTeX Warning: Citation `Jaitin2014' on page 6 undefined on input line 42.
+
+
+LaTeX Warning: Reference `fig:fig1' on page 6 undefined on input line 42.
+
+
+LaTeX Warning: Reference `fig:fig1' on page 6 undefined on input line 42.
+
+
+LaTeX Warning: Reference `fig:fig2' on page 6 undefined on input line 44.
+
+
+LaTeX Warning: Reference `fig:figS2' on page 6 undefined on input line 44.
+
+
+LaTeX Warning: Citation `Jaitin2014' on page 6 undefined on input line 46.
+
+
+LaTeX Warning: Citation `Deng2014' on page 6 undefined on input line 46.
+
+
+LaTeX Warning: Citation `Jaitin2014' on page 6 undefined on input line 48.
+
+
+LaTeX Warning: Reference `fig:fig3' on page 6 undefined on input line 48.
+
+
+LaTeX Warning: Citation `Leek2010' on page 6 undefined on input line 48.
+
+
+LaTeX Warning: Citation `Hicks2015' on page 6 undefined on input line 48.
+
+
+LaTeX Warning: Citation `Leek2007' on page 6 undefined on input line 48.
+
+
+LaTeX Warning: Citation `Stegle2012' on page 6 undefined on input line 48.
+
+
+LaTeX Warning: Citation `Jaitin2014' on page 6 undefined on input line 48.
+
+[6]
+
+LaTeX Warning: Citation `Deng2014' on page 7 undefined on input line 56.
+
+
+LaTeX Warning: Citation `Deng2014' on page 7 undefined on input line 56.
+
 
 LaTeX Warning: Reference `fig:figxx' on page 7 undefined on input line 57.
 
 
 LaTeX Warning: Reference `fig:figxx' on page 7 undefined on input line 60.
 
-) (./discussion.tex [7]) (./references.tex
+) (./discussion.tex [7]
+
+LaTeX Warning: Citation `Jaitin2014' on page 8 undefined on input line 9.
+
+
+LaTeX Warning: Citation `Taddy2012' on page 8 undefined on input line 13.
+
+) (./references.tex
 Missing character: There is no ñ in font cmr10!
 Missing character: There is no ö in font cmr10!
 Missing character: There is no é in font cmr10!
@@ -458,7 +583,7 @@ Underfull \hbox (badness 3612) in paragraph at lines 147--150
 0.95 PLoS Genet 2013, 9(5): e1003486.
  []
 
-) (./figures.tex <../plots/fig1_paper/fig1.pdf, id=180, 1027.84pt x 770.88pt>
+) (./figures.tex <../plots/fig1_paper/fig1.pdf, id=89, 1027.84pt x 770.88pt>
 File: ../plots/fig1_paper/fig1.pdf Graphic file (type pdf)
 
 <use ../plots/fig1_paper/fig1.pdf>
@@ -469,7 +594,7 @@ Overfull \hbox (14.50977pt too wide) in paragraph at lines 10--11
  [][]
  []
 
-<../plots/hierarchy_F_thin_0_1.png, id=181, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_1.png, id=90, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_1.png>
@@ -477,7 +602,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 3
 4.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_1.png, id=183, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_1.png, id=92, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_1.png>
@@ -489,62 +614,87 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 32--42
  [][]  [] 
  []
 
-<../plots/Jaitin_struct_clus_7_amp_batch.png, id=184, 602.25pt x 401.5pt>
+<../plots/Jaitin_struct_clus_7_amp_batch.png, id=93, 602.25pt x 401.5pt>
 File: ../plots/Jaitin_struct_clus_7_amp_batch.png Graphic file (type png)
 
 <use ../plots/Jaitin_struct_clus_7_amp_batch.png>
 Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_amp_batch.png used on in
-put line 302.
+put line 317.
 (pdftex.def)             Requested size: 325.22853pt x 180.67944pt.
 
-<../plots/deng_structure_6.png, id=185, 602.25pt x 401.5pt>
+
+LaTeX Warning: Citation `Jaitin2014' on page 10 undefined on input line 318.
+
+
+LaTeX Warning: Citation `Jaitin2014' on page 10 undefined on input line 318.
+
+<../plots/deng_structure_6.png, id=94, 602.25pt x 401.5pt>
 File: ../plots/deng_structure_6.png Graphic file (type png)
 
 <use ../plots/deng_structure_6.png>
-Package pdftex.def Info: ../plots/deng_structure_6.png used on input line 307.
+Package pdftex.def Info: ../plots/deng_structure_6.png used on input line 326.
 (pdftex.def)             Requested size: 325.22853pt x 180.67944pt.
- [10] [11 <../plots/fig1_paper/fig1.pdf>]
-[12 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>]
-[13 <../plots/Jaitin_struct_clus_7_amp_batch.png> <../plots/deng_structure_6.pn
-g>] <../plots/hierarchy_F_thin_0_01.png, id=239, 481.8pt x 481.8pt>
+
+
+LaTeX Warning: Citation `Deng2014' on page 10 undefined on input line 327.
+
+
+LaTeX Warning: Citation `Deng2014' on page 10 undefined on input line 327.
+
+[10] [11 <../plots/fig1_paper/fig1.pdf>] [12 <../plots/hierarchy_F_thin_0_1.png
+> <../plots/admixture_F_thin_0_1.png>] [13 <../plots/Jaitin_struct_clus_7_amp_b
+atch.png> <../plots/deng_structure_6.png>]
+<../plots/hierarchy_F_thin_0_01.png, id=156, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_01.png>
 Package pdftex.def Info: ../plots/hierarchy_F_thin_0_01.png used on input line 
-323.
+340.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_01.png, id=240, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_01.png, id=157, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_01.png>
 Package pdftex.def Info: ../plots/admixture_F_thin_0_01.png used on input line 
-329.
+346.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 321--331
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 338--348
  [][]  [] 
  []
 
-<../plots/hierarchy_F_thin_0_001.png, id=241, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_001.png, id=158, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_001.png>
 Package pdftex.def Info: ../plots/hierarchy_F_thin_0_001.png used on input line
- 335.
+ 352.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_001.png, id=242, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_001.png, id=159, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_001.png>
 Package pdftex.def Info: ../plots/admixture_F_thin_0_001.png used on input line
- 341.
+ 358.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-Overfull \hbox (4.86667pt too wide) in paragraph at lines 333--343
+Overfull \hbox (4.86667pt too wide) in paragraph at lines 350--360
  [][]  [] 
  []
+
+
+LaTeX Warning: Reference `fig:fig3' on page 14 undefined on input line 362.
+
+
+LaTeX Warning: Reference `fig:fig3' on page 14 undefined on input line 362.
+
+
+LaTeX Warning: Reference `fig:fig3' on page 14 undefined on input line 362.
+
+
+LaTeX Warning: Reference `fig:fig3' on page 14 undefined on input line 362.
 
 ) (./tables.tex [14
 
@@ -735,22 +885,28 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 12.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 12.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 12.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 31B1B7789AE51A93EF1FDD6F637B0606;590.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  31B1B7789AE51A93EF1FDD6F637B0606;590.
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 12.
  ) 
 Here is how much of TeX's memory you used:
- 7501 strings out of 493117
- 112558 string characters out of 6135433
- 228007 words of memory out of 5000000
- 10782 multiletter control sequences out of 15000+600000
+ 7492 strings out of 493117
+ 112442 string characters out of 6135433
+ 223147 words of memory out of 5000000
+ 10772 multiletter control sequences out of 15000+600000
  14693 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,13n,38p,2361b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -767,10 +923,10 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (18 pages, 726589 bytes).
+Output written on main.pdf (18 pages, 724485 bytes).
 PDF statistics:
- 333 PDF objects out of 1000 (max. 8388607)
- 268 compressed objects within 3 object streams
- 66 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 249 PDF objects out of 1000 (max. 8388607)
+ 189 compressed objects within 2 object streams
+ 67 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
