@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Model based clustering of RNA-Seq Data"
+title: "Clustering of RNA-Seq Data"
 tagline: 
 ---
 
