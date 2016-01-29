@@ -1,0 +1,248 @@
+---
+title: 'Evidence: Structure > Hierarchical clustering'
+author: "Kushal K Dey"
+date: "July 6, 2015"
+output: html_document
+---
+
+```{r packages, echo=FALSE, eval=TRUE}
+
+suppressMessages(suppressWarnings(library(data.table)))
+suppressMessages(suppressWarnings(library(maptpx)))
+suppressMessages(suppressWarnings(library(gplots)))
+suppressMessages(suppressWarnings(library(philentropy)))
+
+```
+
+In this script, we present a case study where Hierarchical clustering fails to separate out two groups, but Structure is successful in doing so and that too on a much broader scale. Additionally we also present case studies where Structure and Hierarchical do equally good job, and that is the case for bulk of comparisons that I looked at. The potential case study of interest comes from the Amit single cell experiment.
+
+
+## Amit Data: Structure based on cell subtypes
+
+Amit et al [Paper](http://www.sciencemag.org/content/347/6226/1138.short) compared among the different cell sub types between mouse cortex and hippocampus. We did a fine scale analysis on the 47 cell subtypes that they focused on in their paper.  The names of the cell sub types and the corresponding Structure plot across the cell types (arranged alphabetically) are provided below. 
+
+```{r echo=FALSE, eval=TRUE}
+data=suppressWarnings(suppressMessages(data.frame(fread("/Users/kushal/Documents/Matthew Stephens Project/counts_clustering/expression_mRNA_17-Aug-2014.txt"))));
+
+counts_data=as.matrix(data[-(1:10),-(1:2)]);
+counts_data = apply(counts_data,2,function(x) as.numeric(x) )
+
+K=10;
+docweights=as.matrix(read.table(paste0("/Users/kushal/Documents/Matthew Stephens Project/counts_clustering/data/topics_omega_Amit_clus",K)));
+
+finer_subtype = data[9,-(1:2)];
+finer_subtype_ordered = finer_subtype[order(finer_subtype)];
+
+unique(as.vector(as.matrix(finer_subtype_ordered)))
+
+none_indices = which(finer_subtype_ordered=="(none)");
+
+docweights_ordered = docweights[order(finer_subtype),];
+
+docweights_non_null_ordered = docweights_ordered [-none_indices,];
+
+finer_subtype_non_null_ordered = finer_subtype_ordered[-none_indices];
+
+par(mfrow=c(1,1))
+barplot(t(docweights_non_null_ordered),col=2:(K+1),axisnames=F,space=0,border=NA,main=paste("No. of clusters=",K),las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
+
+labels=match(unique(as.vector(as.matrix(finer_subtype_non_null_ordered))), finer_subtype_non_null_ordered);
+abline(v=labels-1)
+labels_low=labels;
+labels_up=c(labels[2:length(labels)],dim(docweights_non_null_ordered)[1]);
+mid_point=labels_low +0.5*(labels_up-labels_low);
+axis(1,at=mid_point, unique(as.vector(as.matrix(finer_subtype_non_null_ordered))),las=2);
+
+
+
+```
+
+Notice in the above Structure plot the cell types Ca1Pyr1 and Ca1Pyr2. They seem to be represented by same two clusters mainly (red and green), but the proportion of green cluster almost throughout the Ca1Pyr2 seems to be higher than that of Ca1Pyr1. Structure is efficient in figuring out this difference through mixed membership proportions. But can hierarchical clustering figure that out?
+
+We randomly select 50 samples from the pool of Ca1Pyr1 and Ca1Pyr2 cells. This is solely because it is easier to build and view the heatmap over only 50 samples. The process has been repeated multiple times and the results have been consistent over different random sample choices.
+
+We present a correlation heatmap of the counts data exclusively for those 50 cells/samples.
+
+```{r echo=FALSE, eval=TRUE}
+subtype = data[9,-(1:2)];
+
+test_indices <- which(subtype == 'CA1Pyr1' | subtype == 'CA1Pyr2' );
+
+test_indices_sampled <- sample(test_indices, 50, replace=FALSE);
+
+test <- counts_data[,test_indices_sampled];
+
+col = c(rgb(seq(0,1,length=15),1,seq(0,1,length=15)), rgb(1,seq(1,0,length=15),seq(1,0,length=15)));
+
+
+heatmap.2(cor(test, method="pearson"),labCol=subtype[test_indices_sampled],labRow=subtype[test_indices_sampled],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col, hclustfun = function(x) hclust(x,method="average"),
+          breaks=c(seq(-1,0,0.1),seq(0.05,1,length.out=20)));
+
+
+```
+
+Well, the results are not so encouraging. It is easy to see that Ca1Pyr2 and Ca1Pyr1 cells are pretty mixed up. 
+
+Now, let us have a look at the admixture proportions obatined from the above Structure model fit. Does it succeed in separating the Ca1Pyr1 and the Ca1Pyr2 cells??
+
+```{r echo=FALSE, eval=TRUE}
+
+K=10;
+docweights=as.matrix(read.table(paste0("/Users/kushal/Documents/Matthew Stephens Project/counts_clustering/data/topics_omega_Amit_clus",K)));
+
+docweights_samples <- docweights[test_indices_sampled,];
+
+heatmap.2(cor(t(docweights_samples), method="pearson"),labCol=subtype[test_indices_sampled],labRow=subtype[test_indices_sampled],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col,
+          breaks=c(seq(-1,0,0.1),seq(0.05,1,length.out=20)));
+
+
+```
+
+The results are better (will vary owing to the random selection of samples though from one run to another) than the usual heatmap. But this was for the 10 clusters on the whole data, ideally we should just look at the 50 cells and try to cluster them into 2 clusters and see if the two clusters are determined by the Ca1Pyr1 and Ca1Pyr2..these two groups. So, we fit a topic model with 2 clusters on the dataset of 50 samples and around 19,000 genes and then present the correlation heatmap of the proportions from that model fit. 
+
+Note in this case, since we have only two groups, the correlation values can only be +1 or -1. It would be interesting to see though which samples or cells give +1 correlation and which give -1 correlation. 
+
+```{r echo=FALSE, eval=TRUE}
+
+Topic_Clus = topics(t(test), K=2, tol=0.0001);
+docweights_samples=Topic_Clus$omega;
+
+heatmap.2(cor(t(docweights_samples), method="pearson"),labCol=subtype[test_indices_sampled],labRow=subtype[test_indices_sampled],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col,
+          breaks=c(seq(-1,0,0.1),seq(0.05,1,length.out=20)));
+
+```
+
+Seems like this does a pretty decent job at separating out the two groups. This case study seems to suggest that the Structure even at a broad level of K=10 does a better job than the hierarchical model on the counts only and at K=2, it does way better in separating out these groups.
+
+The above example was also an instance where the Structure proportions comparison at the braod scale of K=10 may not be ideal when you are just comparing two groups. Rather the ideal approahc would be to solely focus on those cells coming from the two groups and perform topic model and use topic proportions from that topic model instead of those from the whole data. It may very well happen that for the number of clusters we have picked for the whole data, it is not possible to separate between two closely related groups as in the above case.
+
+A GTEx example of that would be Heart - Left Ventricle and Heart - Atrial Appendage. These two clustered together when we performed the clustering for $K=10$. But when we looked at the fine scale taking samples from just these two tissues, they seemed to separate them out.
+
+## GTEX case study
+
+We use the GTEx thinned data (thining scale =0.0001). First we show the correlation heatmap for the counts data of 50 samples coming from the tissue pool of Muscle Skeletal and Heart - Left Ventricle, without applying the Structure model. the heatmap seems to be separating out the two tissues clearly. 
+
+```{r echo=FALSE, ecal=TRUE}
+
+
+library(data.table)
+library(limma)
+library(philentropy)
+library(maptpx)
+library(gplots)
+
+setwd("/Users/kushal/Documents/count-clustering/src/")
+
+data= data.frame(fread('/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/gtex_thinned_version_1.txt'))[,-1];
+samples_id=read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/samples_id.txt");
+
+test_indices <- which(samples_id[,3]=='Heart - Left Ventricle' | samples_id[,3]=='Muscle - Skeletal');
+set.seed(40)
+test_indices_sampled <- sample(test_indices, 50, replace=FALSE);
+
+samples <- data[,test_indices_sampled];
+
+col = c(rgb(seq(0,1,length=15),1,seq(0,1,length=15)), rgb(1,seq(1,0,length=15),seq(1,0,length=15)));
+
+png(filename="../plots/heart_muscle_hierarchical_heatmap_average.png")
+heatmap.2(distance(t(samples),method="euclidean"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col, hclustfun = function(x) hclust(x,method="average"));
+dev.off()
+
+png(filename="../plots/heart_muscle_hierarchical_heatmap_complete.png")
+heatmap.2(distance(t(samples),method="euclidean"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col, hclustfun = function(x) hclust(x,method="complete"));
+dev.off()
+
+cpm <- apply(voom(t(samples))$E, 1, function(x) x/mean(x));
+
+png(filename="../plots/heart_muscle_hierarchical_heatmap_cpm_complete.png")
+heatmap.2(distance(t(cpm),method="euclidean"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col, hclustfun = function(x) hclust(x,method="complete"));
+dev.off()
+
+png(filename="../plots/heart_muscle_hierarchical_heatmap_cpm_average.png")
+heatmap.2(distance(t(cpm),method="euclidean"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col, hclustfun = function(x) hclust(x,method="average"));
+dev.off()
+
+
+```
+
+
+However, the Structure clusters the two tissues almost together at K=10 but with slight variation between Muscle Skeletal and Heart Left Ventricle, remember?...Here is the Structure plot for that 
+
+```{r echo=FALSE, eval=TRUE}
+docweights_thinned_version_1 <- as.matrix(read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/topics_omega_clus_12_version_1.txt"));
+K=12;
+
+color=c("red","blue","cornflowerblue","black","cyan","darkblue",
+        "brown4","burlywood","darkgoldenrod1","darkgray","deepskyblue","darkkhaki",
+        "firebrick","darkorchid","hotpink","green","magenta","yellow", "azure1","azure4");
+
+
+subgroup_id=read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/samples_id.txt")[,3];
+
+docweights_per_tissue_mean <- apply(docweights_thinned_version_1,2,function(x) tapply(x,subgroup_id,mean));
+ordering=heatmap(docweights_per_tissue_mean, col=gray.colors(200))$rowInd;
+
+unique_subgroup_id_ordered = unique(subgroup_id)[ordering];
+
+
+clus_ordered =unlist(lapply(1:53, function(x) which(subgroup_id == unique_subgroup_id_ordered[x])));
+
+
+docweights_ordering = docweights_thinned_version_1[clus_ordered,];
+subgroup_id_ordered = subgroup_id[clus_ordered];
+par(mar=c(14,3,3,3))
+barplot(t(docweights_ordering),col=color[1:K],axisnames=F,space=0,border=NA,main=paste("No. of clusters=",K),las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
+
+labels = match(unique(subgroup_id_ordered), subgroup_id_ordered);
+abline(v=labels)
+
+labels_low=labels;
+labels_up=c(labels[2:length(labels)],dim(docweights_ordering)[1]);
+mid_point=labels_low +0.5*(labels_up-labels_low);
+
+axis(1,at=mid_point, unique(subgroup_id_ordered),las=2);
+
+
+```
+
+If we do kullback-leibler heatmap of the Structure topic proportions for Heart Left Ventricle and Heart Atrial Appendage, the two tissue samples would be mixed up.
+
+```{r echo=FALSE, eval=TRUE}
+
+set.seed(40)
+
+test_indices_sampled <- sample(test_indices, 50, replace=FALSE);
+
+docweights_samples <- docweights_thinned_version_1[test_indices_sampled,];
+
+png(filename="../plots/heart_muscle_admix_heatmap_complete.png")
+heatmap.2(distance(docweights_samples,method="euclidean"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col,hclustfun = function(x) hclust(x,method="complete"));
+dev.off()
+
+
+png(filename="../plots/heart_muscle_admix_heatmap_average.png")
+heatmap.2(distance(docweights_samples,method="euclidean"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col,hclustfun = function(x) hclust(x,method="average"));
+dev.off()
+
+
+
+```
+
+However, when we just focus on these 50 samples and do a admixture clustering on these 50 samples, then we get very good results - separtating the two tissues.
+
+```{r echo=FALSE, eval=TRUE}
+
+
+Topic_Clus = topics(t(samples), K=2, tol=0.0001);
+docweights_samples=Topic_Clus$omega;
+
+png(filename="../plots/heart_muscle_admixture_heatmap.png")
+heatmap.2(distance(docweights_samples,method="kullback-leibler"),labCol=samples_id[test_indices_sampled,3],labRow=samples_id[test_indices_sampled,3],scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col,hclustfun = function(x) hclust(x,method="complete"));
+dev.off()
+
+
+```
+
+
+
+

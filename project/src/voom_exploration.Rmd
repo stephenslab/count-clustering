@@ -1,0 +1,160 @@
+---
+title: 'Exploring single cell data : Joyce’s suggestions'
+author: "Kushal K Dey"
+date: "July 6, 2015"
+output: html_document
+---
+
+```{r packages, echo=FALSE, eval=TRUE}
+suppressMessages(suppressWarnings(library(limma)))
+suppressMessages(suppressWarnings(library(data.table)))
+
+```
+
+In this script, we explore the single cell (Amit) data and the GTEX tissue level data further  and try to see whether some patterns show up in the data worth investigating. We look at density patterns of counts across genes for samples coming from different  cell types or tissue types. We also perform CPM calculation using voom method and then look at he mean and variance trend for the genes. Both these analyses are aimed at evaluating whether fitting a Poisson model can be justified, interpreting the overdispersion and are necessary for further modification of the method. 
+
+## log CPM density analysis Amit Data
+
+```{r, echo=FALSE, eval=TRUE}
+
+data=suppressWarnings(suppressMessages(data.frame(fread("/Users/kushal/Documents/Matthew Stephens Project/counts_clustering/expression_mRNA_17-Aug-2014.txt"))));
+
+counts_data=as.matrix(data[-(1:10),-(1:2)]);
+
+counts_data <-  apply(counts_data, 2, as.numeric)
+
+cpm_data =apply(counts_data, 2, function(x)
+                         {
+                              y=(x/sum(x))*10^6;
+                              return(y)
+                         })
+
+log_cpm_data = log(cpm_data+1, base=2);
+
+
+cell_type = unlist(lapply(strsplit(colnames(counts_data),"\\."),function(x) x[1]));
+
+cell_type_ordered = cell_type[order(cell_type)];
+
+subtype = data[8,-(1:2)];
+
+sample_indices = unique(match(subtype,unique(subtype)));
+
+
+color=c("red","blue","cornflowerblue","black","cyan","darkblue",
+        "brown4","burlywood","darkgoldenrod1","darkgray","deepskyblue","darkkhaki",
+        "firebrick","darkorchid","hotpink","green","magenta","yellow", "azure1","azure4");
+
+
+
+plot(1, type="n", axes=T, xlab="log CPM", ylab="density",ylim=c(0,0.8),xlim=c(0,15),
+     main="Density plot across cell subtypes",xaxs="i", yaxs="i")
+for(index in 1:length(sample_indices))
+{
+  lines(density(log_cpm_data[sample_indices[index],]), col=color[index])
+
+}
+
+legend("topright", legend = subtype[sample_indices], col=color[1:length(sample_indices)],
+       fill=color[1:length(sample_indices)]);
+
+```
+
+## Voom plot (log-2 CPM) Amit Data
+
+We perform voom on the counts data to get the log-2 CPM data
+
+```{r echo=FALSE, eval=TRUE,cache=TRUE}
+
+voom_out_1 <- voom(counts_data);
+
+log_cpm_data <- voom_out_1$E;
+
+```
+
+We use the CPM data to look at the mean variance trend.
+
+```{r echo=FALSE, eval=TRUE}
+
+mean_voom <- apply(log_cpm_data,1,mean);
+sqrt_sd_voom <- apply(log_cpm_data,1,function(x) sqrt(sd(x)));
+
+
+plot(mean_voom,sqrt_sd_voom, cex=1, lwd=1, pch=1, xlab="log CPM counts", ylab="sqrt(standard deviation)");
+
+sd_voom <- apply(log_cpm_data,1,function(x) sd(x));
+
+plot(mean_voom,sd_voom, cex=1, lwd=1, pch=1, xlab="log CPM counts", ylab="standard deviation)");
+
+```
+
+### log CPM density analysis on the GTEx Brain samples data
+
+We use the tissue level data (not the thinned one).
+
+```{r, echo=FALSE, eval=TRUE}
+
+data= data.frame(fread("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/cis_gene_expression_all_samples.txt"))[,-1];
+samples_id=read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/samples_id.txt");
+
+cpm_data =apply(data, 2, function(x)
+                         {
+                              y=(x/sum(x))*10^6;
+                              return(y)
+                         })
+
+log_cpm_data = log(cpm_data+1, base=2);
+
+brain_indices=which(samples_id[,2]=='Brain');
+
+brain_subgroups = samples_id[brain_indices,3];
+
+sample_indices = unique(match( as.character(unique(brain_subgroups)),as.character(brain_subgroups)));
+
+plot(1, type="n", axes=T, xlab="log CPM", ylab="density",ylim=c(0,1.5),xlim=c(0,13),
+     main="Density plot across brain subtissues",xaxs="i", yaxs="i")
+for(index in 1:length(sample_indices))
+{
+  lines(density(log_cpm_data[sample_indices[index],]), col=color[index])
+}
+
+legend("topright", legend = brain_subgroups[sample_indices], col=color[1:length(sample_indices)],
+       fill=color[1:length(sample_indices)],cex=0.5);
+
+
+```
+
+## Voom plot (log-2 CPM) GTEx samples (all samples)
+
+```{r echo=FALSE, eval=TRUE}
+
+voom_out_2 <- voom(data);
+
+log_cpm_data <- voom_out_2$E;
+
+```
+
+```{r echo=FALSE, eval=TRUE}
+
+#plot(1, type="n", axes=T, xlab="log CPM", ylab="density",ylim=c(0,1.5),xlim=c(0,13),
+   #  main="Density plot across brain subtissues",xaxs="i", yaxs="i")
+#for(index in 1:length(sample_indices))
+#{
+#  lines(density(log_cpm_data[sample_indices[index],]), col=color[index])
+#}
+
+#legend("topright", legend = brain_subgroups[sample_indices], col=color[1:length(sample_indices)],
+ #      fill=color[1:length(sample_indices)],cex=0.5);
+
+
+mean_voom <- apply(log_cpm_data,1,mean);
+sqrt_sd_voom <- apply(log_cpm_data,1,function(x) sqrt(sd(x)));
+
+
+plot(mean_voom,sqrt_sd_voom, cex=1, lwd=1, pch=1, xlab="log CPM counts", ylab="sqrt(standard deviation)");
+
+sd_voom <- apply(log_cpm_data,1,function(x) sd(x));
+
+plot(mean_voom,sd_voom, cex=1, lwd=1, pch=1, xlab="log CPM counts", ylab="standard deviation)");
+```
+
