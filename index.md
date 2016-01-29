@@ -15,6 +15,10 @@ tagline:
   An alternative representation of the clustering besides the Structure plot is t-SNE representation. We present the results from applying t-SNE on the original GTEx read counts data and also on the topic proportions from the topic model fit.
   
   *[GTEX V6: t-SNE representation](project/src/tissues_tSNE.html)
+  
+  We annotate the genes that drive the clusters. For each cluster, we find a set of few top genes that distinguish that cluster from the rest (we term these as cluster annotating genes).
+  
+  *[GTEX V6: Gene Annotations](project/src/gene_annotation.html)
 
 ### Jaitin et al (2014) single cell analysis
 
