@@ -1,5 +1,6 @@
 .DS_Store
 .Rproj.user
-internal_data/
+project/internal_data/
+project/external_data/
 src/.Rhistory
 data/
