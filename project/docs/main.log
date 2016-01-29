@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  29 JAN 2016 07:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  29 JAN 2016 14:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -419,30 +419,23 @@ Package caption Warning: \label without proper \caption on input line 39.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:tab1' on page 5 undefined on input line 32.
+LaTeX Warning: Reference `tab:tab1' on page 5 undefined on input line 31.
 
-
-Package caption Warning: \label without proper \caption on input line 39.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tab:tab1' on page 5 undefined on input line 32.
-
-[5] [6]) (./discussion.tex [7]) (./references.tex
+[5] [6] [7]) (./discussion.tex) (./references.tex
 Missing character: There is no ñ in font cmr10!
 Missing character: There is no ö in font cmr10!
 Missing character: There is no é in font cmr10!
 Missing character: There is no ç in font cmr10!
  [8]
 Missing character: There is no é in font cmr10!
+ [9]pdfTeX warning (ext4): destination with the same identifier (name{cite.Thom
+pson2014}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.127 \bibitem{Thompson2014}
+                            
 Missing character: There is no ü in font cmr10!
- [9pdfTeX warning (ext4): destination with the same identifier (name{cite.Thomp
-son2014}) has been already used, duplicate ignored
 
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.136 \bibitem{Buettner2015}
-                            ]
 Underfull \hbox (badness 2359) in paragraph at lines 147--150
 []\OT1/cmr/m/n/10.95 Flutre T, Wen X, Pritchard J and Stephens M. \OT1/cmr/m/it
 /10.95 A Sta-tis-ti-cal Frame-work for
@@ -454,7 +447,8 @@ Underfull \hbox (badness 3612) in paragraph at lines 147--150
 0.95 PLoS Genet 2013, 9(5): e1003486.
  []
 
-) (./figures.tex <../plots/fig1_paper/fig1.pdf, id=187, 1027.84pt x 770.88pt>
+[10]) (./figures.tex
+<../plots/fig1_paper/fig1.pdf, id=192, 1027.84pt x 770.88pt>
 File: ../plots/fig1_paper/fig1.pdf Graphic file (type pdf)
 
 <use ../plots/fig1_paper/fig1.pdf>
@@ -465,7 +459,7 @@ Overfull \hbox (14.50977pt too wide) in paragraph at lines 10--11
  [][]
  []
 
-<../plots/hierarchy_F_thin_0_1.png, id=188, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_1.png, id=193, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_1.png>
@@ -473,7 +467,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 3
 4.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_1.png, id=190, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_1.png, id=195, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_1.png>
@@ -485,7 +479,7 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 32--42
  [][]  [] 
  []
 
-<../plots/Jaitin_struct_clus_7_amp_batch.png, id=191, 602.25pt x 401.5pt>
+<../plots/Jaitin_struct_clus_7_amp_batch.png, id=196, 602.25pt x 401.5pt>
 File: ../plots/Jaitin_struct_clus_7_amp_batch.png Graphic file (type png)
 
 <use ../plots/Jaitin_struct_clus_7_amp_batch.png>
@@ -493,16 +487,16 @@ Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_amp_batch.png used on in
 put line 317.
 (pdftex.def)             Requested size: 325.22853pt x 180.67944pt.
 
-<../plots/deng_structure_6.pdf, id=194, 1027.84pt x 770.88pt>
+<../plots/deng_structure_6.pdf, id=199, 1027.84pt x 770.88pt>
 File: ../plots/deng_structure_6.pdf Graphic file (type pdf)
 
 <use ../plots/deng_structure_6.pdf>
 Package pdftex.def Info: ../plots/deng_structure_6.pdf used on input line 326.
 (pdftex.def)             Requested size: 397.48402pt x 289.07928pt.
- [10] [11 <../plots/fig1_paper/fig1.pdf>]
-[12 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>]
-[13 <../plots/Jaitin_struct_clus_7_amp_batch.png>] [14 <../plots/deng_structure
-_6.pdf>] <../plots/hierarchy_F_thin_0_01.png, id=265, 481.8pt x 481.8pt>
+ [11] [12 <../plots/fig1_paper/fig1.pdf>]
+[13 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>]
+[14 <../plots/Jaitin_struct_clus_7_amp_batch.png>] [15 <../plots/deng_structure
+_6.pdf>] <../plots/hierarchy_F_thin_0_01.png, id=267, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_01.png>
@@ -510,7 +504,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_01.png used on input line
 340.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_01.png, id=266, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_01.png, id=268, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_01.png>
@@ -522,7 +516,7 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 338--348
  [][]  [] 
  []
 
-<../plots/hierarchy_F_thin_0_001.png, id=267, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_001.png, id=269, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_001.png>
@@ -530,7 +524,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_001.png used on input line
  352.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_001.png, id=268, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_001.png, id=270, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_001.png>
@@ -542,9 +536,9 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 350--360
  [][]  [] 
  []
 
-) (./tables.tex [15
+) (./tables.tex [16
 
-] [16 <../plots/hierarchy_F_thin_0_01.png> <../plots/admixture_F_thin_0_01.png>
+] [17 <../plots/hierarchy_F_thin_0_01.png> <../plots/admixture_F_thin_0_01.png>
  <../plots/hierarchy_F_thin_0_001.png> <../plots/admixture_F_thin_0_001.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 6--6
 []\OT1/cmr/m/n/10.95 Gene
@@ -666,7 +660,7 @@ Overfull \hbox (34.04102pt too wide) in paragraph at lines 80--118
 
 LaTeX Warning: Float too large for page by 89.59184pt on input line 119.
 
-[17] [18]
+[18] [19]
 Underfull \hbox (badness 10000) in paragraph at lines 129--129
 []\OT1/cmr/m/n/10.95 Gene
  []
@@ -723,7 +717,7 @@ Overfull \hbox (34.04102pt too wide) in paragraph at lines 127--149
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 12.
- [19
+ [20
 
 
 ]
@@ -743,9 +737,9 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 12.
  ) 
 Here is how much of TeX's memory you used:
- 7504 strings out of 493117
- 112599 string characters out of 6135433
- 228072 words of memory out of 5000000
+ 7505 strings out of 493117
+ 112606 string characters out of 6135433
+ 227090 words of memory out of 5000000
  10783 multiletter control sequences out of 15000+600000
  14693 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -763,10 +757,10 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (19 pages, 765264 bytes).
+Output written on main.pdf (20 pages, 765932 bytes).
 PDF statistics:
- 361 PDF objects out of 1000 (max. 8388607)
- 291 compressed objects within 3 object streams
- 68 named destinations out of 1000 (max. 500000)
+ 363 PDF objects out of 1000 (max. 8388607)
+ 292 compressed objects within 3 object streams
+ 69 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
