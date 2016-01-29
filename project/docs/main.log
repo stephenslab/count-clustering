@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  21 JAN 2016 10:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  29 JAN 2016 03:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -389,40 +389,11 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 5.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
+) [1
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--15
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
-
- []
-
-[1
-
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
-(./methods.tex
-Underfull \hbox (badness 10000) in paragraph at lines 21--22
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 44--46
-
- []
-
-[3]
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]) (./met
+hods.tex
+[2] [3]
 Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
@@ -439,93 +410,43 @@ Overfull \hbox (5.15094pt too wide) in paragraph at lines 27--28
 / master / utilities / gene _ names _ GTEX _
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--30
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--32
-
- []
-
 [4]
 
 Package caption Warning: \label without proper \caption on input line 39.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:tab1' on page 5 undefined on input line 33.
+LaTeX Warning: Reference `tab:tab1' on page 5 undefined on input line 32.
 
 
 Package caption Warning: \label without proper \caption on input line 39.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:tab1' on page 5 undefined on input line 33.
+LaTeX Warning: Reference `tab:tab1' on page 5 undefined on input line 32.
+
+[5] [6]
+
+LaTeX Warning: Reference `fig:figxx' on page 7 undefined on input line 57.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 33--34
+LaTeX Warning: Reference `fig:figxx' on page 7 undefined on input line 60.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
-
- []
-
-
-LaTeX Warning: Reference `fig:figxx' on page 6 undefined on input line 58.
-
-[6]
-
-LaTeX Warning: Reference `fig:figxx' on page 7 undefined on input line 61.
-
-) (./discussion.tex
-Underfull \hbox (badness 10000) in paragraph at lines 3--4
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-
- []
-
-[7]) (./references.tex
+) (./discussion.tex [7]) (./references.tex
 Missing character: There is no ñ in font cmr10!
 Missing character: There is no ö in font cmr10!
 Missing character: There is no é in font cmr10!
 Missing character: There is no ç in font cmr10!
  [8]
 Missing character: There is no é in font cmr10!
-pdfTeX warning (ext4): destination with the same identifier (name{cite.Thompson
-2014}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.127 \bibitem{Thompson2014}
-                            
 Missing character: There is no ü in font cmr10!
+ [9pdfTeX warning (ext4): destination with the same identifier (name{cite.Thomp
+son2014}) has been already used, duplicate ignored
 
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.136 \bibitem{Buettner2015}
+                            ]
 Underfull \hbox (badness 2359) in paragraph at lines 147--150
 []\OT1/cmr/m/n/10.95 Flutre T, Wen X, Pritchard J and Stephens M. \OT1/cmr/m/it
 /10.95 A Sta-tis-ti-cal Frame-work for
@@ -537,8 +458,7 @@ Underfull \hbox (badness 3612) in paragraph at lines 147--150
 0.95 PLoS Genet 2013, 9(5): e1003486.
  []
 
-[9]) (./figures.tex
-<../plots/fig1_paper/fig1.pdf, id=183, 1027.84pt x 770.88pt>
+) (./figures.tex <../plots/fig1_paper/fig1.pdf, id=180, 1027.84pt x 770.88pt>
 File: ../plots/fig1_paper/fig1.pdf Graphic file (type pdf)
 
 <use ../plots/fig1_paper/fig1.pdf>
@@ -549,7 +469,7 @@ Overfull \hbox (14.50977pt too wide) in paragraph at lines 10--11
  [][]
  []
 
-<../plots/hierarchy_F_thin_0_1.png, id=184, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_1.png, id=181, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_1.png>
@@ -557,7 +477,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 3
 4.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_1.png, id=186, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_1.png, id=183, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_1.png>
@@ -569,7 +489,7 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 32--42
  [][]  [] 
  []
 
-<../plots/Jaitin_struct_clus_7_amp_batch.png, id=187, 602.25pt x 401.5pt>
+<../plots/Jaitin_struct_clus_7_amp_batch.png, id=184, 602.25pt x 401.5pt>
 File: ../plots/Jaitin_struct_clus_7_amp_batch.png Graphic file (type png)
 
 <use ../plots/Jaitin_struct_clus_7_amp_batch.png>
@@ -577,7 +497,7 @@ Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_amp_batch.png used on in
 put line 302.
 (pdftex.def)             Requested size: 325.22853pt x 180.67944pt.
 
-<../plots/deng_structure_6.png, id=188, 602.25pt x 401.5pt>
+<../plots/deng_structure_6.png, id=185, 602.25pt x 401.5pt>
 File: ../plots/deng_structure_6.png Graphic file (type png)
 
 <use ../plots/deng_structure_6.png>
@@ -829,7 +749,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 12.
 Here is how much of TeX's memory you used:
  7501 strings out of 493117
  112558 string characters out of 6135433
- 227092 words of memory out of 5000000
+ 228007 words of memory out of 5000000
  10782 multiletter control sequences out of 15000+600000
  14693 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -847,7 +767,7 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (18 pages, 726106 bytes).
+Output written on main.pdf (18 pages, 726589 bytes).
 PDF statistics:
  333 PDF objects out of 1000 (max. 8388607)
  268 compressed objects within 3 object streams
