@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  29 JAN 2016 04:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  29 JAN 2016 06:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -435,9 +435,14 @@ Missing character: There is no é in font cmr10!
 Missing character: There is no ç in font cmr10!
  [8]
 Missing character: There is no é in font cmr10!
- [9]
 Missing character: There is no ü in font cmr10!
+ [9pdfTeX warning (ext4): destination with the same identifier (name{cite.Thomp
+son2014}) has been already used, duplicate ignored
 
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.136 \bibitem{Buettner2015}
+                            ]
 Underfull \hbox (badness 2359) in paragraph at lines 147--150
 []\OT1/cmr/m/n/10.95 Flutre T, Wen X, Pritchard J and Stephens M. \OT1/cmr/m/it
 /10.95 A Sta-tis-ti-cal Frame-work for
@@ -494,16 +499,10 @@ File: ../plots/deng_structure_6.png Graphic file (type png)
 <use ../plots/deng_structure_6.png>
 Package pdftex.def Info: ../plots/deng_structure_6.png used on input line 326.
 (pdftex.def)             Requested size: 325.22853pt x 180.67944pt.
- [10pdfTeX warning (ext4): destination with the same identifier (name{cite.Thom
-pson2014}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.332  \clearpage
-                 ] [11 <../plots/fig1_paper/fig1.pdf>] [12 <../plots/hierarchy_
-F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>] [13 <../plots/Jaitin_struc
-t_clus_7_amp_batch.png> <../plots/deng_structure_6.png>]
-<../plots/hierarchy_F_thin_0_01.png, id=246, 481.8pt x 481.8pt>
+ [10] [11 <../plots/fig1_paper/fig1.pdf>]
+[12 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>]
+[13 <../plots/Jaitin_struct_clus_7_amp_batch.png> <../plots/deng_structure_6.pn
+g>] <../plots/hierarchy_F_thin_0_01.png, id=246, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_01.png>
@@ -746,7 +745,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 12.
 Here is how much of TeX's memory you used:
  7503 strings out of 493117
  112592 string characters out of 6135433
- 228180 words of memory out of 5000000
+ 228072 words of memory out of 5000000
  10783 multiletter control sequences out of 15000+600000
  14693 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -764,7 +763,7 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (18 pages, 727627 bytes).
+Output written on main.pdf (18 pages, 727433 bytes).
 PDF statistics:
  341 PDF objects out of 1000 (max. 8388607)
  276 compressed objects within 3 object streams
