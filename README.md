@@ -31,6 +31,7 @@ All documents related to this work are in the `project` folder. It hosts several
 
 `project/utilities` hosts files not connected to the current draft of the paper but are related to future directions of the work. 
 
+## Contact
 
 Please contact [Kushal K Dey](kkdey@uchicago.edu) if you have any queries
 
