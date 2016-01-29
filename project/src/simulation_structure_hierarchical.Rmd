@@ -1,0 +1,56 @@
+---
+title: "Simulation to compare Structure and Hierarchical"
+author: "Kushal K Dey"
+date: "July 11, 2015"
+output: html_document
+---
+
+
+In this script, we shall use a simulation technique to show that for data with low counts, the Structure model fits the data much better than the hierarchical model. This is to confirm that hierarchical clustering, though widely applied for clustering biological data may not be the best choice and model based clustering methods may be a better approach
+
+```{r simulation_set_up}
+
+rmixpi <- function(omega, alpha)
+{
+  u=runif(1,0,1);
+  if(u<omega[1]) out <- rpois(1,alpha[1])
+  if(u>omega[1]) out <- rpois(1,alpha[2])
+  return (out)
+}
+
+nsamples1 <-25; nsamples2 <-25;
+ngenes <-15000
+
+omega1<-c(0.9,0.1); omega2 <- c(0.1,0.9);
+alpha <-c(0.5,2);
+
+counts <- matrix(0,nsamples1,ngenes);
+
+
+temp1 <- do.call(rbind,lapply(1:nsamples1, function(z) do.call(cbind, lapply(1:ngenes, function(y) rmixpi(omega1,alpha)))));
+temp2 <- do.call(rbind,lapply(1:nsamples2, function(z) do.call(cbind, lapply(1:ngenes, function(y) rmixpi(omega2,alpha)))));
+  
+counts <- rbind(temp1,temp2);
+
+Topic_Clus <- topics(counts, K=2, tol=0.001);
+
+par(mfrow=c(1,1))
+K=2
+barplot(t(Topic_Clus$omega),col=2:(K+1),axisnames=F,space=0,border=NA,main=paste("No. of clusters=",K),las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
+
+col = c(rgb(seq(0,1,length=15),1,seq(0,1,length=15)), rgb(1,seq(1,0,length=15),seq(1,0,length=15)));
+
+group =c(rep("grp1",nsamples1),rep("grp2",nsamples2));
+
+heatmap.2(distance(Topic_Clus$omega,method="kullback-leibler"),labCol=group,labRow=group,scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col);
+
+
+heatmap.2(distance(counts,method="euclidean"),labCol=group,labRow=group,scale="none", trace="none", distfun=function(x) dist(x,method="euclidean"), col=col);
+
+
+
+
+
+
+```
+
