@@ -8,9 +8,13 @@ tagline:
 
   The Genotype Tissue Expression (GTEx) Project is a large scale project collecting tissue samples from actual human tissues. Check the [paper](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4010069/).
 
-  We apply model based clustering of the bulk-RNA GTEx V6 data (check the official release: [GTEx portal](http://www.gtexportal.org/home/)). The data contained $8555$ tissue samples coming from $53$ different tissues and we focussed on $16069$ genes chosen using a filtering criterion. Below, we present the cluster analysis for $K=15$ on all the tissues as well as clustering of brain samples using $K=4$.
+  We apply model based clustering of the bulk-RNA GTEx V6 data (check the official release: [GTEx portal](http://www.gtexportal.org/home/)). The data contained $8555$ tissue samples coming from $53$ different tissues and we focussed on $16069$ genes chosen using a filtering criterion. Below, we present the cluster analysis and Structure plot visualizations for $K=15$ on all the tissues as well as clustering of brain samples using $K=4$.
 
   *[GTEX V6 analysis](project/src/gtex_v6_structure_genes.html)
+  
+  An alternative representation of the clustering besides the Structure plot is t-SNE representation. We present the results from applying t-SNE on the original GTEx read counts data and also on the topic proportions from the topic model fit.
+  
+  *[GTEX V6: t-SNE representation](project/src/tissues_tSNE.html)
 
 ### Jaitin et al (2014) single cell analysis
 
