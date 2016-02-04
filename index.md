@@ -44,4 +44,4 @@ tagline:
 
   We apply a batch correction procedure `BatchCorrectedCounts()` to remove known technical effects using a voom type framework in the package `CountClust`. We present 3 simulation scenarios to present the effectiveness of the batch correction mechanism. 
   
-  [Batch Correction scenarios using CountClust](project/analysis/batch_correction_scenarios.html)
+  [Batch Correction scenarios using CountClust](project/src/batch_correction_scenarios.html)
