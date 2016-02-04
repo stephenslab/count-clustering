@@ -41,10 +41,6 @@ omega_true=matrix(rbind(rdirichlet(T*4,c(3,4,2,6)),rdirichlet(T*4,c(1,4,6,3)),
                         rdirichlet(T*4,c(4,1,2,2)),rdirichlet(T*4,c(2,6,3,2)),
                         rdirichlet(T*4,c(3,3,5,4))), nrow=N);
 
-K <- 4
-barplot(t(omega_true),col=2:(K+1),axisnames=F,space=0,border=NA,main="",las=1,ylim=c(0,1),cex.axis=1.5,cex.main=1.4)
-title(main=paste("Structure Plot of initial chosen topic proportions,k=",K))
-
 over_dis=0.5;
 noise_true=matrix(0,N,G);
 for(n in 1:N)
