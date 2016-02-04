@@ -10,5 +10,26 @@ RNA-seq, clustering, topic model, visualization, batch effects
 
 ## Abstract
 
-With the advent of next generation sequencing technologies, bulk RNA-seq and more recently, single cell RNA-seq (scRNA-seq) experiments have become popular sequencing protocols. The data obtained from these experiments are counts data, representing the number of reads mapping to different genes. We propose a clustering model aimed specifically at modeling counts data. The model is similar to the topic model in Natural Language Processing (Blei, Ng and Jordan 2003) and admixture model in population genetics (Pritchard, Stephens and Donnelly 2000). For model fitting, we use the \emph{maptpx} R package due to Matt Taddy (Taddy 2014). We also suggest visualization tools for interpretable representation of the clusters. We also address the issue of gene set selection for the clustering framework and how to separate the variation due to technical effects or batch effects from the biological variation of interest. We discuss applications of our method to the Genotype Tissue Expression (GTEx) Project bulk-RNA data taken across multiple tissue samples, as well as single cell datasets. The methods and materials discussed have been implemented in our \textbf{R} package, \emph{CountClust}.
+RNA sequencing of both bulk and, more recently, single cells, have become 
+the method of choice for measuring gene expression. The data from these assays
+are often summarized by counts of the number of reads mapping to different genes. 
+One common analysis step is to cluster the samples, usually using a hierarchical
+clustering method. Here we explore an alternative: the use of a model-based clustering method, 
+"latent Dirichlet Allocation", previously developed for 
+Natural Language Processing (Blei, Ng and Jordan 2003), that
+takes account of the count nature of the data. This model, like the
+the admixture model in population genetics
+(Pritchard, Stephens and Donnelly 2000), allows that each
+sample may belong to more than one cluster.
+ We suggest different ways to visualize
+results, and implement methods to help interpret the clusters
+by identifying genes whose expression characterizes each cluster.
+We illustrate the performance and potential of the method
+by applying it to both the
+Genotype Tissue Expression (GTEx) Project bulk-RNA data,
+and to single cell RNA-seq datasets. We also discuss the
+important issue of batch effects, and how they can influence results.
+Building on the maptpx package 
+(Taddy 2014) for model fitting, our methods are implemented in an
+R package, CountClust.
 
