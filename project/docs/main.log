@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  29 JAN 2016 14:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  9 FEB 2016 07:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -398,44 +398,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
 
-) (./results.tex
-Overfull \hbox (20.15106pt too wide) in paragraph at lines 27--28
+[4]) (./results.tex
+Overfull \hbox (20.15106pt too wide) in paragraph at lines 29--30
 \OT1/cmr/m/n/10.95 project (V6 db-GaP ac-ces-sion phs000424.v6.p1, re-lease dat
 e: Oct 19, 2015, []$\OT1/cmtt/m/n/10.95 http : / / www . gtexportal .
  []
 
 
-Overfull \hbox (5.15094pt too wide) in paragraph at lines 27--28
+Overfull \hbox (5.15094pt too wide) in paragraph at lines 29--30
 \OT1/cmtt/m/n/10.95 / / github . com / stephenslab / count-[]clustering / blob 
 / master / utilities / gene _ names _ GTEX _
  []
 
-[4]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 29.
-
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 31.
+[5]
 
 Package caption Warning: \label without proper \caption on input line 39.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `tab:tab1' on page 5 undefined on input line 31.
+LaTeX Warning: Reference `tab:tab1' on page 6 undefined on input line 33.
 
-[5] [6] [7]) (./discussion.tex) (./references.tex
+
+LaTeX Warning: Citation `Renard2016' on page 6 undefined on input line 39.
+
+[6]
+
+LaTeX Warning: Citation `jaitin.xx' on page 7 undefined on input line 62.
+
+
+LaTeX Warning: Reference `fig:figS3' on page 7 undefined on input line 62.
+
+[7]) (./discussion.tex [8]) (./references.tex
 Missing character: There is no ñ in font cmr10!
 Missing character: There is no ö in font cmr10!
 Missing character: There is no é in font cmr10!
 Missing character: There is no ç in font cmr10!
- [8]
+ [9]
 Missing character: There is no é in font cmr10!
- [9]pdfTeX warning (ext4): destination with the same identifier (name{cite.Thom
-pson2014}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.127 \bibitem{Thompson2014}
-                            
 Missing character: There is no ü in font cmr10!
+ [10pdfTeX warning (ext4): destination with the same identifier (name{cite.Thom
+pson2014}) has been already used, duplicate ignored
 
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.136 \bibitem{Buettner2015}
+                            ]
 Underfull \hbox (badness 2359) in paragraph at lines 147--150
 []\OT1/cmr/m/n/10.95 Flutre T, Wen X, Pritchard J and Stephens M. \OT1/cmr/m/it
 /10.95 A Sta-tis-ti-cal Frame-work for
@@ -447,8 +456,8 @@ Underfull \hbox (badness 3612) in paragraph at lines 147--150
 0.95 PLoS Genet 2013, 9(5): e1003486.
  []
 
-[10]) (./figures.tex
-<../plots/fig1_paper/fig1.pdf, id=192, 1027.84pt x 770.88pt>
+[11]) (./figures.tex
+<../plots/fig1_paper/fig1.pdf, id=216, 1027.84pt x 770.88pt>
 File: ../plots/fig1_paper/fig1.pdf Graphic file (type pdf)
 
 <use ../plots/fig1_paper/fig1.pdf>
@@ -459,7 +468,7 @@ Overfull \hbox (14.50977pt too wide) in paragraph at lines 10--11
  [][]
  []
 
-<../plots/hierarchy_F_thin_0_1.png, id=193, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_1.png, id=217, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_1.png>
@@ -467,7 +476,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 3
 4.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_1.png, id=195, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_1.png, id=219, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_1.png>
@@ -479,7 +488,7 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 32--42
  [][]  [] 
  []
 
-<../plots/Jaitin_struct_clus_7_amp_batch.png, id=196, 602.25pt x 401.5pt>
+<../plots/Jaitin_struct_clus_7_amp_batch.png, id=220, 602.25pt x 401.5pt>
 File: ../plots/Jaitin_struct_clus_7_amp_batch.png Graphic file (type png)
 
 <use ../plots/Jaitin_struct_clus_7_amp_batch.png>
@@ -487,16 +496,16 @@ Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_amp_batch.png used on in
 put line 317.
 (pdftex.def)             Requested size: 325.22853pt x 180.67944pt.
 
-<../plots/deng_structure_6.pdf, id=199, 1027.84pt x 770.88pt>
+<../plots/deng_structure_6.pdf, id=223, 1027.84pt x 770.88pt>
 File: ../plots/deng_structure_6.pdf Graphic file (type pdf)
 
 <use ../plots/deng_structure_6.pdf>
 Package pdftex.def Info: ../plots/deng_structure_6.pdf used on input line 326.
 (pdftex.def)             Requested size: 397.48402pt x 289.07928pt.
- [11] [12 <../plots/fig1_paper/fig1.pdf>]
-[13 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>]
-[14 <../plots/Jaitin_struct_clus_7_amp_batch.png>] [15 <../plots/deng_structure
-_6.pdf>] <../plots/hierarchy_F_thin_0_01.png, id=267, 481.8pt x 481.8pt>
+ [12] [13 <../plots/fig1_paper/fig1.pdf>]
+[14 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>]
+[15 <../plots/Jaitin_struct_clus_7_amp_batch.png>] [16 <../plots/deng_structure
+_6.pdf>] <../plots/hierarchy_F_thin_0_01.png, id=292, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_01.png>
@@ -504,7 +513,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_01.png used on input line
 340.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_01.png, id=268, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_01.png, id=293, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_01.png>
@@ -516,7 +525,7 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 338--348
  [][]  [] 
  []
 
-<../plots/hierarchy_F_thin_0_001.png, id=269, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_001.png, id=294, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_001.png>
@@ -524,7 +533,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_001.png used on input line
  352.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_001.png, id=270, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_001.png, id=295, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_001.png>
@@ -536,9 +545,9 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 350--360
  [][]  [] 
  []
 
-) (./tables.tex [16
+) (./tables.tex [17
 
-] [17 <../plots/hierarchy_F_thin_0_01.png> <../plots/admixture_F_thin_0_01.png>
+] [18 <../plots/hierarchy_F_thin_0_01.png> <../plots/admixture_F_thin_0_01.png>
  <../plots/hierarchy_F_thin_0_001.png> <../plots/admixture_F_thin_0_001.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 6--6
 []\OT1/cmr/m/n/10.95 Gene
@@ -581,7 +590,7 @@ Overfull \hbox (5.22778pt too wide) in paragraph at lines 33--33
  []
 
 
-Overfull \vbox (20.32002pt too high) detected at line 33
+Overfull \vbox (8.32002pt too high) detected at line 33
  []
 
 
@@ -622,11 +631,15 @@ Overfull \hbox (1.64287pt too wide) in paragraph at lines 86--86
  []
 
 
-Overfull \vbox (8.32002pt too high) detected at line 88
+Overfull \vbox (20.32002pt too high) detected at line 88
  []
 
 
 Overfull \vbox (8.32002pt too high) detected at line 92
+ []
+
+
+Overfull \vbox (8.32002pt too high) detected at line 97
  []
 
 
@@ -644,7 +657,7 @@ Overfull \hbox (2.81108pt too wide) in paragraph at lines 105--105
  []
 
 
-Overfull \vbox (8.32002pt too high) detected at line 105
+Overfull \vbox (8.32002pt too high) detected at line 109
  []
 
 
@@ -660,7 +673,7 @@ Overfull \hbox (34.04102pt too wide) in paragraph at lines 80--118
 
 LaTeX Warning: Float too large for page by 89.59184pt on input line 119.
 
-[18] [19]
+[19] [20]
 Underfull \hbox (badness 10000) in paragraph at lines 129--129
 []\OT1/cmr/m/n/10.95 Gene
  []
@@ -717,7 +730,7 @@ Overfull \hbox (34.04102pt too wide) in paragraph at lines 127--149
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 12.
- [20
+ [21
 
 
 ]
@@ -725,9 +738,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 12.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 12.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 12.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 31B1B7789AE51A93EF1FDD6F637B0606;590.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: E9871094E5E86DCE08493D0E55829969;963
+(rerunfilecheck)             After:  5C6B3B56FC0A8BFC7487A2CDA069E0EA;1052.
 
 LaTeX Warning: There were undefined references.
 
@@ -737,10 +756,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 12.
  ) 
 Here is how much of TeX's memory you used:
- 7505 strings out of 493117
- 112606 string characters out of 6135433
- 227090 words of memory out of 5000000
- 10783 multiletter control sequences out of 15000+600000
+ 7525 strings out of 493117
+ 112862 string characters out of 6135433
+ 227186 words of memory out of 5000000
+ 10793 multiletter control sequences out of 15000+600000
  14693 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,13n,38p,2361b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -757,10 +776,10 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (20 pages, 765932 bytes).
+Output written on main.pdf (21 pages, 770335 bytes).
 PDF statistics:
- 363 PDF objects out of 1000 (max. 8388607)
- 292 compressed objects within 3 object streams
- 69 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 391 PDF objects out of 1000 (max. 8388607)
+ 318 compressed objects within 4 object streams
+ 79 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 
