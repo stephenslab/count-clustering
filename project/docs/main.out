@@ -4,7 +4,12 @@
 \BOOKMARK [2][-]{subsection.2.2}{Model overview}{section.2}% 4
 \BOOKMARK [2][-]{subsection.2.3}{Visualization}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.4}{Cluster annotation}{section.2}% 6
-\BOOKMARK [1][-]{section.3}{Results}{}% 7
-\BOOKMARK [1][-]{section.4}{Discussions}{}% 8
-\BOOKMARK [2][-]{subsection.4.1}{Supplemental figures}{section.4}% 9
-\BOOKMARK [2][-]{subsection.4.2}{Supplementary Table 1}{section.4}% 10
+\BOOKMARK [2][-]{subsection.2.5}{Comparison with hierarchical clustering}{section.2}% 7
+\BOOKMARK [1][-]{section.3}{Results}{}% 8
+\BOOKMARK [2][-]{subsection.3.1}{Clustering human tissues based on bulk RNA expression}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Quantitative comparison with hierarchical clustering}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.3}{Robustness to sequencing depth}{section.3}% 11
+\BOOKMARK [2][-]{subsection.3.4}{Clustering of single-cell RNA-seq data}{section.3}% 12
+\BOOKMARK [1][-]{section.4}{Discussions}{}% 13
+\BOOKMARK [2][-]{subsection.4.1}{Supplemental figures}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.2}{Supplementary Table 1}{section.4}% 15

@@ -19,6 +19,13 @@ In this paper, we demonstrate that for RNA-seq (bulk or single cell) data with k
 We illustrate the performance of our method on GTEx tissue level  bulk-RNA seq data as well as on two single cell data (due to Jaitin \textit{et al} 2014 \cite{Jaitin2014} and Deng \textit{et al} 2014 \cite{Deng2014}) . 
 
 
+%text from methods
+In contrast to traditional clustering methods, the grade of membership (GoM) model allows each sample to have partial membership in each cluster. This idea has been previously used in population genetics to model admixture, where individuals have ancestry from multiple populations, each population being characterized by a vector of allele frequencies at each marker (see Pritchard, Stephens and Donnelly 2000 \cite{Pritchard2000}). It is also used in natural language processing to model documents, where each document has membership in multiple topics, each topic being characterized by a vector of word frequencies (see Blei, Ng and Jordan 2003 \cite{Blei2003}). Here we use the GoM model to allow each RNA-seq sample to have membership in 
+
+The main idea is that this read could come from hidden subpopulations (may be cell types for tissue level expression study or cell cycle phases for single cell study) and its probability of getting assigned to some gene $g$ may depend on which subpopulation it comes from. Denote  the probability that the sample is coming from the $k$ th subpopulation by $q_{nk}$ ($q_{nk} \geq 0$ and $\sum_{k=1}^{K} q_{nk} =1$ for each $n$).  Given that the sample is coming from the $k$th subgroup, the probability of a read being matched to the $g$th gene is given by $\theta_{kg}$ ($\theta_{kg} \geq 0$ and $\sum_{g=1}^{G} \theta_{kg} =1$ for $k$th subgroup). Then one can write 
+
+
+
 %\begin{itemize}
 %
 %\item \textit{objectives of the work}: to devise a completely unsupervised method to cluster the samples (tissue or single cell samples) into biologically meaningful sub-types based on the RNA-seq gene counts data
