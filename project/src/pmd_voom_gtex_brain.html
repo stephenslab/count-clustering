@@ -38,6 +38,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </script>
 
 
+<link href="data:text/css,%23TOC%20%7B%0A%20%20position%3A%20fixed%3B%0A%20%20left%3A%200%3B%0A%20%20top%3A%2040px%3B%0A%20%20width%3A%20200px%3B%0A%20%20height%3A%20100%25%3B%0A%20%20overflow%3Aauto%3B%0A%7D%0A%0Abody%20%7B%0A%20%20max%2Dwidth%3A%20800px%3B%0A%20%20margin%3A%20auto%3B%0A%20%20margin%2Dleft%3A210px%3B%0A%20%20line%2Dheight%3A%2020px%3B%0A%7D%0A" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -67,6 +68,25 @@ img {
 <h4 class="date"><em>February 12, 2016</em></h4>
 </div>
 
+<div id="TOC">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#voom-transform">voom transform</a></li>
+<li><a href="#pmd-on-voom-traansform">PMD on voom traansform</a><ul>
+<li><a href="#plotting-the-u-from-pmd">Plotting the u from pmd</a></li>
+<li><a href="#plotting-the-v-from-pmd">Plotting the v from pmd</a></li>
+</ul></li>
+<li><a href="#sqrt-transform">sqrt transform</a></li>
+<li><a href="#pmd-on-sqrt-traansform">PMD on sqrt traansform</a><ul>
+<li><a href="#plotting-the-u-from-pmd-1">Plotting the u from pmd</a></li>
+<li><a href="#plotting-the-v-from-pmd-1">Plotting the v from pmd</a></li>
+</ul></li>
+<li><a href="#original-data">Original data</a><ul>
+<li><a href="#plotting-the-u-from-pmd-2">Plotting the u from pmd</a></li>
+<li><a href="#plotting-the-v-from-pmd-2">Plotting the v from pmd</a></li>
+</ul></li>
+</ul>
+</div>
 
 <div id="overview" class="section level2">
 <h2>Overview</h2>
@@ -75,7 +95,7 @@ img {
 data &lt;- data.frame(fread('../external_data/GTEX_V6/cis_gene_expression.txt'));</code></pre>
 <pre><code>## 
 Read 62.2% of 16069 rows
-Read 16069 rows and 8557 (of 8557) columns from 0.532 GB file in 00:00:11</code></pre>
+Read 16069 rows and 8557 (of 8557) columns from 0.532 GB file in 00:00:08</code></pre>
 <pre class="r"><code>matdata &lt;- data[,-(1:2)];
 samples_id=read.table(&quot;../external_data/GTEX_V6/samples_id.txt&quot;)[,3];
 
