@@ -1,0 +1,194 @@
+---
+title: 'Voom topic models: Brain data'
+author: "Kushal K Dey"
+date: "February 12, 2016"
+output: html_document
+---
+
+## Overview
+
+We apply voom based factor analysis models to the GTEX V6 brain data. We eventually would like to apply this on the full GTEX dat across all tissues. But as of now, we would like to focus on just the brain tissues for convenience of fitting the models.
+
+```{r echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
+library(data.table)
+data <- data.frame(fread('../external_data/GTEX_V6/cis_gene_expression.txt'));
+matdata <- data[,-(1:2)];
+samples_id=read.table("../external_data/GTEX_V6/samples_id.txt")[,3];
+
+samples_id <- as.character(samples_id)
+samples_id[grep("Nucleus", samples_id)] = "Brain -N. accumbens (basal ganglia)"
+samples_id[grep("Gastroe", samples_id)] = "Esophagus -Gastroesophageal Jn."
+samples_id[grep("cingulate", samples_id)] = "Brain - Anterior cortex (BA24)."
+samples_id <- as.factor(samples_id)
+
+```
+
+Brain data extraction
+
+```{r echo=TRUE, eval=TRUE}
+brain_indices <- grep("Brain", samples_id);
+
+brain_data <- matdata[,brain_indices];
+colnames(brain_data) <- samples_id[brain_indices];
+brain_data_frame <- cbind.data.frame(data[,2],brain_data);
+```
+
+## voom transform 
+
+```{r echo=TRUE, eval=TRUE}
+voom_brain <- limma::voom(t(brain_data))$E;
+voom_brain_norm <- apply(voom_brain, 2, function(x) (x - mean(x)));
+```
+
+## PMD on voom traansform
+
+```{r echo=TRUE, eval=FALSE}
+pmd_voom <- PMA::PMD(voom_brain_norm, K=4, vpos=TRUE, upos=TRUE, niter=100, sumabsv=4);
+saveRDS(pmd_voom,"../rdas/pmd_voom_K_4.rda")
+```
+
+### Plotting the u from pmd
+
+```{r echo=TRUE, eval=TRUE}
+pmd_voom <- readRDS("../rdas/pmd_voom_K_4.rda");
+loadings <- maptpx::normalize(pmd_voom$u)
+```
+
+```{r echo=TRUE, eval=TRUE}
+docweights <- loadings
+K=dim(docweights)[2];
+color=c("red","blue","cornflowerblue","black","cyan","darkblue",
+        "brown4","burlywood","darkgoldenrod1","darkgray","deepskyblue","darkkhaki",
+        "firebrick","darkorchid","hotpink","green","magenta","yellow", "azure1","azure4");
+brain_ids[which(brain_ids=="Brain - Nucleus accumbens (basal ganglia)")] = 
+brain_ids <- samples_id[brain_indices];
+ordering <- order(brain_ids);
+samples_id_ordered <- brain_ids[ordering];
+docweights_ordering <- docweights[ordering,];
+#png(filename=paste0('../plots/GTEX_V6_brain_thin_',0,'.png'),width=700,height=300)
+par(mar=c(14,2,2,1))
+barplot(t(docweights_ordering),col=2:(K+1),axisnames=F,space=0,border=NA,main=paste("No. of clusters=",K),las=1,ylim=c(0,1),cex.axis=1,cex.main=1)
+
+labels = match(unique(samples_id_ordered), samples_id_ordered);
+abline(v=labels)
+
+labels_low=labels;
+labels_up=c(labels[2:length(labels)],dim(docweights_ordering)[1]);
+mid_point=labels_low +0.5*(labels_up-labels_low);
+
+axis(1,at=mid_point, unique(samples_id_ordered),las=2, cex.axis=0.8);
+```
+
+### Plotting the v from pmd
+
+```{r echo=TRUE, eval=FALSE}
+K <- 4
+factor_dist <- maptpx::normalize(pmd_voom$v, byrow=FALSE);
+barplot(t(factor_dist),col=2:(K+1),axisnames=F,space=0,border=NA,main=paste("Factor distribution, K=",K),las=1,cex.axis=1.5,cex.main=1.4)
+```
+
+## sqrt transform 
+
+```{r echo=TRUE, eval=TRUE}
+sqrt_brain <- sqrt(t(brain_data));
+sqrt_brain_norm <- apply(sqrt_brain, 2, function(x) (x - mean(x)));
+```
+
+## PMD on sqrt traansform
+
+```{r echo=TRUE, eval=FALSE}
+pmd_sqrt <- PMA::PMD(sqrt_brain_norm, K=4, vpos=TRUE, upos=TRUE, niter=100, sumabsv=4);
+saveRDS(pmd_sqrt,"../rdas/pmd_sqrt_K_4.rda")
+```
+
+### Plotting the u from pmd
+
+```{r echo=TRUE, eval=TRUE}
+pmd_sqrt <- readRDS("../rdas/pmd_sqrt_K_4.rda");
+loadings <- maptpx::normalize(pmd_sqrt$u)
+```
+
+```{r echo=TRUE, eval=TRUE}
+docweights <- loadings
+K=dim(docweights)[2];
+color=c("red","blue","cornflowerblue","black","cyan","darkblue",
+        "brown4","burlywood","darkgoldenrod1","darkgray","deepskyblue","darkkhaki",
+        "firebrick","darkorchid","hotpink","green","magenta","yellow", "azure1","azure4");
+brain_ids[which(brain_ids=="Brain - Nucleus accumbens (basal ganglia)")] = 
+brain_ids <- samples_id[brain_indices];
+ordering <- order(brain_ids);
+samples_id_ordered <- brain_ids[ordering];
+docweights_ordering <- docweights[ordering,];
+#png(filename=paste0('../plots/GTEX_V6_brain_thin_',0,'.png'),width=700,height=300)
+par(mar=c(14,2,2,1))
+barplot(t(docweights_ordering),col=2:(K+1),axisnames=F,space=0,border=NA,main=paste("No. of clusters=",K),las=1,ylim=c(0,1),cex.axis=1,cex.main=1)
+
+labels = match(unique(samples_id_ordered), samples_id_ordered);
+abline(v=labels)
+
+labels_low=labels;
+labels_up=c(labels[2:length(labels)],dim(docweights_ordering)[1]);
+mid_point=labels_low +0.5*(labels_up-labels_low);
+
+axis(1,at=mid_point, unique(samples_id_ordered),las=2, cex.axis=0.8);
+```
+
+### Plotting the v from pmd
+
+```{r echo=TRUE, eval=FALSE}
+K <- 4
+factor_dist <- maptpx::normalize(pmd_sqrt$v, byrow=FALSE);
+barplot(t(factor_dist),col=2:(K+1),axisnames=F,space=0,border=NA,main=paste("Factor distribution, K=",K),las=1,cex.axis=1.5,cex.main=1.4)
+```
+
+## Original data
+
+```{r echo=TRUE, eval=TRUE}
+orig_brain <- t(brain_data);
+orig_brain_norm <- apply(orig_brain, 2, function(x) (x - mean(x)));
+```
+
+```{r echo=TRUE, eval=FALSE}
+pmd_orig <- PMA::PMD(orig_brain_norm, K=4, vpos=TRUE, upos=TRUE, niter=100, sumabsv=4);
+saveRDS(pmd_orig,"../rdas/pmd_orig_K_4.rda")
+```
+
+### Plotting the u from pmd
+
+```{r echo=TRUE, eval=TRUE}
+pmd_orig <- readRDS("../rdas/pmd_orig_K_4.rda");
+loadings <- maptpx::normalize(pmd_orig$u)
+```
+
+```{r echo=TRUE, eval=TRUE}
+docweights <- loadings
+K=dim(docweights)[2];
+color=c("red","blue","cornflowerblue","black","cyan","darkblue",
+        "brown4","burlywood","darkgoldenrod1","darkgray","deepskyblue","darkkhaki",
+        "firebrick","darkorchid","hotpink","green","magenta","yellow", "azure1","azure4");
+brain_ids[which(brain_ids=="Brain - Nucleus accumbens (basal ganglia)")] = 
+brain_ids <- samples_id[brain_indices];
+ordering <- order(brain_ids);
+samples_id_ordered <- brain_ids[ordering];
+docweights_ordering <- docweights[ordering,];
+#png(filename=paste0('../plots/GTEX_V6_brain_thin_',0,'.png'),width=700,height=300)
+par(mar=c(14,2,2,1))
+barplot(t(docweights_ordering),col=2:(K+1),axisnames=F,space=0,border=NA,main=paste("No. of clusters=",K),las=1,ylim=c(0,1),cex.axis=1,cex.main=1)
+
+labels = match(unique(samples_id_ordered), samples_id_ordered);
+abline(v=labels)
+
+labels_low=labels;
+labels_up=c(labels[2:length(labels)],dim(docweights_ordering)[1]);
+mid_point=labels_low +0.5*(labels_up-labels_low);
+
+axis(1,at=mid_point, unique(samples_id_ordered),las=2, cex.axis=0.8);
+```
+
+### Plotting the v from pmd
+
+```{r echo=TRUE, eval=FALSE}
+K <- 4
+factor_dist <- maptpx::normalize(pmd_orig$v, byrow=FALSE);
+barplot(t(factor_dist),col=2:(K+1),axisnames=F,space=0,border=NA,main=paste("Factor distribution, K=",K),las=1,cex.axis=1.5,cex.main=1.4)
+```

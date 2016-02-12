@@ -1,8 +1,6 @@
 \section{Methods and Materials}
 
-\subsection{Data preprocessing}
-
-We assume that the data from an RNA-seq experiment have been summarized by a table of counts $C_{N \times G} = ((c_{ng}))$, where $c_{ng}$ is the number of RNA-seq reads from sample $n$ that mapped to gene (or transcript) $g$. Such a table of counts is obtained by processing the BAM or FASTQ files obtained from sequencing machines and currently, there is an effort to make such reads table, ready for statistical analysis, publicly available (check the ReCounts website\cite{Frazee2011}). Before applying the graded membership model on the reads data, we remove the genes with 0 or same count of matched reads across all samples as they are non-informative for clustering. We also remove any sample or gene with NA values of reads and  spike-in control genes,  as the latter may create bias due to their typically having high number of reads mapped to them \cite{Jiang2011}. 
+% We also remove spike-in control genes,  as the latter may create bias due to their typically having high number of reads mapped to them \cite{Jiang2011}. 
 
 %RNA-seq experiments provide us with a set of FASTQ files that contain the nucleotide sequence of each read and a quality score at each position, which can be mapped to  reference genome or exome or transcriptome. The output of this mapping is usually saved in a SAM/BAM file using SAMtools  \cite{Li2009}, a task primarily accomplished by \textit {htseq-counts}  by Sanders et al  2014 \cite{Sanders2014} or \textit{featureCounts}  [ R package \textbf{Rsubread} ] by Liao et al 2013 \cite{Liao2013}.  RNA-seq raw counts are the basis of all statistical workflows, be it exploration or differential expression analysis [\textbf{edgeR} \cite{Robinson2010}, \textbf{limma} \cite{Ritchie2015} ]. There is a growing trend to make the analysis ready raw counts tables openly accessible for statistical analysis. ReCount is a online site that hosts RNA-seq gene counts datasets from 18 different studies \cite{Frazee2011} along with relevant metadata. Such gene counts datasets are the inputs for our clustering algorithm. \\[2 pt]
 %
@@ -18,19 +16,21 @@ We assume that the data from an RNA-seq experiment have been summarized by a tab
 
 \subsection{Model overview}
 
-The method we adopt allows each sample to have a grade of membership in the underlying clusters. This type of approach was first used in population genetics to model population samples as having parts of its genome derived from different clusters that represented ancestries (see Pritchard, Stephens and Donnelly 2000 \cite{Pritchard2000}). Later, a similar approach was used to model documents to have grades of membership in different clusters, representing topics, depending on the frequencies of different words used (see Blei, Ng and Jordan 2003 \cite{Blei2003}). In RNA-sequencing data too, each sample is viewed as having grades of membership in different underlying subpopulations (for e.g. cell types for tissue samples, cell phases for single cells etc). 
+We assume the RNA-seq data have been summarized by a table of counts $C_{N \times G} = (c_{ng})$, where $c_{ng}$ is the number of reads from sample $n$ mapped to gene (or transcript) $g$ \cite{oshlack.etal.genomebiology}.  We remove genes $g$ with all zero counts ($c_{ng}=0$ for all $n$).
+We use the {\tt maptpx} R package \cite{taddy} to fit the Grade of Membership (GoM) model (or ``Latent Dirichlet Allocation" model). This model assumes the RNA-seq counts for each sample follow a multinomial distribution
+\begin{equation}
+c_{n\cdot} \sim Mult(c_{n+}, p_{n\cdot})
+\end{equation}
+where $c_{n\cdot}$ denotes the count vector for the $n$th sample, $c_{n+} := \sum_g c_{ng}$, and $p_{n\cdot}$ is a probability vector (non-negative entries summing to 1) whose $g$th element represents the relative expression of gene $g$ in sample $n$. 
+The model further assumes that 
+\begin{equation}
+p_{ng} = \sum_{k=1}^{K} q_{nk}\theta_{kg}    
+\end{equation}
+where $q_{n\cdot}$ is a probability vector whose $k$th element represents the grade of membership of
+sample $n$ in cluster $k$, and $\theta_{k\cdot}$ is a probability vector whose $g$th element represents
+the relative expression of gene $g$ in cluster $k$. The {\tt maptpx} package fits this model using an EM algorithm to perform Maximum a posteriori (MAP)  estimation of the parameters $q$ and $\theta$. See \cite{Taddy2012} for details.
 
-We assume that the row vector of counts for each sample $n$ across the genes follows a multinomial distribution.
-
-$$ c_{n*} \sim Mult(c_{n..}, p_{n*}) $$
-
-where $c_{n*}$ is the count vector for the $n$ th sample, $c_{n..}$ is the sum of the counts in the vector $c_{n*}$, and $p_{n*}$ is the probability that a read coming from sample $n$ would get assigned to one of the $G$ genes. The main idea is that this read could come from hidden subpopulations (may be cell types for tissue level expression study or cell cycle phases for single cell study) and its probability of getting assigned to some gene $g$ may depend on which subpopulation it comes from. Denote  the probability that the sample is coming from the $k$ th subpopulation by $q_{nk}$ ($q_{nk} \geq 0$ and $\sum_{k=1}^{K} q_{nk} =1$ for each $n$).  Given that the sample is coming from the $k$th subgroup, the probability of a read being matched to the $g$th gene is given by $\theta_{kg}$ ($\theta_{kg} \geq 0$ and $\sum_{g=1}^{G} \theta_{kg} =1$ for $k$th subgroup). Then one can write 
-
-$$ p_{ng} = \sum_{k=1}^{K} q_{nk}\theta_{kg}   \hspace{1 cm}  \sum_{k=1}^{K} q_{nk}=1 \hspace{1 cm} \sum_{g=1}^{G} \theta_{kg}=1 $$
-
-This model has $N \times (K-1) + K \times (G-1)$ many unconstrained parameters, which is much smaller than the $N \times G$  data values of counts. Usually for RNA-seq samples $N$ varies in the region of $100$s to $1000$s  and $G$ ranges from $10,000$ to $50,000$ (depending on the underlying species and the types of genes tokenized) and $K << \{N,G \}$. 
-
-Due to the widespread use of topic models in Natural Language Processing literature, many softwares are available for fitting such models on document collections. Here, we use a Maximum a posteriori (MAP)  estimation procedure implemented in R package  \textbf{maptpx}(see Taddy 2012 \cite{Taddy2012}).
+%This model has $N \times (K-1) + K \times (G-1)$ parameters, which is much smaller than the $N \times G$  data values of counts. Usually for RNA-seq samples $N$ varies in the region of $100$s to $1000$s  and $G$ ranges from $10,000$ to $50,000$ (depending on the underlying species and the types of genes tokenized) and $K << \{N,G \}$. 
 
 % It assumes the priors
 %
@@ -39,12 +39,16 @@ Due to the widespread use of topic models in Natural Language Processing literat
 %
 %For better estimation stability, the usual parameters of the model are converted to natural exponential family parameters to which one can apply the EM algorithm ). The value of the Bayes factor for the model with $K$ clusters compared to the model with 1 cluster, is recorded for each $K$, and the optimal $K$ is chosen by running the clustering method for different choices of $K$ and then choosing the one with maximum Bayes factor. The two main outputs from this method are the $Q_{N \times K}$ topic proportion matrix  and $F_{K \times G}$ relative gene expression for each cluster.
 
-\subsection{Visualization}
+\subsection{Visualizing Results}
 
-A nice way to visualize the amount of relatedness among the samples is through the Structure plot, which is a popular tool to visualize the admixture patterns in population genetics based on SNP/ microsatellite data (see Rosenberg \textit{et al} 2002 \cite{Rosenberg2002}).  
-For each sample $n$, $q_{nk}$  represents the relative abundance of  hidden subgroup $k$ in the sample. The Structure plot  assigns a color to each of the subgroups and then presents a vertical stacked barchart for each individual, with stack heights representing subgroup proportions and each subgroup assigned a particular color. If the colored patterns of two bars are similar, then the two samples must be closely related.  
+We visualize results using a ``Structure plot" \cite{Rosenberg2002}, 
+which is named for its widespread use in visualizing the
+results of the ``structure" software \cite{PritchardEtAl} in population genetics.
+The Structure plot represents each GoM vector $q_{n\cdot}$
+as  a vertical stacked barchart, with bars of different colors representing membership proportion in each cluster (e.g.~Figure \ref{}). If the colored patterns of two bars are similar, then the two samples have similar membership proportions.  The Structure plot is particularly helpful when external information is available on each sample that can be used to order or group the samples in an informative way.
 
-Another visualizing tool we recommend is t-distributed Stochastic Neighbor Embedding (t-SNE), which is well-suited for visualizing the high dimensional datasets on 2D, preserving the relative distance between samples in high dimension to a fair extent in 2D (see L.J.P. van der Maaten \cite{Maaten2014} and L.J.P. van der Maaten and Hinton \cite{Maaten2008}). t-SNE shows us which samples are close to each other when the data is projected on 2D. t-SNE is not a clustering tool and unlike Structure plot, does not show the relative abundance patterns of different subgroups in the sample. However, both Structure plot and t-SNE give a lot more interpretable visualization of the clustering compared to the heatmap and hierarchical clustering (see Results for illustration).
+We have also found it useful to visualize results using t-distributed Stochastic Neighbor Embedding (t-SNE), which is a method for visualizing high dimensional datasets by placing them in a two dimensional space, attempting to preserve the relative distance between nearby samples (see L.J.P. van der Maaten \cite{Maaten2014} and L.J.P. van der Maaten and Hinton \cite{Maaten2008}). t-SNE tends to place samples with similar membership proportions together in the two-dimensional plot, forming visual ``clusters" that can be identified by eye (e.g.~Figure \ref{}). This may be particularly helpful in settings where no external information is available to aid in making an informative Structure plot. 
+
 
 \subsection{Cluster annotation}
 
@@ -59,6 +63,10 @@ $$ Div^{g}[k] = \underset{l \neq k}{min} \; KL^{g} [k, l] $$
 The higher the divergence measure, the more significant is the role of the gene in the clustering. We choose a small subset of around 50-100 genes with highest values of $Div^{g}[k]$ for each $k$ and this set of genes can be viewed to be the most important genes driving the cluster $k$.  \\[1 pt]
 
 Once the most important driving genes for each cluster $k$ have been extracted, we perform gene annotations on them using \textbf{mygene} R Bioconductor package (due to Mark A, Thompson R and Wu C  2014 \cite{Thompson2014}). We check if the driving genes for a particular cluster are associated with some specific biological functionality. This would validate whether the subgroups are biologically relevant. 
+
+\subsection{Comparison with hierarchical clustering}
+
+Distance based hierarchical clustering methods are the most commonly used clustering techniques in single cell RNA-seq experiments. To compare between the graded membership model and the distance based hierarchical clustering algorithm, we observe which method separates out samples coming from two different tissues better than the other. For each pair of distinct tissues,  we draw $50$ samples from the pool of all samples coming from these tissues. We first apply hierarchical clustering using both the complete and the average linkage using Euclidean distance metric and cut the dendogram at $K=2$.  We observe if this cut separates out the samples coming from the two tissues.  Next we apply our model based approach on these $50$ samples for $K=2$. We sort the samples based on the decreasing  proportional membership in one cluster (say cluster 1) and we partition the samples at the point of the steepest fall in this membership. As a result, we will essentially cluster the samples into two groups- one with high membership in cluster 1 and the other with low membership in cluster 1. Again we check if  these clusters correspond to the samples coming from the two tissues. Between the hierarchical approach and the graded membership approach, the method that can separate out the samples from two tissues using the above mechanism more number of times (across all pairs of tissues) is considered to be superior than the other. 
 
 %For instance, for GTEx tissue sample data, if the clusters are indeed driven by cell types, then the top genes for these clusters will probably be associated with proteins related to  functions for that particular cell type.
 %
