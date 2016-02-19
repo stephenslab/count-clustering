@@ -1,7 +1,17 @@
 \title{\Large{\textbf{Model-based clustering of RNA-seq expression data using grade of membership models}}}
-\author{ Kushal K Dey  \qquad Matthew Stephens}
+\author{ Kushal K Dey$^{1}$  \qquad Matthew Stephens$^{1,2}$}
 
 \maketitle
+
+$^{1}$ Department of Statistics, University of Chicago, Chicago, Illinois 60637, USA;  $^{2}$ Department of Human Genetics, University of Chicago, Chicago, Illinois 60637, USA
+
+\textbf{Keywords}: graded membership model, GTEx bulk-RNA, single cell RNA-seq
+
+\textbf{Corresponding Author}: Email stephens@uchicago.edu; kkdey@uchicago.edu 
+					      
+
+
+\newpage
 
 \begin{abstract}
 We argue for the benefits of model-based approach to clustering expression data from bulk RNA and single cell RNA-seq data. It is similar to the topic model in Natural Language Processing and the admixture model in Population Genetics, that assigns grades of cluster membership to each sample. This approach provides us with easily interpretable cluster visualization  and  detects the underlying structure in the data better than distance based approaches. It also extracts the important genes that drive the clusters and provides measures of model fit to assess the strength of clustering. Further, we show that this method is robust under low coverage of reads. We apply this method on the GTEx tissue level bulk RNA expression data as well as two single cell RNA-seq data. Our methods are implemented in a R package \textbf{CountClust}, available at \url{https://github.com/kkdey/CountClust}.
