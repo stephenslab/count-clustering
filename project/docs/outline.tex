@@ -38,7 +38,7 @@ Here we apply grade of membership models to RNA-seq expression data. In this con
  sample has some proportion of its RNA-seq reads coming from each cluster. For bulk RNA-seq experiments this assumption 
 could be motivated by a simple -- or perhaps simplistic -- argument: each sample is a mixture of different cell types, and so clusters 
 could represent cell types, and the membership of a sample in each cluster could represent the proportions of each cell type present.
-This is similar to the idea of ``deconvolution" methods that use cell-type-specific expression profiles of marker genes to estimate the concentration of different cell types in a mixture \cite{}. And, indeed, the grade of membership model we use here is analogous to blind deconvolution approaches \cite{Schwartz2010,Repsilber2010}
+This is similar to the idea of ``deconvolution" methods that use cell-type-specific expression profiles of marker genes to estimate the concentration of different cell types in a mixture \cite{Lindsay2013}. And, indeed, the grade of membership model we use here is analogous to blind deconvolution approaches \cite{Schwartz2010,Repsilber2010}
  which estimate cell type proportions and cell type signatures jointly (see also \cite{Shen-Orr2010,Qiao2012} for semi-supervised approaches), although 
  our models differ from these previous works in the use of a multinomial model for the RNA-seq read counts. 
 However, we believe that the grade of membership model can be useful more generally to elucidate structure in expression data.
@@ -55,7 +55,7 @@ apply naturally and immediately to RNA-seq data. Whereas documents are character
 are characterized by counts of reads mapping to each possible gene (or other unit, such as transcript, or exon) in the genome. 
 Here we use the R package {\tt maptpx} \cite{Taddy2012} to fit these models, and we add functionality for visualizing the results and annotating
 clusters by their most distinctive genes to help biological interpretation. These methods are implemented in the R package {\tt count-clust} available
-from \url{}.  
+from \url{https://github.com/kkdey/CountClust}.  
 
 
 
