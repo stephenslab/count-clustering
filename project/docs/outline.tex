@@ -9,18 +9,18 @@ We argue for the benefits of model-based approach to clustering expression data 
 
 \section{Introduction}
 
-Ever since large-scale gene expression measurements have been possible using micro-arrays, clustering has played a major role in their analysis \cite{eisen:pnas1998}.
+Ever since large-scale gene expression measurements have been possible using micro-arrays, clustering has played a major role in their analysis \cite{Eisen1998}.
 For example, clustering can aid in quality control, and helps elucidate heterogeneity among samples. However, although gene expression 
 measurement technologies have moved on -- with gene expression measurements now routinely made with sequencing technologies (RNA-seq), sometimes at the resolution of single cells (sc-RNA-seq) -- clustering methods used have remained largely the same. Indeed, the most commonly-used clustering techniques in gene expression studies
 remain the distance-based hierarchical clustering 
-methods used in early microarray work \cite{eisen}. This contrasts with many other fields, where model-based clustering methods
+methods used in early microarray work \cite{Eisen1998}. This contrasts with many other fields, where model-based clustering methods
 have become widely used, and in many cases the method of choice (e.g.~\cite{Pritchard2000}). Our goal here
 is to argue that such model-based approaches also provide an attractive approach to cluster analysis of RNA-seq data, both bulk and single-cell.
-In particular we illustrate the potential for ``grade of membership models" \cite{erosheva} to elucidate structure in both bulk and single-cell RNA-seq expression data. 
+In particular we illustrate the potential for ``grade of membership models" \cite{Erosheva2006} to elucidate structure in both bulk and single-cell RNA-seq expression data. 
 
 Grade of membership models are generalizations of clustering models that allow each sample to have partial membership in more that one cluster.
 That is, they allow that each sample has a proportion, or ``grade" of membership in each cluster. Such
-models are widely used in population genetics to model ``admixture", where individuals can have ancestry from multiple populations \cite{Pritchard2000,admixturepaper},
+models are widely used in population genetics to model ``admixture", where individuals can have ancestry from multiple populations \cite{Pritchard2000},
 and in document clustering (\cite{Blei2003,Blei2009}) where each document can have membership in multiple ``topics". In these fields
 the grade of membership models are often known as ``admixture models", and ``topics models" or ``Latent Dirichlet Allocation" \cite{Blei2003}.
 
@@ -43,7 +43,7 @@ Interestingly, several software packages capable of fitting these grade of membe
 the models used in natural language processing for clustering documents based on their word counts are multinomial models that
 apply naturally and immediately to RNA-seq data. Whereas documents are characterized by counts of each possible word in a dictionary, RNA-seq samples
 are characterized by counts of reads mapping to each possible gene (or other unit, such as transcript, or exon) in the genome. 
-Here we use the R package {\tt maptpx} \cite{taddy} to fit these models, and we add functionality for visualizing the results and annotating
+Here we use the R package {\tt maptpx} \cite{Taddy2012} to fit these models, and we add functionality for visualizing the results and annotating
 clusters by their most distinctive genes to help biological interpretation. These methods are implemented in the R package {\tt count-clust} available
 from \url{}.  
 
