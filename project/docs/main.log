@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  19 FEB 2016 12:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  19 FEB 2016 13:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -282,6 +282,18 @@ Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
 \c@subfigure=\count115
 \c@subtable=\count116
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/rotating/rotating.sty
+Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count117
+\rotFPtop=\skip47
+\rotFPbot=\skip48
+\rot@float@box=\box28
+\rot@mess@toks=\toks20
+)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2014/04/23 v1.1a Standard LaTeX Color (DPC)
 
@@ -292,7 +304,7 @@ Package color Info: Driver file: pdftex.def on input line 137.
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
-\@enLab=\toks20
+\@enLab=\toks21
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen138
@@ -300,14 +312,14 @@ Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/xr.sty
 Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 )
-\c@algorithm=\count117
-\c@proposition=\count118
-\c@restateproposition=\count119
-\c@lemma=\count120
-\c@corollary=\count121
-\c@result=\count122
-\c@note=\count123
-\c@definition=\count124
+\c@algorithm=\count118
+\c@proposition=\count119
+\c@restateproposition=\count120
+\c@lemma=\count121
+\c@corollary=\count122
+\c@result=\count123
+\c@note=\count124
+\c@definition=\count125
 ) (./main.aux)
 \openout1 = `main.aux'.
 
@@ -325,7 +337,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
-\AtBeginShipoutBox=\box28
+\AtBeginShipoutBox=\box29
 Package hyperref Info: Link coloring OFF on input line 3.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -334,7 +346,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count125
+\c@section@level=\count126
 )
 LaTeX Info: Redefining \ref on input line 3.
 LaTeX Info: Redefining \pageref on input line 3.
@@ -347,17 +359,17 @@ LaTeX Info: Redefining \nameref on input line 3.
 
 (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count126
+\scratchcounter=\count127
 \scratchdimen=\dimen139
-\scratchbox=\box29
-\nofMPsegments=\count127
-\nofMParguments=\count128
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count129
+\scratchbox=\box30
+\nofMPsegments=\count128
+\nofMParguments=\count129
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count130
 \MPscratchDim=\dimen140
-\MPnumerator=\count130
-\makeMPintoPDFobject=\count131
-\everyMPtoPDFconversion=\toks22
+\MPnumerator=\count131
+\makeMPintoPDFobject=\count132
+\everyMPtoPDFconversion=\toks23
 ) (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -374,6 +386,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 (./outline.tex
@@ -405,9 +418,9 @@ File: ../plots/fig1_paper/fig1.pdf Graphic file (type pdf)
 
 <use ../plots/fig1_paper/fig1.pdf>
 Package pdftex.def Info: ../plots/fig1_paper/fig1.pdf used on input line 10.
-(pdftex.def)             Requested size: 469.75385pt x 361.34912pt.
+(pdftex.def)             Requested size: 758.84883pt x 361.34912pt.
 
-Overfull \hbox (14.50977pt too wide) in paragraph at lines 10--11
+Overfull \hbox (161.34096pt too wide) in paragraph at lines 10--11
  [][]
  []
 
@@ -708,10 +721,10 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 12.
  ) 
 Here is how much of TeX's memory you used:
- 7518 strings out of 493117
- 112752 string characters out of 6135433
- 226234 words of memory out of 5000000
- 10789 multiletter control sequences out of 15000+600000
+ 7624 strings out of 493117
+ 114164 string characters out of 6135433
+ 228094 words of memory out of 5000000
+ 10888 multiletter control sequences out of 15000+600000
  14693 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,13n,38p,2361b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -728,7 +741,7 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (20 pages, 764207 bytes).
+Output written on main.pdf (20 pages, 764205 bytes).
 PDF statistics:
  389 PDF objects out of 1000 (max. 8388607)
  317 compressed objects within 4 object streams
