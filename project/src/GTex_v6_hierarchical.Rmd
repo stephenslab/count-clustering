@@ -1,0 +1,28 @@
+---
+title: "GTEX V6 hierarchical clustering time"
+author: "Kushal K Dey"
+date: "February 22, 2016"
+output: html_document
+---
+
+## Overview
+
+In this script, we perform the hierarchical clustering on the GTEx V6 cis-gene level data. The  data comprises of $8555$ tissue samples with expression levels recorded for $16069$ cis-genes chosen appropriately. 
+
+The main purpose for performing  hierarchical clustering is to compare the system time in performing hierarchical clustering and comparing it with the time taken to perform admixture. 
+
+```{r echo=TRUE, eval=TRUE}
+
+rm(list=ls())
+library(data.table)
+#install_github('kkdey/maptpx') 
+library(maptpx)
+library(CountClust)
+library(data.table)
+
+data <- data.frame(fread('../external_data/GTEX_V6/cis_gene_expression.txt'));
+
+
+
+```
+
