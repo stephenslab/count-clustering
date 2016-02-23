@@ -5,12 +5,12 @@
 %        \caption{Structure plot of the admixture proportions (with 15 topics/clusters) for all the tissue samples in GTEX Version 4 data based on $5000$ genes with the highest mean expression. Some of the tissues form very distinct clusters, for instance Whole Blood, Pancreas, Skin, Arteries etc while there is a lot of similarity in cluster patterns between Muscle Skeletal and Heart Left Ventricle, or among the different sub-tissues of the Brain.}
 %\end{figure*}
 
-\begin{figure*}[ht]
-	\raggedleft
-	\includegraphics[height=5in, width=6.5in]{../plots/fig1_paper/fig1.pdf}
-        \caption{ \textbf{(a)}: Structure plot of estimated cluster membership proportions for $K=15$ clusters fit to $8555$ tissue samples from $53$ tissues in GTEX data.  Each vertical bar shows the cluster membership proportions for a single sample, ordered so that samples from the same tissue are adjacent to one another. \textbf{(b)}: Structure plot of estimated cluster membership proportions for $K=4$ clusters fit to only the brain tissue samples from GTEX. This analysis highlights finer-scale structure among the brain samples that is absent from (a).  \textbf{(c)}: As in a), but with data thinned so that the coverage is closer to a typical single cell RNA-seq data ($p_{thin}=0.0001$).  The clustering patterns are largely similar to a), but slightly noisier.}
+\begin{sidewaysfigure*}[ht]
+\raggedleft
+\includegraphics[height=5in, width=6.5in]{../plots/gtex-figures/fig1.pdf}
+ \caption{ \textbf{(a)}: Structure plot of estimated cluster membership proportions for $K=15$ clusters fit to $8555$ tissue samples from $53$ tissues in GTEX data.  Each vertical bar shows the cluster membership proportions for a single sample, ordered so that samples from the same tissue are adjacent to one another. \textbf{(b)}: Structure plot of estimated cluster membership proportions for $K=4$ clusters fit to only the brain tissue samples from GTEX. This analysis highlights finer-scale structure among the brain samples that is absent from (a).  \textbf{(c)}: As in a), but with data thinned so that the coverage is closer to a typical single cell RNA-seq data ($p_{thin}=0.0001$).  The clustering patterns are largely similar to a), but slightly noisier.}
 \label{fig:fig1}
-\end{figure*}
+\end{sidewaysfigure*}
 %
 %\begin{figure*}[ht]
 %\centering
@@ -362,7 +362,7 @@ structure of single-cell data may in some cases be better captured by a mixed me
         \caption{admixture thin 0.001}
     \end{subfigure}\\
 
-    \caption{A comparison of ``accuracy" of hierarchical vs model-based clustering on thinned GTEX data, with thinning parameter $p_{thin}=0.001$ and $p_{thin}=0.0001$.  For each pair of tissues from the GTEX data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. As expected, thinning deteriorate accuracy compared with the unthinned data (Figure \ref{fig:fig3}), but the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.}
+ \caption{A comparison of ``accuracy" of hierarchical vs model-based clustering on thinned GTEX data, with thinning parameter $p_{thin}=0.001$ and $p_{thin}=0.0001$.  For each pair of tissues from the GTEX data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. As expected, thinning deteriorate accuracy compared with the unthinned data (Figure \ref{fig:fig3}), but the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.}
  \label{fig:figS2}
 \end{figure*}
 
