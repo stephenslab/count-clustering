@@ -53,7 +53,9 @@ We have also found it useful to visualize results using t-distributed Stochastic
 
 \subsection{Cluster annotation}
 
-To help biologically interpret the clusters, we developed a method to identify which genes are most distinctively differentially expressed in each cluster.  Specifically, for each cluster $k$ we measure the distinctiveness of gene $g$ with respect to any other cluster $l$ using
+To help biologically interpret the clusters, we developed a method to identify which genes are most distinctively differentially expressed in each cluster. 
+(This is analogous to identifying ``ancestry informative markers" in population genetics applications \cite{rosenberg2005:PMID16305328}.)
+ Specifically, for each cluster $k$ we measure the distinctiveness of gene $g$ with respect to any other cluster $l$ using
 \begin{equation}
 \KL^{g} [k,l] : = \theta_{kg} \; log \frac{\theta_{kg}}{\theta_{lg}} + \theta_{lg} - \theta_{kg},
 \end{equation}
