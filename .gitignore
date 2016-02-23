@@ -2,5 +2,8 @@
 .Rproj.user
 project/internal_data/
 project/external_data/
+project/docs/*.aux
+project/docs/*.out
+project/docs/*.log
 src/.Rhistory
 data/
