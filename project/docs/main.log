@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  22 FEB 2016 18:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  22 FEB 2016 23:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -409,59 +409,20 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
 
 LaTeX Warning: Reference `fig:figS3' on page 5 undefined on input line 63.
 
-[5] [6]) (./discussion.tex
-
-LaTeX Warning: Citation `deng' on page 7 undefined on input line 16.
-
-
-LaTeX Warning: Reference `' on page 7 undefined on input line 20.
-
-
-LaTeX Warning: Citation `engelhardt.stephens.xx' on page 7 undefined on input l
-ine 30.
-
-
-LaTeX Warning: Reference `' on page 7 undefined on input line 33.
-
-
-LaTeX Warning: Reference `' on page 7 undefined on input line 33.
-
-
-LaTeX Warning: Citation `deng' on page 7 undefined on input line 37.
-
-
-LaTeX Warning: Citation `https://www.cs.princeton.edu/\nobreakspace {}blei/pape
-rs/HoffmanBleiBach2010b.pdf' on page 7 undefined on input line 42.
-
-[7]
-
-LaTeX Warning: Citation `rosenberg:2002:PMID12493913' on page 8 undefined on in
-put line 48.
-
-
-LaTeX Warning: Citation `falsuh:2003' on page 8 undefined on input line 55.
-
-
-LaTeX Warning: Citation `falush:2003' on page 8 undefined on input line 57.
-
-) (./methods.tex [8]
+[5] [6]) (./discussion.tex [7]) (./methods.tex [8]
 
 LaTeX Warning: Citation `rosenberg2005:PMID16305328' on page 9 undefined on inp
 ut line 57.
 
-[9]
-
-LaTeX Warning: Citation `Thompson2014' on page 10 undefined on input line 69.
-
-) (./figures.tex
-<../plots/gtex-figures/fig1.pdf, id=206, 1027.84pt x 770.88pt>
+[9]) (./figures.tex
+<../plots/gtex-figures/fig1.pdf, id=220, 1027.84pt x 770.88pt>
 File: ../plots/gtex-figures/fig1.pdf Graphic file (type pdf)
 
 <use ../plots/gtex-figures/fig1.pdf>
 Package pdftex.def Info: ../plots/gtex-figures/fig1.pdf used on input line 10.
 (pdftex.def)             Requested size: 469.75385pt x 361.34912pt.
 
-<../plots/hierarchy_F_thin_0_1.png, id=207, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_1.png, id=221, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_1.png>
@@ -469,7 +430,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 3
 4.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_1.png, id=209, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_1.png, id=223, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_1.png>
@@ -481,7 +442,7 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 32--42
  [][]  [] 
  []
 
-<../plots/Jaitin_struct_clus_7_amp_batch.png, id=210, 602.25pt x 401.5pt>
+<../plots/Jaitin_struct_clus_7_amp_batch.png, id=224, 602.25pt x 401.5pt>
 File: ../plots/Jaitin_struct_clus_7_amp_batch.png Graphic file (type png)
 
 <use ../plots/Jaitin_struct_clus_7_amp_batch.png>
@@ -489,7 +450,7 @@ Package pdftex.def Info: ../plots/Jaitin_struct_clus_7_amp_batch.png used on in
 put line 317.
 (pdftex.def)             Requested size: 325.22853pt x 180.67944pt.
 
-<../plots/deng_structure_6.pdf, id=213, 1027.84pt x 770.88pt>
+<../plots/deng_structure_6.pdf, id=227, 1027.84pt x 770.88pt>
 File: ../plots/deng_structure_6.pdf Graphic file (type pdf)
 
 <use ../plots/deng_structure_6.pdf>
@@ -498,7 +459,7 @@ Package pdftex.def Info: ../plots/deng_structure_6.pdf used on input line 326.
  [10] [11 <../plots/gtex-figures/fig1.pdf>]
 [12 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png> <..
 /plots/Jaitin_struct_clus_7_amp_batch.png>] [13 <../plots/deng_structure_6.pdf>
-] <../plots/hierarchy_F_thin_0_01.png, id=277, 481.8pt x 481.8pt>
+] <../plots/hierarchy_F_thin_0_01.png, id=292, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_01.png>
@@ -506,7 +467,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_01.png used on input line
 343.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_01.png, id=278, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_01.png, id=293, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_01.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_01.png>
@@ -518,7 +479,7 @@ Overfull \hbox (4.86667pt too wide) in paragraph at lines 341--351
  [][]  [] 
  []
 
-<../plots/hierarchy_F_thin_0_001.png, id=279, 481.8pt x 481.8pt>
+<../plots/hierarchy_F_thin_0_001.png, id=294, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_001.png>
@@ -526,7 +487,7 @@ Package pdftex.def Info: ../plots/hierarchy_F_thin_0_001.png used on input line
  355.
 (pdftex.def)             Requested size: 180.67455pt x 180.67499pt.
 
-<../plots/admixture_F_thin_0_001.png, id=280, 481.8pt x 481.8pt>
+<../plots/admixture_F_thin_0_001.png, id=295, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_001.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_001.png>
@@ -725,26 +686,26 @@ Overfull \hbox (34.04102pt too wide) in paragraph at lines 127--149
 
 
 ]
-Underfull \hbox (badness 3568) in paragraph at lines 133--136
+Underfull \hbox (badness 3568) in paragraph at lines 143--146
 []\OT1/cmr/m/n/10.95 Hicks SC, Teng M, Irizarry RA. 2015. On the widespread and
  crit-i-cal im-
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 133--136
+Underfull \hbox (badness 1762) in paragraph at lines 143--146
 \OT1/cmr/m/n/10.95 pact of sys-tem-atic bias and batch ef-fects in single-cell 
 RNA-Seq data. \OT1/cmr/m/it/10.95 BiorXiv\OT1/cmr/m/n/10.95 .
  []
 
-
-Underfull \hbox (badness 3039) in paragraph at lines 162--165
+[19]
+Underfull \hbox (badness 3039) in paragraph at lines 174--177
 []\OT1/cmr/m/n/10.95 Flutre T, Wen X, Pritchard J and Stephens M. 2013. A Sta-t
 is-ti-cal Frame-
  []
 
-[19])
+[20])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 12.
- [20]
+ [21]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 12.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 12.
@@ -755,16 +716,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 12.
  ) 
 Here is how much of TeX's memory you used:
- 7632 strings out of 493117
- 114372 string characters out of 6135433
- 228243 words of memory out of 5000000
- 10896 multiletter control sequences out of 15000+600000
+ 7633 strings out of 493117
+ 114317 string characters out of 6135433
+ 228382 words of memory out of 5000000
+ 10892 multiletter control sequences out of 15000+600000
  14693 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,13n,38p,2361b,476s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -781,10 +739,10 @@ xlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
 ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on main.pdf (20 pages, 767011 bytes).
+Output written on main.pdf (21 pages, 768521 bytes).
 PDF statistics:
- 386 PDF objects out of 1000 (max. 8388607)
- 315 compressed objects within 4 object streams
- 76 named destinations out of 1000 (max. 500000)
+ 406 PDF objects out of 1000 (max. 8388607)
+ 334 compressed objects within 4 object streams
+ 81 named destinations out of 1000 (max. 500000)
  158 words of extra memory for PDF output out of 10000 (max. 10000000)
 
