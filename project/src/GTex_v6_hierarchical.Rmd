@@ -11,6 +11,8 @@ In this script, we perform the hierarchical clustering on the GTEx V6 cis-gene l
 
 The main purpose for performing  hierarchical clustering is to compare the system time in performing hierarchical clustering and comparing it with the time taken to perform admixture. 
 
+## Reading the GTEx V6 data
+
 ```{r echo=TRUE, eval=TRUE}
 
 rm(list=ls())
@@ -22,7 +24,14 @@ library(data.table)
 
 data <- data.frame(fread('../external_data/GTEX_V6/cis_gene_expression.txt'));
 
+matdata <- data[,-(1:2)];
+samples_id=read.table("../external_data/GTEX_V6/samples_id.txt")[,3];
 
+```
 
+## Hierarchical clustering
+
+```{r echo=TRUE, eval=TRUE}
+system.time(h <- heatmap(cor(matdata)));
 ```
 
