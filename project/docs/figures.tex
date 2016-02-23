@@ -8,13 +8,13 @@
 \begin{sidewaysfigure*}[ht]
 \raggedleft
 \includegraphics[height=5in, width=6.5in]{../plots/gtex-figures/fig1.pdf}
- \caption{ \textbf{(a)}: Structure plot of estimated cluster membership proportions for $K=15$ clusters fit to $8555$ tissue samples from $53$ tissues in GTEX data.  Each vertical bar shows the cluster membership proportions for a single sample, ordered so that samples from the same tissue are adjacent to one another. \textbf{(b)}: Structure plot of estimated cluster membership proportions for $K=4$ clusters fit to only the brain tissue samples from GTEX. This analysis highlights finer-scale structure among the brain samples that is absent from (a).  \textbf{(c)}: As in a), but with data thinned so that the coverage is closer to a typical single cell RNA-seq data ($p_{thin}=0.0001$).  The clustering patterns are largely similar to a), but slightly noisier.}
+ \caption{ \textbf{(a)}: Structure plot of estimated cluster membership proportions for $K=15$ clusters fit to $8555$ tissue samples from $53$ tissues in GTEx data.  Each vertical bar shows the cluster membership proportions for a single sample, ordered so that samples from the same tissue are adjacent to one another. \textbf{(b)}: Structure plot of estimated cluster membership proportions for $K=4$ clusters fit to only the brain tissue samples from GTEx. This analysis highlights finer-scale structure among the brain samples that is absent from (a).  \textbf{(c)}: As in a), but with data thinned so that the coverage is closer to a typical single cell RNA-seq data ($p_{thin}=0.0001$).  The clustering patterns are largely similar to a), but slightly noisier.}
 \label{fig:fig1}
 \end{sidewaysfigure*}
 %
 %\begin{figure*}[ht]
 %\centering
-%  \includegraphics[height=3in, width=4.5in]{../plots/GTEX_V6_brain_thin_0.png}
+%  \includegraphics[height=3in, width=4.5in]{../plots/GTEx_V6_brain_thin_0.png}
 %    \caption{Structure plot of the admixture proportions (with 4 clusters) for the brain tissue samples drawn from GTEX Version 4 data. Quite clearly, brain cerebellum and cerebellar hemisphere seem to be dominated by the blue cluster while the Spinal cord and Substantia nigra by the cyan cluster. Prior marker based approaches have verified that $> 80 \%$ of cells in brain cerebellum correspond to neurons \cite{Houzel2005}. So, the blue cluster seems to be driven by the neuron cell type. This fact is further attested by the gene annotations of the top genes driving the blue cluster (Supplementary Table 1).}
 %\label{fig:fig2}
 %\end{figure*}
@@ -362,7 +362,7 @@ structure of single-cell data may in some cases be better captured by a mixed me
         \caption{admixture thin 0.001}
     \end{subfigure}\\
 
- \caption{A comparison of ``accuracy" of hierarchical vs model-based clustering on thinned GTEX data, with thinning parameter $p_{thin}=0.001$ and $p_{thin}=0.0001$.  For each pair of tissues from the GTEX data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. As expected, thinning deteriorate accuracy compared with the unthinned data (Figure \ref{fig:fig3}), but the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.}
+ \caption{A comparison of ``accuracy" of hierarchical vs model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.001$ and $p_{thin}=0.0001$.  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. As expected, thinning deteriorate accuracy compared with the unthinned data (Figure \ref{fig:fig3}), but the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.}
  \label{fig:figS2}
 \end{figure*}
 
