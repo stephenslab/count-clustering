@@ -1,6 +1,13 @@
 .DS_Store
 .Rproj.user
+.Rhistory
 project/internal_data/
 project/external_data/
 src/.Rhistory
 data/
+
+project/rdas/omega_cis_genes_0_1_2.txt
+project/rdas/rda-for-midway.rda
+project/rdas/samples_id.txt
+
+
