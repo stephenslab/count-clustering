@@ -147,7 +147,7 @@ color2[13] <- color1[11];
 
 #png(paste0('../plots/fig1_paper/temp3.png'),width=700,height=300)
 par(mar=c(15,3,2,1))
-barplot(t(docweights_ordering),col=color2[1:K],axisnames=F,space=0,border=NA,main=paste("Thinned data: pthin=0.001, K=",K),las=1,ylim=c(0,1),cex.axis=0.9,cex.main=1)
+barplot(t(docweights_ordering),col=color2[1:K],axisnames=F,space=0,border=NA,main=paste("Thinned data: pthin=0.01, K=",K),las=1,ylim=c(0,1),cex.axis=0.9,cex.main=1)
 
 labels = match(unique(samples_id_ordered), samples_id_ordered);
 abline(v=labels)
@@ -165,29 +165,26 @@ docweights_ordering <- docweights_ordering[indices,]
 K=dim(docweights)[2];
 samples_id_ordered <- samples_id_ordered_all;
 color3 <- color2;
-color3[12] <- color2[13];
+color3[12] <- color2[9];
 color3[15] <- color2[10];
 color3[14] <- color2[14];
 color3[3] <- color2[3];
 color3[7] <- color2[7];
 color3[8] <- color2[4];
-color3[11] <- color2[9];
+color3[11] <- color2[12];
 color3[1] <- color2[1];
 color3[2] <- color2[2];
-color3[4] <- color2[15];
+color3[4] <- color2[5];
 color3[5] <- color2[6];
-color3[6] <- color2[5];
+color3[6] <- color2[15];
 color3[9] <- color2[8];
-color3[10] <- color2[11];
-color3[13] <- color2[12]
-color3[11] <- color3[12]
-color3[13] <- color3[10]
-color3[12] <- color3[11]
-color3[10] <- color3[13]
+color3[10] <- color2[13];
+color3[13] <- color2[11];
+
 
 #png(paste0('../plots/fig1_paper/temp3.png'),width=700,height=300)
 par(mar=c(15,3,2,1))
-barplot(t(docweights_ordering),col=color2[1:K],axisnames=F,space=0,border=NA,main=paste("Thinned data: pthin=0.001, K=",K),las=1,ylim=c(0,1),cex.axis=0.9,cex.main=1)
+barplot(t(docweights_ordering),col=color3[1:K],axisnames=F,space=0,border=NA,main=paste("Thinned data: pthin=0.001, K=",K),las=1,ylim=c(0,1),cex.axis=0.9,cex.main=1)
 
 labels = match(unique(samples_id_ordered), samples_id_ordered);
 abline(v=labels)
