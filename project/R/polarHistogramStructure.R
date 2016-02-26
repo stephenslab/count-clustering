@@ -10,8 +10,8 @@
 #' @param outerRadius Length of the radius to the outer edge of the circle.
 #' @param circleProportion Percent of the ciricle (in radius) to be used in plotting.
 #' @param palette A vector of colors for the clusters.
-#' @param family A factor vector of phenotype for each sample. The level of the famliy vector determins
-#'               the order of the samples in the plot.
+#' @param Family A factor vector of phenotype for each sample. The level of the famliy vector determins
+#'               the order of the samples in the 
 #' 
 polarHistogramStructure <-function (df, family = NULL, columnNames = NULL, 
                            binSize = 1,
