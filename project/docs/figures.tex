@@ -7,7 +7,7 @@
 
 \begin{sidewaysfigure*}[ht]
 \raggedleft
-\includegraphics[height=7in, width=9.5in]{../plots/gtex-figures/gtex.pdf}
+\includegraphics[height=6.5in, width=9.5in]{../plots/gtex-figures/gtex.pdf}
  \caption{ \textbf{(a)}: Structure plot of estimated cluster membership proportions for $K=15$ clusters fit to $8555$ tissue samples from $53$ tissues in GTEx data.  Each vertical bar shows the cluster membership proportions for a single sample, ordered so that samples from the same tissue are adjacent to one another. \textbf{(b)}: Structure plot of estimated cluster membership proportions for $K=4$ clusters fit to only the brain tissue samples from GTEx. This analysis highlights finer-scale structure among the brain samples that is absent from (a).  \textbf{(c)}: As in a), but with data thinned so that the coverage is closer to a typical single cell RNA-seq data ($p_{thin}=0.0001$).  The clustering patterns are largely similar to a), but slightly noisier.}
 \label{fig:fig1}
 \end{sidewaysfigure*}
@@ -333,32 +333,40 @@ structure of single-cell data may in some cases be better captured by a mixed me
 
 
  \clearpage
- 
  \subsection{Supplemental figures}
+ 
+ \begin{sidewaysfigure*}[ht]
+ \raggedleft
+\includegraphics[height=6.5in, width=9.5in]{../plots/gtex-figures/gtex2.pdf}
+    \caption{Structure plot of all tissue samples in 2 runs of the GTEx version 4 data for for K=15 for the thinning parameters $p_{thin}=0.01$ and $p_{thin}=0.001$. The broad patterns in the two plots are largely similar and also closely corresponds to \textbf{Fig} ~\ref{fig:fig1} (a). }
+ \label{fig:figS1}
+    \end{sidewaysfigure*}
+
+
  
   \begin{figure*}[ht]
     \centering    
      \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.5in]{../plots/hierarchy_F_thin_0_01.png}
+        \includegraphics[height=2.5in]{../plots/rsz_1hierarchy_F_thin_0_01.png}
         \caption{hierarchy thin 0.01}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.5in]{../plots/admixture_F_thin_0_01.png}
+        \includegraphics[height=2.5in]{../plots/rsz_1admixture_F_thin_0_01.png}
         \caption{admixture thin 0.01}
     \end{subfigure}\\
     
      \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.5in]{../plots/hierarchy_F_thin_0_001.png}
+        \includegraphics[height=2.5in]{../plots/rsz_1hierarchy_F_thin_0_001.png}
         \caption{hierarchy 0.001}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
-        \includegraphics[height=2.5in]{../plots/admixture_F_thin_0_001.png}
+        \includegraphics[height=2.5in]{../plots/rsz_1admixture_F_thin_0_001.png}
         \caption{admixture thin 0.001}
     \end{subfigure}\\
 
