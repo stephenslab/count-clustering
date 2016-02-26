@@ -50,6 +50,7 @@ samples_id <- as.character(samples_id)
 samples_id[grep("Nucleus", samples_id)] = "Brain -N. accumbens (basal ganglia)"
 samples_id[grep("Gastroe", samples_id)] = "Esophagus -Gastroesophageal Jn."
 samples_id[grep("cingulate", samples_id)] = "Brain - Anterior cortex (BA24)."
+#samples_id[grep("Brain", samples_id)] = "Brain"
 samples_id <- as.factor(samples_id)
 
 docweights_per_tissue_mean <- apply(docweights,2,function(x) tapply(x,samples_id,mean));
@@ -74,7 +75,7 @@ docweights_ordering <- docweights_ordering[indices,]
 
 #png(paste0('../plots/fig1_paper/temp1.png'),width=700,height=300)
 par(mar=c(15,3,2,1))
-barplot(t(docweights_ordering),col=color[1:K],axisnames=F,space=0,border=NA,main=paste("Unthinned data: K=",K),las=1,ylim=c(0,1),cex.axis=0.9,cex.main=1)
+barplot(t(docweights_ordering),col=color[1:K],width=1, axisnames=F,space=0,border=NA,main=paste("Unthinned data: K=",K),las=1,ylim=c(0,1),cex.axis=0.9,cex.main=1)
 
 labels = match(unique(samples_id_ordered), samples_id_ordered);
 abline(v=labels)
@@ -83,7 +84,7 @@ labels_low=labels;
 labels_up=c(labels[2:length(labels)],dim(docweights_ordering)[1]);
 mid_point=labels_low +0.5*(labels_up-labels_low);
 
-axis(1,at=mid_point, unique(samples_id_ordered),las=2, cex.axis=1);
+axis(1,at=mid_point, unique(samples_id_ordered),las=3, cex.axis=0.8);
 #dev.off()
 
 ```
