@@ -41,6 +41,7 @@ tagline:
   [Deng et al 2014 sc-RNA analysis](project/src/deng_structure_all_genes.html)
   
   The cluster annotations of the clusters for the data are given in the script below.
+  
   [Deng et al 2014 cluster annotations](project/src/deng_cluster_annotations.html)
 
 ### Other applications of CountClust
