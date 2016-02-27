@@ -121,7 +121,7 @@ library(data.table)</code></pre>
 ## truncated]</code></pre>
 <pre><code>## 
 Read 62.2% of 16069 rows
-Read 16069 rows and 8557 (of 8557) columns from 0.532 GB file in 00:00:07</code></pre>
+Read 16069 rows and 8557 (of 8557) columns from 0.532 GB file in 00:00:08</code></pre>
 <pre class="r"><code>matdata &lt;- data[,-(1:2)];
 samples_id=read.table(&quot;../external_data/GTEX_V6/samples_id.txt&quot;)[,3];</code></pre>
 </div>
@@ -197,7 +197,7 @@ brain_matdata &lt;- matdata[,brain_indices];
 brain_ids &lt;- samples_id[brain_indices];</code></pre>
 <div id="mbp-gene" class="section level3">
 <h3>MBP gene</h3>
-<p>We study the MBP gene</p>
+<p>We study the MBP gene which was found to be significantly enriched in brain spinal cord.</p>
 <pre class="r"><code>index &lt;- grep(&quot;ENSG00000197971&quot;,gene_names);
 brain_ids_ordered &lt;- brain_ids[order(brain_ids)]
 plot(1:length(brain_indices), log(brain_matdata[index,order(brain_ids)]+1), type=&quot;l&quot;, col=&quot;red&quot;,  ylab=&quot;log expr.&quot;, main=&quot;MBP expression&quot;, xaxt=&quot;n&quot;, xlab=&quot;&quot;)
@@ -258,7 +258,7 @@ colnames(reads) &lt;- cell_meta;</code></pre>
 <h2>Deng2014 developmental genes study</h2>
 <div id="bcl210" class="section level3">
 <h3>Bcl210</h3>
-<p>Bcl210 gene expression study</p>
+<p>Bcl210 gene expression study, a gene which seems to be a pre-cursor for early development, zygote and early 2-cell.</p>
 <pre class="r"><code>index &lt;- grep(&quot;Bcl2l10&quot;, rownames(reads))
 plot(1:dim(reads)[2], log(reads[index,]+1), type=&quot;l&quot;, col=&quot;red&quot;,  ylab=&quot;log expr.&quot;, main=&quot;Bcl2l10 expression&quot;, xaxt=&quot;n&quot;, xlab=&quot;&quot;)
 
@@ -275,7 +275,7 @@ axis(1,at=mid_point, unique(cell_meta),las=3, cex.axis=0.8);</code></pre>
 </div>
 <div id="tcl1" class="section level3">
 <h3>Tcl1</h3>
-<p>Tcl1 expression study (there are 5 occurrences - may be isoforms? We show for one…patterns similar otherwise)</p>
+<p>Tcl1 expression study (there are 5 occurrences - may be isoforms? We show for one…patterns similar otherwise). It is also a precursor for zygote and early 2-cell cluster.</p>
 <pre class="r"><code>index &lt;- grep(&quot;Tcl1&quot;, rownames(reads))[2]
 plot(1:dim(reads)[2], log(reads[index,]+1), type=&quot;l&quot;, col=&quot;red&quot;,  ylab=&quot;log expr.&quot;, main=&quot;Tcl1 expression&quot;, xaxt=&quot;n&quot;, xlab=&quot;&quot;)
 
@@ -292,7 +292,7 @@ axis(1,at=mid_point, unique(cell_meta),las=3, cex.axis=0.8);</code></pre>
 </div>
 <div id="actb" class="section level3">
 <h3>Actb</h3>
-<p>Actb gene expression profile</p>
+<p>Actb gene expression profile. It is a precursor for slightly late development stages, blastocyst.</p>
 <pre class="r"><code>index &lt;- grep(&quot;Actb&quot;, rownames(reads))[1]
 plot(1:dim(reads)[2], log(reads[index,]+1), type=&quot;l&quot;, col=&quot;red&quot;,  ylab=&quot;log expr.&quot;, main=&quot;Actb expression&quot;, xaxt=&quot;n&quot;, xlab=&quot;&quot;)
 
