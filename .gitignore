@@ -11,4 +11,6 @@ project/rdas/rda-for-midway.rda
 project/rdas/rda-for-midway-all.rda
 project/rdas/samples_id.txt
 project/rdas/omega_cis_genes_brain.txt
-
+project/rdas/cell_labels_phase.txt
+project/rdas/cell_labels_phase_embryo.txt
+project/rdas/omega_cis_genes_0_0001.txt
