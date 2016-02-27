@@ -157,6 +157,13 @@ reads <- reads[,order_of_development];
 cell_meta <- cell_meta[order_of_development]
 cell_embryo <- cell_embryo[order_of_development];
 colnames(reads) <- cell_meta;
+
+names(cell_meta) <- "dev. phase"
+names(cell_embryo) <- "dev.phase.embryo"
+
+write.table(cell_meta, "../external_data/Deng_Data/cell_labels_phase.txt")
+write.table(cell_embryo, "../external_data/Deng_Data/cell_labels_phase_embryo.txt")
+
 ```
 
 ## Deng2014 developmental genes study
