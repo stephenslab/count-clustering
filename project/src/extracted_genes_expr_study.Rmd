@@ -114,7 +114,7 @@ brain_ids <- samples_id[brain_indices];
 
 ### MBP gene
 
-We study the MBP gene
+We study the MBP gene which was found to be significantly enriched in brain spinal cord. 
 
 ```{r echo=TRUE, eval=TRUE}
 index <- grep("ENSG00000197971",gene_names);
@@ -163,7 +163,7 @@ colnames(reads) <- cell_meta;
 
 ### Bcl210
 
-Bcl210 gene expression study
+Bcl210 gene expression study, a gene which seems to be a pre-cursor for early development, zygote and early 2-cell. 
 
 ```{r echo=TRUE, eval=TRUE}
 index <- grep("Bcl2l10", rownames(reads))
@@ -182,7 +182,7 @@ axis(1,at=mid_point, unique(cell_meta),las=3, cex.axis=0.8);
 
 ### Tcl1
 
-Tcl1 expression study (there are 5 occurrences - may be isoforms? We show for one...patterns similar otherwise)
+Tcl1 expression study (there are 5 occurrences - may be isoforms? We show for one...patterns similar otherwise). It is also a precursor for zygote and early 2-cell cluster. 
 
 ```{r echo=TRUE, eval=TRUE}
 index <- grep("Tcl1", rownames(reads))[2]
@@ -201,7 +201,7 @@ axis(1,at=mid_point, unique(cell_meta),las=3, cex.axis=0.8);
 
 ### Actb
 
-Actb gene expression profile
+Actb gene expression profile. It is a precursor for slightly late development stages, blastocyst. 
 
 ```{r echo=TRUE, eval=TRUE}
 index <- grep("Actb", rownames(reads))[1]
