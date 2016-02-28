@@ -1,6 +1,6 @@
 ---
 title: "GTEX V6 analysis"
-author: "Kushal K Dey"
+author: "Kushal K Dey, Joyce Hsiao"
 date: "January 29, 2016"
 output: 
   html_document:
