@@ -333,7 +333,7 @@ pdf("../plots/gtex-figures/all-tissues-thinned-0-01.pdf",
     height = 9, width=4)
 StructureGGplot(omega = omega,
                 annotation= annotation,
-                palette = cols_thinned_2,
+                palette = cols_thinned_3,
                 yaxis_label = "",
                 order_sample = TRUE,
                 split_line = list(split_lwd = .1,
