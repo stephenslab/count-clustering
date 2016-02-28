@@ -1,6 +1,6 @@
 ---
 title: "Jaitin single cell analysis"
-author: "Kushal K Dey"
+author: "Kushal K Dey, Joyce Hsiao"
 date: "January 28, 2016"
 output: 
   html_document:
@@ -15,7 +15,7 @@ We apply the topic model for clustering of single cells in the data due to Jaiti
 
 ## Load pacakges
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(CountClust)
 library(Biobase)
 ```
@@ -25,6 +25,7 @@ library(Biobase)
 
 ```{r echo=TRUE, eval=TRUE}
 # import raw data 
+#devtools::install_github('jhsiao999/singleCellRNASeqMouseJaitinSpleen')
 library(singleCellRNASeqMouseJaitinSpleen)
 data(MouseJaitinSpleen)
 counts <- exprs(MouseJaitinSpleen)
@@ -85,33 +86,62 @@ Topic_Clus <- StructureObj(data = t(counts_ensg_filtered),
 ```
 
 
-## Structure Plot
+## Structure Plot (Amplification batch)
 
-```{r echo=TRUE, eval=FALSE}
+```{r echo=TRUE, eval=TRUE, fig.height=7, fig.width=5, message=FALSE, warning=FALSE}
 topic_fit <- readRDS("../rdas/MouseJaitinSpleen-topicFit.rds")
-str(topic_fit)
-omega <- topic_fit[[1]]$omega
+
+# extract the omega matrix: membership weights of each cell
+names(topic_fit$clust_7)
+omega <- topic_fit$clust_7$omega
 
 
-if(!dir.exists("../plots/jaitin-structure"))  {
-    dir.create("../plots/jaitin-structure")
-}
+filter_sample_index <- which(meta_data$number_of_cells == 1 &
+                                 meta_data$group_name == "CD11c+" &
+                                 sample_counts > 600)
 
-samp_metadata <- cbind.data.frame(
-    seq.batch = meta_data_filtered[,"sequencing_batch"], 
-    amp.batch = meta_data_filtered[,"amplification_batch"])
+# make filterd phenotype data
+meta_data_filtered <- meta_data[filter_sample_index, ]
+stopifnot(dim(meta_data_filtered)[1] == dim(omega)[1])
 
-
-StructureObj_omega(omega, 
-    samp_metadata = samp_metadata,  
-    batch_lab = NULL,
-    path="../plots/jaitin-figures",
-    partition = c("TRUE","TRUE"),
-    control=list(cex.axis=1))
+# making annotation matrix
+amp_batch <- as.numeric(meta_data_filtered[ , "amplification_batch"])
+annotation <- data.frame(
+    sample_id = paste0("X", c(1:NROW(omega)) ),
+    tissue_label = factor(amp_batch,
+                          levels = rev(sort(unique(amp_batch))) ) )
+StructureGGplot(omega = omega,
+                annotation = annotation,
+                palette = RColorBrewer::brewer.pal(9, "Set1"),
+                yaxis_label = "Amplification batch",
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 7,
+                                 axis_label_face = "bold"),
+                order_sample = TRUE)
 ```
 
+## Structure Plot (Sequencing Batch)
+
+```{r echo=TRUE, eval=TRUE, fig.height=7, fig.width=5, message=FALSE, warning=FALSE}
+seq_batch <- as.numeric(meta_data_filtered[ , "sequencing_batch"])
+annotation <- data.frame(
+    sample_id = paste0("X", c(1:NROW(omega)) ),
+    tissue_label = factor(seq_batch,
+                          levels = rev(sort(unique(seq_batch))) ) )
+
+StructureGGplot(omega = omega,
+                annotation = annotation,
+                palette = RColorBrewer::brewer.pal(9, "Set1"),
+                yaxis_label = "Sequencing batch",
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 7,
+                                 axis_label_face = "bold"),
+                order_sample = TRUE)
 
 
-<img src='../plots/jaitin-figures/clus_7/struct_clus_7_amp.batch.png' style="width:350px;height:300px;">
-<img src='../plots/jaitin-figures/clus_7/struct_clus_7_seq.batch.png' style="width:350px;height:300px;">
 
+```
