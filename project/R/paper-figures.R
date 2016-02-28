@@ -17,7 +17,6 @@ sample_labels <- read.table("../project/rdas/samples_id.txt",
 tissue_labels <- vector("numeric", NROW(sample_labels))
 tissue_labels <- sample_labels[ ,3]
 
-
 # clean labels
 tissue_labels[grep("Nucleus", tissue_labels)] <- "Brain -N. accumbens"
 tissue_labels[grep("Putamen", tissue_labels)] <- "Brain -Putamen"
@@ -30,9 +29,8 @@ tissue_labels[grep("Lower Leg", tissue_labels)] <- "Skin - Sun Exposed (Lower Le
 
 
 # find sample orders in hierarchical clustering
-tissue_label <- as.character(tissue_labels)
 docweights_per_tissue_mean <- apply(omega, 2, 
-        function(x) { tapply(x, tissue_labels, mean) })
+                                    function(x) { tapply(x, tissue_labels, mean) })
 ordering <- heatmap(docweights_per_tissue_mean)$rowInd
 
 # order tissue by hierarhical clustering results
@@ -46,6 +44,17 @@ tissue_levels_reordered[45:50] <- c("Artery - Tibial",
                                     "Colon - Sigmoid",
                                     "Esophagus - Mucosa", 
                                     "Bladder")
+# rearrange brain tissue order
+tissue_levels_reordered[1:13] <- c(
+    "Brain - Cerebellar Hemisphere", "Brain - Cerebellum",
+    "Brain - Spinal cord (cervical c-1)",
+    "Brain - Anterior cortex (BA24).", "Brain - Frontal Cortex (BA9)",
+    "Brain - Cortex", 
+    "Brain - Hippocampus", "Brain - Substantia nigra", 
+    "Brain - Amygdala", "Brain -Putamen", 
+    "Brain -Caudate", 
+    "Brain - Hypothalamus", "Brain -N. accumbens")
+
 
 annotation <- data.frame(
     sample_id = paste0("X", 1:length(tissue_labels)),
@@ -55,7 +64,7 @@ annotation <- data.frame(
 
 
 
-###<----- Structure ggplot of all tissues
+##<----- Structure ggplot of all tissues
 
 source("R/StructureGGplot.R")
 
@@ -72,7 +81,7 @@ cols2 <- c("red", "blue", "cornflowerblue", "black", "cyan", "darkblue",
 
 
 source("R/StructureGGplot.R")
-pdf("plots/gtex-figures/all-tissues.pdf", 
+pdf("plots/gtex-figures/all-tissues-2.pdf", 
     height = 9, width=4)
 StructureGGplot(omega = omega,
                 annotation= annotation, 
@@ -241,7 +250,7 @@ rownames(omega) <- paste0("X", 1:length(brain_labels))
 annotation <- data.frame(
     sample_id = paste0("X", 1:length(brain_labels)),
     tissue_label = factor(brain_labels,
-                          levels = c("Brain - Cerebellar Hemisphere",
+                          levels = rev(c("Brain - Cerebellar Hemisphere",
                                      "Brain - Cerebellum",
                                      "Brain - Spinal cord (cervical c-1)",
                                      "Brain - Anterior cingulate cortex (BA24)",
@@ -253,7 +262,7 @@ annotation <- data.frame(
                                      "Brain - Putamen (basal ganglia)",
                                      "Brain - Caudate (basal ganglia)",
                                      "Brain - Hypothalamus",
-                                     "Brain - Nucleus accumbens (basal ganglia)") ) )
+                                     "Brain - Nucleus accumbens (basal ganglia)") ) ) )
                                      
 # define colors of the clusers
 cols <- c("blue", "darkgoldenrod1", "cyan", "red")
@@ -269,13 +278,14 @@ StructureGGplot(omega = omega,
                 annotation= annotation, 
                 palette = cols, 
                 yaxis_label = "",
-                order_sample = FALSE,
+                order_sample = TRUE,
                 split_line = list(split_lwd = .4,
                                   split_col = "white"),
                 axis_tick = list(axis_ticks_length = .1,
                                  axis_ticks_lwd_y = .1,
                                  axis_ticks_lwd_x = .1,
-                                 axis_label_size = 3))
+                                 axis_label_size = 3,
+                                 axis_label_face = "bold"))
 StructureGGplot(omega = omega,
                 annotation= annotation, 
                 palette = cols, 
