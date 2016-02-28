@@ -55,7 +55,8 @@ StructureGGplot <- function(omega, annotation,
                             axis_tick = list(axis_ticks_length = .1,
                                              axis_ticks_lwd_y = .1,
                                              axis_ticks_lwd_x = .1,
-                                             axis_label_size = 3) ) {
+                                             axis_label_size = 3,
+                                             axis_label_face = "bold") ) {
     
     library(ggplot2)
     library(reshape2)
@@ -138,7 +139,8 @@ StructureGGplot <- function(omega, annotation,
               legend.text = element_text(size = 5),
 ##<-- TBD: center legend title             
 #              legend.title = element_text(hjust = 1),
-              axis.text = element_text(size = axis_tick$axis_label_size),
+              axis.text = element_text(size = axis_tick$axis_label_size,
+                                       face = axis_tick$axis_label_face),
               axis.ticks.y = element_line(size = axis_tick$axis_ticks_lwd_y),
               axis.ticks.x = element_line(size = axis_tick$axis_ticks_lwd_x),
               axis.ticks.length = unit(axis_tick$axis_ticks_length, "cm"),
