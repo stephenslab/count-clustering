@@ -3,9 +3,10 @@
 .Rhistory
 project/internal_data/
 project/external_data/
+project/docs/*.aux
+project/docs/*.out
+project/docs/*.log
 src/.Rhistory
-data/
-
 project/rdas/omega_cis_genes_0_1_2.txt
 project/rdas/rda-for-midway.rda
 project/rdas/rda-for-midway-all.rda
