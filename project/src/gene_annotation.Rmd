@@ -84,6 +84,8 @@ for(k in 1:dim(topics_theta)[2])
   indices_mat_poisson[k,] = order(vec, decreasing = TRUE)[1:10]
 }
 
+temp_indices <- as.vector(t(indices_mat_poisson));
+apply(topics_theta[temp_indices,], 1, function(x) which.max(x))
 #gene_names <- substring(gene_snp_names_gtex[,2],1,15);
 
 gene_names <- as.vector(as.matrix(read.table("../external_data/GTEX_V6/gene_names_GTEX_V6.txt")))

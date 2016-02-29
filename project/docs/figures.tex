@@ -8,7 +8,7 @@
 \begin{figure*}[ht]
 \raggedleft
 \includegraphics[height=7.5in, width=6.5in]{../plots/gtex-figures/gtex_02_29_16.pdf}
- \caption{ \textbf{(a)}: Structure plot of estimated cluster membership proportions for $K=15$ clusters fit to $8555$ tissue samples from $53$ tissues in GTEx data.  Each vertical bar shows the cluster membership proportions for a single sample, ordered so that samples from the same tissue are adjacent to one another. \textbf{(b)}: Structure plot of estimated cluster membership proportions for $K=4$ clusters fit to only the brain tissue samples from GTEx. This analysis highlights finer-scale structure among the brain samples that is absent from (a).  \textbf{(c)}: As in a), but with data thinned so that the coverage is closer to a typical single cell RNA-seq data ($p_{thin}=0.0001$).  The clustering patterns are largely similar to a), but slightly noisier.}
+ \caption{ \textbf{(a)}: Structure plot of estimated cluster membership proportions for $K=15$ clusters fit to $8555$ tissue samples from $53$ tissues in GTEx data.  Each vertical bar shows the cluster membership proportions for a single sample, ordered so that samples from the same tissue are adjacent to one another. \textbf{(b)}: Structure plot of estimated cluster membership proportions for $K=4$ clusters fit to only the brain tissue samples from GTEx. This analysis highlights finer-scale structure among the brain samples that is absent from (a).}
 \label{fig:fig1}
 \end{figure*}
 %
@@ -32,15 +32,15 @@
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.5in]{../plots/hierarchy_F_thin_0_1.png}
-        \caption{hierarchy thin 0.1}
+        \caption{hierarchy method}
     \end{subfigure}%
     ~ 
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.5in]{../plots/admixture_F_thin_0_1.png}
-        \caption{admixture thin 0.1}
+        \caption{GoM method}
     \end{subfigure} \\
-\caption{A comparison of ``accuracy" of hierarchical vs model-based clustering. For each pair of tissues from the GTEX data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the model-based clustering is successful in xx comparisons and the hierarchical clustering in yy comparisons.}
+\caption{A comparison of ``accuracy" of hierarchical vs model-based clustering. For each pair of tissues from the GTEX data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the model-based clustering is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
 \label{fig:fig2}
 \end{figure*}
 
@@ -315,7 +315,7 @@
 \begin{figure*}[ht]
 \centering
 \includegraphics[height=4in, width=5.5in]{../plots/jaitin-figures/jaitin-amplification-2016-02-29.pdf}
-\caption{Structure plot of estimated cluster membership proportions for $K=7$ clusters fit to 1041 single cells from \cite{Jaitin2014}. The samples are ordered so that samples from the same amplification batch are adjacent. In this analysis the samples do not appear to form clearly-defined clusters, with each sample being allocated membership in several ``clusters". Visually, samples from the same amplification batch tend to be assigned similar membership proportions, suggesting that batch effects are likely contributing to the inferred clustering.}
+\caption{Structure plot of estimated cluster membership proportions for $K=7$ clusters fit to $1041$ single cells from \cite{Jaitin2014}. The samples are ordered so that samples from the same amplification batch are adjacent. In this analysis the samples do not appear to form clearly-defined clusters, with each sample being allocated membership in several ``clusters". Visually, samples from the same amplification batch tend to be assigned similar membership proportions, suggesting that batch effects are likely contributing to the inferred clustering.}
 \label{fig:fig3}
 \end{figure*}
 
@@ -324,7 +324,7 @@
 \begin{figure*}[ht]
 \centering
 \includegraphics[height=4in, width=5.5in]{../plots/deng-figures/deng-2016-02-29.pdf}
-\caption{Structure plot of estimated cluster membership proportions for $K=6$ clusters fit to xxx single cells from  \cite{Deng2014}. The cells are ordered
+\caption{Structure plot of estimated cluster membership proportions for $K=6$ clusters fit to $259$ single cells from  \cite{Deng2014}. The cells are ordered
 by their preimplantation development phase (and within each phase, arranged in the same order as in the data file). While the very earliest developmental phases 
 (\textit{zygote/early2cell}) are essentially assigned to a single cluster, others are represented as a mix of two or more clusters. This illustrates the idea that
 structure of single-cell data may in some cases be better captured by a mixed membership model than by simple discrete clusters.}
@@ -338,7 +338,7 @@ structure of single-cell data may in some cases be better captured by a mixed me
  \begin{figure*}[ht]
  \centering
 \includegraphics[height=7.5in, width=6.5in]{../plots/gtex-figures/gtex2_02_29_16.pdf}
-    \caption{Structure plot of all tissue samples in 2 runs of the GTEx version 4 data for for K=15 for the thinning parameters (a) $p_{thin}=0.01$ and (b) $p_{thin}=0.001$. The broad patterns in the two plots are largely similar and also closely corresponds to \textbf{Fig} ~\ref{fig:fig1} (a). }
+    \caption{Structure plot of all tissue samples in 2 runs of the GTEx V6 data for  K=15 for the thinning parameters (a) $p_{thin}=0.01$ and (b) $p_{thin}=0.0001$. The patterns in two plots closely correspond to the plot in \textbf{Fig} ~\ref{fig:fig1} (a), though are a bit more noisy than compared to the unthinned version. }
  \label{fig:figS1}
     \end{figure*}
 
@@ -355,7 +355,7 @@ structure of single-cell data may in some cases be better captured by a mixed me
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.5in]{../plots/rsz_1admixture_F_thin_0_01.png}
-        \caption{admixture thin 0.01}
+        \caption{GoM thin 0.01}
     \end{subfigure}\\
     
      \begin{subfigure}[t]{0.5\textwidth}
@@ -367,10 +367,10 @@ structure of single-cell data may in some cases be better captured by a mixed me
     \begin{subfigure}[t]{0.5\textwidth}
         \centering
         \includegraphics[height=2.5in]{../plots/rsz_1admixture_F_thin_0_001.png}
-        \caption{admixture thin 0.001}
+        \caption{GoM thin 0.001}
     \end{subfigure}\\
 
- \caption{A comparison of ``accuracy" of hierarchical vs model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.001$ and $p_{thin}=0.0001$.  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. As expected, thinning deteriorate accuracy compared with the unthinned data (Figure \ref{fig:fig3}), but the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.}
+ \caption{A comparison of ``accuracy" of hierarchical vs model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.001$ and $p_{thin}=0.0001$.  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Figure \ref{fig:fig2}), but even then the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.}
  \label{fig:figS2}
 \end{figure*}
 
