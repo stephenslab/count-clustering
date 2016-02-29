@@ -1,21 +1,20 @@
 \section{Discussion}
 
-Our goal here is to highlight the potential for model-based clustering methods, and particularly grade of membership models, to elucidate
+Our goal here is to highlight the potential for model-based clustering methods, and particularly GoM models, to elucidate
 structure in RNA-seq data from both single cell sequencing and bulk sequencing of pooled cells. 
-We also provide additional tools to identify which genes
+We also provide tools to identify which genes
 are most distinctively expressed in each cluster, to aid interpretation of results.
 As our applications to the GTEx data illustrate, these methods have the potential to highlight biological processes
-underlying any cluster structure identified.
+underlying the cluster structure identified.
 
-The model-based grade of membership clustering approach has several advantages over widely-used
-distance-based hierarchical methods of clustering. At the most basic level model-based methods are often
-more accurate than distance-based methods. Indeed, in our simple test on the GTEx data the model-based approach
-was able to more accurately separate the samples into their ``known" clusters. However, there are also other subtler benefits of the grade
-of membership model. Because the grade of membership model does not assume a strict ``discrete cluster" structure, but 
+The GoM model has several advantages over distance-based hierarchical methods of clustering. At the most basic level model-based methods are often
+more accurate than distance-based methods. Indeed, in our simple test on the GTEx data the model-based GoM approach
+more accurately separated samples into ``known" clusters. However, there are also other subtler benefits of the GoM model. Because the GoM 
+model does not assume a strict ``discrete cluster" structure, but 
 rather allows that each sample has a proportion of membership in each cluster, it can provide insights into how well a 
 particular dataset really fits a ``discrete cluster" model. For example, consider our results for the data from \cite{Jaitin2014} and \cite{Deng2014}:
 in both cases most samples are assigned to multiple clusters, although the results are closer to ``discrete" for the latter than the former.
-The grade of membership model is also better able to represent situation where there is not really a single clustering of the samples,
+The GoM model is also better able to represent situation where there is not really a single clustering of the samples,
 but where samples may cluster differently at different genes. For example, in the GTEx data, the lung samples share memberships in common with
 both the spleen and adipose-related tissues. This pattern is clearly visible in the Structure plot (Figure \ref{fig:fig1}) but would be hard to 
 discern from a standard hierarchical clustering. 
@@ -27,13 +26,13 @@ discern from a standard hierarchical clustering.
 
 %Since our method is model based, it provides an optimal $K$ for the model fit. However, one has to run the model on the data for a range of $K$'s and that is not always practical when running the model on large datasets as in RNA-seq reads data. 
 
-Grade of membership models also have close connections with dimension reduction techniques such as factor analysis, principal components analysis and non-negative matrix factorization. All of these methods can also be used for RNA-seq data, and may often be useful. See  \cite{Engelhardt2010} for discussion of 
-relationships among these methods in the context of inferring population genetic structure. While not arguing that the grade of membership model
+GoM models also have close connections with dimension reduction techniques such as factor analysis, principal components analysis and non-negative matrix factorization. All of these methods can also be used for RNA-seq data, and may often be useful. See  \cite{Engelhardt2010} for discussion of 
+relationships among these methods in the context of inferring population genetic structure. While not arguing that the GoM model
 is uniformly superior to these other methods, we believe our examples illustrate the appeals of the approach. In particular, we would argue that for the GTEx data, 
 the Structure plot (Figure \ref{fig:fig1}) combined with the cluster annotations (Table \ref{tab:tab1}) provide a more visually and biologically appealing summary of the data
-than could any simple principal components analysis.
+than would a principal components analysis.
 
-Fitting grade of membership models can be computationally-intensive for large data sets.
+Fitting GoM models can be computationally-intensive for large data sets.
 For the datasets we considered here the computation time ranged from $12$ minutes for the data from \cite{Deng2014} ($n=259; K=6$), through $33$ minutes for the 
 data from \cite{Jaitin2014} ($n=1041; K=7$) to 3,297 minutes for the GTEx data ($n=8,555; K=15$). 
 %maybe add comparison with hierarchical model (346 mins on GTEx data)
@@ -49,7 +48,7 @@ as $K$ increases is one way to capture some notion of hierarchy in the clusters 
 fruitful to analyse data in multiple ways using the same tool: for example our GTEx analyses illustrate how 
 analysis of subsets of the data (in this case the brain samples) can complement analyses of the entire data.
 
-The version of the grade of membership model fitted here is relatively simple, and could certainly be embellished. For example,
+The version of the GoM model fitted here is relatively simple, and could certainly be embellished. For example,
 the model allows the expression of each gene in each cluster to be a free parameter, whereas we might expect expression of most
 genes to be ``similar" across clusters. This is analogous to the idea in population genetics applications that allele frequencies in different populations may
 be similar to one another \cite{Falush2003}, or in document clustering applications that most words may not differ appreciably in frequency in different topics. 
