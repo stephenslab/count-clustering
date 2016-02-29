@@ -1,16 +1,60 @@
-\section{Discussions}
+\section{Discussion}
 
-We have presented a model based clustering approach for RNA-seq (bulk or single cell) read counts data which models each sample as having a mixed membership in different clusters and also helps identifying genes driving the clusters, which may be of significant bio-medical importance. Our approach is an alternative to the distance based methods of clustering, for instance hierarchical clustering, and it seems to outperform the latter in separating biologically meaningful groups in our tests.  
+Our goal here is to highlight the potential for model-based clustering methods, and particularly GoM models, to elucidate
+structure in RNA-seq data from both single cell sequencing and bulk sequencing of pooled cells. 
+We also provide tools to identify which genes
+are most distinctively expressed in each cluster, to aid interpretation of results.
+As our applications to the GTEx data illustrate, these methods have the potential to highlight biological processes
+underlying the cluster structure identified.
 
+The GoM model has several advantages over distance-based hierarchical methods of clustering. At the most basic level model-based methods are often
+more accurate than distance-based methods. Indeed, in our simple test on the GTEx data the model-based GoM approach
+more accurately separated samples into ``known" clusters. However, there are also other subtler benefits of the GoM model. Because the GoM 
+model does not assume a strict ``discrete cluster" structure, but 
+rather allows that each sample has a proportion of membership in each cluster, it can provide insights into how well a 
+particular dataset really fits a ``discrete cluster" model. For example, consider our results for the data from \cite{Jaitin2014} and \cite{Deng2014}:
+in both cases most samples are assigned to multiple clusters, although the results are closer to ``discrete" for the latter than the former.
+The GoM model is also better able to represent situation where there is not really a single clustering of the samples,
+but where samples may cluster differently at different genes. For example, in the GTEx data, the lung samples share memberships in common with
+both the spleen and adipose-related tissues. This pattern is clearly visible in the Structure plot (Figure \ref{fig:fig1}) but would be hard to 
+discern from a standard hierarchical clustering. 
+
+%On the other hand, hierarchical clustering methods do have a natural advantage when capturing structure that is naturally hierarchical.
 %Deconvolution techniques using marker genes are popularly used to learn about the the concentration of different cell types in a cell mixture and cell type signature expression profiles. Our technique is analogous to blind deconvolution approach which estimates the cell type proportions and cell type signatures jointly (see Schwartz \textit{et al} 2010 \cite{Schwartz2010} and Repsilber \textit{et al} 2010 \cite{Repsilber2010}), except that we operate under Poisson model framework to model the counts data. This fully unsupervised approach, however, seems to fail in identifying clusters determined completely by individual cell types. Proposed alternatives to blind deconvolution approach include two-pronged sequential updating of the cell type concentration and cell type proportion (see Lindsay \textit{et al} \cite{Lindsay2013}) and supervised or semi-supervised learning where it is assumed that some information of cell type signature expression profiles is known (see Shen-Orr \textit{et al} 2010 \cite{Shen-Orr2010},  Qiao \textit{et al} 2012 \cite{Qiao2012}). As part of our future works, we plan to implement similar modifications to our method so as to make the clusters more biologically interpretable. \\[1 pt]
 
 %However, the Structure plot in  \textbf{Fig \ref{fig:fig2}} and the corresponding cluster annotation (\textbf{Supplementary Table 1}) seem to indicate that the clusters may be \textit{driven} by different cell types, which is encouraging.
 
-Since our method is model based, it provides an optimal $K$ for the model fit. However, one has to run the model on the data for a range of $K$'s and that is not always practical when running the model on large datasets as in RNA-seq reads data. For a single run with the algorithm running till the successive log posterior increase is less than $0.01$, the computation time for the algorithm was approximately $33.4$ mins for Jaitin \textit{et al} \cite{Jaitin 2014} single cell experiment ($K=7$ ), $16.2$ mins for Deng \textit{et al} single cell experiment ($K=6$) and $3297.4$ mins for GTEx V6 data ($K=15$). 
+%Since our method is model based, it provides an optimal $K$ for the model fit. However, one has to run the model on the data for a range of $K$'s and that is not always practical when running the model on large datasets as in RNA-seq reads data. 
 
-So far, in our studies, we fitted the model on the entire RNA-seq reads data, comprising of all the genes. In reality, most of the genes will not be informative about the clusters and an efficient variable selection algorithm, if incorporated with the clustering algorithm, can lead to significant speed up without much loss of information.This is a future direction to this work we are interested in. Another point of biological interest would be to perform cluster annotation of genetic pathways which would be more meaningful as genes often act together with other genes in pathways related to different activities. 
+GoM models also have close connections with dimension reduction techniques such as factor analysis, principal components analysis and non-negative matrix factorization. All of these methods can also be used for RNA-seq data, and may often be useful. See  \cite{Engelhardt2010} for discussion of 
+relationships among these methods in the context of inferring population genetic structure. While not arguing that the GoM model
+is uniformly superior to these other methods, we believe our examples illustrate the appeals of the approach. In particular, we would argue that for the GTEx data, 
+the Structure plot (Figure \ref{fig:fig1}) combined with the cluster annotations (Table \ref{tab:tab1}) provide a more visually and biologically appealing summary of the data
+than would a principal components analysis.
 
-The methods discussed in this paper are implemented in the package  \textbf{CountClust} available on Github (\href{https://github.com/kkdey/CountClust}{https://github.com/kkdey/CountClust}) which is a wrapper package of \textbf{maptpx} due to Matt Taddy \cite{Taddy2012}. 
+Fitting GoM models can be computationally-intensive for large data sets.
+For the datasets we considered here the computation time ranged from $12$ minutes for the data from \cite{Deng2014} ($n=259; K=6$), through $33$ minutes for the 
+data from \cite{Jaitin2014} ($n=1041; K=7$) to 3,297 minutes for the GTEx data ($n=8,555; K=15$). 
+%maybe add comparison with hierarchical model (346 mins on GTEx data)
+Computation time can be reduced by fitting the model to only the most highly expressed genes, and we often use this strategy to get quick initial results for a dataset.
+Because these methods are widely used for clustering very large document datasets there is considerable ongoing interest in 
+computational speed-ups for very large datasets, with ``on-line" approaches capable of dealing with millions of documents  \cite{Hoffman2010} that could be useful in the future for very large RNA-seq datasets. 
+
+A thorny issue that arises when fitting these types of model is how to select the number of clusters, $K$. Like many software packages
+for fitting these models, the {\tt maptpx} package implements a measure of model fit that provides one useful guide. However, it is
+worth remembering that in practice there is unlikely to be a ``true" value of $K$, and results from different 
+values of $K$ may complement one another rather than merely competing with one another. For example, seeing how the fitted model evolves
+as $K$ increases is one way to capture some notion of hierarchy in the clusters identified \cite{Rosenberg2002}. More generally it is often
+fruitful to analyse data in multiple ways using the same tool: for example our GTEx analyses illustrate how 
+analysis of subsets of the data (in this case the brain samples) can complement analyses of the entire data.
+
+The version of the GoM model fitted here is relatively simple, and could certainly be embellished. For example,
+the model allows the expression of each gene in each cluster to be a free parameter, whereas we might expect expression of most
+genes to be ``similar" across clusters. This is analogous to the idea in population genetics applications that allele frequencies in different populations may
+be similar to one another \cite{Falush2003}, or in document clustering applications that most words may not differ appreciably in frequency in different topics. 
+In population genetics applications incorporating this idea into the model, by using a correlated prior distribution on these frequencies, 
+can help improve identification of subtle structure \cite{Falush2003} and we would expect the same to happen here for RNA-seq data.
+
 
 %The user is only required to input the matrix of counts obtained from RNA-seq  reads mapping to genes, along with the sample metadata and a set of $K$'s or the number of clusters he wants to fit, and the output would include the estimates of the model parameters, along with the Structure plot visualizations ordered by sample metadata and the set of most informative genes across the different clusters. 
 %
@@ -102,8 +146,6 @@ The methods discussed in this paper are implemented in the package  \textbf{Coun
 %
 %
 % 
-
-
 
  
 

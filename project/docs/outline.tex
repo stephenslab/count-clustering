@@ -1,46 +1,65 @@
-\title{\Large{\textbf{Model-based clustering of RNA-seq expression data using grade of membership models}}}
-\author{ Kushal K Dey$^{1}$  \qquad Matthew Stephens$^{1,2}$}
+\title{\Large{\textbf{Clustering RNA-seq expression data using grade of membership models}}}
+\author{ Kushal K Dey$^{1}$  \qquad Chiaowen Joyce Hsiao$^{2}$ \qquad Matthew Stephens$^{1,2}$}
 
 \maketitle
 
 $^{1}$ Department of Statistics, University of Chicago, Chicago, Illinois 60637, USA;  $^{2}$ Department of Human Genetics, University of Chicago, Chicago, Illinois 60637, USA
 
-\textbf{Keywords}: graded membership model, GTEx bulk-RNA, single cell RNA-seq
+\textbf{Keywords}: Admixture model, Grade of membership model, Latent Dirchlet Allocation, RNA-seq, single cell RNA-seq
 
-\textbf{Corresponding Author}: Email stephens@uchicago.edu; kkdey@uchicago.edu 
+\textbf{Corresponding Author}: Email mstephens@uchicago.edu; kkdey@uchicago.edu 
 					      
 
 
 \newpage
 
 \begin{abstract}
-We argue for the benefits of model-based approach to clustering expression data from bulk RNA and single cell RNA-seq data. It is similar to the topic model in Natural Language Processing and the admixture model in Population Genetics, that assigns grades of cluster membership to each sample. This approach provides us with easily interpretable cluster visualization  and  detects the underlying structure in the data better than distance based approaches. It also extracts the important genes that drive the clusters and provides measures of model fit to assess the strength of clustering. Further, we show that this method is robust under low coverage of reads. We apply this method on the GTEx tissue level bulk RNA expression data as well as two single cell RNA-seq data. Our methods are implemented in a R package \textbf{CountClust}, available at \url{https://github.com/kkdey/CountClust}.
+Grade of membership models (also known as ``admixture models" or ``Latent Dirichlet Allocation") 
+are a generalization of cluster models that allow each sample to have membership in multiple clusters.
+These models are widely used in population genetics to model admixed individuals who have ancestry from multiple ``populations", 
+and in natural language processing to model documents having words from multiple ``topics". Here we illustrate the potential for these models
+to cluster samples of RNA-seq gene expression data, measured on either bulk samples or single cells. The approach provides 
+attractive visual summaries of the primary structure in several example data sets, and in our quantitative comparisons is more accurate
+than distance-based approaches in separating samples from different human tissues. We also provide methods to identify the genes that are most distinctively expressed in each cluster. The methods are implemented in an R package \textbf{CountClust}, available at \url{https://github.com/kkdey/CountClust}.
 \end{abstract}
 
 \section{Introduction}
 
-Ever since large-scale gene expression measurements have been possible using micro-arrays, clustering has played a major role in their analysis \cite{Eisen1998}.
-For example, clustering can aid in quality control, and helps elucidate heterogeneity among samples. However, although gene expression 
-measurement technologies have moved on -- with gene expression measurements now routinely made with sequencing technologies (RNA-seq), sometimes at the resolution of single cells (sc-RNA-seq) -- clustering methods used have remained largely the same. Indeed, the most commonly-used clustering techniques in gene expression studies
-remain the distance-based hierarchical clustering 
-methods used in early microarray work \cite{Eisen1998}. This contrasts with many other fields, where model-based clustering methods
-have become widely used, and in many cases the method of choice (e.g.~\cite{Pritchard2000}). Our goal here
-is to argue that such model-based approaches also provide an attractive approach to cluster analysis of RNA-seq data, both bulk and single-cell.
-In particular we illustrate the potential for ``grade of membership models" \cite{Erosheva2006} to elucidate structure in both bulk and single-cell RNA-seq expression data. 
+Ever since large-scale gene expression measurements have been possible using micro-arrays, clustering -- of both genes and samples -- 
+has played a major role in their analysis \cite{Eisen1998}\cite{Golub1999} \cite{Alizadeh2000}.
+For example, clustering of genes can identify genes that are working together or co-regulated, and clustering of samples is useful for quality control 
+as well as identifying biologically-distinct subgroups. A wide range of clustering methods have therefore
+been employed in this context, including distance-based hierarchical clustering, $k$-means clustering, and self-organizing maps (SOMs); see for example \cite{D'haeseleer2005} \cite{Jiang2004} for reviews. 
 
-Grade of membership models are generalizations of clustering models that allow each sample to have partial membership in more that one cluster.
+Here we focus specifically on cluster analysis of samples (as opposed to clustering of genes). 
+Traditional clustering methods for this problem attempt to partition samples into distinct groups that show ``similar" expression patterns. 
+While partitioning samples in this way has intuitive appeal, 
+it seems likely that the structure of a typical gene expression data set will be too complex to be fully captured by such a partitioning. 
+Motivated by this, here we analyse expression data using grade of membership models \cite{Erosheva2006}, which generalize clustering models 
+to allow each sample to have partial membership in multiple clusters.
 That is, they allow that each sample has a proportion, or ``grade" of membership in each cluster. Such
-models are widely used in population genetics to model ``admixture", where individuals can have ancestry from multiple populations \cite{Pritchard2000},
-and in document clustering (\cite{Blei2003,Blei2009}) where each document can have membership in multiple ``topics". In these fields
-the grade of membership models are often known as ``admixture models", and ``topics models" or ``Latent Dirichlet Allocation" \cite{Blei2003}.
+models are widely used in population genetics to model admixture, where individuals can have ancestry from multiple populations \cite{Pritchard2000},
+and in document clustering (\cite{Blei2003,Blei2009}) where each document can have membership in multiple topics. In these fields
+the grade of membership models are often known as ``admixture models", and ``topic models" or ``Latent Dirichlet Allocation" \cite{Blei2003}.
 
-Here we apply grade of membership models to RNA-seq expression data. In this context these models allow that each
- sample has some proportion of its RNA-seq reads coming from each cluster. For bulk RNA-seq experiments this assumption 
+
+%In other fields, generalizations of clustering methods have been developed to capture more complex structure, and are widely used.
+%Motivated by this we apply a generalization of clustering methods, known as ``grade of membership models" \cite{Erosheva2006},
+%to elucidate structure in expression data - and, in particular, for clustering RNA-seq data from either bulk tissue samples or single cells.
+
+%This contrasts with many other fields, where model-based clustering methods
+%have become widely used, and in many cases the method of choice (e.g.~\cite{Pritchard2000}). Our goal here
+%is to argue that such model-based approaches also provide an attractive approach to cluster analysis of RNA-seq data, both bulk and single-cell.
+%In particular we illustrate the potential for ``grade of membership models" \cite{Erosheva2006} to elucidate structure in both bulk and single-cell RNA-seq expression data. 
+
+
+In the context of RNA-seq expression data, the grade of membership model allows that each
+ sample has some proportion of its RNA-seq reads coming from each cluster. For typical bulk RNA-seq experiments this assumption 
 could be motivated by a simple -- or perhaps simplistic -- argument: each sample is a mixture of different cell types, and so clusters 
 could represent cell types, and the membership of a sample in each cluster could represent the proportions of each cell type present.
-This is similar to the idea of ``deconvolution" methods that use cell-type-specific expression profiles of marker genes to estimate the concentration of different cell types in a mixture \cite{}. And, indeed, the grade of membership model we use here is analogous to blind deconvolution approaches \cite{Schwartz2010,Repsilber2010}
- which estimate cell type proportions and cell type signatures jointly (see also \cite{Shen-Orr2010,Qiao2012} for semi-supervised approaches), although 
- our models differ from these previous works in the use of a multinomial model for the RNA-seq read counts. 
+This is similar to the idea of ``deconvolution" methods that use cell-type-specific expression profiles of marker genes to estimate the concentration of different cell types in a mixture \cite{Lindsay2013}. And, indeed, the grade of membership model we use here is analogous to -- although different in detail from -- 
+blind deconvolution approaches \cite{Schwartz2010,Repsilber2010}
+ which estimate cell type proportions and cell type signatures jointly (see also \cite{Shen-Orr2010,Qiao2012} for semi-supervised approaches). 
 However, we believe that the grade of membership model can be useful more generally to elucidate structure in expression data.
 For example, in single-cell expression data treating each sample as a ``mixture of cell types" is clearly inappropriate, and yet we see value in the idea
 that there may be some ``continuous" variation in cell types, rather than (or perhaps in addition to) the purely discrete variation captured by cluster models. 
@@ -49,13 +68,17 @@ seems a fundamental question that, when combined with appropriate single-cell RN
 ultimately help address. Further, even for bulk RNA-seq data, we argue that grade of membership models may yield interesting insights into heterogeneity among samples
 even if the inferred cluster membership do not correspond precisely to proportions of specific cell types, as may often happen in practice.
 
-Interestingly, several software packages capable of fitting these grade of membership models to RNA-seq data are already available! This is because
-the models used in natural language processing for clustering documents based on their word counts are multinomial models that
-apply naturally and immediately to RNA-seq data. Whereas documents are characterized by counts of each possible word in a dictionary, RNA-seq samples
+Interestingly, although we have not previously seen grade of membership models applied to RNA-seq data, several software packages
+for doing this already exist! \footnote{While preparing this work for publication we became aware of recent independent work
+by \cite{duVerle2016} applying grade of membership models to RNA-seq data.}
+ This is because the 
+Latent Dirichlet Allocation model from \cite{Blei2003}, which is widely used to cluster documents based on their word counts, is based on a multinomial model that applies naturally and immediately to RNA-seq data. 
+Whereas documents are characterized by counts of each possible word in a dictionary, RNA-seq samples
 are characterized by counts of reads mapping to each possible gene (or other unit, such as transcript, or exon) in the genome. 
+Thus many software packages available for document clustering will also be applicable to RNA-seq data.
 Here we use the R package {\tt maptpx} \cite{Taddy2012} to fit these models, and we add functionality for visualizing the results and annotating
 clusters by their most distinctive genes to help biological interpretation. These methods are implemented in the R package {\tt count-clust} available
-from \url{}.  
+from \url{https://github.com/kkdey/CountClust}.  
 
 
 
