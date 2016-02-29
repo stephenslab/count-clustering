@@ -11,6 +11,7 @@ colnames(omega) <- c(1:NCOL(omega))
 
 # make cell sample labels
 # want a version consistent with majority of the literature
+
 sample_labels <- read.table("../external_data/GTEX_V6/samples_id.txt",
                             header = TRUE, sep = " ",
                             stringsAsFactors = FALSE)
@@ -38,6 +39,7 @@ tissue_levels_reordered <- unique(tissue_labels)[ordering]
 
 # move Artery - Coronary next to the other Artery tissues
 which(tissue_levels_reordered == "Artery - Coronary")
+
 tissue_levels_reordered[45:50] <- c("Artery - Tibial",
                                     "Artery - Coronary",
                                     "Esophagus - Muscularis",
@@ -95,7 +97,9 @@ StructureGGplot(omega = omega,
                                  axis_ticks_lwd_x = .1,
                                  axis_label_size = 5,
                                  axis_label_face="bold"))
+
 dev.off()
+
 
 
 
@@ -223,6 +227,51 @@ StructureGGplot(omega = omega,
                                  axis_label_face="bold"))
 dev.off()
 
+# # ##<----- Polar histogram of all tissues
+#
+# source("R/polarHistogramStructure.R")
+#
+# # rename columns to satisfy function input
+# df_mlt <- reshape2::melt(t(omega_ordered))
+# df_mlt <- plyr::rename(df_mlt, replace = c("Var1" = "topic",
+#                                            "Var2" = "document"))
+# df_mlt$document <- factor(df_mlt$document)
+# df_mlt$topic <- factor(df_mlt$topic)
+# head(df_mlt)
+# df_plot <- df_mlt
+# colnames(df_plot) <- c("score", "item", "value")
+# df_plot$family <- annotation$tissue_label[match(df_mlt$document, annotation$sample_id)]
+# df_plot$family <- factor(df_plot$family)
+# df_plot$score <- factor(df_plot$score)
+# df_plot$item <- factor(df_plot$item)
+# levels(df_plot$family) <- levels(annotation$tissue_label)
+#
+#
+# # being preparing for computing on midway
+# save(polarHistogramStructure,
+#      cols1, cols2,
+#      df_plot, file = "rdas/rda-for-midway-all.rda")
+#
+# # the following code was run on midway to make the plot
+# # run large interactive job
+# # gsinteractive --partition=bigmem --constraint=256G --ntasks=1 --cpus-per-task=1 --mem-per-cpu=128000
+# pdf("main-figure-polar-histogram-all.pdf",
+#     height = 12, width = 12)
+# polarHistogramStructure(df_plot, palette = cols1,
+#                        outerRadius = 1.8,
+#                        innerRadius = 0.3,
+#                        familyLabelDistance = 2, # same metric as outerRadius
+#                        binSize = 1,
+#                        spaceFamily = 4,
+#                        circleProportion = 0.90,
+#                        familyLabels = TRUE)
+# dev.off()
+#
+#
+
+
+
+##<- thinned version
 
 ## <- thinned version p_{thin} =0.01
 
@@ -243,10 +292,31 @@ sample_labels <- read.table("../external_data/GTEX_V6/samples_id.txt",
 tissue_labels <- vector("numeric", NROW(sample_labels))
 tissue_labels <- sample_labels[ ,3]
 
+
 annotation_thinned <- data.frame(
   sample_id = paste0("X", 1:length(tissue_labels)),
   tissue_label = annotation$tissue_label )
 
+
+
+# # move Artery - Coronary next to the other Artery tissues
+# which(tissue_levels_reordered == "Artery - Coronary")
+# tissue_levels_reordered[45:50] <- c("Artery - Tibial",
+#                                     "Artery - Coronary",
+#                                     "Esophagus - Muscularis",
+#                                     "Colon - Sigmoid",
+#                                     "Esophagus - Mucosa",
+#                                     "Bladder")
+#
+annotation_thinned <- data.frame(
+    sample_id = paste0("X", 1:length(tissue_labels)),
+    tissue_label = annotation$tissue_label )
+
+
+source("../R/StructureGGplot.R")
+
+# define colors of the clusers
+# Joyce's color scheme
 cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)],
            RColorBrewer::brewer.pal(12, "Set3"))
 
@@ -268,6 +338,7 @@ cols_thinned_2[6] <- cols_thinned[6];
 cols_thinned_2[9] <- cols_thinned[9];
 cols_thinned_2[13] <- cols_thinned[11];
 
+
 pdf("../plots/gtex-figures/all-tissues-thinned-0-01.pdf",
     height = 9, width=4)
 StructureGGplot(omega = omega,
@@ -282,7 +353,9 @@ StructureGGplot(omega = omega,
                                  axis_ticks_lwd_x = .1,
                                  axis_label_size = 5,
                                  axis_label_face="bold"))
+
 dev.off()
+
 
 
 ## <- thinned version p_{thin} =0.001
@@ -420,8 +493,87 @@ dev.off()
 
 
 
+
 ##<-- make polar histogram
-source("R/polarHistogramStructure.R")
+source("../R/polarHistogramStructure.R")
+
+
+##<-- brain tissue plots
+
+
+omega <- read.table("../project/rdas/omega_cis_genes_brain.txt",
+                    header = TRUE, sep = " ",
+                    stringsAsFactors = FALSE)
+dim(omega)
+colnames(omega) <- c(1:NCOL(omega))
+head(omega)
+
+
+# make cell sample labels
+# want a version consistent with majority of the literature
+sample_labels <- read.table("../project/rdas/samples_id.txt",
+                            header = TRUE, sep = " ",
+                            stringsAsFactors = FALSE)
+brain_labels <- sample_labels[grep("Brain", sample_labels[,3]), 3]
+
+# assign tissue labels
+rownames(omega) <- paste0("X", 1:length(brain_labels))
+annotation <- data.frame(
+    sample_id = paste0("X", 1:length(brain_labels)),
+    tissue_label = factor(brain_labels,
+                          levels = rev(c("Brain - Cerebellar Hemisphere",
+                                     "Brain - Cerebellum",
+                                     "Brain - Spinal cord (cervical c-1)",
+                                     "Brain - Anterior cingulate cortex (BA24)",
+                                     "Brain - Frontal Cortex (BA9)",
+                                     "Brain - Cortex",
+                                     "Brain - Hippocampus",
+                                     "Brain - Substantia nigra",
+                                     "Brain - Amygdala",
+                                     "Brain - Putamen (basal ganglia)",
+                                     "Brain - Caudate (basal ganglia)",
+                                     "Brain - Hypothalamus",
+                                     "Brain - Nucleus accumbens (basal ganglia)") ) ) )
+
+# define colors of the clusers
+cols <- c("blue", "darkgoldenrod1", "cyan", "red")
+
+##<-- make barplot
+source("../R/StructureGGplot.R")
+
+# subset_example <- which(annotation$tissue_label %in%
+#     levels(annotation$tissue_label)[1:2] )
+pdf("plots/gtex-figures/brain-barplot.pdf",
+    height = 4, width = 4)
+StructureGGplot(omega = omega,
+                annotation= annotation,
+                palette = cols,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .4,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 3,
+                                 axis_label_face = "bold"))
+StructureGGplot(omega = omega,
+                annotation= annotation,
+                palette = cols,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .4,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 3))
+dev.off()
+
+
+
+##<-- make polar histogram
+source("../R/polarHistogramStructure.R")
 
 # rename columns to satisfy function input
 df_mlt <- reshape2::melt(t(omega))
@@ -448,7 +600,7 @@ save(polarHistogramStructure,
 
 # the following code was run on midway to make the plot
 # run large interactive job
-#
+
 # sinteractive --partition=bigmem --constraint=256G --ntasks=1 --cpus-per-task=1 --mem-per-cpu=128000
 pdf("main-figure-polar-histogram.pdf",
     height = 8, width = 8)
@@ -469,14 +621,12 @@ dev.off()
 
 
 
-
-
 #####<------ Deng et al. 6 clusters ------>######
 
-source("R/StructureGGplot.R")
+source("../R/StructureGGplot.R")
 
 # load the previously analyzed results
-load("rdas/deng_topic_fit.rda")
+load("../rdas/deng_topic_fit.rda")
 
 # extract the omega matrix: membership weights of each cell
 names(Topic_clus_list)
@@ -484,7 +634,7 @@ str(Topic_clus_list$clust_6)
 omega <- Topic_clus_list$clust_6$omega
 
 # import embryonl labels
-embryo_label <- read.table("rdas/cell_labels_phase_embryo.txt",
+embryo_label <- read.table("../rdas/cell_labels_phase_embryo.txt",
                            quote = "\"",
                            header = TRUE,
                            stringsAsFactors = FALSE)$x
@@ -519,11 +669,14 @@ annotation_embryo <- data.frame(
                       paste("lateblast",c("0r", c(1:3)), sep = "_") ) ) ) )
 
 
+
+
 # after extracting tissue type of each sample
 # recode each sample to have unique rownames
 rownames(omega) <- paste0("X", annotation$sample_id)
 
-pdf(file = "plots/deng-figures/deng-ggplot-all.pdf",
+
+pdf(file = "../plots/deng-figures/deng-ggplot-all.pdf",
     height = 4, width = 3)
 StructureGGplot(omega = omega,
                annotation = annotation,
@@ -534,7 +687,8 @@ StructureGGplot(omega = omega,
 dev.off()
 
 
-pdf(file = "plots/deng-figures/deng-ggplot-embryo.pdf",
+
+pdf(file = "../plots/deng-figures/deng-ggplot-embryo.pdf",
     height = 4, width = 3)
 embryo_plot <- which(
     annotation_embryo$tissue_label %in%
@@ -557,7 +711,7 @@ par(mfrow=c(1,2))
 barplot(as.matrix(cell_labels_count), col = "white")
 dev.off()
 
-#
+
 #
 # ##<-- Display for some early stages
 #
@@ -580,23 +734,39 @@ dev.off()
 #       }) )
 # dim(df_ord)
 #
+#
+#           # find the dominant cluster in each sample
+#           each_sample_order <- apply(temp_df, 1, which.max)
+#
+#           # find the dominant cluster across samples
+#           sample_order <- as.numeric(attr(table(each_sample_order), "name")[1])
+#
+#           # reorder the matrix
+#           temp_df_ord <- temp_df[order(temp_df[ , sample_order]), ]
+#
+#           temp_df_ord
+#       }) )
+# dim(df_ord)
+#
 # #df_mlt <- reshape2::melt(t(df_ord))
 # df_mlt <- reshape2::melt(t(df_ord))
 # df_mlt <- plyr::rename(df_mlt, replace = c("Var1" = "topic",
 #                                            "Var2" = "document"))
 # head(df_mlt)
-#
+
 # # set blank background
 # theme_set(theme_bw(base_size = 12)) +
 #     theme_update( panel.grid.minor.x = element_blank(),
 #                   panel.grid.minor.y = element_blank(),
 #                   panel.grid.major.x = element_blank(),
 #                   panel.grid.major.y = element_blank() )
-#
+
 # value_ifl <- 10000
 # ticks_number <- 6
 # # Use RColorBrewer color
 # # http://bxhorn.com/rcolorbrewer-palettes/
+# a <- ggplot(df_mlt,
+#             aes(x = document, y = value*10000, fill = factor(topic)) ) +
 # a <- ggplot(df_mlt,
 #             aes(x = document, y = value*10000, fill = factor(topic)) ) +
 #     xlab("Cell types") + ylab("") +
@@ -613,10 +783,21 @@ dev.off()
 # # space between bars
 # b <- a + geom_bar(stat = "identity",
 #                   position = "stack",
+#     ggtitle("STRUCTURE plot by developmental phase") +
+#     scale_y_continuous( breaks = seq(0, value_ifl, length.out = ticks_number),
+#                         labels = seq(0, 1, 1/(ticks_number -1 ) ) ) +
+#     coord_flip()
+#
+# # width = 1: increase bar width to 1 so that there's no
+# # space between bars
+# b <- a + geom_bar(stat = "identity",
+#                   position = "stack",
 #                   width = 1)
 # b <- b + panel_border(remove = TRUE)
 # b <- ggdraw(switch_axis_position((b), axis = "y"))
 # cowplot::plot_grid(b)
+# save_plot("../../../count-clustering/project/plots/deng-figures/deng-ggplot-early.png",
+
 # save_plot("../../../count-clustering/project/plots/deng-figures/deng-ggplot-early.png",
 #           b, base_height = 4, base_width = 2)
 # #ggplotly(b)
@@ -685,7 +866,8 @@ annotation <- data.frame(
     sample_id = paste0("X", c(1:NROW(omega)) ),
     tissue_label = factor(amp_batch,
                           levels = rev(sort(unique(amp_batch))) ) )
-pdf("plots/jaitin-figures/amplification.pdf",
+
+pdf("../plots/jaitin-figures/amplification.pdf",
      height = 4, width = 3)
 StructureGGplot(omega = omega,
                 annotation = annotation,
@@ -697,7 +879,7 @@ dev.off()
 # make axis labels
 # take a barchart of the frequency of cell labels
 # then copy and paste
-png(file = "plots/jaitin-figures/amplfication-labels.png")
+png(file = "../plots/jaitin-figures/amplfication-labels.png")
 par(mfrow=c(1,2))
 barplot(as.matrix(cell_labels_count), col = "white")
 dev.off()
@@ -714,7 +896,8 @@ annotation <- data.frame(
     tissue_label = factor(seq_batch,
                           levels = rev(sort(unique(seq_batch))) ) )
 
-pdf("plots/jaitin-figures/sequencing.pdf",
+
+pdf("../plots/jaitin-figures/sequencing.pdf",
     height = 4, width = 3)
 StructureGGplot(omega = omega,
                 annotation = annotation,
@@ -726,7 +909,7 @@ dev.off()
 # make axis labels
 # take a barchart of the frequency of cell labels
 # then copy and paste
-png(file = "plots/jaitin-figures/sequencing-labels.png")
+png(file = "../plots/jaitin-figures/sequencing-labels.png")
 par(mfrow=c(1,2))
 barplot(as.matrix(cell_labels_count), col = "white")
 dev.off()
