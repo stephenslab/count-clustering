@@ -82,7 +82,15 @@ Figure \ref{fig:fig2} shows, for each pair of tissues, whether each method succe
 
 %we fix each gene and then look at the KL divergence matrix of one cluster/subgroup $k$ relative to other cluster/subgroup $k^{'}$, which we call $KL^{g}_{K \times K}$. This matrix is symmetric and has all diagonal elements $0$ as the divergence of a cluster with respect to itself is $0$. 
 
+\subsection{Thinning}
 
+We used ``thinning" to simulate lower-coverage data from the original higher-coverage data.. 
+Specifically, if $c_{ng}$ is the counts of number of reads mapping to gene $g$ for sample $n$ for the original data, we simulated 
+thinned counts $t_{ng}$ using 
+\begin{equation}
+t_{ng} \sim Bin (c_{ng}, p_{thin})
+\end{equation}
+where we used $p_{thin}$ is a specified thinning parameter.
 
 
 %Then we perform gene annotations for the top genes in each subgroup 
