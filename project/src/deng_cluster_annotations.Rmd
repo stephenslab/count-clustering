@@ -27,7 +27,7 @@ In this script, we perform the cluster annotations for the 6 clusters obtained f
 ```{r echo=TRUE, eval=TRUE}
 deng_topics <- get(load("../rdas/deng_topic_fit.rda"))
 theta_mat <- deng_topics[[5]]$theta;
-top_features <- ExtractTopFeatures(theta_mat, top_features=10, "poisson");
+top_features <- ExtractTopFeatures(theta_mat, top_features=100, method="poisson", options="min");
 ```
 
 ## Gene names 
