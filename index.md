@@ -18,7 +18,7 @@ tagline:
   
   We annotate the genes that drive the clusters. For each cluster, we find a set of few top genes that distinguish that cluster from the rest (we term these as cluster annotating genes).
   
-  *[GTEX V6: Gene Annotations](project/src/gene_annotation.html)
+  *[GTEX V6: Gene Annotations](project/src/gene_annotation_2.html)
 
 ### Jaitin et al (2014) single cell analysis
 
