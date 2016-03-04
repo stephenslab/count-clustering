@@ -41,6 +41,8 @@ gene_list <- do.call(rbind, lapply(1:dim(top_features)[1], function(x) gene_name
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[1,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",1,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 2 Annotations
@@ -48,6 +50,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[2,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",2,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 3 Annotations
@@ -55,6 +59,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[3,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",3,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 4 Annotations
@@ -62,6 +68,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[4,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",4,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 5 Annotations
@@ -69,6 +77,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[5,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",5,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 6 Annotations
@@ -76,6 +86,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[6,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",6,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 7 Annotations
@@ -83,6 +95,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[7,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",7,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 8 Annotations
@@ -90,6 +104,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[8,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",8,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 9 Annotations
@@ -97,6 +113,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[9,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",9,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 10 Annotations
@@ -104,6 +122,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[10,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",10,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 11 Annotations
@@ -111,6 +131,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[11,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",11,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 12 Annotations
@@ -118,6 +140,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[12,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",12,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 13 Annotations
@@ -125,6 +149,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[13,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",13,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 14 Annotations
@@ -132,6 +158,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[14,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",14,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ## Cluster 15 Annotations
@@ -139,6 +167,8 @@ kable(as.data.frame(out))
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[15,],  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",15,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 
