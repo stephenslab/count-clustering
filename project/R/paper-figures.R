@@ -626,7 +626,7 @@ dev.off()
 source("../R/StructureGGplot.R")
 
 # load the previously analyzed results
-load("../rdas/deng_topic_fit.rda")
+load("rdas/deng_topic_fit.rda")
 
 # extract the omega matrix: membership weights of each cell
 names(Topic_clus_list)
