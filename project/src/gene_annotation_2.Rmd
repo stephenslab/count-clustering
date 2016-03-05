@@ -177,7 +177,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",15,".tx
 
 topics_theta_brain <- data.frame(fread("../external_data/GTEX_V6/admix_out_GTEX_V6/theta_cis_genes_brain.txt"))[,-1];
 
-top_features <- ExtractTopFeatures(topics_theta_brain, top_features=100, method="poisson", options="max");
+top_features <- ExtractTopFeatures(topics_theta_brain, top_features=100, method="poisson", options="min");
 
 gene_names <- as.vector(as.matrix(read.table("../external_data/GTEX_V6/gene_names_GTEX_V6.txt")))
 gene_names <- substring(gene_names,1,15);
