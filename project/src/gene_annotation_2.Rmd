@@ -36,7 +36,7 @@ gene_list <- do.call(rbind, lapply(1:dim(top_features)[1], function(x) gene_name
 
 ```
 
-## Cluster 1 Annotations
+### Cluster 1 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[1,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -45,7 +45,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",1,".txt
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 2 Annotations
+### Cluster 2 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[2,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -54,7 +54,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",2,".txt
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 3 Annotations
+### Cluster 3 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[3,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -63,7 +63,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",3,".txt
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 4 Annotations
+### Cluster 4 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[4,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -72,7 +72,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",4,".txt
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 5 Annotations
+### Cluster 5 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[5,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -81,7 +81,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",5,".txt
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 6 Annotations
+### Cluster 6 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[6,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -90,7 +90,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",6,".txt
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 7 Annotations
+### Cluster 7 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[7,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -99,7 +99,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",7,".txt
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 8 Annotations
+### Cluster 8 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[8,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -108,7 +108,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",8,".txt
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 9 Annotations
+### Cluster 9 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[9,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -117,7 +117,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",9,".txt
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 10 Annotations
+### Cluster 10 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[10,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -126,7 +126,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",10,".tx
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 11 Annotations
+### Cluster 11 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[11,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -135,7 +135,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",11,".tx
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 12 Annotations
+### Cluster 12 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[12,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -144,7 +144,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",12,".tx
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 13 Annotations
+### Cluster 13 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[13,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -153,7 +153,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",13,".tx
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 14 Annotations
+### Cluster 14 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[14,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -162,7 +162,7 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",14,".tx
             row.names=FALSE, quote=FALSE);
 ```
 
-## Cluster 15 Annotations
+### Cluster 15 Annotations
 
 ```{r echo=TRUE, eval=TRUE}
 out <- mygene::queryMany(gene_list[15,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
@@ -171,4 +171,53 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",15,".tx
             row.names=FALSE, quote=FALSE);
 ```
 
+## GTEx Brain cluster annotations
 
+```{r echo=TRUE, eval=TRUE}
+
+topics_theta_brain <- data.frame(fread("../external_data/GTEX_V6/admix_out_GTEX_V6/theta_cis_genes_brain.txt"))[,-1];
+
+top_features <- ExtractTopFeatures(topics_theta_brain, top_features=100, method="poisson", options="max");
+
+gene_names <- as.vector(as.matrix(read.table("../external_data/GTEX_V6/gene_names_GTEX_V6.txt")))
+gene_names <- substring(gene_names,1,15);
+xli  <-  gene_names;
+gene_list_brain <- do.call(rbind, lapply(1:dim(top_features)[1], function(x) gene_names[top_features[x,]]))
+
+```
+
+### Cluster 1 Annotations
+
+```{r echo=TRUE, eval=TRUE}
+out <- mygene::queryMany(gene_list_brain[1,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
+kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_brain_clus_",1,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
+```
+
+### Cluster 2 Annotations
+
+```{r echo=TRUE, eval=TRUE}
+out <- mygene::queryMany(gene_list_brain[2,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
+kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_brain_clus_",2,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
+```
+
+### Cluster 3 Annotations
+
+```{r echo=TRUE, eval=TRUE}
+out <- mygene::queryMany(gene_list_brain[3,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
+kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_brain_clus_",3,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
+```
+
+### Cluster 4 Annotations
+
+```{r echo=TRUE, eval=TRUE}
+out <- mygene::queryMany(gene_list_brain[4,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
+kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_brain_clus_",4,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
+```
