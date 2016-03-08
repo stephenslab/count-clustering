@@ -177,8 +177,22 @@ StructureGGplot(omega = omega_thin,
 
 ## Structure plot of Brain data 
 
+```{r echo=TRUE, eval=FALSE}
+sample_labels <- read.table("../external_data/GTEX_V6/samples_id.txt",
+                            header = TRUE, sep = " ",
+                            stringsAsFactors = FALSE)
+brain_indices <- grep("Brain", sample_labels[,3]);
+brain_data <- data[,brain_indices];
+Topic_clus_brain <- topics(t(brain_data), K=4, tol=100);
+
+write.table(Topic_clus_brain$omega, "../external_data/GTEX_V6/admix_out_GTEX_V6/omega_cis_genes_brain_2.txt")
+write.table(Topic_clus_brain$theta, "../external_data/GTEX_V6/admix_out_GTEX_V6/theta_cis_genes_brain_2.txt")
+
+```
+
+
 ```{r echo=TRUE, eval=TRUE}
-omega_brain <- read.table("../external_data/GTEX_V6/admix_out_GTEX_V6/omega_cis_genes_brain.txt",
+omega_brain <- read.table("../external_data/GTEX_V6/admix_out_GTEX_V6/omega_cis_genes_brain_2.txt",
                     header = TRUE, sep = " ",
                     stringsAsFactors = FALSE)
 dim(omega_brain)
