@@ -23,7 +23,7 @@ row_data <- data.frame(gene_name = as.character(data[,2]),
 rownames(row_data) <- data[,2]
 
 col_data <- data.frame(brain_labels);
-colnames(brain_labels) <- c("samp.id", "tissue_type", "tissue_subtype");
+colnames(col_data) <- c("samp.id", "tissue_type", "tissue_subtype");
 
 
 rownames(col_data) <- colnames(brain_data)
