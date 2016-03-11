@@ -1,0 +1,49 @@
+---
+title: "ExpressionSet for GTEx V6 brain samples"
+author: "Kushal K Dey"
+date: "March 10, 2016"
+output: html_document
+---
+
+```{r echo=TRUE, eval=FALSE}
+data <- data.frame(data.table::fread('../external_data/GTEX_V6/cis_gene_expression.txt'));
+matdata <- data[,-(1:2)];
+samples_id=read.table("../external_data/GTEX_V6/samples_id.txt")[,3];
+
+sample_labels <- read.table("../external_data/GTEX_V6/samples_id.txt",
+                            header = TRUE, sep = " ",
+                            stringsAsFactors = FALSE)
+brain_indices <- grep("Brain", sample_labels[,3]);
+brain_data <- data[,brain_indices];
+
+brain_labels <- sample_labels[brain_indices,];
+
+row_data <- data.frame(gene_name = as.character(data[,2]),
+                       stringsAsFactors = FALSE)
+rownames(row_data) <- data[,2]
+
+col_data <- data.frame(brain_labels);
+colnames(brain_labels) <- c("samp.id", "tissue_type", "tissue_subtype");
+
+
+rownames(col_data) <- colnames(brain_data)
+
+GTExV6Brain <- new("ExpressionSet",
+                exprs = as.matrix(brain_data),
+                phenoData = new("AnnotatedDataFrame",
+                                data = col_data),
+                featureData = new("AnnotatedDataFrame",
+                                  data = row_data),
+                experimentData = new("MIAME",
+                                     title = "GTEx V6 Brain"))
+
+save(GTExV6Brain,
+        file = "../external_data/GTEX_V6/GTExV6Brain.rda")
+
+
+
+
+
+
+```
+
