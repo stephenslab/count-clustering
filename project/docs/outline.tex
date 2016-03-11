@@ -14,13 +14,19 @@ $^{1}$ Department of Statistics, University of Chicago, Chicago, Illinois 60637,
 \newpage
 
 \begin{abstract}
-Grade of membership models (also known as ``admixture models" or ``Latent Dirichlet Allocation") 
+Grade of membership (GoM) models, also known as ``admixture models" or ``Latent Dirichlet Allocation",
 are a generalization of cluster models that allow each sample to have membership in multiple clusters.
 These models are widely used in population genetics to model admixed individuals who have ancestry from multiple ``populations", 
 and in natural language processing to model documents having words from multiple ``topics". Here we illustrate the potential for these models
-to cluster samples of RNA-seq gene expression data, measured on either bulk samples or single cells. The approach provides 
-attractive visual summaries of the primary structure in several example data sets, and in our quantitative comparisons is more accurate
-than distance-based approaches in separating samples from different human tissues. We also provide methods to identify the genes that are most distinctively expressed in each cluster. The methods are implemented in an R package \textbf{CountClust}, available at \url{https://github.com/kkdey/CountClust}.
+to cluster samples of RNA-seq gene expression data, measured on either bulk samples or single cells. 
+We also provide methods to help interpret the clusters, by identifying genes that are distinctively expressed in each cluster. 
+Together these methods provide an attractive summary of the primary structure in several example RNA-seq applications. Applied to
+data from the GTEx project on 51 human tissues, the approach highlight similarities among biologically-related tissues and
+identifies distinctively-expressed genes that largely recapitulate known biology.  Applied to single-cell expression data from 
+mouse preimplantation embryos, the approach highlights both discrete and continuous variation through early embryonic development stages,
+and highlights genes involved in a variety of relevant processes -- from germ cell development, through compaction and morula formation, to
+the formation of inner cell mass and trophoblast at the blastocyte stage.
+The methods are implemented in an R package \textbf{CountClust}, available at \url{https://github.com/kkdey/CountClust}.
 \end{abstract}
 
 \section{Introduction}
@@ -35,7 +41,7 @@ Here we focus on cluster analysis of samples, rather than clustering of genes (a
 Traditional clustering methods for this problem attempt to partition samples into distinct groups that show ``similar" expression patterns. 
 While partitioning samples in this way has intuitive appeal, 
 it seems likely that the structure of a typical gene expression data set will be too complex to be fully captured by such a partitioning. 
-Motivated by this, here we analyse expression data using grade of membership models \cite{Erosheva2006}, which generalize clustering models 
+Motivated by this, here we analyse expression data using grade of membership (GoM) models \cite{Erosheva2006}, which generalize clustering models 
 to allow each sample to have partial membership in multiple clusters.
 That is, they allow that each sample has a proportion, or ``grade" of membership in each cluster. Such
 models are widely used in population genetics to model admixture, where individuals can have ancestry from multiple populations \cite{Pritchard2000},
@@ -60,17 +66,18 @@ could represent cell types, and the membership of a sample in each cluster could
 This is similar to the idea of ``deconvolution" methods that use cell-type-specific expression profiles of marker genes to estimate the concentration of different cell types in a mixture \cite{Lindsay2013}. And, indeed, the grade of membership model we use here is analogous to -- although different in detail from -- 
 blind deconvolution approaches \cite{Schwartz2010,Repsilber2010}
  which estimate cell type proportions and cell type signatures jointly (see also \cite{Shen-Orr2010,Qiao2012} for semi-supervised approaches). 
-However, we believe that the grade of membership model can be useful more generally to elucidate structure in expression data.
-For example, in single-cell expression data treating each sample as a ``mixture of cell types" is clearly inappropriate, and yet we see value in the idea
+However, we believe that the GoM model can be useful more generally to elucidate structure in expression data - not only as a way to deconvolve 
+mixtures of cell types. For example, in single-cell expression data, where each sample is a single cell, 
+treating each sample as a ``mixture of cell types" is clearly inappropriate, and yet we see value in the idea
 that there may be some ``continuous" variation in cell types, rather than (or perhaps in addition to) the purely discrete variation captured by cluster models. 
 Indeed, the extent to which variation among cells can be described in terms of discrete clusters vs more continuous populations
-seems a fundamental question that, when combined with appropriate single-cell RNA-seq data, the grade of membership models used here may
-ultimately help address. Further, even for bulk RNA-seq data, we argue that grade of membership models may yield interesting insights into heterogeneity among samples
-even if the inferred cluster membership do not correspond precisely to proportions of specific cell types, as may often happen in practice.
+is a fundamental question that, when combined with appropriate single-cell RNA-seq data, the GoM models used here may
+ultimately help address. Further, even for bulk RNA-seq data, we argue that GoM models may yield interesting insights into heterogeneity among samples
+even if the inferred cluster memberships do not correspond precisely to proportions of specific cell types, as may often happen in practice.
 
-Interestingly, although we have not previously seen grade of membership models applied to RNA-seq data, several software packages
-for doing this already exist! \footnote{While preparing this work for publication we became aware of recent independent work
-by \cite{duVerle2016} applying grade of membership models to RNA-seq data.}
+Interestingly, although we have not previously seen GoM models applied to RNA-seq data, several software packages
+for doing this already exist! \footnote{While preparing this work for publication we became aware of ongoing independent work
+by \cite{duVerle2016} applying GoM models to RNA-seq data.}
  This is because the 
 Latent Dirichlet Allocation model from \cite{Blei2003}, which is widely used to cluster documents based on their word counts, is based on a multinomial model that applies naturally and immediately to RNA-seq data. 
 Whereas documents are characterized by counts of each possible word in a dictionary, RNA-seq samples
