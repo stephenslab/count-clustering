@@ -68,7 +68,7 @@ The higher $D^g[k]$, the larger the role of gene $g$ in distinguishing cluster $
 Thus, for each cluster $k$ we identify the genes with highest $D^{g}[k]$ as the genes driving the cluster $k$. 
 We annotate the genes driving each cluster with biological functions using the {\tt mygene} R Bioconductor package  \cite{Thompson2014}. 
 
-For each cluster $k$, we filter out a number of genes (top $100$ for the Deng \textit{et al} data \cite{Deng2014} and GTEx V6 data \cite{GTEX2013}) with highest $D^{g}[k]$ value and perform a gene set over-representation analysis of these genes against all the other genes in the data representing the background. To do this, we used the software due to Max Planck Institute of Molecular Genetics (\url{http://cpdb.molgen.mpg.de/})  \cite{Kamburov2013} \cite{Pentchev2010}. Check Tables \ref{tab:tab1} - \ref{tab:tab2} and Table  \ref{tab:tab3} for the top significant gene ontologies driving each cluster in the GTEx V6 data and the Deng \textit{et al} data respectively. 
+For each cluster $k$, we filter out a number of genes (top $100$ for the Deng \textit{et al} data \cite{Deng2014} and GTEx V6 data \cite{GTEX2013}) with highest $D^{g}[k]$ value and perform a gene set over-representation analysis of these genes against all the other genes in the data representing the background. To do this, we used ConsensusPathDB database (\url{http://cpdb.molgen.mpg.de/})  \cite{Kamburov2013} \cite{Pentchev2010}. See Tables \ref{tab:tab1} - \ref{tab:tab2} and Table  \ref{tab:tab3} for the top significant gene ontologies driving each cluster in the GTEx V6 data and the Deng \textit{et al} data respectively. 
 
 \subsection{Comparison with hierarchical clustering}
 
@@ -76,7 +76,7 @@ Distance based hierarchical clustering methods are the most commonly used cluste
 which methods separated samples according to tissue.  For each pair of tissues  we randomly selected $50$ samples from the pool of all samples coming from these tissues. 
 For the hierarchical clustering approach we cut the dendogram at $K=2$, and checked whether or not this cut partitions the samples into the two tissue groups. 
 (We applied hierarchical clustering using Euclidean distance, with both complete and average linkage; results were similar and so we showed results only for complete linkage.) 
-For the model-based approach we analysed the data with $K=2$, and sort the samples by their membership in cluster 1. We then partitioned the samples at the point of the steepest fall in this membership, and again we check whether this cut partitions the samples into the two tissue groups.
+For the model-based approach we analysed the data with $K=2$, and sorted the samples by their membership in cluster 1. We then partitioned the samples at the point of the steepest fall in this membership, and again we checked whether this cut partitions the samples into the two tissue groups.
 
 Figure \ref{fig:fig2} shows, for each pair of tissues, whether each method successfully partitioned the samples into the two tissue groups using these approaches.
 %For instance, for GTEx tissue sample data, if the clusters are indeed driven by cell types, then the top genes for these clusters will probably be associated with proteins related to  functions for that particular cell type.
@@ -92,7 +92,7 @@ thinned counts $t_{ng}$ using
 \begin{equation}
 t_{ng} \sim Bin (c_{ng}, p_{thin})
 \end{equation}
-where we used $p_{thin}$ is a specified thinning parameter.
+where $p_{thin}$ is a specified thinning parameter.
 
 
 %Then we perform gene annotations for the top genes in each subgroup 

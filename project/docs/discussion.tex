@@ -12,9 +12,9 @@ more accurate than distance-based methods. Indeed, in our simple test on the GTE
 more accurately separated samples into ``known" clusters. However, there are also other subtler benefits of the GoM model. Because the GoM 
 model does not assume a strict ``discrete cluster" structure, but 
 rather allows that each sample has a proportion of membership in each cluster, it can provide insights into how well a 
-particular dataset really fits a ``discrete cluster" model. For example, consider our results for the data from \cite{Jaitin2014} and \cite{Deng2014}:
+particular dataset really fits a ``discrete cluster" model. For example, consider our results for the data from Jaitin \textit{et al} \cite{Jaitin2014} and Deng \textit{et al} \cite{Deng2014}:
 in both cases most samples are assigned to multiple clusters, although the results are closer to ``discrete" for the latter than the former.
-The GoM model is also better able to represent situation where there is not really a single clustering of the samples,
+The GoM model is also better able to represent the situation where there is not really a single clustering of the samples,
 but where samples may cluster differently at different genes. For example, in the GTEx data, the lung samples share memberships in common with
 both the spleen and adipose-related tissues. This pattern is clearly visible in the Structure plot (Figure \ref{fig:fig1}) but would be hard to 
 discern from a standard hierarchical clustering. 
