@@ -14,22 +14,10 @@
 %where $p_{thin}$ is the thinning probability. W chose $p_{thin}$ to be of the order of the ratio of the total number of reads mapped to a single cell experiment (in this case Zeisel et al (2015) data for instance) and the total number of reads in the GTEx dataset, which turned out to be approximately 0.0001. To check for robustness of our clustering algorithm, we varied $p_{thin}$ to be $0.01, 0.001, 0.0001$ (see Fig ).  
 %
 
-\subsection{Model overview}
+\subsection{Model Fitting}
 
-We assume the RNA-seq data have been summarized by a table of counts $C_{N \times G} = (c_{ng})$, where $c_{ng}$ is the number of reads from sample $n$ mapped to gene (or transcript) $g$ \cite{Oshlack2010}.  We remove genes $g$ with all zero counts ($c_{ng}=0$ for all $n$), and
-use the {\tt maptpx} R package \cite{Taddy2012} to fit the grade of membership (GoM) model, also known as ``Latent Dirichlet Allocation" (LDA). 
-This model assumes the RNA-seq counts for each sample follow a multinomial distribution
-\begin{equation}
-c_{n\cdot} \sim \text{Mult}(c_{n+}, p_{n\cdot})
-\end{equation}
-where $c_{n\cdot}$ denotes the count vector for the $n$th sample, $c_{n+} := \sum_g c_{ng}$, and $p_{n\cdot}$ is a probability vector (non-negative entries summing to 1) whose $g$th element represents the relative expression of gene $g$ in sample $n$. 
-The model further assumes that 
-\begin{equation}
-p_{ng} = \sum_{k=1}^{K} q_{nk}\theta_{kg}    
-\end{equation}
-where $q_{n\cdot}$ is a probability vector whose $k$th element represents the grade of membership of
-sample $n$ in cluster $k$, and $\theta_{k\cdot}$ is a probability vector whose $g$th element represents
-the relative expression of gene $g$ in cluster $k$. The {\tt maptpx} package fits this model using an EM algorithm to perform Maximum a posteriori (MAP)  estimation of the parameters $q$ and $\theta$. See \cite{Taddy2012} for details.
+We use the {\tt maptpx} R package \cite{Taddy2012} to fit the GoM model (\ref{eqn:mult},\ref{eqn:gom}), which is also known as ``Latent Dirichlet Allocation" (LDA). 
+The {\tt maptpx} package fits this model using an EM algorithm to perform Maximum a posteriori (MAP)  estimation of the parameters $q$ and $\theta$. See \cite{Taddy2012} for details.
 
 %This model has $N \times (K-1) + K \times (G-1)$ parameters, which is much smaller than the $N \times G$  data values of counts. Usually for RNA-seq samples $N$ varies in the region of $100$s to $1000$s  and $G$ ranges from $10,000$ to $50,000$ (depending on the underlying species and the types of genes tokenized) and $K << \{N,G \}$. 
 
@@ -66,19 +54,20 @@ D^{g}[k] = \underset{l \neq k}{\min} \; \KL^{g} [k, l].
 \end{equation}
 The higher $D^g[k]$, the larger the role of gene $g$ in distinguishing cluster $k$ from all other clusters. 
 Thus, for each cluster $k$ we identify the genes with highest $D^{g}[k]$ as the genes driving the cluster $k$. 
-We annotate the genes driving each cluster with biological functions using the {\tt mygene} R Bioconductor package  \cite{Thompson2014}. 
+We annotate the biological functions of these individual genes using the {\tt mygene} R Bioconductor package  \cite{Thompson2014}. 
 
-For each cluster $k$, we filter out a number of genes (top $100$ for the Deng \textit{et al} data \cite{Deng2014} and GTEx V6 data \cite{GTEX2013}) with highest $D^{g}[k]$ value and perform a gene set over-representation analysis of these genes against all the other genes in the data representing the background. To do this, we used the software due to Max Planck Institute of Molecular Genetics (\url{http://cpdb.molgen.mpg.de/})  \cite{Kamburov2013} \cite{Pentchev2010}. Check Tables \ref{tab:tab1} - \ref{tab:tab2} and Table  \ref{tab:tab3} for the top significant gene ontologies driving each cluster in the GTEx V6 data and the Deng \textit{et al} data respectively. 
+For each cluster $k$, we filter out a number of genes (top $100$ for the Deng \textit{et al} data \cite{Deng2014} and GTEx V6 data \cite{GTEX2013}) with highest $D^{g}[k]$ value and perform a gene set over-representation analysis of these genes against all the other genes in the data representing the background. To do this, we used software from the Max Planck Institute of Molecular Genetics (\url{http://cpdb.molgen.mpg.de/})  \cite{Kamburov2013} \cite{Pentchev2010}. Check Tables \ref{tab:tab1} - \ref{tab:tab2} and Table  \ref{tab:tab3} for the top significant gene ontologies driving each cluster in the GTEx V6 data and the Deng \textit{et al} data respectively. 
 
 \subsection{Comparison with hierarchical clustering}
 
-Distance based hierarchical clustering methods are the most commonly used clustering techniques for gene expression data. To compare between the grade of membership model and the distance based hierarchical clustering algorithm, we used both methods to samples from pairs of tissues from the GTEx project, and assessed 
-which methods separated samples according to tissue.  For each pair of tissues  we randomly selected $50$ samples from the pool of all samples coming from these tissues. 
+We compared the GoM model with a distance-based hierarchical clustering algorithm by applying both methods to samples from 
+pairs of tissues from the GTEx project, and assessed their accuracy in
+separating samples according to tissue.  For each pair of tissues  we randomly selected $50$ samples from the pool of all samples coming from these tissues. 
 For the hierarchical clustering approach we cut the dendogram at $K=2$, and checked whether or not this cut partitions the samples into the two tissue groups. 
 (We applied hierarchical clustering using Euclidean distance, with both complete and average linkage; results were similar and so we showed results only for complete linkage.) 
-For the model-based approach we analysed the data with $K=2$, and sort the samples by their membership in cluster 1. We then partitioned the samples at the point of the steepest fall in this membership, and again we check whether this cut partitions the samples into the two tissue groups.
+For the GoM model we analysed the data with $K=2$, and sort the samples by their membership in cluster 1. We then partitioned the samples at the point of the steepest fall in this membership, and check whether this cut partitions the samples into the two tissue groups.
 
-Figure \ref{fig:fig2} shows, for each pair of tissues, whether each method successfully partitioned the samples into the two tissue groups using these approaches.
+Figure \ref{fig:fig2} shows, for each pair of tissues, whether each method successfully partitioned the samples into the two tissue groups.
 %For instance, for GTEx tissue sample data, if the clusters are indeed driven by cell types, then the top genes for these clusters will probably be associated with proteins related to  functions for that particular cell type.
 %
 
