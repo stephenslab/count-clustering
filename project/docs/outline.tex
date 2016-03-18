@@ -78,11 +78,14 @@ even if the inferred cluster memberships do not correspond precisely to proporti
 Interestingly, although we have not previously seen GoM models applied to RNA-seq data, several software packages
 for doing this already exist! \footnote{While preparing this work for publication we became aware of ongoing independent work
 by \cite{duVerle2016} applying GoM models to RNA-seq data.}
- This is because the 
-Latent Dirichlet Allocation model from \cite{Blei2003}, which is widely used to cluster documents based on their word counts, is based on a multinomial model that applies naturally and immediately to RNA-seq data. 
+ This is because of a parallel between clustering samples based on RNA-seq counts,
+ and clustering documents based on word counts, which means that many existing software packages
+ for document clustering can be applied directly to RNA-seq data. Specifically, 
+ the 
+Latent Dirichlet Allocation model from \cite{Blei2003}, which is widely used to cluster documents based on their word counts, 
+is based on a multinomial model that applies naturally and immediately to RNA-seq data. 
 Whereas documents are characterized by counts of each possible word in a dictionary, RNA-seq samples
 are characterized by counts of reads mapping to each possible gene (or other unit, such as transcript, or exon) in the genome. 
-Thus many software packages available for document clustering will also be applicable to RNA-seq data.
 Here we use the R package {\tt maptpx} \cite{Taddy2012} to fit these models, and we add functionality for conveniently visualizing the results and annotating
 clusters by their most distinctive genes to help biological interpretation. These methods are implemented in the R package {\tt CountClust} available
 from \url{https://github.com/kkdey/CountClust}.  
