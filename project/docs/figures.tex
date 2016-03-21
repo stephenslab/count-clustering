@@ -8,7 +8,7 @@
 \begin{figure*}[ht]
 \raggedleft
 \includegraphics[height=7.5in, width=6.5in]{../plots/gtex-figures/gtex-main.pdf}
- \caption{ \textbf{(a)}: Structure plot of estimated cluster membership proportions for $K=15$ clusters fit to $8555$ tissue samples from $53$ tissues in GTEx data.  Each vertical bar shows the cluster membership proportions for a single sample, ordered so that samples from the same tissue are adjacent to one another. Within each tissue, the samples are sorted by the proportional representation of the underlying clusters.\textbf{(b)}: Structure plot of estimated cluster membership proportions for $K=4$ clusters fit to only the brain tissue samples from GTEx. This analysis highlights finer-scale structure among the brain samples that is absent from (a).}
+ \caption{ \textbf{(a)}: Structure plot of estimated membership proportions for GoM model with $K=15$ clusters fit to $8555$ tissue samples from $53$ tissues in GTEx data.  Each horizontal bar shows the cluster membership proportions for a single sample, ordered so that samples from the same tissue are adjacent to one another. Within each tissue, the samples are sorted by the proportional representation of the underlying clusters.\textbf{(b)}: Structure plot of estimated membership proportions for $K=4$ clusters fit to only the brain tissue samples. This analysis highlights finer-scale structure among the brain samples that is missed by the global analysis in (a).}
 \label{fig:fig1}
 \end{figure*}
 %
@@ -40,7 +40,7 @@
         \includegraphics[height=2.5in]{../plots/admixture_F_thin_0_1.png}
         \caption{GoM method}
     \end{subfigure} \\
-\caption{A comparison of ``accuracy" of hierarchical vs model-based clustering. For each pair of tissues from the GTEX data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the model-based clustering is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
+\caption{A comparison of ``accuracy" of GoM model vs hierarchical clustering. For each pair of tissues from the GTEX data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
 \label{fig:fig2}
 \end{figure*}
 
@@ -315,7 +315,7 @@
 \begin{figure*}[ht]
 \centering
 \includegraphics[height=4in, width=5.5in]{../plots/jaitin-figures/jaitin-main.pdf}
-\caption{Structure plot of estimated cluster membership proportions for $K=7$ clusters fit to $1,041$ single cells from \cite{Jaitin2014}. The samples are ordered so that samples from the same amplification batch are adjacent and within each batch, the samples are sorted by the proportional representation of the underlying clusters. In this analysis the samples do not appear to form clearly-defined clusters, with each sample being allocated membership in several ``clusters". Visually, samples from the same amplification batch tend to be assigned similar membership proportions, suggesting that batch effects are likely contributing to the inferred clustering.}
+\caption{Structure plot of estimated membership proportions for GoM model with $K=7$ clusters fit to $1,041$ single cells from \cite{Jaitin2014}. The samples (cells) are ordered so that samples from the same amplification batch are adjacent and within each batch, the samples are sorted by the proportional representation of the underlying clusters. In this analysis the samples do not appear to form clearly-defined clusters, with each sample being allocated membership in several ``clusters". Membership proportions are correlated with batch, and some groups of batches (e.g. 28-29; 32-45) show similar palettes.  These results suggest that batch effects are likely influencing the inferred structure in these data.}
 \label{fig:fig3}
 \end{figure*}
 
@@ -324,10 +324,10 @@
 \begin{figure*}[ht]
 \centering
 \includegraphics[height=4.5in, width=5.5in]{../plots/deng-figures/deng-main-v2.pdf}
-\caption{Structure plot of estimated cluster membership proportions for $K=6$ clusters fit to $259$ single cells from  \cite{Deng2014}. The cells are ordered
+\caption{Structure plot of estimated membership proportions for GoM model with $K=6$ clusters fit to $259$ single cells from  \cite{Deng2014}. The cells are ordered
 by their preimplantation development phase (and within each phase, sorted by the proportional representation of the clusters). While the very earliest developmental phases 
-(\textit{zygote/early2cell}) are essentially assigned to a single cluster, others are represented as a mix of two or more clusters. This illustrates the idea that
-structure of single-cell data may in some cases be better captured by a GoM model than by simple discrete clusters.}
+(\textit{zygote/early2cell}) are essentially assigned to a single cluster, others generally have membership in multiple clusters. Each cluster is annotated by
+the genes that are most distinctively expressed in that cluster, and by the gene ontology categories that these distinctive genes are most enriched for (see Table \ref{} for more extensive annotation results). See text for more discussion of biological processes driving these results.}
 \label{fig:fig4}
 \end{figure*}
 
