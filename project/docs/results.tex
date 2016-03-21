@@ -24,9 +24,9 @@
 %
 %\end{itemize}
 
-In brief, our approach to clustering starts by summarizing RNA-seq data by a table of counts $C_{N \times G} = (c_{ng})$, where $c_{ng}$ is the number of reads from sample $n$ mapped to gene (or transcript) $g$ \cite{Oshlack2010}.  We fit a GoM model to this table of counts. The GoM model assumes that 
+In brief, our approach starts by summarizing RNA-seq data by a table of counts $C_{N \times G} = (c_{ng})$, where $c_{ng}$ is the number of reads from sample $n$ mapped to gene (or transcript) $g$ \cite{Oshlack2010}.  We fit a GoM model to this table of counts, which assumes that 
 \begin{equation} \label{eqn:mult}
-c_{n\cdot} \sim \text{Mult}(c_{n+}, p_{n\cdot})
+c_{n\cdot} \sim \text{Mult}(c_{n+}, p_{n\cdot}),
 \end{equation}
 where $c_{n\cdot}$ denotes the count vector for the $n$th sample, $c_{n+} := \sum_g c_{ng}$, and $p_{n\cdot}$ is a probability vector (non-negative entries summing to 1) whose $g$th element represents the relative expression of gene $g$ in sample $n$. 
 The GoM model further assumes that 
@@ -83,9 +83,10 @@ The remaining samples all show membership in multiple clusters, with cortex samp
 
 \subsection{Quantitative comparison with hierarchical clustering}
 
-The GoM model is, in many ways,  complimentary to, rather than only competing with, distance-based hierarchical clustering methods.
-Nonetheless, we hypothesized that the model-based GoM approach might, in some sense, be more accurate in detecting substructure than distance-based methods. 
-We used the GTEx data to test this hypothesis. Specifically, for each pair of tissues in the GTEx data we assessed whether or not each clustering method
+%The GoM model is complimentary to, rather than only competing with, distance-based hierarchical clustering methods.
+%Nonetheless, 
+We hypothesized that the model-based GoM approach might be more accurate in detecting substructure than distance-based methods, 
+and we used the GTEx data to test this hypothesis. Specifically, for each pair of tissues in the GTEx data we assessed whether or not each clustering method
 correctly partitioned samples into the two tissue groups (see Methods). The GoM model was substantially more accurate in this test, succeeding
 in $86 \%$ of comparisons, compared with $39 \%$ for the distance-based method; Figure \ref{fig:fig2}. This presumably reflects the general tendency for model-based
 approaches to be more efficient that distance-based approaches, provided that the model is sufficiently accurate.
@@ -99,8 +100,9 @@ In this section we illustrate the potential for the GoM model to be applied to s
 
 To be applicable to single-cell RNA-seq data, methods must be able to deal with lower sequencing depth than in bulk RNA experiments:
  single-cell RNA-seq data typically involve substantially lower effective sequencing depth compared with bulk experiments, due to the relatively small 
- number of molecules available to sequence in a single cell. Therefore we checked robustness of the GoM model to lower sequencing depth
-by repeating analyses above after thinning the GTEx data by a factor of $10,000$ to mimic the lower sequencing depth of a typical single cell experiment.
+ number of molecules available to sequence in a single cell. Therefore, as a first step towards demonstrating its potential for single cell analysis,
+  we checked robustness of the GoM model to sequencing depth. Specifically,
+we repeated the analyses above after thinning the GTEx data by a factor of $10,000$ to mimic the lower sequencing depth of a typical single cell experiment.
  %per-sample depth in the 
 %single-cell data from \cite{Jaitin2014} considered below. (See  \textbf{Figure \ref{fig:figS1}} and \textbf{Figure \ref{fig:figS2}} for results with other values of $p_{thin}$.) 
 For the thinned GTEx data the Structure plot for $K=15$ preserves most of the major features of the original analysis on unthinned data (Supplementary Figure 2). For the accuracy comparisons with distance-based methods, both methods suffer reduced accuracy in thinned data, but the GoM model remains superior. For example, when thinning by a factor of $1,000$, the success rate in separating pairs of tissues is $0.32$ for the GoM model vs $0.10$ for hierarchical clustering.
@@ -109,7 +111,8 @@ For the thinned GTEx data the Structure plot for $K=15$ preserves most of the ma
 
  %Then we generated a set of $50$ samples randomly drawn from the pooled set of samples coming from these two tissues and then observed whether the hierarchical and the admixture were separating out samples coming from the two different tissues.
 
-Next we applied the GoM models to two single cell RNA-seq datasets, from Jaitin \textit{et al} \cite{Jaitin2014} and Deng \textit{et al} \cite{Deng2014}.  
+Having established its robustness to sequencing depth,
+we now illustrate the GoM model on two single cell RNA-seq datasets, from Jaitin \textit{et al} \cite{Jaitin2014} and Deng \textit{et al} \cite{Deng2014}.  
 
 \subsubsection{Jaitin \text{et al}, 2014}
 
@@ -118,7 +121,7 @@ Jaitin \textit{et al} sequenced over $4,000$ single cells from mouse spleen.
 Here we analyze $1,041$ of these cells that were categorized as $CD11c+$ in the \textit{sorting markers} column of their data (\url{http://compgenomics.weizmann.ac.il/tanay/?page_id=519}), and which had total number of reads mapping to non-ERCC genes greater than $600$. We believe these cells correspond roughly to the $1,040$ cells in their Figure S7.   Our hope was that applying our method to these data would identify, and perhaps refine, the cluster structure evident in 
 \cite{Jaitin2014} (their Figures 2A and 2B). However, our method yielded rather different results (Figure \ref{fig:fig3}), where most cells were assigned to have membership
 in several clusters. Further, the cluster membership vectors showed systematic differences among amplification batches (which in these data is also strongly correlated with sequencing batch). For example, cells in batch 1 are characterized by strong membership in the orange cluster (cluster 5) while those in batch 4 are characterized
-by strong membership in both the blue and yellow clusters (2 and 6). Some adjacent batches show similar patterns - for example batches 28 and 29 have a similar visual ``palette", as do batches 32-45. 
+by strong membership in both the blue and yellow clusters (2 and 6). Some adjacent batches show similar patterns - for example batches 28 and 29 have a similar visual ``palette", as do batches 32-45. And, more generally, these later batches are collectively more similar to one another than they are to the earlier batches (0-4).
 
 The fact that batch effects are detectable in these data is not particularly surprising: there is a growing recognition of the importance of batch effects in high-throughput data generally \cite{Leek2010} and in single cell data specifically \cite{Hicks2015}. And indeed, both clustering methods and the GoM model can be viewed
 as dimension reduction methods, and such methods can be helpful in controlling for batch effects \cite{Leek2007} \cite{Stegle2012}. However, why these batch effects are not evident in Figures 2A and 2B of \cite{Jaitin2014} is unclear. 
@@ -138,24 +141,43 @@ as dimension reduction methods, and such methods can be helpful in controlling f
 
 \subsubsection{Deng \text{et al}, 2014}
 
-Deng \textit{et al} collected single-cell expression data of mouse preimplantation embryos from the zygote to blastocyst stage \cite{Deng2014} and analysed trends of allele-specific expression in early embryo development. Here we use the GoM model to analyse the combined counts of the two alleles. Visual inspection of the Principal Components Analysis in \cite{Deng2014} suggested 6-7 clusters, so we focus on results with $K=6$. 
+Deng \textit{et al} collected single-cell expression data of mouse preimplantation embryos from the zygote to blastocyst stage \cite{Deng2014},
+with cells from four different embryos sequenced at each stage. The original analysis \cite{Deng2014} focusses on trends of allele-specific expression in early embryo development. Here we use the GoM model to assess the primary structure in these data without regard to allele-specific effects 
+(i.e.~combining counts of the two alleles). Visual inspection of the Principal Components Analysis in \cite{Deng2014} suggested perhaps 6-7 clusters, 
+and we focus here on results with $K=6$. 
 
-The results (Figure \ref{fig:fig4}) clearly highlight the continuous pattern of grades of membership through early embryonic development stages. Initially at the zygote stage, the embryos are represented by the blue cluster. Continuing on to the cleavage division stages, the grades of membership change to include a mixture of blue and magenta clusters at the mid 2-cell stage, a mixture of magenta and yellow clusters at the late 2-cell stage, and then a mixture of yellow and green at the 4-cell stage. Indeed, many of the clusters showed notable trends through the stages. For example, membership in the green cluster is non-existent in the early stages, but starting from the 4-cell stage, the green becomes more prominent in the 8-16 cell stages, drops substantially in the early and mid-blastocyst stages, and is essentially absent in the late blastocyst. More generally, the GoM results highlight the greater biological similarity among embryos from adjacent development stages than among embryos from more distant development stages. 
+The results from the GoM model (Figure \ref{fig:fig4}) 
+clearly highlight changes in expression profiles that occur through early embryonic development stages, and enrichment analysis of
+the top driving genes in each cluster (Table \ref{tab:tab3}) indicate that many of these expression changes reflect important
+biologal processes during embryonic preimplantation. 
 
-In addition to these trends across development stages, the GoM results also highlight apparent embryo-level effects in the early stages (Figure \ref{fig:fig4}). Four embryos were included and collected from 4 to 6 mice at each stage. 
+In more detail: Initially, at the zygote stage, the embryos are represented by a single cluster (blue in Figure \ref{fig:fig4}) that
+ is enriched with genes responsible for germ cell development (e.g., \textit{Bcl2l10} \cite{Yoon2009}, \textit{Spin1} \cite{Evsikov2009}), which is
+essential to the zygote and 2-cell stages. Continuing on to the cleavage division stages, the grades of membership change to include a mixture of blue and magenta clusters at the mid 2-cell stage, a mixture of magenta and yellow clusters at the late 2-cell stage, and then a mixture of yellow and green at the 4-cell stage. 
+%The magenta and yellow clusters are driven by genes that play a role in a variety of important cellular structures, including gene ontology terms ``centriole"
+The green cluster then becomes more prominent in the 8-6 cell stages, before dropping  substantially in the early and mid-blastocyst stages.
+This green cluster is enriched for cytoskeletal genes (e.g., \textit{Fbxo15}) and cytoplasm genes (e.g., \textit{Tceb1}, \textit{Hsp90ab1}), all of which are essential for compaction at the 8-cell stage and morula formation at the 16-cell stage. Finally, during the blastocyst stages two new clusters (purple and orange in Figure \ref{fig:fig4}) dominate.
+The orange cluster is enriched with genes involved in the formation of outer trophoblast cells (e.g., \textit{Tspan8}, \textit{Krt8}, \textit{Id2} \cite{Guo2010}), while the purple cluster is enriched with genes responsible for the formation of inner cell mass (e.g., \textit{Pdgfra}, \textit{Pyy} \cite{Hou2007}). 
+These two clusters are therefore consistent with the two cell lineages, the trophectoderm
+and the primitive endoderm, that make up the majority of
+the cells of the blastocyst \cite{rossant1995}. Interestingly, however, the cells do not appear to fall into two distinct and clearly-separated populations
+-- at least, not in terms of their expression patterns -- but rather show a continuous
+range of memberships in these two clusters, even in the late blastocyst stage.
+
+In addition to these trends across development stages, the GoM results also highlight some embryo-level effects in the early stages (Figure \ref{fig:fig4}). 
+Specifically, cells from the same embryo sometimes show greater similarity than cells from different embryos.
+%Four embryos were included and collected from 4 to 6 mice at each stage. 
 %For example, cells from the four embryos collected at the 16-cell stage are represented by a mixture of blue, green, yellow, and purple clusters. 
-For example, while all cells from the 16-cell stage have high memberships in the green cluster, cells coming from two of the embryos at this stage have memberships in both purple and yellow, while the other two have memberships only in yellow cluster. 
+For example, while all cells from the 16-cell stage have high memberships in the green cluster, cells from two of the embryos at this stage have memberships in both the purple and yellow clusters, while the other two embryos have memberships only in the yellow cluster. 
 
-Finally, the results indicate a few single cells that appear to be outliers. For example, a cell from a 16-cell embryo is represented by the blue cluster - a cluster that represents cells at the zygote and early 2-cell stage. Also, a cell from an 8-stage embryo has strong membership in the purple cluster - a cluster that represents cells from the blastocyst stage. 
-
+Finally, we note that, like clustering methods, the GoM model can be helpful in exploratory data analysis and quality control. Indeed, 
+the GoM results highlight a few single cells as outliers. For example, a cell from a 16-cell embryo is represented by the blue cluster - a cluster that represents cells at the zygote and early 2-cell stage. Also, a cell from an 8-stage embryo has strong membership in the purple cluster - a cluster that represents cells from the blastocyst stage. 
+It would seem prudent to consider excluding these cells from subsequent analyses of these data.
 %and cleavage division (e.g., \textit{Tfgb2}, \textit{Pttg1}), 
 
-Enrichment analysis of the top driving genes in each cluster indicates that the grades of membership align with known biology during embryonic preimplantation (Table \ref{tab:tab3}). For example, the blue cluster is enriched with genes responsible for germ cell development (e.g., \textit{Bcl2l10} \cite{Yoon2009}, \textit{Spin1} \cite{Evsikov2009}) which are essential to the zygote and 2-cell stages. Similarly, the green cluster is enriched with cytoskeletal genes (e.g., \textit{Fbxo15}) and cytoplasm genes (e.g., \textit{Tceb1}, \textit{Hsp90ab1}), all of which are essential for compaction at the 8-cell stage and morula formation at the 16-cell stage. Furthermore, the results showed some clusters formed a biologically meaningful mixture. For example, cells in the blastocyst are represented by a mixture of orange and purple clusters. The orange cluster seems to be  enriched with genes involved in the formation of outer trophoblast cells (e.g., \textit{Tspan8}, \textit{Krt8}, \textit{Id2} \cite{Guo2010}), while the purple cluster is enriched with genes responsible for the formation of inner cell mass (e.g., \textit{Pdgfra}, \textit{Pyy} \cite{Hou2007}). Reassuringly, these results of two underlying cell populations in the blastocyst are consistent with the known mammalian extra-embryonic lineages, the outer trophectoderm (TE) and internal primitive endoderm trophectoderm (PE), prior to implantation.
+%Notably, for both these single-cell data sets, most cells are assigned to a combination of more than one cluster, rather than a single cluster (the exception being the very early-stage cells in data from \cite{Deng2014}). This highlights the potential utility for GoM models to capture structure in single cell data that might be missed by simpler cluster-based approaches.
 
-
-Notably, for both these single-cell data sets, most cells are assigned to a combination of more than one cluster, rather than a single cluster (the exception being the very early-stage cells in data from Deng et al). This highlights the potential utility for GoM models to capture structure in single cell data that might be missed by simpler cluster-based approaches.
-
-Code for reproducing the results in this paper is available at \url{http://stephenslab.github.io/count-clustering/}.
+%Code for reproducing the results reported here is available at \url{http://stephenslab.github.io/count-clustering/}.
 
 
 
