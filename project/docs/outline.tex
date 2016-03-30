@@ -26,7 +26,7 @@ identifies distinctively-expressed genes that largely recapitulate known biology
 mouse preimplantation embryos, the approach highlights both discrete and continuous variation through early embryonic development stages,
 and highlights genes involved in a variety of relevant processes -- from germ cell development, through compaction and morula formation, to
 the formation of inner cell mass and trophoblast at the blastocyte stage.
-The methods are implemented in an R package \textbf{CountClust}, available at \url{https://github.com/kkdey/CountClust}.
+The methods are implemented in the Bioconductor package                                   {\tt CountClust}.
 \end{abstract}
 
 \section{Introduction}
@@ -87,8 +87,7 @@ is based on a multinomial model that applies naturally and immediately to RNA-se
 Whereas documents are characterized by counts of each possible word in a dictionary, RNA-seq samples
 are characterized by counts of reads mapping to each possible gene (or other unit, such as transcript, or exon) in the genome. 
 Here we use the R package {\tt maptpx} \cite{Taddy2012} to fit these models, and we add functionality for conveniently visualizing the results and annotating
-clusters by their most distinctive genes to help biological interpretation. These methods are implemented in the R package {\tt CountClust} available
-from \url{https://github.com/kkdey/CountClust}.  
+clusters by their most distinctive genes to help biological interpretation. These methods are implemented in the package {\tt CountClust} \cite{Dey2016} available as part of the Bioconductor project \cite{Gentleman2003}.  
 
 
 
