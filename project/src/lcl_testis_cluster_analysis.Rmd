@@ -2,7 +2,10 @@
 title: "Testis vs LCL comparison"
 author: "Kushal K Dey"
 date: "April 1, 2016"
-output: html_document
+output: 
+  html_document:
+    css: floating-toc.css
+    toc: true
 ---
 
 ## Overview
@@ -29,6 +32,7 @@ library(mygene)
 library(knitr)
 ```
 
+## Preparing Data
 
 ```{r echo=TRUE, eval=TRUE}
 data <- data.frame(fread('../external_data/GTEX_V6/cis_gene_expression.txt'));
@@ -41,6 +45,8 @@ We convert the counts to voom data.
 ```{r}
 voom_data <- voom(matdata)$E;
 ```
+
+## Expression vs cluster probability
 
 We now compute the average voom expression for each gene across the LCL.
 
@@ -67,6 +73,8 @@ We plot the theta expression against mean LCL expression.
 qplot(mean_lcl_expr, theta_expr_genes)
 ```
 
+## Annotating top expressed genes
+
 It does seem from the above plot that genes with very high log expression pattern in LCLs also have higher cluster probability.
 
 We filter out the 10 top genes with highest mean voom expression in LCLs.
@@ -79,6 +87,8 @@ lcl_genes <- substring(lcl_genes,1,15);
 out <- queryMany(as.character(lcl_genes),  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
 kable(as.data.frame(out))
 ```
+
+## Are these genes actually meaningful? 
 
 If we go by the cluster probability, where will these genes land up in?
 The top three genes were PRM1, PRM2 and PHF7. How far down are these genes in that list then?
@@ -127,7 +137,7 @@ axis(1,at=mid_point, unique(tissue_labels),las=3, cex.axis=0.8);
 
 ```
 
-## SEMA7A (7th gene)
+### SEMA7A (7th gene)
 
 ```{r}
 index <- grep("ENSG00000138623", substring(gene_names[,1],1,15))
