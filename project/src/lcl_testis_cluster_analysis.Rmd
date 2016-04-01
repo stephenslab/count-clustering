@@ -1,0 +1,101 @@
+---
+title: "Testis vs LCL comparison"
+author: "Kushal K Dey"
+date: "April 1, 2016"
+output: html_document
+---
+
+## Overview
+
+In the GTEx V6 data, we find that LCL ans Testis together are part of the same cluster. It is difficult to connect the intuition behind why that would be so as they have seemingly pretty distinct origins. Also, when we thin the data, the Testis and LCL seem to be clustering separately. The intuition right now is for K=15 on unthinned data, the analysis could not separate out the two and formed a cluster that has representation from both the tissues. But since the testis specific genes are very prominent, it seems to be driven by those genes only (since they are the ones that get picked up among the top 5 genes).
+
+In this script, we perform an exploratory analysis, where we compare the average log expression of each gene in the LCL against the $\theta$ value of the gene in the \begin{verb} testis + LCL \end{verb} cluster. 
+
+```{r set-options, echo=FALSE, cache=FALSE}
+options(height = 10)
+```
+
+```{r echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
+rm(list=ls())
+library(data.table)
+#install_github('kkdey/maptpx') 
+#install_github('kkdey/CountClust')
+library(maptpx)
+library(CountClust)
+library(data.table)
+library(ggplot2)
+library(limma)
+library(mygene)
+library(knitr)
+```
+
+
+```{r echo=TRUE, eval=TRUE}
+data <- data.frame(fread('../external_data/GTEX_V6/cis_gene_expression.txt'));
+matdata <- data[,-(1:2)];
+tissue_labels=read.table("../external_data/GTEX_V6/samples_id.txt")[,3];
+```
+
+We convert the counts to voom data.
+
+```{r}
+voom_data <- voom(matdata)$E;
+```
+
+We now compute the average voom expression for each gene across the LCL.
+
+```{r}
+voom_data_lcl <- voom_data[,grep("EBV", tissue_labels)]
+
+mean_lcl_expr <- apply(voom_data_lcl,1, mean);
+
+```
+
+We now extract the theta matrix or the cluster probability expression.
+
+```{r}
+theta <- read.table("../external_data/GTEX_V6/admix_out_GTEX_V6/theta_cis_genes_0_1_2.txt",
+                    header = TRUE, sep = " ",
+                    stringsAsFactors = FALSE)
+
+theta_expr_genes <- theta[,4];
+```
+
+We plot the theta expression against mean LCL expression.
+
+```{r}
+qplot(mean_lcl_expr, theta_expr_genes)
+```
+
+It does seem from the above plot that genes with very high log expression pattern in LCLs also have higher cluster probability.
+
+We filter out the 10 top genes with highest mean voom expression in LCLs.
+
+```{r}
+gene_names <- read.table("../external_data/GTEX_V6/gene_names_GTEX_V6.txt")
+lcl_genes <- gene_names[order(mean_lcl_expr, decreasing=TRUE)[1:100],1];
+
+lcl_genes <- substring(lcl_genes,1,15);
+out <- queryMany(as.character(lcl_genes),  scopes="ensembl.gene", fields=c("name", "summary"), species="human");
+kable(as.data.frame(out))
+```
+
+If we go by the cluster probability, where will these genes land up in?
+The top three genes were PRM1, PRM2 and PHF7. How far down are these genes in that list then?
+
+```{r}
+top_features <- ExtractTopFeatures(as.matrix(theta), top_features=500, method="poisson", options="max");
+
+top_genes_testis_lcl_cluster <- gene_names[top_features[4,],1];
+top_genes_testis_lcl_cluster <- substring(top_genes_testis_lcl_cluster,1,15);
+
+match(lcl_genes, top_genes_testis_lcl_cluster)
+```
+
+
+So we observe that of the top $100$ genes with highest LCL mean expression value, quite a few make it to the top features under extract top features function, and they are placed at 4th, 8th, 12th, 17th psotions which are pretty close to being top. 
+
+So it does seem that the testis cluster indeed has a lot of representativeness from the LCL cluster. 
+
+
+
