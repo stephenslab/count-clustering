@@ -53,3 +53,9 @@ tagline:
   We also validated the clusters we obtained in GTEx V6 and the Deng 2014 data by considering some of the genes with interesting biological properties and checking the trends of log of expression across the different tissue samples for that gene.
   
   [Gene expression study of genes from cluster annotation of GTEx + Deng data](project/src/extracted_genes_expr_study.html)
+  
+  It seems Testis and LCL cluster together which seems counter-intuitive. We show that the cluster corresponding to the two has representativeness from genes specific to both Testis and LCLs.
+  
+  [testis-lcl cluster analysis](project/src/lcl_testis_cluster_analysis.html)
+  
+  
