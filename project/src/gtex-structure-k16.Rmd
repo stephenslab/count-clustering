@@ -1,0 +1,72 @@
+---
+title: "GTEx Structure Plot for K = 16"
+author: "Joyce Hsiao"
+date: "2016-04-10"
+output: 
+  html_document:
+    css: floating-toc.css
+    toc: true
+---
+
+## Objective
+
+
+```{r set-options, echo=FALSE, cache=FALSE}
+options(height = 10)
+```
+
+```{r echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
+library(CountClust)
+```
+
+
+## Preparing data
+
+Load results that were computed on PPS.
+
+```{r}
+load("../rdas/topics.omega.16.rda")
+```
+
+
+Make annotation matrix.
+
+```{r}
+sample_labels <- read.table("../rdas/samples_id.txt",
+                            header = TRUE, sep = " ",
+                            stringsAsFactors = FALSE)
+tissue_labels <- vector("numeric", NROW(sample_labels))
+tissue_labels <- sample_labels[ ,3]
+
+annotation <- data.frame(
+    sample_id = paste0("X", 1:length(tissue_labels)),
+    tissue_label = factor(tissue_labels ) )
+
+rownames(omega) <- annotation$sample_id
+```
+
+
+## Making Structure plot
+
+```{r, fig.height=15}
+cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)],
+           RColorBrewer::brewer.pal(12, "Set3")[c(1,2,5)],
+           RColorBrewer::brewer.pal(9, "Set1")[c(9,7)],
+           RColorBrewer::brewer.pal(8, "Dark2")[c(3,4)])
+
+#pdf(file = "../plots/gtex-figures/gtex-k16.pdf", height = 14, width = 7)
+    StructureGGplot(omega = omega,
+                 annotation = annotation,
+                 palette = cols1,
+                 yaxis_label = "Tissue",
+                 order_sample = TRUE,
+                 split_line = list(split_lwd = .3,
+                                   split_col = "white"),
+                 axis_tick = list(axis_ticks_length = .1,
+                                  axis_ticks_lwd_y = .1,
+                                  axis_ticks_lwd_x = .1,
+                                  axis_label_size = 7,
+                                  axis_label_face = "bold"))
+#dev.off()
+```
+
