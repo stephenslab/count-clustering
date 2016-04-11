@@ -1,0 +1,122 @@
+---
+title: "GTEX V6 analysis K=16 part 1"
+author: "Kushal K Dey"
+date: "April 10, 2016"
+output: 
+  html_document:
+    css: floating-toc.css
+    toc: true
+---
+
+## Objective
+
+In this script, we perform the topic model and Structure plots on the GTEX V6 data across all tissues and then exclusively on the brain tissues. We fit a topic model with $K=15$ topics over all tissues in the GTEX study and then plot the Structure plot. We also fit a topic model with $4$ topics on the brain data exclusively and then plot the corresponding Structure plot as well. 
+
+```{r set-options, echo=FALSE, cache=FALSE}
+options(height = 10)
+```
+
+```{r echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
+rm(list=ls())
+library(data.table)
+#install_github('kkdey/maptpx') 
+library(maptpx)
+library(CountClust)
+library(data.table)
+
+```
+
+## Data preprocessing 
+
+```{r echo=TRUE, eval=TRUE, warning=FALSE}
+Topic_clus <- get(load("../external_data/GTEX_V6/gtexv6fit.k.16.rda"));
+```
+
+## Structure Plot (All tissues)
+
+```{r echo=TRUE, eval=TRUE}
+omega <- Topic_clus$omega
+dim(omega)
+colnames(omega) <- c(1:NCOL(omega))
+
+# make cell sample labels
+# want a version consistent with majority of the literature
+sample_labels <- read.table("../external_data/GTEX_V6/samples_id.txt",
+                            header = TRUE, sep = " ",
+                            stringsAsFactors = FALSE)
+tissue_labels <- vector("numeric", NROW(sample_labels))
+tissue_labels <- sample_labels[ ,3]
+
+# clean labels
+tissue_labels[grep("Nucleus", tissue_labels)] <- "Brain -N. accumbens"
+tissue_labels[grep("Putamen", tissue_labels)] <- "Brain -Putamen"
+tissue_labels[grep("Caudate", tissue_labels)] <- "Brain -Caudate"
+tissue_labels[grep("Gastroe", tissue_labels)] <- "Esophagus -Gastroesophageal Jn."
+tissue_labels[grep("cingulate", tissue_labels)] <- "Brain - Anterior cortex (BA24)."
+tissue_labels[grep("EBV", tissue_labels)] <- "Cells -EBV-lymphocytes"
+tissue_labels[grep("Suprapubic", tissue_labels)] <- "Skin - Unexposed (Suprapubic)"
+tissue_labels[grep("Lower Leg", tissue_labels)] <- "Skin - Sun Exposed (Lower Leg)"
+
+# find sample orders in hierarchical clustering
+docweights_per_tissue_mean <- apply(omega, 2,
+                                    function(x) { tapply(x, tissue_labels, mean) })
+ordering <- heatmap(docweights_per_tissue_mean)$rowInd
+
+# order tissue by hierarhical clustering results
+tissue_levels_reordered <- unique(tissue_labels)[ordering]
+
+
+annotation <- data.frame(
+    sample_id = paste0("X", 1:length(tissue_labels)),
+    tissue_label = factor(tissue_labels,
+                          levels = rev(tissue_levels_reordered ) ) )
+
+
+cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10,11)],
+           RColorBrewer::brewer.pal(12, "Set3"))
+```
+
+```{r echo=TRUE, eval=TRUE, fig.height=10, fig.width=5, message=FALSE, warning=FALSE}
+CountClust::StructureGGplot(omega = omega,
+                annotation= annotation,
+                palette = cols1,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .1,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 5,
+                                 axis_label_face="bold"))
+
+color=c("red","blue","cornflowerblue","black","cyan","darkblue",
+        "brown4","burlywood","darkgoldenrod1","darkgray","deepskyblue","darkkhaki",
+        "firebrick","darkorchid","hotpink","green","magenta","yellow", "azure1","azure4");
+
+
+samples_id=read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/samples_id.txt")[,3];
+
+docweights_per_tissue_mean <- apply(omega,2,function(x) tapply(x,samples_id,mean));
+#ordering=heatmap(docweights_per_tissue_mean)$rowInd;
+
+unique_samples_id_ordered = unique(samples_id)[ordering];
+
+clus_ordered =unlist(lapply(1:53, function(x) which(samples_id == unique_samples_id_ordered[x])));
+
+
+docweights_ordering = omega[clus_ordered,];
+samples_id_ordered = samples_id[clus_ordered];
+
+barplot(t(docweights_ordering),col=color[1:16],axisnames=F,space=0,border=NA,main=paste("No. of clusters=",K),las=1,ylim=c(0,1),cex.axis=1.2,cex.main=1.4)
+
+labels = match(unique(samples_id_ordered), samples_id_ordered);
+abline(v=labels)
+
+labels_low=labels;
+labels_up=c(labels[2:length(labels)],dim(docweights_ordering)[1]);
+mid_point=labels_low +0.5*(labels_up-labels_low);
+
+axis(1,at=mid_point, unique(samples_id_ordered),las=2);
+
+```
