@@ -32,12 +32,16 @@ load("../rdas/topics.omega.16.rda")
 Make annotation matrix.
 
 ```{r}
-samples_id <- read.table("../rdas/samples_id.txt")[,3]
-str(samples_id)
+sample_labels <- read.table("../rdas/samples_id.txt",
+                            header = TRUE, sep = " ",
+                            stringsAsFactors = FALSE)
+tissue_labels <- vector("numeric", NROW(sample_labels))
+tissue_labels <- sample_labels[ ,3]
 
 annotation <- data.frame(
-     sample_id = paste0("X", c(1:NROW(omega))),
-     tissue_label = samples_id)
+    sample_id = paste0("X", 1:length(tissue_labels)),
+    tissue_label = factor(tissue_labels ) )
+
 rownames(omega) <- annotation$sample_id
 ```
 
@@ -46,9 +50,11 @@ rownames(omega) <- annotation$sample_id
 
 ```{r, fig.height=15}
 cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)],
-           RColorBrewer::brewer.pal(12, "Set3"))
+           RColorBrewer::brewer.pal(12, "Set3")[c(1,2,5)],
+           RColorBrewer::brewer.pal(9, "Set1")[c(9,7)],
+           RColorBrewer::brewer.pal(8, "Dark2")[c(3,4)])
 
-#pdf(file = "plots/gtex-figures/gtex-k16.pdf", height = 14, width = 7)
+#pdf(file = "../plots/gtex-figures/gtex-k16.pdf", height = 14, width = 7)
     StructureGGplot(omega = omega,
                  annotation = annotation,
                  palette = cols1,
