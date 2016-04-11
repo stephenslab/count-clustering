@@ -494,22 +494,33 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )))
 (./manuscript-plos-gen.aux)
-\openout1 = `manuscript-plos-gen.aux'.
+Runaway argument?
+{Jaitin201 
+./manuscript-plos-gen.tex:90: File ended while scanning use of \citation.
+<inserted text> 
+                \par 
+l.90 \begin{document}
+                     
+? 
+./manuscript-plos-gen.tex:90: Emergency stop.
+<inserted text> 
+                \par 
+l.90 \begin{document}
+                     
+End of file on the terminal!
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 90.
+ 
+Here is how much of TeX's memory you used:
+ 9748 strings out of 493033
+ 149286 string characters out of 6134139
+ 282283 words of memory out of 5000000
+ 13188 multiletter control sequences out of 15000+600000
+ 3640 words of font info for 14 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 42i,0n,43p,989b,93s stack positions out of 5000i,500n,10000p,200000b,80000s
+./manuscript-plos-gen.tex:90:  ==> Fatal error occurred, no output PDF file pro
+duced!
+aTeX Font Info:    Try loading font information for TS1+cmr on input line 90.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
