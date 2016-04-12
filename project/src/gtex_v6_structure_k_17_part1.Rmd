@@ -1,16 +1,9 @@
 ---
-title: "GTEX V6 analysis K=16 part 1"
+title: "gtex_v6_structure_genes_k_17_part_1"
 author: "Kushal K Dey"
-date: "April 10, 2016"
-output: 
-  html_document:
-    css: floating-toc.css
-    toc: true
+date: "April 11, 2016"
+output: html_document
 ---
-
-## Objective
-
-In this script, we perform the topic model and Structure plots on the GTEX V6 data across all tissues and then exclusively on the brain tissues. We fit a topic model with $K=15$ topics over all tissues in the GTEX study and then plot the Structure plot. We also fit a topic model with $4$ topics on the brain data exclusively and then plot the corresponding Structure plot as well. 
 
 ```{r set-options, echo=FALSE, cache=FALSE}
 options(height = 10)
@@ -29,7 +22,7 @@ library(data.table)
 ## Data preprocessing 
 
 ```{r echo=TRUE, eval=TRUE, warning=FALSE}
-Topic_clus <- get(load("../external_data/GTEX_V6/gtexv6fit.k.16.rda"));
+Topic_clus <- get(load("../external_data/GTEX_V6/gtexv6fit.k.17.rda"));
 ```
 
 ## Structure Plot (All tissues)
@@ -92,5 +85,5 @@ CountClust::StructureGGplot(omega = omega,
                                  axis_label_size = 5,
                                  axis_label_face="bold"))
 
-
 ```
+
