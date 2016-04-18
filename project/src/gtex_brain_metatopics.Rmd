@@ -1,0 +1,475 @@
+---
+title: "Meta topics analysis GTEx brain V6"
+author: "Kushal K Dey"
+date: "April 15, 2016"
+output: html_document
+---
+
+## Overview
+
+We have used topic model or admixture to cluster GTEx V6 Brain samples. But motivated by the Deep Poisson Factor Modeling by Lawrence Carin's group, we may try to see if there is information to be had in looking at the metatopics for the GTEx V6 Brain samples. The idea is to see if there is any merit into looking at the metatopics and whether they are giving any more intuition than the Admixture plot.
+
+```{r echo=TRUE, eval=TRUE}
+omega_brain <- read.table("../external_data/GTEX_V6/admix_out_GTEX_V6/omega_cis_genes_brain.txt");
+theta_brain <- read.table("../external_data/GTEX_V6/admix_out_GTEX_V6/theta_cis_genes_brain.txt");
+
+data <- data.frame(fread('../external_data/GTEX_V6/cis_gene_expression.txt'));
+matdata <- data[,-(1:2)];
+sample_labels <- read.table("../external_data/GTEX_V6/samples_id.txt",
+                            header = TRUE, sep = " ",
+                            stringsAsFactors = FALSE)
+brain_labels <- sample_labels[grep("Brain", sample_labels[,3]), 3]
+
+brain_data <- matdata[,grep("Brain", sample_labels[,3])];
+libsize_brain <- colSums(brain_data);
+
+lambda_brain <- sweep(omega_brain, 1, libsize_brain, "*");
+
+z_level_1 <- array(0,c(dim(lambda_brain)[1], dim(theta_brain)[1], dim(lambda_brain)[2]));
+for(k in 1:dim(theta_brain)[2]){
+  z_level_1[,,k] <- lambda_brain[,k]%*%t(theta_brain[,k])
+}
+
+z_level_1_counts <- floor(apply(z_level_1, c(1,3), sum));
+
+```
+
+We apply topic model with $K2=3$ on this matrix.
+
+```{r}
+topic_clus <- maptpx::topics(z_level_1_counts, K=3, tol=0.1);
+```
+
+```{r}
+rownames(omega_brain) <- paste0("X", 1:length(brain_labels))
+annotation <- data.frame(
+    sample_id = paste0("X", 1:length(brain_labels)),
+    tissue_label = factor(brain_labels,
+                          levels = rev(c("Brain - Cerebellar Hemisphere",
+                                     "Brain - Cerebellum",
+                                     "Brain - Spinal cord (cervical c-1)",
+                                     "Brain - Anterior cingulate cortex (BA24)",
+                                     "Brain - Frontal Cortex (BA9)",
+                                     "Brain - Cortex",
+                                     "Brain - Hippocampus",
+                                     "Brain - Substantia nigra",
+                                     "Brain - Amygdala",
+                                     "Brain - Putamen (basal ganglia)",
+                                     "Brain - Caudate (basal ganglia)",
+                                     "Brain - Hypothalamus",
+                                     "Brain - Nucleus accumbens (basal ganglia)") ) ) )
+
+# define colors of the clusers
+cols <- RColorBrewer::brewer.pal(8, "Accent")
+
+CountClust::StructureGGplot(omega = topic_clus$omega,
+                annotation= annotation,
+                palette = cols,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .4,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 3,
+                                 axis_label_face = "bold"))
+
+
+```
+
+We go one level up. 
+
+```{r}
+libsize_brain <- rowSums(z_level_1_counts);
+omega_brain_2 <- topic_clus$omega;  theta_brain_2 <- topic_clus$theta;
+lambda_brain_2 <- sweep(omega_brain_2, 1, libsize_brain, "*");
+
+z_level_2 <- array(0,c(dim(lambda_brain_2)[1], dim(theta_brain_2)[1], dim(lambda_brain_2)[2]));
+for(k in 1:dim(theta_brain_2)[2]){
+  z_level_2[,,k] <- lambda_brain_2[,k]%*%t(theta_brain_2[,k])
+}
+
+z_level_2_counts <- floor(apply(z_level_2, c(1,3), sum));
+```
+
+We apply topic model with $K3=2$ on this matrix.
+
+```{r}
+topic_clus_2 <- maptpx::topics(z_level_2_counts, K=2, tol=0.1);
+```
+
+```{r}
+rownames(omega_brain) <- paste0("X", 1:length(brain_labels))
+annotation <- data.frame(
+    sample_id = paste0("X", 1:length(brain_labels)),
+    tissue_label = factor(brain_labels,
+                          levels = rev(c("Brain - Cerebellar Hemisphere",
+                                     "Brain - Cerebellum",
+                                     "Brain - Spinal cord (cervical c-1)",
+                                     "Brain - Anterior cingulate cortex (BA24)",
+                                     "Brain - Frontal Cortex (BA9)",
+                                     "Brain - Cortex",
+                                     "Brain - Hippocampus",
+                                     "Brain - Substantia nigra",
+                                     "Brain - Amygdala",
+                                     "Brain - Putamen (basal ganglia)",
+                                     "Brain - Caudate (basal ganglia)",
+                                     "Brain - Hypothalamus",
+                                     "Brain - Nucleus accumbens (basal ganglia)") ) ) )
+
+# define colors of the clusers
+cols <- RColorBrewer::brewer.pal(8, "Accent")
+
+CountClust::StructureGGplot(omega = topic_clus_2$omega,
+                annotation= annotation,
+                palette = cols,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .4,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 3,
+                                 axis_label_face = "bold"))
+
+
+```
+
+
+What happens if we apply admixture separately for $K=2$ and $K=3$ on the data?
+
+```{r echo=TRUE, eval=FALSE}
+topic_clus_brain <- maptpx::topics(t(brain_data), K=2, tol=100);
+save(topic_clus_brain, file="../rdas/topics_brain_gtex_v6.k.2.rda")
+```
+
+```{r}
+topic_clus_brain <- get(load("../rdas/topics_brain_gtex_v6.k.2.rda"));
+
+omega <- topic_clus_brain$omega;
+
+# define colors of the clusers
+cols <- RColorBrewer::brewer.pal(8, "Accent")
+
+CountClust::StructureGGplot(omega = omega,
+                annotation= annotation,
+                palette = cols,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .4,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 3,
+                                 axis_label_face = "bold"))
+
+
+```
+
+## GTEx whole data analysis
+
+```{r echo=TRUE, eval=TRUE}
+gtex_17 <- get(load("../rdas/gtexv6fit.k.17.rda"));
+gtex_17_omega <- gtex_17$omega
+gtex_17_theta <- gtex_17$theta
+```
+
+We perform Structure plot visualization
+
+```{r}
+omega <- gtex_17_omega
+colnames(omega) <- c(1:NCOL(omega))
+
+# make cell sample labels
+# want a version consistent with majority of the literature
+sample_labels <- read.table("../external_data/GTEX_V6/samples_id.txt",
+                            header = TRUE, sep = " ",
+                            stringsAsFactors = FALSE)
+tissue_labels <- vector("numeric", NROW(sample_labels))
+tissue_labels <- sample_labels[ ,3]
+
+# clean labels
+tissue_labels[grep("Nucleus", tissue_labels)] <- "Brain -N. accumbens"
+tissue_labels[grep("Putamen", tissue_labels)] <- "Brain -Putamen"
+tissue_labels[grep("Caudate", tissue_labels)] <- "Brain -Caudate"
+tissue_labels[grep("Gastroe", tissue_labels)] <- "Esophagus -Gastroesophageal Jn."
+tissue_labels[grep("cingulate", tissue_labels)] <- "Brain - Anterior cortex (BA24)."
+tissue_labels[grep("EBV", tissue_labels)] <- "Cells -EBV-lymphocytes"
+tissue_labels[grep("Suprapubic", tissue_labels)] <- "Skin - Unexposed (Suprapubic)"
+tissue_labels[grep("Lower Leg", tissue_labels)] <- "Skin - Sun Exposed (Lower Leg)"
+
+# find sample orders in hierarchical clustering
+docweights_per_tissue_mean <- apply(omega, 2,
+                                    function(x) { tapply(x, tissue_labels, mean) })
+ordering <- heatmap(docweights_per_tissue_mean)$rowInd
+
+# order tissue by hierarhical clustering results
+tissue_levels_reordered <- unique(tissue_labels)[ordering]
+
+
+annotation <- data.frame(
+    sample_id = paste0("X", 1:length(tissue_labels)),
+    tissue_label = factor(tissue_labels,
+                          levels = rev(tissue_levels_reordered ) ) )
+
+
+cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)],
+           RColorBrewer::brewer.pal(12, "Set3"))
+
+CountClust::StructureGGplot(omega = omega,
+                annotation= annotation,
+                palette = cols1,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .1,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 5,
+                                 axis_label_face="bold"))
+
+```
+
+### metatopic for K=12
+
+```{r echo=TRUE, eval=FALSE}
+libsize_gtex <- colSums(matdata);
+
+omega_1 <- gtex_17_omega
+theta_1 <- gtex_17_theta
+
+lambda_1 <- sweep(omega_1, 1, libsize_gtex, "*");
+
+z_level_1 <- array(0,c(dim(lambda_1)[1], dim(theta_1)[1], dim(lambda_1)[2]));
+for(k in 1:dim(theta_1)[2]){
+  z_level_1[,,k] <- lambda_1[,k]%*%t(theta_1[,k])
+}
+
+z_level_1_counts <- apply(z_level_1, c(1,3), function(x) return(floor(sum(x))));
+
+save(z_level_1_counts, file="../rdas/gtex_level_2_data.rda")
+```
+
+We apply topic model with $K2=3$ on this matrix.
+
+```{r}
+z_level_1_counts <- get(load("../rdas/gtex_level_2_data.rda"))
+topic_clus <- maptpx::topics(z_level_1_counts, K=12, tol=0.1);
+```
+
+```{r}
+omega <- topic_clus$omega
+# define colors of the clusers
+cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)],
+           RColorBrewer::brewer.pal(12, "Set3"))
+
+CountClust::StructureGGplot(omega = omega,
+                annotation= annotation,
+                palette = cols1,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .4,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 3,
+                                 axis_label_face = "bold"))
+
+
+```
+
+### metatopic K=10
+
+```{r echo=TRUE, eval=FALSE}
+libsize_gtex <- rowSums(z_level_1_counts);
+
+omega_2 <- topic_clus$omega
+theta_2 <- topic_clus$theta
+
+lambda_2 <- sweep(omega_2, 1, libsize_gtex, "*");
+
+z_level_2 <- array(0,c(dim(lambda_2)[1], dim(theta_2)[1], dim(lambda_2)[2]));
+for(k in 1:dim(theta_2)[2]){
+  z_level_2[,,k] <- lambda_2[,k]%*%t(theta_2[,k])
+}
+
+z_level_2_counts <- apply(z_level_2, c(1,3), function(x) return(floor(sum(x))));
+
+```
+
+We apply topic model with $K2=3$ on this matrix.
+
+```{r}
+topic_clus <- maptpx::topics(z_level_2_counts, K=10, tol=0.1);
+```
+
+```{r}
+omega <- topic_clus$omega
+# define colors of the clusers
+cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)],
+           RColorBrewer::brewer.pal(12, "Set3"))
+
+CountClust::StructureGGplot(omega = omega,
+                annotation= annotation,
+                palette = cols1,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .4,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 3,
+                                 axis_label_face = "bold"))
+
+
+```
+
+
+### metatopic K=5
+
+```{r echo=TRUE, eval=FALSE}
+libsize_gtex <- rowSums(z_level_2_counts);
+
+omega_3 <- topic_clus$omega
+theta_3 <- topic_clus$theta
+
+lambda_3 <- sweep(omega_3, 1, libsize_gtex, "*");
+
+z_level_3 <- array(0,c(dim(lambda_3)[1], dim(theta_3)[1], dim(lambda_3)[2]));
+for(k in 1:dim(theta_3)[2]){
+  z_level_3[,,k] <- lambda_3[,k]%*%t(theta_3[,k])
+}
+
+z_level_3_counts <- apply(z_level_3, c(1,3), function(x) return(floor(sum(x))));
+
+```
+
+We apply topic model with $K2=3$ on this matrix.
+
+```{r}
+topic_clus <- maptpx::topics(z_level_3_counts, K=6, tol=0.1);
+```
+
+```{r}
+omega <- topic_clus$omega
+# define colors of the clusers
+cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)],
+           RColorBrewer::brewer.pal(12, "Set3"))
+
+CountClust::StructureGGplot(omega = omega,
+                annotation= annotation,
+                palette = cols1,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .4,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 3,
+                                 axis_label_face = "bold"))
+
+
+```
+
+
+### metatopic K=3
+
+```{r echo=TRUE, eval=FALSE}
+libsize_gtex <- rowSums(z_level_3_counts);
+
+omega_4 <- topic_clus$omega
+theta_4 <- topic_clus$theta
+
+lambda_4 <- sweep(omega_4, 1, libsize_gtex, "*");
+
+z_level_4 <- array(0,c(dim(lambda_4)[1], dim(theta_4)[1], dim(lambda_4)[2]));
+for(k in 1:dim(theta_4)[2]){
+  z_level_4[,,k] <- lambda_4[,k]%*%t(theta_4[,k])
+}
+
+z_level_4_counts <- apply(z_level_4, c(1,3), function(x) return(floor(sum(x))));
+
+```
+
+We apply topic model with $K2=3$ on this matrix.
+
+```{r}
+topic_clus <- maptpx::topics(z_level_4_counts, K=3, tol=0.1);
+```
+
+```{r}
+omega <- topic_clus$omega
+# define colors of the clusers
+cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)],
+           RColorBrewer::brewer.pal(12, "Set3"))
+
+CountClust::StructureGGplot(omega = omega,
+                annotation= annotation,
+                palette = cols1,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .4,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 3,
+                                 axis_label_face = "bold"))
+
+
+```
+
+
+### metatopic K=2
+
+```{r echo=TRUE, eval=FALSE}
+libsize_gtex <- rowSums(z_level_4_counts);
+
+omega_5 <- topic_clus$omega
+theta_5 <- topic_clus$theta
+
+lambda_5 <- sweep(omega_5, 1, libsize_gtex, "*");
+
+z_level_5 <- array(0,c(dim(lambda_5)[1], dim(theta_5)[1], dim(lambda_5)[2]));
+for(k in 1:dim(theta_5)[2]){
+  z_level_5[,,k] <- lambda_5[,k]%*%t(theta_5[,k])
+}
+
+z_level_5_counts <- apply(z_level_5, c(1,3), function(x) return(floor(sum(x))));
+
+```
+
+We apply topic model with $K2=2$ on this matrix.
+
+```{r}
+topic_clus <- maptpx::topics(z_level_5_counts, K=2, tol=0.1);
+```
+
+```{r}
+omega <- topic_clus$omega
+# define colors of the clusers
+cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)],
+           RColorBrewer::brewer.pal(12, "Set3"))
+
+CountClust::StructureGGplot(omega = omega,
+                annotation= annotation,
+                palette = cols1,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .4,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 3,
+                                 axis_label_face = "bold"))
+
+
+```
