@@ -70,6 +70,8 @@ cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)
           RColorBrewer::brewer.pal(12, "Set3")[c(1,2,5,8,9)],
           RColorBrewer::brewer.pal(9, "Set1")[c(9,7)],
           RColorBrewer::brewer.pal(8, "Dark2")[c(3,4,8)])
+
+cols1 <- sample(cols1, 20, replace=FALSE)
 ```
 
 ```{r echo=TRUE, eval=TRUE, fig.height=10, fig.width=5, message=FALSE, warning=FALSE}
