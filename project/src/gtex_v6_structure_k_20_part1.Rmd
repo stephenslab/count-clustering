@@ -1,0 +1,92 @@
+---
+title: "gtex_v6_structure_k_20_part1"
+author: "Kushal K Dey"
+date: "April 18, 2016"
+output: html_document
+---
+
+
+```{r set-options, echo=FALSE, cache=FALSE}
+options(height = 10)
+```
+
+```{r echo=TRUE, eval=TRUE, warning=FALSE, message=FALSE}
+rm(list=ls())
+library(data.table)
+#install_github('kkdey/maptpx') 
+library(maptpx)
+library(CountClust)
+library(data.table)
+
+```
+
+## Data preprocessing 
+
+```{r echo=TRUE, eval=TRUE, warning=FALSE}
+Topic_clus <- get(load("../external_data/GTEX_V6/gtexv6fit.k.20.part1.rda"));
+```
+
+## Structure Plot (All tissues)
+
+```{r echo=TRUE, eval=TRUE}
+omega <- Topic_clus$omega
+dim(omega)
+colnames(omega) <- c(1:NCOL(omega))
+
+# make cell sample labels
+# want a version consistent with majority of the literature
+sample_labels <- read.table("../external_data/GTEX_V6/samples_id.txt",
+                            header = TRUE, sep = " ",
+                            stringsAsFactors = FALSE)
+tissue_labels <- vector("numeric", NROW(sample_labels))
+tissue_labels <- sample_labels[ ,3]
+
+# clean labels
+tissue_labels[grep("Nucleus", tissue_labels)] <- "Brain -N. accumbens"
+tissue_labels[grep("Putamen", tissue_labels)] <- "Brain -Putamen"
+tissue_labels[grep("Caudate", tissue_labels)] <- "Brain -Caudate"
+tissue_labels[grep("Gastroe", tissue_labels)] <- "Esophagus -Gastroesophageal Jn."
+tissue_labels[grep("cingulate", tissue_labels)] <- "Brain - Anterior cortex (BA24)."
+tissue_labels[grep("EBV", tissue_labels)] <- "Cells -EBV-lymphocytes"
+tissue_labels[grep("Suprapubic", tissue_labels)] <- "Skin - Unexposed (Suprapubic)"
+tissue_labels[grep("Lower Leg", tissue_labels)] <- "Skin - Sun Exposed (Lower Leg)"
+
+# find sample orders in hierarchical clustering
+docweights_per_tissue_mean <- apply(omega, 2,
+                                    function(x) { tapply(x, tissue_labels, mean) })
+ordering <- heatmap(docweights_per_tissue_mean)$rowInd
+
+# order tissue by hierarhical clustering results
+tissue_levels_reordered <- unique(tissue_labels)[ordering]
+
+
+annotation <- data.frame(
+    sample_id = paste0("X", 1:length(tissue_labels)),
+    tissue_label = factor(tissue_labels,
+                          levels = rev(tissue_levels_reordered ) ) )
+
+
+cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)],
+          RColorBrewer::brewer.pal(12, "Set3")[c(1,2,5,8,9)],
+          RColorBrewer::brewer.pal(9, "Set1")[c(9,7)],
+          RColorBrewer::brewer.pal(8, "Dark2")[c(3,4,8)])
+
+cols1 <- sample(cols1, 20, replace=FALSE)
+```
+
+```{r echo=TRUE, eval=TRUE, fig.height=10, fig.width=5, message=FALSE, warning=FALSE}
+CountClust::StructureGGplot(omega = omega,
+                annotation= annotation,
+                palette = cols1,
+                yaxis_label = "",
+                order_sample = TRUE,
+                split_line = list(split_lwd = .1,
+                                  split_col = "white"),
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 5,
+                                 axis_label_face="bold"))
+
+```
+
