@@ -23,7 +23,7 @@ library(data.table)
 ## Data preprocessing 
 
 ```{r echo=TRUE, eval=TRUE, warning=FALSE}
-Topic_clus <- get(load("../external_data/GTEX_V6/gtexv6fit.k.20.part1.rda"));
+Topic_clus <- get(load("../external_data/GTEX_V6/gtexv6fit.k.20.part3.rda"));
 ```
 
 ## Structure Plot (All tissues)
