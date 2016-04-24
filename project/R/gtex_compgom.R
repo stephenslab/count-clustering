@@ -42,3 +42,7 @@ topic_fit_20_3_list <- list(topic_fit_20_3)
 compgom_20_3 <- compGoM(t(matdata), topic_fit_20_3_list)
 loglik_20_3 <- as.numeric(compgom_20_3[2,1]);
 
+topic_fit_20_4 <- get(load("../external_data/GTEX_V6/gtexv6fit.k.20.part4.rda"));
+topic_fit_20_4_list <- list(topic_fit_20_4)
+compgom_20_4 <- compGoM(t(matdata), topic_fit_20_4_list)
+loglik_20_4 <- as.numeric(compgom_20_4[2,1]);

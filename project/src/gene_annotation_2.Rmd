@@ -25,7 +25,8 @@ In this script, we give the gene annotations of the genes that seem to vary grea
 
 ```{r gene_annotation, echo=TRUE, eval=TRUE}
 
-topics_theta <- data.frame(fread("../external_data/GTEX_V6/admix_out_GTEX_V6/theta_cis_genes_0_1_2.txt"))[,-1];
+GoM_output <- get(load("../external_data/GTEX_V6/gtexv6fit.k.20.master.rda"));
+topics_theta <- GoM_output$theta;
 
 top_features <- ExtractTopFeatures(topics_theta, top_features=100, method="poisson", options="min");
 
@@ -34,6 +35,11 @@ gene_names <- substring(gene_names,1,15);
 xli  <-  gene_names;
 gene_list <- do.call(rbind, lapply(1:dim(top_features)[1], function(x) gene_names[top_features[x,]]))
 
+```
+
+```{r all_genes}
+write.table(gene_names, paste0("../utilities/gene_names_all_gtex.txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
 ```
 
 ### Cluster 1 Annotations
@@ -170,6 +176,52 @@ kable(as.data.frame(out))
 write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",15,".txt"), col.names = FALSE,
             row.names=FALSE, quote=FALSE);
 ```
+
+### Cluster 16 Annotations
+
+```{r echo=TRUE, eval=TRUE}
+out <- mygene::queryMany(gene_list[16,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
+kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",16,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
+```
+
+### Cluster 17 Annotations
+
+```{r echo=TRUE, eval=TRUE}
+out <- mygene::queryMany(gene_list[17,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
+kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",17,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
+```
+
+### Cluster 18 Annotations
+
+```{r echo=TRUE, eval=TRUE}
+out <- mygene::queryMany(gene_list[18,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
+kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",18,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
+```
+
+### Cluster 19 Annotations
+
+```{r echo=TRUE, eval=TRUE}
+out <- mygene::queryMany(gene_list[19,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
+kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",19,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
+```
+
+### Cluster 20 Annotations
+
+```{r echo=TRUE, eval=TRUE}
+out <- mygene::queryMany(gene_list[20,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
+kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",20,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
+```
+
 
 ## GTEx Brain cluster annotations
 
