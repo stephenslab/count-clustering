@@ -24,7 +24,6 @@ tissue_labels[grep("accumbens", tissue_labels)] = "Brain - N. accumbens"
 tissue_labels[grep("Caudate", tissue_labels)] = "Brain - Caudate"
 tissue_labels[grep("Putamen", tissue_labels)] = "Brain - Putamen"
 
-Brain - Nucleus accumbens (basal ganglia)
 
 factor_levels <- c(
                    "Brain - Spinal cord (cervical c-1)",
