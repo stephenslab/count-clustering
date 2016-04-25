@@ -34,7 +34,7 @@ matdata <- data[,-(1:2)];
 samples_id=read.table("../external_data/GTEX_V6/samples_id.txt")[,3];
 ```
 
-We fit a topic model for $K=15$ over all the tissues in the GTEX V6 data.
+We fit a topic model for $K=20$ over all the tissues in the GTEX V6 data.
 
 ```{r echo=TRUE, eval=FALSE}
 Topic_Clus=topics(t(matdata),15,kill=0,tol=0.1);
@@ -44,10 +44,8 @@ docweights=Topic_Clus$omega;
 ## Structure Plot (All tissues)
 
 ```{r echo=TRUE, eval=TRUE}
-omega <- read.table("../external_data/GTEX_V6/admix_out_GTEX_V6//omega_cis_genes_0_1_2.txt",
-                    header = TRUE, sep = " ",
-                    stringsAsFactors = FALSE)
-dim(omega)
+gom_model_fit <- get(load("../external_data/GTEX_V6/gtexv6fit.k.20.master.rda"))
+omega <- gom_model_fit$omega
 colnames(omega) <- c(1:NCOL(omega))
 
 # make cell sample labels
@@ -75,25 +73,6 @@ ordering <- heatmap(docweights_per_tissue_mean)$rowInd
 
 # order tissue by hierarhical clustering results
 tissue_levels_reordered <- unique(tissue_labels)[ordering]
-
-# move Artery - Coronary next to the other Artery tissues
-which(tissue_levels_reordered == "Artery - Coronary")
-tissue_levels_reordered[45:50] <- c("Artery - Tibial",
-                                    "Artery - Coronary",
-                                    "Esophagus - Muscularis",
-                                    "Colon - Sigmoid",
-                                    "Esophagus - Mucosa",
-                                    "Bladder")
-# rearrange brain tissue order
-tissue_levels_reordered[1:13] <- c(
-    "Brain - Cerebellar Hemisphere", "Brain - Cerebellum",
-    "Brain - Spinal cord (cervical c-1)",
-    "Brain - Anterior cortex (BA24).", "Brain - Frontal Cortex (BA9)",
-    "Brain - Cortex",
-    "Brain - Hippocampus", "Brain - Substantia nigra",
-    "Brain - Amygdala", "Brain -Putamen",
-    "Brain -Caudate",
-    "Brain - Hypothalamus", "Brain -N. accumbens")
 
 
 annotation <- data.frame(
@@ -125,10 +104,8 @@ StructureGGplot(omega = omega,
 ## Structure Plot (thinned GTEx data)
 
 ```{r echo=TRUE, eval=TRUE}
-omega_thin <- read.table("../external_data/GTEX_V6/admix_out_GTEX_V6/omega_cis_genes_0_0001.txt",
-                    header = TRUE, sep = " ",
-                    stringsAsFactors = FALSE)
-dim(omega_thin)
+gom_model_fit <- get(load("../external_data/GTEX_V6/gtexv6fit.k20.thin.0001.rda"))
+omega_thin <- gom_model_fit$omega
 colnames(omega_thin) <- c(1:NCOL(omega_thin))
 
 sample_labels <- read.table("../external_data/GTEX_V6/samples_id.txt",
@@ -141,28 +118,28 @@ annotation_thinned <- data.frame(
     sample_id = paste0("X", 1:length(tissue_labels)),
     tissue_label = annotation$tissue_label )
 
-cols_thinned <- cols1
-cols_thinned[15] <- cols1[14];
-cols_thinned[14] <- cols1[13];
-cols_thinned[10] <- cols1[10];
-cols_thinned[3] <- cols1[4];
-cols_thinned[7] <- cols1[7];
-cols_thinned[8] <- cols1[9];
-cols_thinned[11] <- cols1[12];
-cols_thinned[12] <- cols1[11];
-cols_thinned[1] <- cols1[1];
-cols_thinned[2] <- cols1[2];
-cols_thinned[4] <- cols1[3];
-cols_thinned[5] <- cols1[8];
-cols_thinned[6] <- cols1[6];
-cols_thinned[9] <- cols1[5];
-cols_thinned[13] <- cols1[15];
+# cols_thinned <- cols1
+# cols_thinned[15] <- cols1[14];
+# cols_thinned[14] <- cols1[13];
+# cols_thinned[10] <- cols1[10];
+# cols_thinned[3] <- cols1[4];
+# cols_thinned[7] <- cols1[7];
+# cols_thinned[8] <- cols1[9];
+# cols_thinned[11] <- cols1[12];
+# cols_thinned[12] <- cols1[11];
+# cols_thinned[1] <- cols1[1];
+# cols_thinned[2] <- cols1[2];
+# cols_thinned[4] <- cols1[3];
+# cols_thinned[5] <- cols1[8];
+# cols_thinned[6] <- cols1[6];
+# cols_thinned[9] <- cols1[5];
+# cols_thinned[13] <- cols1[15];
 ```
 
 ```{r echo=TRUE, eval=TRUE, fig.height=10, fig.width=5, message=FALSE, warning=FALSE}
 StructureGGplot(omega = omega_thin,
                 annotation= annotation,
-                palette = cols_thinned,
+                palette = cols1,
                 yaxis_label = "",
                 order_sample = TRUE,
                 split_line = list(split_lwd = .1,
