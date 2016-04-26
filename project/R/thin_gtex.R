@@ -1,11 +1,12 @@
 ## GTEx not thinned
 
-#gom_model_fit <- get(load("../external_data/GTEX_V6/gtexv6fit.k.20.master.rda"))
-gom_model_fit <- get(load("../../../../Downloads/gtexv6fit.k.20.master.rda"))
+gom_model_fit <- get(load("../external_data/GTEX_V6/gtexv6fit.k.20.master.rda"))
+#gom_model_fit <- get(load("../../../../Downloads/gtexv6fit.k.20.master.rda"))
 omega <- gom_model_fit$omega
 colnames(omega) <- c(1:NCOL(omega))
 
 sample_labels <- read.table("../external_data/GTEX_V6/samples_id.txt",
+#sample_labels <- read.table("rdas/samples_id.txt",
                             header = TRUE, sep = " ",
                             stringsAsFactors = FALSE)
 tissue_labels <- vector("numeric", NROW(sample_labels))
@@ -90,8 +91,8 @@ cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)
            RColorBrewer::brewer.pal(8, "Dark2")[c(3,4,8)])
 
 
-# pdf("plots/gtex-figures/gtex-k20-thin01.pdf",
-#     height = 9, width=4)
+# pdf("plots/gtex-figures/gtex-k20.pdf",
+  # height = 9, width=4)
 CountClust::StructureGGplot(omega = omega,
                             annotation= annotation,
                             palette = cols1,
