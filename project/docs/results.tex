@@ -1,3 +1,44 @@
+\section{Methods Overview}
+
+We assume that the RNA-seq data on $N$ samples has been summarized by a table of counts $C_{N \times G} = (c_{ng})$, 
+where $c_{ng}$ is the number of reads from sample $n$ mapped to gene $g$ (or other unit, such as transcript or exon) \cite{Oshlack2010}.  
+The GoM model is a generalization of a cluster model, which allows that each sample has some proportion (``grade") of membership,
+in each cluster.  For RNA-seq data this corresponds to 
+assuming that each sample $n$ has some proportion of its reads, $q_{nk}$ coming from cluster $k$. 
+In addition, each cluster $k$ is characterized by a probability vector, $\theta_{k\cdot}$, whose $g$th element represents
+the relative expression of gene $g$ in cluster $k$. 
+The GoM model is then
+\begin{equation} \label{eqn:mult}
+c_{n\cdot} \sim \text{Mult}(c_{n+}, p_{n\cdot}),
+\end{equation}
+where
+\begin{equation} \label{eqn:gom}
+p_{ng} := \sum_{k=1}^{K} q_{nk}\theta_{kg}.    
+\end{equation}
+The number of clusters $K$ is set by the analyst, and it can be helpful to explore multiple
+values of $K$ (see Discussion).
+
+To fit this model to RNA-seq data, we exploit the fact that exactly the same GoM model is commonly used for document clustering \cite{Blei2003}.
+This is because, just as RNA-seq samples can be summarized by counts of reads mapping to each possible gene in the genome, 
+document data can be summarized by counts of each possible word in a dictionary.
+Recognizing this allows existing methods and software for document clustering to be applied directly to RNA-seq data. 
+%Specifically,  the  Latent Dirichlet Allocation model from \cite{Blei2003}, which is widely used to cluster documents based on their word counts, 
+%is based on a multinomial model that applies naturally and immediately to RNA-seq data. 
+Here we use the R package {\tt maptpx} \cite{Taddy2012} to fit the GoM model.
+
+Fitting the GoM model results in estimated membership proportions $q$ for each sample, and estimated expression values $\theta$ for each cluster.
+We visualize the membership proportions for each sample using a ``Structure plot" \cite{Rosenberg2002}, 
+which is named for its widespread use in visualizing the
+results of the {\it Structure} software \cite{Pritchard2000} in population genetics.
+The Structure plot represents the estimated membership proportions of each sample 
+as a stacked barchart, with bars of different colors representing  different clusters. Consequently, samples that have similar membership proportions have
+similar amounts of each color. See Figure \ref{fig:fig1} for example.
+%In addition, to help biologically interpret each cluster, we developed a method to identify which genes are most distinctively differentially expressed in each cluster (see Methods).
+
+To help biologically interpret the clusters inferred by the GoM model we also implemented methods to identify, for each cluster, which genes
+are most distinctively differentially expressed in that cluster (see Methods). Functions for fitting the GoM model, plotting the
+structure plots, and identifying the genes driving each cluster, are included in our R package {\tt CountClust} \cite{Dey2016} available through Bioconductor \cite{Gentleman2003}.  
+
 \section{Results}
 
 %An outline for results  (under consideration)
@@ -24,28 +65,6 @@
 %
 %\end{itemize}
 
-In brief, our approach starts by summarizing RNA-seq data by a table of counts $C_{N \times G} = (c_{ng})$, where $c_{ng}$ is the number of reads from sample $n$ mapped to gene (or transcript) $g$ \cite{Oshlack2010}.  We fit a GoM model to this table of counts, which assumes that 
-\begin{equation} \label{eqn:mult}
-c_{n\cdot} \sim \text{Mult}(c_{n+}, p_{n\cdot}),
-\end{equation}
-where $c_{n\cdot}$ denotes the count vector for the $n$th sample, $c_{n+} := \sum_g c_{ng}$, and $p_{n\cdot}$ is a probability vector (non-negative entries summing to 1) whose $g$th element represents the relative expression of gene $g$ in sample $n$. 
-The GoM model further assumes that 
-\begin{equation} \label{eqn:gom}
-p_{ng} = \sum_{k=1}^{K} q_{nk}\theta_{kg}    
-\end{equation}
-where $q_{n\cdot}$ is a probability vector whose $k$th element represents the grade of membership (or ``membership proportion") of
-sample $n$ in cluster $k$, and $\theta_{k\cdot}$ is a probability vector whose $g$th element represents
-the relative expression of gene $g$ in cluster $k$. The number of clusters $K$ is set by the analyst, and it can be helpful to explore multiple
-values of $K$ (see Discussion).
-
-Fitting this model (see Methods) results in estimated membership proportions $q$ for each sample, and estimated expression values $\theta$ for each cluster.
-We visualize the membership proportions for each sample using a ``Structure plot" \cite{Rosenberg2002}, 
-which is named for its widespread use in visualizing the
-results of the {\it Structure} software \cite{Pritchard2000} in population genetics.
-The Structure plot represents the estimated membership proportions of each sample 
-as a stacked barchart, with bars of different colors representing  different clusters. Consequently samples that have similar membership proportions have
-similar amounts of each color. See Figure \ref{fig:fig1} for example.
-%In addition, to help biologically interpret each cluster, we developed a method to identify which genes are most distinctively differentially expressed in each cluster (see Methods).
 
 \subsection{Clustering human tissue samples using bulk RNA-seq}
 
