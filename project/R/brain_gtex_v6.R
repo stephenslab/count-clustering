@@ -1,6 +1,6 @@
 ###  Brain GTEx V6 data
 
-data <- data.frame(fread('../data/GTEX_V6/cis_gene_expression.txt'));
+data <- data.frame(fread('../external_data/GTEX_V6/cis_gene_expression.txt'));
 matdata <- data[,-(1:2)];
 samples_id=read.table("/Users/kushal/Documents/gtex-viz/gtex.Kushal/data/samples_id.txt")[,3];
 brain_indices <- grep("Brain", samples_id);
