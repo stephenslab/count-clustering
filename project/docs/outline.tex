@@ -20,13 +20,14 @@ These models are widely used in population genetics to model admixed individuals
 and in natural language processing to model documents having words from multiple ``topics". Here we illustrate the potential for these models
 to cluster samples of RNA-seq gene expression data, measured on either bulk samples or single cells. 
 We also provide methods to help interpret the clusters, by identifying genes that are distinctively expressed in each cluster. 
-Together these methods provide an attractive summary of the primary structure in several example RNA-seq applications. Applied to
+By applying these methods to several example RNA-seq applications we demonstrate their utility in
+identifying and summarizing structure and heterogeneity. Applied to
 data from the GTEx project on 51 human tissues, the approach highlight similarities among biologically-related tissues and
-identifies distinctively-expressed genes that largely recapitulate known biology.  Applied to single-cell expression data from 
+identifies distinctively-expressed genes that recapitulate known biology.  Applied to single-cell expression data from 
 mouse preimplantation embryos, the approach highlights both discrete and continuous variation through early embryonic development stages,
 and highlights genes involved in a variety of relevant processes -- from germ cell development, through compaction and morula formation, to
 the formation of inner cell mass and trophoblast at the blastocyte stage.
-The methods are implemented in the Bioconductor package                                   {\tt CountClust}.
+The methods are implemented in the Bioconductor package {\tt CountClust}.
 \end{abstract}
 
 \section{Introduction}
@@ -47,9 +48,14 @@ That is, they allow that each sample has a proportion, or ``grade" of membership
 models are widely used in population genetics to model admixture, where individuals can have ancestry from multiple populations \cite{Pritchard2000},
 and in document clustering (\cite{Blei2003,Blei2009}) where each document can have membership in multiple topics. In these fields
 GoM models are often known as ``admixture models", and ``topic models" or ``Latent Dirichlet Allocation" \cite{Blei2003}. GoM models have also recently
-been applied to detect mutation signatures in cancer samples \cite{Shiraishi2015}.
+been applied to detect mutation signatures in cancer samples \cite{Shiraishi2015}. 
 
 
+
+%Interestingly, although we have not previously seen GoM models applied to RNA-seq data, several software packages
+%for doing this already exist! \footnote{While preparing this work for publication we became aware of ongoing independent work
+%by \cite{duVerle2016} applying GoM models to RNA-seq data.}
+ %This is because of a 
 %In other fields, generalizations of clustering methods have been developed to capture more complex structure, and are widely used.
 %Motivated by this we apply a generalization of clustering methods, known as ``grade of membership models" \cite{Erosheva2006},
 %to elucidate structure in expression data - and, in particular, for clustering RNA-seq data from either bulk tissue samples or single cells.
@@ -59,37 +65,28 @@ been applied to detect mutation signatures in cancer samples \cite{Shiraishi2015
 %is to argue that such model-based approaches also provide an attractive approach to cluster analysis of RNA-seq data, both bulk and single-cell.
 %In particular we illustrate the potential for ``grade of membership models" \cite{Erosheva2006} to elucidate structure in both bulk and single-cell RNA-seq expression data. 
 
-
-In the context of RNA-seq expression data, the GoM model allows that each
- sample has some proportion of its RNA-seq reads coming from each cluster. For typical bulk RNA-seq experiments this assumption 
-could be motivated by a simple -- and perhaps simplistic -- argument: each sample is a mixture of different cell types, and so clusters 
-could represent cell types, and the membership of a sample in each cluster could represent the proportions of each cell type present.
-This is similar to the idea of ``deconvolution" methods that use cell-type-specific expression profiles of marker genes to estimate the concentration of different cell types in a mixture \cite{Lindsay2013}. And, indeed, the GoM model we use here is analogous to -- although different in detail from -- 
+Although we are not the first to apply GoM-like models to gene expression data, previous applications
+have been primarily motivated by a specific goal, ``cell type deconvolution", which involves  
+using cell-type-specific expression profiles of marker genes to estimate the proportions of different cell types in a mixture \cite{Lindsay2013}. 
+Specifically, the GoM model we use here is analogous to -- although different in detail from -- 
 blind deconvolution approaches \cite{Schwartz2010,Repsilber2010}
  which estimate cell type proportions and cell type signatures jointly (see also \cite{Shen-Orr2010,Qiao2012} for semi-supervised approaches). 
-However, we believe that the GoM model can be useful more generally to elucidate structure in expression data - not only as a way to deconvolve 
-mixtures of cell types. For example, in single-cell expression data, where each sample is a single cell, 
-treating each sample as a ``mixture of cell types" is clearly inappropriate, and yet we see value in the idea
-that there may be some ``continuous" variation in cell types, rather than (or perhaps in addition to) the purely discrete variation captured by cluster models. 
-Indeed, the extent to which variation among cells can be described in terms of discrete clusters vs more continuous populations
+Our goal here is to demonstrate that GoM models can be useful much more broadly
+for understanding structure in RNA-seq data -- not only to deconvolve 
+mixtures of cell types. For example, in our analysis of human tissue samples from the GTEX project below, the GoM model
+usefully captures biological heterogeneity among samples even though the inferred grades of
+membership are unlikely to correspond precisely to proportions of specific cell types.
+And in our analyses of single-cell expression data the GoM model highlights interesting
+structure, even though interpreting the grades of membership as a ``proportions of cell types" is clearly inappropriate because each sample is a single cell!
+Here we are exploiting the GoM as a flexible extension of traditional cluster models, 
+which can capture ``continuous" variation among cells as well as the more ``discrete" variation captured by cluster models. 
+Indeed, the extent to which variation among cells can be described in terms of discrete clusters versus more continuous populations
 is a fundamental question that, when combined with appropriate single-cell RNA-seq data, the GoM models used here may
-ultimately help address. Further, even for bulk RNA-seq data, we argue that GoM models may yield interesting insights into heterogeneity among samples
-even if the inferred cluster memberships do not correspond precisely to proportions of specific cell types, as may often happen in practice.
+ultimately help address.
 
-Interestingly, although we have not previously seen GoM models applied to RNA-seq data, several software packages
-for doing this already exist! \footnote{While preparing this work for publication we became aware of ongoing independent work
-by \cite{duVerle2016} applying GoM models to RNA-seq data.}
- This is because of a parallel between clustering samples based on RNA-seq counts,
- and clustering documents based on word counts, which means that many existing software packages
- for document clustering can be applied directly to RNA-seq data. Specifically, 
- the 
-Latent Dirichlet Allocation model from \cite{Blei2003}, which is widely used to cluster documents based on their word counts, 
-is based on a multinomial model that applies naturally and immediately to RNA-seq data. 
-Whereas documents are characterized by counts of each possible word in a dictionary, RNA-seq samples
-are characterized by counts of reads mapping to each possible gene (or other unit, such as transcript, or exon) in the genome. 
-Here we use the R package {\tt maptpx} \cite{Taddy2012} to fit these models, and we add functionality for conveniently visualizing the results and annotating
-clusters by their most distinctive genes to help biological interpretation. These methods are implemented in the package {\tt CountClust} \cite{Dey2016} available as part of the Bioconductor project \cite{Gentleman2003}.  
-
+%Our main contribution is to demonstrate the potential for GoM models to complement traditional clustering methods in elucidating structure in RNA-seq data. The GoM model generalizes cluster models by allowing that each sample has some proportion of its RNA-seq reads coming from each cluster. 
+ 
+ 
 
 
 %In this paper, we demonstrate that for RNA-seq (bulk or single cell) data with known structural patterns, such count clustering approach identifies the structure better than hierarchical clustering. It also allows one to interpret each cluster by providing information about genes that are playing a significant role in driving the clusters and these genes may be important from both biological and medical standpoint. Also we show our method to be robust even for low coverage data as might be the case for single cell RNA-seq (scRNA-seq) data.
