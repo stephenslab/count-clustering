@@ -46,3 +46,18 @@ topic_fit_20_4 <- get(load("../external_data/GTEX_V6/gtexv6fit.k.20.part4.rda"))
 topic_fit_20_4_list <- list(topic_fit_20_4)
 compgom_20_4 <- compGoM(t(matdata), topic_fit_20_4_list)
 loglik_20_4 <- as.numeric(compgom_20_4[2,1]);
+
+topic_fit_5_1 <- get(load("../external_data/GTEX_V6/gtexv6fit.k.5.rda"));
+topic_fit_5_1_list <- list(topic_fit_5_1)
+compgom_5_1 <- compGoM(t(matdata), topic_fit_5_1_list)
+loglik_5_1 <- as.numeric(compgom_5_1[2,1]);
+
+topic_fit_5_2 <- get(load("../external_data/GTEX_V6/gtexv6fit.k.5.run2.rda"));
+topic_fit_5_2_list <- list(topic_fit_5_2)
+compgom_5_2 <- compGoM(t(matdata), topic_fit_5_2_list)
+loglik_5_2 <- as.numeric(compgom_5_2[2,1]);
+
+topic_fit_5_3 <- get(load("../external_data/GTEX_V6/gtexv6fit.k.5.run3.rda"));
+topic_fit_5_3_list <- list(topic_fit_5_3)
+compgom_5_3 <- compGoM(t(matdata), topic_fit_5_3_list)
+loglik_5_3 <- as.numeric(compgom_5_3[2,1]);
