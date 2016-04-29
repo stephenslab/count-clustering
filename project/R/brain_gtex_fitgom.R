@@ -18,4 +18,4 @@ source("../../../maptpx/R/count.R")
 
 library(slam)
 library(maptpx)
-Topic_clus <- topics(t(brain_data), K=5, tol=100, method_admix=1);
+Topic_clus <- topics(t(brain_data), K=8, tol=100, method_admix=1);

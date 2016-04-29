@@ -200,7 +200,7 @@ CountClust::StructureGGplot(omega = omega_thin,
 
 ##<-- brain tissue plots
 
-brain_gom_fit <- get(load("../rdas/gtexv6brain.k5fit.rda"))
+brain_gom_fit <- get(load("../rdas/gtexv6brain.k8fit.rda"))
 omega <- brain_gom_fit$omega
 dim(omega)
 colnames(omega) <- c(1:NCOL(omega))
@@ -246,7 +246,7 @@ annotation <- data.frame(
                                        "Brain - Cerebellar Hemisphere") ) ) )
 
 # define colors of the clusers
-cols <- c("blue", "darkgoldenrod1", "cyan", "red", "green", "gray")
+cols <- c("blue", "darkgoldenrod1", "cyan", "red", "green", "gray", "pink", "brown")
 
 ##<-- make barplot
 #source("../R/StructureGGplot.R")
@@ -271,7 +271,7 @@ CountClust::StructureGGplot(omega = omega,
 
 ##########  K=5 ###################
 
-gom_model_fit <- get(load("../external_data/GTEX_V6/gtexv6fit.k.5.rda"))
+gom_model_fit <- get(load("../external_data/GTEX_V6/gtexv6fit.k.5.run3.rda"))
 
 omega_thin <- gom_model_fit$omega
 colnames(omega_thin) <- c(1:NCOL(omega_thin))
@@ -363,10 +363,10 @@ cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)
 
 cols4 <- array(0, 5);
 cols4[1] <- cols1[1]
-cols4[2] <- cols1[14]
+cols4[2] <- cols1[2]
 cols4[3] <- cols1[6]
-cols4[4] <- cols1[19]
-cols4[5] <- cols1[18]
+cols4[4] <- cols1[14]
+cols4[5] <- cols1[19]
 
 CountClust::StructureGGplot(omega = omega_thin,
                             annotation= annotation,
@@ -384,7 +384,7 @@ CountClust::StructureGGplot(omega = omega_thin,
 
 ##########  K=10 ###################
 
-gom_model_fit <- get(load("../external_data/GTEX_V6/gtexv6fit.k.10.rda"))
+gom_model_fit <- get(load("../external_data/GTEX_V6/gtexv6fit.k.10.run2.rda"))
 
 omega_thin <- gom_model_fit$omega
 colnames(omega_thin) <- c(1:NCOL(omega_thin))
@@ -488,7 +488,7 @@ cols5[10] <- cols1[20]
 
 CountClust::StructureGGplot(omega = omega_thin,
                             annotation= annotation,
-                            palette = cols5,
+                            palette = cols1,
                             yaxis_label = "",
                             order_sample = TRUE,
                             split_line = list(split_lwd = .1,
