@@ -501,7 +501,7 @@ source("../R/polarHistogramStructure.R")
 ##<-- brain tissue plots
 
 
-omega <- read.table("../project/rdas/omega_cis_genes_brain.txt",
+omega <- read.table("../rdas/omega_cis_genes_brain.txt",
                     header = TRUE, sep = " ",
                     stringsAsFactors = FALSE)
 dim(omega)
@@ -511,41 +511,53 @@ head(omega)
 
 # make cell sample labels
 # want a version consistent with majority of the literature
-sample_labels <- read.table("../project/rdas/samples_id.txt",
+sample_labels <- read.table("../rdas/samples_id.txt",
                             header = TRUE, sep = " ",
                             stringsAsFactors = FALSE)
-brain_labels <- sample_labels[grep("Brain", sample_labels[,3]), 3]
+
+tissue_labels <- vector("numeric", NROW(sample_labels))
+tissue_labels <- sample_labels[ ,3]
+
+tissue_levels <- unique(tissue_labels);
+
+tissue_labels[grep("accumbens", tissue_labels)] = "Brain - N. accumbens"
+tissue_labels[grep("Caudate", tissue_labels)] = "Brain - Caudate"
+tissue_labels[grep("Putamen", tissue_labels)] = "Brain - Putamen"
+tissue_labels[grep("cingulate", tissue_labels)] = "Brain - Anterior cortex (BA24)"
+
+
+brain_labels <- tissue_labels[grep("Brain", tissue_labels)]
 
 # assign tissue labels
 rownames(omega) <- paste0("X", 1:length(brain_labels))
 annotation <- data.frame(
     sample_id = paste0("X", 1:length(brain_labels)),
     tissue_label = factor(brain_labels,
-                          levels = rev(c("Brain - Cerebellar Hemisphere",
-                                     "Brain - Cerebellum",
-                                     "Brain - Spinal cord (cervical c-1)",
-                                     "Brain - Anterior cingulate cortex (BA24)",
-                                     "Brain - Frontal Cortex (BA9)",
-                                     "Brain - Cortex",
-                                     "Brain - Hippocampus",
-                                     "Brain - Substantia nigra",
-                                     "Brain - Amygdala",
-                                     "Brain - Putamen (basal ganglia)",
-                                     "Brain - Caudate (basal ganglia)",
-                                     "Brain - Hypothalamus",
-                                     "Brain - Nucleus accumbens (basal ganglia)") ) ) )
+                          levels = rev(c("Brain - Spinal cord (cervical c-1)",
+                                         "Brain - Substantia nigra",
+                                         "Brain - Amygdala",
+                                         "Brain - Hypothalamus",
+                                         "Brain - Hippocampus",
+                                         "Brain - Putamen",
+                                         "Brain - Caudate",
+                                         "Brain - N. accumbens",
+                                         "Brain - Frontal Cortex (BA9)",
+                                         "Brain - Anterior cortex (BA24)",
+                                         "Brain - Cortex",
+                                         "Brain - Cerebellum",
+                                         "Brain - Cerebellar Hemisphere") ) ) )
 
 # define colors of the clusers
 cols <- c("blue", "darkgoldenrod1", "cyan", "red")
 
 ##<-- make barplot
-source("../R/StructureGGplot.R")
+#source("../R/StructureGGplot.R")
 
 # subset_example <- which(annotation$tissue_label %in%
 #     levels(annotation$tissue_label)[1:2] )
 pdf("plots/gtex-figures/brain-barplot.pdf",
     height = 4, width = 4)
-StructureGGplot(omega = omega,
+CountClust::StructureGGplot(omega = omega,
                 annotation= annotation,
                 palette = cols,
                 yaxis_label = "",
@@ -555,7 +567,7 @@ StructureGGplot(omega = omega,
                 axis_tick = list(axis_ticks_length = .1,
                                  axis_ticks_lwd_y = .1,
                                  axis_ticks_lwd_x = .1,
-                                 axis_label_size = 3,
+                                 axis_label_size = 7,
                                  axis_label_face = "bold"))
 StructureGGplot(omega = omega,
                 annotation= annotation,
