@@ -227,8 +227,8 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_clus_",20,".tx
 
 ```{r echo=TRUE, eval=TRUE}
 
-topics_theta_brain <- data.frame(fread("../external_data/GTEX_V6/admix_out_GTEX_V6/theta_cis_genes_brain_2.txt"))[,-1];
-
+brain_gom <- get(load("../rdas/gtexv6brain.k6fit.rda"))
+topics_theta_brain <- brain_gom$theta
 top_features <- ExtractTopFeatures(topics_theta_brain, top_features=100, method="poisson", options="min");
 
 gene_names <- as.vector(as.matrix(read.table("../external_data/GTEX_V6/gene_names_GTEX_V6.txt")))
@@ -271,5 +271,23 @@ write.table(as.factor(out$query), paste0("../utilities/gene_names_brain_clus_",3
 out <- mygene::queryMany(gene_list_brain[4,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
 kable(as.data.frame(out))
 write.table(as.factor(out$query), paste0("../utilities/gene_names_brain_clus_",4,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
+```
+
+### Cluster 5 Annotations
+
+```{r echo=TRUE, eval=TRUE}
+out <- mygene::queryMany(gene_list_brain[5,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
+kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_brain_clus_",5,".txt"), col.names = FALSE,
+            row.names=FALSE, quote=FALSE);
+```
+
+### Cluster 6 Annotations
+
+```{r echo=TRUE, eval=TRUE}
+out <- mygene::queryMany(gene_list_brain[6,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
+kable(as.data.frame(out))
+write.table(as.factor(out$query), paste0("../utilities/gene_names_brain_clus_",6,".txt"), col.names = FALSE,
             row.names=FALSE, quote=FALSE);
 ```

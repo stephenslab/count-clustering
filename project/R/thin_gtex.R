@@ -217,32 +217,12 @@ CountClust::StructureGGplot(omega = omega_thin,
 
 ######<---- brain tissue plots
 
-omega <- read.table("../rdas/omega_cis_genes_brain.txt",
+#omega <- read.table("../rdas/omega_cis_genes_brain.txt",
 #omega <- read.table("../../../../Downloads/omega_cis_genes_brain.txt",
-                    header = TRUE, sep = " ",
-                    stringsAsFactors = FALSE)
-dim(omega)
-colnames(omega) <- c(1:NCOL(omega))
-head(omega)
+#                    header = TRUE, sep = " ",
+#                    stringsAsFactors = FALSE)
 
-# make cell sample labels
-# want a version consistent with majority of the literature
-sample_labels <- read.table("../rdas/samples_id.txt",
-                            header = TRUE, sep = " ",
-                            stringsAsFactors = FALSE)
-
-tissue_labels <- vector("numeric", NROW(sample_labels))
-tissue_labels <- sample_labels[ ,3]
-
-tissue_levels <- unique(tissue_labels);
-
-<<<<<<< HEAD
-=======
-
-
-##<-- brain tissue plots
-
-brain_gom_fit <- get(load("../rdas/gtexv6brain.k8fit.rda"))
+brain_gom_fit <- get(load("../rdas/gtexv6brain.k6fit.rda"))
 omega <- brain_gom_fit$omega
 dim(omega)
 colnames(omega) <- c(1:NCOL(omega))
@@ -259,23 +239,16 @@ tissue_labels <- vector("numeric", NROW(sample_labels))
 tissue_labels <- sample_labels[ ,3]
 
 tissue_levels <- unique(tissue_labels);
-
->>>>>>> upstream/master
 tissue_labels[grep("accumbens", tissue_labels)] = "Brain - N. accumbens"
 tissue_labels[grep("Caudate", tissue_labels)] = "Brain - Caudate"
 tissue_labels[grep("Putamen", tissue_labels)] = "Brain - Putamen"
 tissue_labels[grep("cingulate", tissue_labels)] = "Brain - Anterior cortex (BA24)"
 
-<<<<<<< HEAD
-=======
-
->>>>>>> upstream/master
 brain_labels <- tissue_labels[grep("Brain", tissue_labels)]
 
 # assign tissue labels
 rownames(omega) <- paste0("X", 1:length(brain_labels))
 annotation <- data.frame(
-<<<<<<< HEAD
     sample_id = paste0("X", 1:length(brain_labels)),
     tissue_label = factor(brain_labels,
                           levels = rev(c("Brain - Spinal cord (cervical c-1)",
@@ -293,27 +266,10 @@ annotation <- data.frame(
                                          "Brain - Cerebellar Hemisphere") ) ) )
 
 # define colors of the clusers
-cols <- c("blue", "darkgoldenrod1", "cyan", "red")
+#cols <- c("blue", "darkgoldenrod1", "cyan", "red")
 
 # pdf("plots/gtex-figures/brain-barplot.pdf",
 #     height = 4, width = 4)
-=======
-  sample_id = paste0("X", 1:length(brain_labels)),
-  tissue_label = factor(brain_labels,
-                        levels = rev(c("Brain - Spinal cord (cervical c-1)",
-                                       "Brain - Substantia nigra",
-                                       "Brain - Amygdala",
-                                       "Brain - Hypothalamus",
-                                       "Brain - Hippocampus",
-                                       "Brain - Putamen",
-                                       "Brain - Caudate",
-                                       "Brain - N. accumbens",
-                                       "Brain - Frontal Cortex (BA9)",
-                                       "Brain - Anterior cortex (BA24)",
-                                       "Brain - Cortex",
-                                       "Brain - Cerebellum",
-                                       "Brain - Cerebellar Hemisphere") ) ) )
-
 # define colors of the clusers
 cols <- c("blue", "darkgoldenrod1", "cyan", "red", "green", "gray", "pink", "brown")
 
@@ -322,9 +278,8 @@ cols <- c("blue", "darkgoldenrod1", "cyan", "red", "green", "gray", "pink", "bro
 
 # subset_example <- which(annotation$tissue_label %in%
 #     levels(annotation$tissue_label)[1:2] )
-pdf("plots/gtex-figures/brain-barplot.pdf",
-    height = 4, width = 4)
->>>>>>> upstream/master
+#pdf("plots/gtex-figures/brain-barplot.pdf",
+#    height = 4, width = 4)
 CountClust::StructureGGplot(omega = omega,
                             annotation= annotation,
                             palette = cols,
@@ -337,15 +292,13 @@ CountClust::StructureGGplot(omega = omega,
                                              axis_ticks_lwd_x = .1,
                                              axis_label_size = 7,
                                              axis_label_face = "bold"))
-<<<<<<< HEAD
 #dev.off()
-=======
 
 ##################################################
 ######<--- supplemental GTEx figures --->#########
 ##################################################
 
-    
+
 ######<---  K=5
 
 gom_model_fit <- get(load("../external_data/GTEX_V6/gtexv6fit.k.5.run3.rda"))
