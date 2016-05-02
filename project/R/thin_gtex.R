@@ -218,7 +218,7 @@ CountClust::StructureGGplot(omega = omega_thin,
 
 
 
-
+<<<<<<< HEAD
 
 ######<---- brain tissue plots
 
@@ -275,12 +275,20 @@ annotation <- data.frame(
 
 # define colors of the clusers
 #cols <- c("blue", "darkgoldenrod1", "cyan", "red")
+<<<<<<< HEAD
 cols <- c("blue", 
           "cyan", 
           "limegreen",  
           "red", 
           "orange", 
           "yellow")
+=======
+
+# pdf("plots/gtex-figures/brain-barplot.pdf",
+#     height = 4, width = 4)
+# define colors of the clusers
+cols <- c("blue", "darkgoldenrod1", "cyan", "red", "green", "gray", "pink", "brown")
+>>>>>>> upstream/master
 
 ##<-- make barplot
 #source("../R/StructureGGplot.R")
@@ -303,11 +311,12 @@ CountClust::StructureGGplot(omega = omega,
                                              axis_label_face = "bold"))
 dev.off()
 
+
 ##################################################
 ######<--- supplemental GTEx figures --->#########
 ##################################################
 
-    
+
 ######<---  K=5
 
 gom_model_fit <- get(load("../external_data/GTEX_V6/gtexv6fit.k.5.run3.rda"))
