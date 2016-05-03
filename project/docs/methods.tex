@@ -36,7 +36,7 @@ The {\tt maptpx} package fits this model using an EM algorithm to perform Maximu
 %The Structure plot represents each GoM vector $q_{n\cdot}$
 %as  a vertical stacked barchart, with bars of different colors representing membership proportion in each cluster (e.g.~Figure \ref{fig:fig1}). If the colored patterns of two bars are similar, then the two samples have similar membership proportions.  The Structure plot is particularly helpful when external information is available on each sample that can be used to order or group the samples in an informative way.
 
-In addition to the Structure plot, we have also found it useful to visualize results using t-distributed Stochastic Neighbor Embedding (t-SNE), which is a method for visualizing high dimensional datasets by placing them in a two dimensional space, attempting to preserve the relative distance between nearby samples \cite{Maaten2014,Maaten2008}. Compared with the Structure plot our t-SNE plots contain less information, but can better emphasise clustering of samples that have similar membership proportions in many clusters. Specifically, t-SNE tends to place samples with similar membership proportions together in the two-dimensional plot, forming visual ``clusters" that can be identified by eye (e.g. Supplementary Figure 1). This may be particularly helpful in settings where no external information is available to aid in making an informative Structure plot. 
+In addition to the Structure plot, we have also found it useful to visualize results using t-distributed Stochastic Neighbor Embedding (t-SNE), which is a method for visualizing high dimensional datasets by placing them in a two dimensional space, attempting to preserve the relative distance between nearby samples \cite{Maaten2014,Maaten2008}. Compared with the Structure plot our t-SNE plots contain less information, but can better emphasise clustering of samples that have similar membership proportions in many clusters. Specifically, t-SNE tends to place samples with similar membership proportions together in the two-dimensional plot, forming visual ``clusters" that can be identified by eye (e.g. \url{http://stephenslab.github.io/count-clustering/project/src/tissues_tSNE_2.html}). This may be particularly helpful in settings where no external information is available to aid in making an informative Structure plot. 
 
 
 \subsection{Cluster annotation}
@@ -57,7 +57,7 @@ Thus, for each cluster $k$ we identify the genes with highest $D^{g}[k]$ as the 
 We annotate the biological functions of these individual genes using the {\tt mygene} R Bioconductor package  \cite{Thompson2014}. 
 
 
-For each cluster $k$, we filter out a number of genes (top $100$ for the Deng \textit{et al} data \cite{Deng2014} and GTEx V6 data \cite{GTEX2013}) with highest $D^{g}[k]$ value and perform a gene set over-representation analysis of these genes against all the other genes in the data representing the background. To do this, we used ConsensusPathDB database (\url{http://cpdb.molgen.mpg.de/})  \cite{Kamburov2013} \cite{Pentchev2010}. See Table \ref{tab:tab1} -\ref{tab:tab2} and Table \ref{tab:tab3} for the top significant gene ontologies driving each cluster in the GTEx V6 data and the Deng \textit{et al} data respectively. 
+For each cluster $k$, we filter out a number of genes (top $100$ for the Deng \textit{et al} data \cite{Deng2014} and GTEx V6 data \cite{GTEX2013}) with highest $D^{g}[k]$ value and perform a gene set over-representation analysis of these genes against all the other genes in the data representing the background. To do this, we used ConsensusPathDB database (\url{http://cpdb.molgen.mpg.de/})  \cite{Kamburov2013} \cite{Pentchev2010}. See Table~\ref{tab:tab1}-\ref{tab:tab2} and Table~\ref{tab:tab3} for the top significant gene ontologies driving each cluster in the GTEx V6 data and the Deng \textit{et al} data respectively. 
 
 \subsection{Comparison with hierarchical clustering}
 
@@ -70,7 +70,7 @@ For the hierarchical clustering approach we cut the dendogram at $K=2$, and chec
 For the GoM model we analysed the data with $K=2$, and sorted the samples by their membership in cluster 1. We then partitioned the samples at the point of the steepest fall in this membership, and again we checked whether this cut partitions the samples into the two tissue groups.
 
 
-Figure \ref{fig:fig2} shows, for each pair of tissues, whether each method successfully partitioned the samples into the two tissue groups.
+Fig~\ref{fig:fig2} shows, for each pair of tissues, whether each method successfully partitioned the samples into the two tissue groups.
 %For instance, for GTEx tissue sample data, if the clusters are indeed driven by cell types, then the top genes for these clusters will probably be associated with proteins related to  functions for that particular cell type.
 %
 
@@ -101,7 +101,7 @@ Code for reproducing results reported here is available at \url{http://stephensl
 
 The paper is supported by the grant U01CA198933 from the NIH BD2K program.
 
-We thank Matt Taddy, Amos Tanay and Effi Kenigsberg for helpful discussions. We thank Po-Yuan Tung and John Blischak for helpful comments on a draft manuscript.}
+We thank Matt Taddy, Amos Tanay and Effi Kenigsberg for helpful discussions. We thank Po-Yuan Tung, John Blischak, and Jonathan Pritchard for helpful comments on a draft manuscript.}
 
 \textbf{\large{Disclosure Declaration}}
 

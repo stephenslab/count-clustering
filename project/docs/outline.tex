@@ -33,10 +33,10 @@ The methods are implemented in the Bioconductor package {\tt CountClust}.
 \section{Introduction}
 
 Ever since large-scale gene expression measurements have been possible, clustering -- of both genes and samples -- 
-has played a major role in their analysis \cite{Eisen1998}\cite{Golub1999} \cite{Alizadeh2000}.
+has played a major role in their analysis \cite{Alizadeh2000, Eisen1998, Golub1999}.
 For example, clustering of genes can identify genes that are working together or co-regulated, and clustering of samples is useful for quality control 
 as well as identifying biologically-distinct subgroups. A wide range of clustering methods have therefore
-been employed in this context, including distance-based hierarchical clustering, $k$-means clustering, and self-organizing maps (SOMs); see for example \cite{D'haeseleer2005} \cite{Jiang2004} for reviews. 
+been employed in this context, including distance-based hierarchical clustering, $k$-means clustering, and self-organizing maps (SOMs); see for example \cite{D'haeseleer2005, Jiang2004} for reviews. 
 
 Here we focus on cluster analysis of samples, rather than clustering of genes (although our methods do highlight sets of genes that distinguish each cluster). 
 Traditional clustering methods for this problem attempt to partition samples into distinct groups that show ``similar" expression patterns. 
@@ -46,7 +46,7 @@ Motivated by this, here we analyse expression data using grade of membership (Go
 to allow each sample to have partial membership in multiple clusters.
 That is, they allow that each sample has a proportion, or ``grade" of membership in each cluster. Such
 models are widely used in population genetics to model admixture, where individuals can have ancestry from multiple populations \cite{Pritchard2000},
-and in document clustering (\cite{Blei2003,Blei2009}) where each document can have membership in multiple topics. In these fields
+and in document clustering \cite{Blei2003,Blei2009} where each document can have membership in multiple topics. In these fields
 GoM models are often known as ``admixture models", and ``topic models" or ``Latent Dirichlet Allocation" \cite{Blei2003}. GoM models have also recently
 been applied to detect mutation signatures in cancer samples \cite{Shiraishi2015}. 
 
