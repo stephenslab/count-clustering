@@ -68,10 +68,10 @@ structure plots, and identifying the distinctive (``driving") genes in each clus
 
 \subsection{Clustering human tissue samples using bulk RNA-seq}
 
-We begin by illustrating the GoM model on bulk RNA expression measurements from the GTEx project (V6 dbGaP accession phs000424.v6.p1, release date: Oct 19, 2015, \url{http://www.gtexportal.org/home/}).  These data consist of per-gene read counts from RNA-seq performed on $8,555$ samples collected from $450$ human donors across $51$ tissues, lymphoblastoid cell lines, and transformed fibroblast cell-lines. We analyzed $16,069$ genes that satisfied filters (e.g.~exceeding certain minimum expression levels) that were used during eQTL analyses by the GTEx project (gene list available in \url{http://stephenslab.github.io/count-clustering/project/src/gene_annotation_2.html}). 
+We begin by illustrating the GoM model on bulk RNA expression measurements from the GTEx project (V6 dbGaP accession phs000424.v6.p1, release date: Oct 19, 2015, \url{http://www.gtexportal.org/home/}).  These data consist of per-gene read counts from RNA-seq performed on $8,555$ samples collected from $450$ human donors across $51$ tissues, lymphoblastoid cell lines, and transformed fibroblast cell-lines. We analyzed $16,069$ genes that satisfied filters (e.g.~exceeding certain minimum expression levels) that were used during eQTL analyses by the GTEx project (gene list available in \url{http://stephenslab.github.io/count-clustering/project/utilities/gene_names_all_gtex.txt}). 
 
 We fit the GoM model to these data, with number of clusters $K=5,10,15,20$. For each $K$ we ran the fitting algorithm three times and 
-kept the result with the highest log-likelihood. Fig~\ref{fig:fig1}(a)) shows the Structure plot for $K=20$, with results for other $K$ in \nameref{figS0}.
+kept the result with the highest log-likelihood. Fig~\ref{fig:fig1}(a) shows the Structure plot for $K=20$, with results for other $K$ in \nameref{figS0}.
 (See also \url{http://stephenslab.github.io/count-clustering/project/src/tissues_tSNE_2.html} for 
 an alternative visualization using a 2-dimensional projection with t-SNE \cite{Maaten2008, Maaten2014}.)
 
@@ -87,7 +87,7 @@ genes responsible for digestion and proteolysis, (e.g. \textit{PRSS1}, \textit{C
 
 %A field of very active interest in recent times is to estimate the proportion of different cell types in different tissues. Marker based approaches are usually adopted to validate for different cell types and get a sense of the abundance of different cell types in the tissue samples \cite{Grun2015} \cite{Palmer2005}. The admixture model is a marker free method to obtain clusters driven by cell types. 
 
-Although global analysis of all tissues is useful for highlighting major structure in the data, it may miss finer-scale structure within tissues or among similar tissues. For example, here the global analysis allocated only three clusters to all brain tissues, and we suspected that additional substructure might be uncovered by analyzing the brain samples separately with larger $K$.  Fig~\ref{fig:fig1}(b) shows the Structure plot for $K=6$ on only the Brain samples. The results highlight much finer-scale structure compared with the global analysis. Brain Cerebellum and Cerebellar hemisphere are essentially assigned to a separate cluster (lime green), which is enriched with genes related to cell periphery and communication (e.g. \textit{PKD1}, \textit{CBLN3}) as well as genes expressed largely in neuronal cells and playing a role in neuron differentiation (e.g. \textit{CHGB}). The spinal cord samples also show consistently strong membership in a single cluster (yellow-orange), the top defining gene for the cluster being \textit{MBP} which is involved in myelination of nerves in the nervous system\cite{Hu2016}.  Another driving gene, \textit{GFAP}, participates in system development by acting as a marker to distinguish astrocytes during development \cite{Baba1997}.
+Although global analysis of all tissues is useful for highlighting major structure in the data, it may miss finer-scale structure within tissues or among similar tissues. For example, here the global analysis allocated only three clusters to all brain tissues (clusters 1,2 and 9 in Fig~\ref{fig:fig1}(a)), and we suspected that additional substructure might be uncovered by analyzing the brain samples separately with larger $K$.  Fig~\ref{fig:fig1}(b) shows the Structure plot for $K=6$ on only the Brain samples. The results highlight much finer-scale structure compared with the global analysis. Brain Cerebellum and Cerebellar hemisphere are essentially assigned to a separate cluster (lime green), which is enriched with genes related to cell periphery and communication (e.g. \textit{PKD1}, \textit{CBLN3}) as well as genes expressed largely in neuronal cells and playing a role in neuron differentiation (e.g. \textit{CHGB}). The spinal cord samples also show consistently strong membership in a single cluster (yellow-orange), the top defining gene for the cluster being \textit{MBP} which is involved in myelination of nerves in the nervous system\cite{Hu2016}.  Another driving gene, \textit{GFAP}, participates in system development by acting as a marker to distinguish astrocytes during development \cite{Baba1997}.
 
 
 %This cluster seems likely to reflect the expected high concentration of Cerebellar granule cells in cerebellar samples.
@@ -114,7 +114,7 @@ And cortex samples are distinguished from others by stronger membership in a clu
 We used the GTEx data to test whether the GoM model is more accurate in detecting substructure than distance-based clustering methods. 
 Specifically, for each pair of tissues in the GTEx data we assessed whether or not each clustering method
 correctly partitioned samples into the two tissue groups (see Methods). The GoM model was substantially more accurate in this test, succeeding
-in $86 \%$ of comparisons, compared with $39 \%$ for the distance-based method (Fig~\ref{fig:fig2}). This presumably reflects the general tendency for model-based
+in $81 \%$ of comparisons, compared with $29 \%$ for the distance-based method (Fig~\ref{fig:fig2}). This presumably reflects the general tendency for model-based
 approaches to be more efficient that distance-based approaches, provided that the model is sufficiently accurate.
 
 
@@ -128,10 +128,10 @@ To be applicable to single-cell RNA-seq data, methods must be able to deal with 
  single-cell RNA-seq data typically involve substantially lower effective sequencing depth compared with bulk experiments, due to the relatively small 
  number of molecules available to sequence in a single cell. Therefore, as a first step towards demonstrating its potential for single cell analysis,
   we checked robustness of the GoM model to sequencing depth. Specifically,
-we repeated the analyses above after thinning the GTEx data by a factor of $10,000$ to mimic the lower sequencing depth of a typical single cell experiment.
+we repeated the analyses above after thinning the GTEx data by a factor of $100$ and $10,000$ to mimic the lower sequencing depth of a typical single cell experiment.
  %per-sample depth in the 
 %single-cell data from \cite{Jaitin2014} considered below. (See  \textbf{Figure \ref{fig:figS1}} and \textbf{Figure \ref{fig:figS2}} for results with other values of $p_{thin}$.) 
-For the thinned GTEx data the Structure plot for $K=20$ preserves most of the major features of the original analysis on unthinned data (\nameref{figS1}). For the accuracy comparisons with distance-based methods, both methods suffer reduced accuracy in thinned data, but the GoM model remains superior (\nameref{figS2}). For example, when thinning by a factor of $1,000$, the success rate in separating pairs of tissues is $0.32$ for the GoM model vs $0.10$ for hierarchical clustering.
+For the thinned GTEx data the Structure plot for $K=20$ preserves most of the major features of the original analysis on unthinned data (\nameref{figS1}). For the accuracy comparisons with distance-based methods, both methods suffer reduced accuracy in thinned data, but the GoM model remains superior (\nameref{figS2}). For example, when thinning by a factor of $10,000$, the success rate in separating pairs of tissues is $0.32$ for the GoM model vs $0.10$ for hierarchical clustering.
 
 % (for $p_{thin}=0.01$, the success proportion in separating two tissues is $0.11$  for hierarchical clustering and $0.36$ for GoM model; for $p_{thin}=0.001$, the success proportion in separating tissues is  $0.10$ for hierarchical clustering and $0.32$ for GoM model).  
 
@@ -174,7 +174,7 @@ and we focus here on results with $K=6$.
 
 The results from the GoM model (Fig~\ref{fig:fig4}) 
 clearly highlight changes in expression profiles that occur through early embryonic development stages, and enrichment analysis of
-the driving genes in each cluster (Table~\ref{tab:tab3}, \nameref{supptab3}) indicate that many of these expression changes reflect important
+the driving genes in each cluster (Table~\ref{tab:tab3},  \nameref{supptab3}) indicate that many of these expression changes reflect important
 biological processes during embryonic preimplantation development. 
 
 In more detail: Initially, at the zygote and early 2-cell stages, the embryos are represented by a single cluster (blue in Fig~\ref{fig:fig4}) that
@@ -183,7 +183,7 @@ In more detail: Initially, at the zygote and early 2-cell stages, the embryos ar
 (late 2-cell) and a mixture of yellow and green (4-cell stage). The green cluster then becomes more prominent in the 8-cell and 16-cell stages, before dropping  substantially in the early and mid-blastocyst stages. That is, we see a progression in the importance of different clusters
 through these stages, from the blue cluster, moving through magenta and yellow to green. By examining the genes distinguishing each cluster
 we see that this progression reflects the changing relative importance of several fundamental biological processes.
-The magenta cluster is driven by genes responsible for the beginning of transcription of zygotic genes (e.g., \textit{Zscan4c-f} \cite{Falco2007}), which takes place in the late 2-cell stage of early mouse embryonic development. The yellow cluster is enriched for genes responsible for heterochromation \textit{Smarcc1} \cite{Schaniel2009} and chromosome stability \textit{Cenpe} \cite{{Putkey2002}}. And the green cluster is enriched for cytoskeletal genes (e.g., \textit{Fbxo15}) and cytoplasm genes (e.g., \textit{Tceb1}, \textit{Hsp90ab1}), all of which are essential for compaction at the 8-cell stage and morula formation at the 16-cell stage. 
+The magenta cluster is driven by genes responsible for the beginning of transcription of zygotic genes (e.g., \textit{Zscan4c-f} show up in the list of top $100$ driving genes : see \url{https://stephenslab.github.io/count-clustering/project/src/deng_cluster_annotations.html}), which takes place in the late 2-cell stage of early mouse embryonic development \cite{Falco2007}. The yellow cluster is enriched for genes responsible for heterochromation \textit{Smarcc1} \cite{Schaniel2009} and chromosome stability \textit{Cenpe} \cite{{Putkey2002}} (see \nameref{supptab3}) . And the green cluster is enriched for cytoskeletal genes (e.g., \textit{Fbxo15}) and cytoplasm genes (e.g., \textit{Tceb1}, \textit{Hsp90ab1}), all of which are essential for compaction at the 8-cell stage and morula formation at the 16-cell stage. 
 
 Finally, during the blastocyst stages two new clusters (purple and orange in Fig~\ref{fig:fig4}) dominate.
 The orange cluster is enriched with genes involved in the formation of outer trophoblast cells (e.g., \textit{Tspan8}, \textit{Krt8}, \textit{Id2} \cite{Guo2010}), while the purple cluster is enriched with genes responsible for the formation of inner cell mass (e.g., \textit{Pdgfra}, \textit{Pyy} \cite{Hou2007}). 

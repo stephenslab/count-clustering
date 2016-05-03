@@ -22,7 +22,7 @@ to cluster samples of RNA-seq gene expression data, measured on either bulk samp
 We also provide methods to help interpret the clusters, by identifying genes that are distinctively expressed in each cluster. 
 By applying these methods to several example RNA-seq applications we demonstrate their utility in
 identifying and summarizing structure and heterogeneity. Applied to
-data from the GTEx project on 51 human tissues, the approach highlight similarities among biologically-related tissues and
+data from the GTEx project on 51 human tissues, the approach highlights similarities among biologically-related tissues and
 identifies distinctively-expressed genes that recapitulate known biology.  Applied to single-cell expression data from 
 mouse preimplantation embryos, the approach highlights both discrete and continuous variation through early embryonic development stages,
 and highlights genes involved in a variety of relevant processes -- from germ cell development, through compaction and morula formation, to
@@ -34,7 +34,7 @@ The methods are implemented in the Bioconductor package {\tt CountClust}.
 
 Ever since large-scale gene expression measurements have been possible, clustering -- of both genes and samples -- 
 has played a major role in their analysis \cite{Alizadeh2000, Eisen1998, Golub1999}.
-For example, clustering of genes can identify genes that are working together or co-regulated, and clustering of samples is useful for quality control 
+For example, clustering of genes can identify genes that are working together or are co-regulated, and clustering of samples is useful for quality control 
 as well as identifying biologically-distinct subgroups. A wide range of clustering methods have therefore
 been employed in this context, including distance-based hierarchical clustering, $k$-means clustering, and self-organizing maps (SOMs); see for example \cite{D'haeseleer2005, Jiang2004} for reviews. 
 
@@ -67,7 +67,7 @@ been applied to detect mutation signatures in cancer samples \cite{Shiraishi2015
 
 Although we are not the first to apply GoM-like models to gene expression data, previous applications
 have been primarily motivated by a specific goal, ``cell type deconvolution", which involves  
-using cell-type-specific expression profiles of marker genes to estimate the proportions of different cell types in a mixture \cite{Lindsay2013}. 
+using cell-type-specific expression profiles of marker genes to estimate the proportions of different cell types in a mixture \cite{Lindsay2013, Wang2015, Ahn2013, Quon2013}. 
 Specifically, the GoM model we use here is analogous to -- although different in detail from -- 
 blind deconvolution approaches \cite{Schwartz2010,Repsilber2010}
  which estimate cell type proportions and cell type signatures jointly (see also \cite{Shen-Orr2010,Qiao2012} for semi-supervised approaches). 
@@ -77,7 +77,7 @@ mixtures of cell types. For example, in our analysis of human tissue samples fro
 usefully captures biological heterogeneity among samples even though the inferred grades of
 membership are unlikely to correspond precisely to proportions of specific cell types.
 And in our analyses of single-cell expression data the GoM model highlights interesting
-structure, even though interpreting the grades of membership as a ``proportions of cell types" is clearly inappropriate because each sample is a single cell!
+structure, even though interpreting the grades of membership as ``proportions of cell types" is clearly inappropriate because each sample is a single cell!
 Here we are exploiting the GoM as a flexible extension of traditional cluster models, 
 which can capture ``continuous" variation among cells as well as the more ``discrete" variation captured by cluster models. 
 Indeed, the extent to which variation among cells can be described in terms of discrete clusters versus more continuous populations
