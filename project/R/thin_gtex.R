@@ -4,7 +4,6 @@
 
 gom_model_fit <- get(load("../external_data/GTEX_V6/gtexv6fit.k.20.master.rda"))
 #gom_model_fit <- get(load("../../../../Downloads/gtexv6fit.k.20.master.rda"))
-# gom_model_fit <- get(load("../rdas/gtexv6fit.k.15.rda"))
 
 omega <- gom_model_fit$omega
 colnames(omega) <- c(1:NCOL(omega))
@@ -96,13 +95,16 @@ cols1 <- c(rev(RColorBrewer::brewer.pal(12, "Paired"))[c(3,4,7,8,11,12,5,6,9,10)
            RColorBrewer::brewer.pal(8, "Dark2")[c(3,4,8)])
 
 
-# pdf("plots/gtex-figures/gtex-k20.pdf",
+pdf("plots/gtex-figures/gtex-k20.pdf",
+height = 9, width=2)
   # height = 9, width=4)
-CountClust::StructureGGplot(omega = omega,
+#CountClust::StructureGGplot(omega = omega,
+StructureGGplot(omega = omega,
                             annotation= annotation,
                             palette = cols1,
                             yaxis_label = "",
                             order_sample = TRUE,
+                            plot_labels = FALSE,
                             split_line = list(split_lwd = .1,
                                               split_col = "white"),
                             axis_tick = list(axis_ticks_length = .1,
@@ -110,7 +112,8 @@ CountClust::StructureGGplot(omega = omega,
                                              axis_ticks_lwd_x = .1,
                                              axis_label_size = 5,
                                              axis_label_face="bold"))
-#dev.off()
+dev.off()
+
 
 
 
@@ -215,6 +218,8 @@ CountClust::StructureGGplot(omega = omega_thin,
 
 
 
+<<<<<<< HEAD
+
 ######<---- brain tissue plots
 
 #omega <- read.table("../rdas/omega_cis_genes_brain.txt",
@@ -223,6 +228,8 @@ CountClust::StructureGGplot(omega = omega_thin,
 #                    stringsAsFactors = FALSE)
 
 brain_gom_fit <- get(load("../rdas/gtexv6brain.k6fit.rda"))
+#brain_gom_fit <- get(load("../../../../Downloads/gtexv6brain.k6fit.rda"))
+
 omega <- brain_gom_fit$omega
 dim(omega)
 colnames(omega) <- c(1:NCOL(omega))
@@ -232,6 +239,7 @@ head(omega)
 # make cell sample labels
 # want a version consistent with majority of the literature
 sample_labels <- read.table("../rdas/samples_id.txt",
+#sample_labels <- read.table("rdas/samples_id.txt",
                             header = TRUE, sep = " ",
                             stringsAsFactors = FALSE)
 
@@ -267,19 +275,28 @@ annotation <- data.frame(
 
 # define colors of the clusers
 #cols <- c("blue", "darkgoldenrod1", "cyan", "red")
+<<<<<<< HEAD
+cols <- c("blue", 
+          "cyan", 
+          "limegreen",  
+          "red", 
+          "orange", 
+          "yellow")
+=======
 
 # pdf("plots/gtex-figures/brain-barplot.pdf",
 #     height = 4, width = 4)
 # define colors of the clusers
 cols <- c("blue", "darkgoldenrod1", "cyan", "red", "green", "gray", "pink", "brown")
+>>>>>>> upstream/master
 
 ##<-- make barplot
 #source("../R/StructureGGplot.R")
 
 # subset_example <- which(annotation$tissue_label %in%
 #     levels(annotation$tissue_label)[1:2] )
-#pdf("plots/gtex-figures/brain-barplot.pdf",
-#    height = 4, width = 4)
+pdf("plots/gtex-figures/brain-barplot.pdf",
+   height = 4, width = 4)
 CountClust::StructureGGplot(omega = omega,
                             annotation= annotation,
                             palette = cols,
@@ -292,7 +309,8 @@ CountClust::StructureGGplot(omega = omega,
                                              axis_ticks_lwd_x = .1,
                                              axis_label_size = 7,
                                              axis_label_face = "bold"))
-#dev.off()
+dev.off()
+
 
 ##################################################
 ######<--- supplemental GTEx figures --->#########
@@ -400,12 +418,13 @@ cols4[3] <- cols1[6]
 cols4[4] <- cols1[14]
 cols4[5] <- cols1[19]
 
-# pdf("plots/gtex-figures/gtex-k5.pdf",
-# height = 9, width=4)
-CountClust::StructureGGplot(omega = omega_thin,
+pdf("plots/gtex-figures/gtex-k5.pdf",
+height = 9, width=2)
+StructureGGplot(omega = omega_thin,
                             annotation= annotation,
                             palette = cols4,
                             yaxis_label = "",
+                            plot_labels = FALSE,
                             order_sample = TRUE,
                             split_line = list(split_lwd = .1,
                                               split_col = "white"),
@@ -414,7 +433,7 @@ CountClust::StructureGGplot(omega = omega_thin,
                                              axis_ticks_lwd_x = .1,
                                              axis_label_size = 5,
                                              axis_label_face="bold"))
-#dev.off()
+dev.off()
 
 
 
@@ -527,12 +546,13 @@ cols5[9] <- cols1[18]
 cols5[10] <- cols1[20]
 
 pdf("plots/gtex-figures/gtex-k10.pdf",
-height = 9, width=4)
-CountClust::StructureGGplot(omega = omega_thin,
+height = 9, width=2)
+StructureGGplot(omega = omega_thin,
                             annotation= annotation,
                             palette = cols5,
                             yaxis_label = "",
                             order_sample = TRUE,
+                            plot_labels = FALSE,
                             split_line = list(split_lwd = .1,
                                               split_col = "white"),
                             axis_tick = list(axis_ticks_length = .1,
@@ -661,12 +681,13 @@ cols6[14] <- cols1[18]
 cols6[15] <- cols1[20]
 
 pdf("plots/gtex-figures/gtex-k15.pdf",
-    height = 9, width=4)
-CountClust::StructureGGplot(omega = omega_thin,
+    height = 9, width=2)
+StructureGGplot(omega = omega_thin,
                             annotation= annotation,
                             palette = cols6,
                             yaxis_label = "",
                             order_sample = TRUE,
+                            plot_labels = FALSE,
                             split_line = list(split_lwd = .1,
                                               split_col = "white"),
                             axis_tick = list(axis_ticks_length = .1,

@@ -1,20 +1,27 @@
- \section{Supplementary figures}
- 
- \begin{figure*}[ht]
- \centering
-\includegraphics[height=7.5in, width=6.5in]{../plots/gtex-figures/gtex-multiple-ks-04-30-2016}
-    \caption{Structure plot of all tissue samples in for (a) $K=5$, (b) $K=10$, (c) $K=15$, (d) $K=20$. Some tissues form a separate cluster from the rest of the tissues from $K=5$ onwards (for example: Whole Blood, Skin), whereas some tissues only form a distinctive subgroup only at $K=20$ (for example: Arteries).}
- \label{fig:figS0}
-    \end{figure*}
-    
-    
- \begin{figure*}[ht]
- \centering
-\includegraphics[height=7.5in, width=6.5in]{../plots/gtex-figures/gtex_thinned_04_25_2016.pdf}
-    \caption{Structure plot of all tissue samples in 2 runs of the GTEx V6 data for  K=20 for the thinning parameters (a) $p_{thin}=0.01$ and (b) $p_{thin}=0.0001$. The patterns in two plots closely correspond to the plot in \textbf{Fig} ~\ref{fig:fig1} (a), though there are a few differences from the unthinned version. }
- \label{fig:figS1}
-    \end{figure*}
+\clearpage
+\section{Supplementary figures}
 
+\paragraph*{S1 Fig.}
+\label{figS0}
+{\bf Structure plot of all tissue samples in for (a) $K=5$, (b) $K=10$, (c) $K=15$, (d) $K=20$} Some tissues form a separate cluster from the rest of the tissues from $K=5$ onwards (for example: Whole Blood, Skin), whereas some tissues only form a distinctive subgroup only at $K=20$ (for example: Arteries).
+\begin{figure*}[ht]
+\centering
+\includegraphics[height=7.5in, width=6.5in]{../plots/gtex-figures/gtex-multiple-ks-04-30-2016}
+\end{figure*}
+\clearpage
+
+\paragraph*{S2 Fig.}
+\label{figS1}  
+{\bf Structure plot of all tissue samples in 2 runs of the GTEx V6 data for  K=20 for the thinning parameters (a) $p_{thin}=0.01$ and (b) $p_{thin}=0.0001$} The patterns in two plots closely correspond to the plot in \textbf{Fig} ~\ref{fig:fig1} (a), though there are a few differences from the unthinned version. 
+\begin{figure*}[ht]
+\centering
+\includegraphics[height=7.5in, width=6.5in]{../plots/gtex-figures/gtex_thinned_04_25_2016.pdf}
+\end{figure*}
+\clearpage
+
+\paragraph*{S3 Fig.}
+\label{figS2}
+{\bf A comparison of ``accuracy" of hierarchical vs model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.01$ and $p_{thin}=0.0001$.}  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Figure \ref{fig:fig2}), but even then the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
  \begin{figure*}[ht]
     \centering    
      \begin{subfigure}[t]{0.5\textwidth}
@@ -40,8 +47,5 @@
         \includegraphics[height=2.5in]{../plots/rsz_1admixture_F_thin_0_0001.png}
         \caption{GoM thin 0.0001}
     \end{subfigure}\\
-
- \caption{A comparison of ``accuracy" of hierarchical vs model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.01$ and $p_{thin}=0.0001$.  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Figure \ref{fig:fig2}), but even then the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.}
- \label{fig:figS2}
 \end{figure*}
 \clearpage
