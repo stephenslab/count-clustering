@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.15)  29 APR 2016 23:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.15)  4 MAY 2016 17:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -684,7 +684,7 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 165.
+(epstopdf)             \includegraphics on input line 169.
 Package epstopdf Info: Output file is already uptodate.
 
 <PLOS-submission-eps-converted-to.pdf, id=8, 216.81pt x 35.13126pt>
@@ -692,7 +692,7 @@ File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 165.
+e 169.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [1
 
@@ -706,13 +706,13 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 178.
+(epstopdf)             \includegraphics on input line 218.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 178.
+e 218.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [2]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
@@ -723,115 +723,101 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 221.
+(epstopdf)             \includegraphics on input line 255.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 221.
+e 255.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [3]
+Package epstopdf Info: Source file: <PLOS-submission.eps>
+(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    size: 283246 bytes
+(epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-03-30 15:56:58
+(epstopdf)                    size: 15452 bytes
+(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
+ted-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 264.
+Package epstopdf Info: Output file is already uptodate.
+File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
-LaTeX Warning: Reference `tab1' on page 4 undefined on input line 225.
-
-
-LaTeX Warning: Reference `fig:fig1' on page 4 undefined on input line 225.
-
-./manuscript-plos-gen.tex:225: Undefined control sequence.
-l.225 ...n Fig~\ref{fig:fig1}(A) (see also \namref
-                                                  {S1_Table}).
-? 
-./manuscript-plos-gen.tex:225: Missing $ inserted.
-<inserted text> 
-                $
-l.225 ...g~\ref{fig:fig1}(A) (see also \namref{S1_
-                                                  Table}).
-? 
-./manuscript-plos-gen.tex:225: Extra }, or forgotten $.
-l.225 ...{fig:fig1}(A) (see also \namref{S1_Table}
-                                                  ).
-? 
-./manuscript-plos-gen.tex:226: Missing $ inserted.
-<inserted text> 
-                $
-l.226 
-      
-? 
-./manuscript-plos-gen.tex:234: Extra }, or forgotten \endgroup.
-l.234 ...ons GTEx V6 data (with GO annotations).}}
-                                                  
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--242
+<use PLOS-submission-eps-converted-to.pdf>
+Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
+e 264.
+(pdftex.def)             Requested size: 144.54pt x 23.42201pt.
+ [4]
+Underfull \hbox (badness 10000) in paragraph at lines 277--277
 []\OT1/cmr/m/it/8 (+20) FABP4, PLIN1, FASN,
  []
 
 
-Underfull \hbox (badness 3148) in paragraph at lines 243--243
+Underfull \hbox (badness 3148) in paragraph at lines 278--278
 []\OT1/cmr/m/it/8 (+20) ACTG2, MYH11, SYNM,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--244
+Underfull \hbox (badness 10000) in paragraph at lines 279--279
 []\OT1/cmr/m/it/8 (+20) RGS5, MGP, AEBP1,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 246--246
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
 []\OT1/cmr/m/it/8 (+20) NEB, MYH1, MYH2,
  []
 
 
-Underfull \hbox (badness 4060) in paragraph at lines 247--247
+Underfull \hbox (badness 4060) in paragraph at lines 282--282
 []\OT1/cmr/m/it/8 (+20) FN1, COL1A1, COL1A2,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 248--248
+Underfull \hbox (badness 10000) in paragraph at lines 283--283
 []\OT1/cmr/m/it/8 (+20) MBP, GFAP, MTURN,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--269
+Underfull \hbox (badness 10000) in paragraph at lines 286--286
 []\OT1/cmr/m/it/8 (+20) IGHM, IGHG1, IGHG2,
  []
 
 
-Underfull \hbox (badness 7116) in paragraph at lines 270--270
+Underfull \hbox (badness 7116) in paragraph at lines 287--287
 []\OT1/cmr/m/it/8 (+20) TG, PRL, GH1, PRM2,
  []
 
 
-Underfull \hbox (badness 3128) in paragraph at lines 270--270
+Underfull \hbox (badness 3128) in paragraph at lines 287--287
 []\OT1/cmr/m/n/8 (+20) GO:0019953 (sex-ual re-pro-duc-tion), GO:0048232 (male g
 a-mete gen-er-a-tion),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--271
+Underfull \hbox (badness 10000) in paragraph at lines 288--288
 []\OT1/cmr/m/it/8 (+20) NPPA, MYH6, TNNT2,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 272--272
+Underfull \hbox (badness 10000) in paragraph at lines 289--289
 []\OT1/cmr/m/it/8 (+20) KRT13, KRT4, MUC7,
  []
 
 
-Underfull \hbox (badness 5105) in paragraph at lines 272--272
+Underfull \hbox (badness 5105) in paragraph at lines 289--289
 []\OT1/cmr/m/n/8 (+20) GO:0043230 (ex-tra-cel-lu-lar or-ganelle), GO:0070062 (e
 x-tra-cel-lu-lar ex-o-some),
  []
 
 
-./manuscript-plos-gen.tex:273: Package utf8x Error: MalformedUTF-8sequence.
+./manuscript-plos-gen.tex:290: Package utf8x Error: MalformedUTF-8sequence.
 
 See the utf8x package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.273 ...extit{SFTPBß, SFTPA1, SFTPA2, SFTPC, A2M}
+l.290 ...extit{SFTPBß, SFTPA1, SFTPA2, SFTPC, A2M}
                                                    & GO:0001525 (angiogenesi...
 
 ? 
@@ -845,7 +831,7 @@ File: uninames.dat 2013/05/13 UCS: Unicode character names, compressed
 File: uni-255.def 2013/05/13 UCS: Unicode data U+FF00..U+FFFF
 )
 
-./manuscript-plos-gen.tex:273: Package ucs Error: Unknown Unicode character 655
+./manuscript-plos-gen.tex:290: Package ucs Error: Unknown Unicode character 655
 33 = U+FFFD,
 (ucs)                possibly declared in uni-255.def.
 (ucs)                Type H to see if it is available with options.
@@ -854,51 +840,44 @@ See the ucs package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.273 ...extit{SFTPBß, SFTPA1, SFTPA2, SFTPC, A2M}
+l.290 ...extit{SFTPBß, SFTPA1, SFTPA2, SFTPC, A2M}
                                                    & GO:0001525 (angiogenesi...
 
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 273--273
+Underfull \hbox (badness 10000) in paragraph at lines 290--290
 []\OT1/cmr/m/it/8 (+20) SFTPB\OT1/cmtt/m/it/8 [U+FFFD] \OT1/cmr/m/it/8 (+20) SF
 TPA1,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--274
+Underfull \hbox (badness 10000) in paragraph at lines 291--291
 []\OT1/cmr/m/it/8 (+20) CSF3R, MMP25, IL1R2,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--275
+Underfull \hbox (badness 10000) in paragraph at lines 292--292
 []\OT1/cmr/m/it/8 (+20) PRSS1, CPA1, PN-LIP,
  []
 
 
-Underfull \hbox (badness 6204) in paragraph at lines 275--275
+Underfull \hbox (badness 6204) in paragraph at lines 292--292
 []\OT1/cmr/m/n/8 (+20) GO:0007586 (di-ges-tion), GO:0004252 (serine-type en-dop
 ep-ti-dase ac-tiv-ity),
  []
 
-./manuscript-plos-gen.tex:277: Missing { inserted.
-<inserted text> 
-                {
-l.277 20. Dark gray}  &
-                        \textit{ALB, HP, FGB, FGA, ORM1} & GO:0034364 (high ...
 
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 277--277
+Underfull \hbox (badness 10000) in paragraph at lines 294--294
 []\OT1/cmr/m/it/8 (+20) ALB, HP, FGB, FGA,
  []
 
 
-Overfull \hbox (3.47871pt too wide) in paragraph at lines 236--279
+Overfull \hbox (3.47871pt too wide) in paragraph at lines 271--296
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 36.58597pt on input line 280.
+LaTeX Warning: Float too large for page by 36.58597pt on input line 297.
 
 Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    date: 2015-04-28 14:38:38
@@ -908,14 +887,16 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 286.
+(epstopdf)             \includegraphics on input line 328.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 286.
+e 328.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
- [4]
+ [5
+
+]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    date: 2015-04-28 14:38:38
 (epstopdf)                    size: 283246 bytes
@@ -924,72 +905,15 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 286.
+(epstopdf)             \includegraphics on input line 328.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 286.
-(pdftex.def)             Requested size: 144.54pt x 23.42201pt.
- [5]
-./manuscript-plos-gen.tex:307: Undefined control sequence.
-l.307 ...ginal analysis on unthinned data (\namref
-                                                  {S2_Fig}). For the accurac...
-
-? 
-./manuscript-plos-gen.tex:307: Missing $ inserted.
-<inserted text> 
-                $
-l.307 ...l analysis on unthinned data (\namref{S2_
-                                                  Fig}). For the accuracy co...
-
-? 
-./manuscript-plos-gen.tex:307: Extra }, or forgotten $.
-l.307 ...alysis on unthinned data (\namref{S2_Fig}
-                                                  ). For the accuracy compar...
-
-? 
-./manuscript-plos-gen.tex:308: Missing $ inserted.
-<inserted text> 
-                $
-l.308 
-      
-? 
-
-Overfull \hbox (715.87274pt too wide) in paragraph at lines 307--308
-\OML/cmm/m/it/10 basedmethods; bothmethodssufferreducedaccuracyinthinneddata; b
-uttheGoMmodelremainssuperior:Forexample; whenthinningbyafactorof$\OT1/cmr/m/n/1
-0 (-20) 1,000$\OML/cmm/m/it/10 ; thesuccessrateinseparatingpairsoftissuesis$\OT
-1/cmr/m/n/10 (-20) 0.32$\OML/cmm/m/it/10 fortheGoMmodelvs$\OT1/cmr/m/n/10 (-20)
- 0.10$\OML/cmm/m/it/10 forhierarchicalclustering:$  
- []
-
-Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
-(epstopdf)                    size: 283246 bytes
-(epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-03-30 15:56:58
-(epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 316.
-Package epstopdf Info: Output file is already uptodate.
-File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
-<use PLOS-submission-eps-converted-to.pdf>
-Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 316.
+e 328.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [6]
-
-LaTeX Warning: Reference `tab3' on page 7 undefined on input line 335.
-
-
-LaTeX Warning: Reference `tab3' on page 7 undefined on input line 344.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    date: 2015-04-28 14:38:38
 (epstopdf)                    size: 283246 bytes
@@ -998,12 +922,13 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 352.
+(epstopdf)             \includegraphics on input line 348.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
+
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 352.
+e 348.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [7]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
@@ -1014,18 +939,15 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 371.
+(epstopdf)             \includegraphics on input line 369.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 371.
+e 369.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [8]
-
-LaTeX Warning: Reference `tab1' on page 9 undefined on input line 382.
-
 Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    date: 2015-04-28 14:38:38
 (epstopdf)                    size: 283246 bytes
@@ -1034,26 +956,15 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 394.
+(epstopdf)             \includegraphics on input line 414.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
+
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 394.
+e 414.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [9]
-
-LaTeX Warning: Reference `S1_ Fig' on page 10 undefined on input line 410.
-
-
-LaTeX Warning: Reference `tab1' on page 10 undefined on input line 430.
-
-
-LaTeX Warning: Reference `tab2' on page 10 undefined on input line 430.
-
-
-LaTeX Warning: Reference `tab3' on page 10 undefined on input line 430.
-
 Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    date: 2015-04-28 14:38:38
 (epstopdf)                    size: 283246 bytes
@@ -1062,114 +973,114 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 431.
+(epstopdf)             \includegraphics on input line 453.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
+
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 431.
+e 453.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [10]
-./manuscript-plos-gen.tex:437: Extra }, or forgotten \endgroup.
-l.437 ...ter Annotations for GTEx V6 Brain data.}}
-                                                  
-? 
-
-Underfull \hbox (badness 3568) in paragraph at lines 447--447
-[]\OT1/cmr/m/it/8 (+20) ENC1, CALM2, MAP1A,
+Underfull \hbox (badness 1092) in paragraph at lines 482--482
+[]\OT1/cmr/m/it/8 (+20) ENC1, NCALD, YWHAH,
  []
 
 
-Overfull \hbox (3.47871pt too wide) in paragraph at lines 439--452
+Underfull \hbox (badness 10000) in paragraph at lines 484--484
+[]\OT1/cmr/m/it/8 (+20) PKD1, CBLN3, CHGB,
+ []
+
+
+Underfull \hbox (badness 2334) in paragraph at lines 488--489
+\OT1/cmr/m/n/8 (+20) (en-sheath-ment of neu-rons), GO:0048471 (per-in-u-clear r
+e-gion of cy-to-plasm),
+ []
+
+
+Overfull \hbox (3.47871pt too wide) in paragraph at lines 476--493
  [] 
  []
 
-./manuscript-plos-gen.tex:461: Extra }, or forgotten \endgroup.
-l.461 ...Annotations for Deng et al (2014) data.}}
-                                                  
-? 
-./manuscript-plos-gen.tex:470: Missing } inserted.
-<inserted text> 
-                }
-l.470 &
-        GO:0007276 (gamete generation), GO:0032504 (multicellular organism r...
-
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 468--470
-[]\OT1/cmr/m/it/8 (+20) Bcl2l10\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Tcl
-1\OT1/cmr/m/n/8 (+20) ,
+Package epstopdf Info: Source file: <PLOS-submission.eps>
+(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    size: 283246 bytes
+(epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-03-30 15:56:58
+(epstopdf)                    size: 15452 bytes
+(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
+ted-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 499.
+Package epstopdf Info: Output file is already uptodate.
+File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
+<use PLOS-submission-eps-converted-to.pdf>
+Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
+e 499.
+(pdftex.def)             Requested size: 144.54pt x 23.42201pt.
+ [11]
+Underfull \hbox (badness 10000) in paragraph at lines 510--510
+[]\OT1/cmr/m/it/8 (+20) Bcl2l10\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) E33
+0034G19Rik\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 468--470
-\OT1/cmr/m/it/8 (+20) E330034G19Rik\OT1/cmr/m/n/8 (+20) ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 468--470
-\OT1/cmr/m/it/8 (+20) LOC100502936\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) 
-Oas1d\OT1/cmr/m/n/8 (+20) ,
- []
-
-
-Underfull \hbox (badness 1147) in paragraph at lines 468--470
+Underfull \hbox (badness 1147) in paragraph at lines 510--510
 \OT1/cmr/m/it/8 (+20) AU022751\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Spin
 1\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Khdc1b\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--484
+Underfull \hbox (badness 10000) in paragraph at lines 512--513
 []\OT1/cmr/m/it/8 (+20) Obox3\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Zfp35
 2\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Gm8300\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 487--498
+Underfull \hbox (badness 10000) in paragraph at lines 515--515
 []\OT1/cmr/m/it/8 (+20) Rtn2\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Ebna1b
 p2\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Zfp259\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--512
+Underfull \hbox (badness 10000) in paragraph at lines 518--519
 []\OT1/cmr/m/it/8 (+20) Timd2\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Isyna
 1\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Alppl2\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--512
-\OT1/cmr/m/it/8 (+20) Prame15\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Hsp90
-ab1\OT1/cmr/m/n/8 (+20) ,
+Underfull \hbox (badness 5847) in paragraph at lines 518--519
+\OT1/cmr/m/it/8 (+20) Prame15\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Fbxo1
+5\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Tceb1\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 501--512
-\OT1/cmr/m/it/8 (+20) Fbxo15\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Tceb1\
-OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Gpd1l\OT1/cmr/m/n/8 (+20) ,
+Underfull \hbox (badness 10000) in paragraph at lines 518--519
+\OT1/cmr/m/it/8 (+20) Gpd1l\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Pemt\OT
+1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Hsp90aa1\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 4096) in paragraph at lines 514--524
+Underfull \hbox (badness 4096) in paragraph at lines 521--522
 \OT1/cmr/m/it/8 (+20) Tat\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Pdgfra\OT
 1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Pyy\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/
 it/8 (+20) Prdx1\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 5105) in paragraph at lines 524--525
+Underfull \hbox (badness 5105) in paragraph at lines 522--523
 []\OT1/cmr/m/n/8 (+20) GO:0070062 (ex-tra-cel-lu-lar ex-o-some), GO:0043230 (ex
 -tra-cel-lu-lar or-ganelle),
  []
 
 
-Underfull \hbox (badness 3849) in paragraph at lines 526--537
+Underfull \hbox (badness 3849) in paragraph at lines 524--526
 []\OT1/cmr/m/it/8 (+20) Actb\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Krt18\
 OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Fabp3\OT1/cmr/m/n/8 (+20) , \OT1/cm
 r/m/it/8 (+20) Id2\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Overfull \hbox (3.47871pt too wide) in paragraph at lines 463--540
+Overfull \hbox (3.47871pt too wide) in paragraph at lines 506--529
  [] 
  []
 
@@ -1181,14 +1092,16 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 579.
+(epstopdf)             \includegraphics on input line 556.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 579.
+e 556.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
- [11]
+ [12
+
+]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    date: 2015-04-28 14:38:38
 (epstopdf)                    size: 283246 bytes
@@ -1197,30 +1110,13 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 629.
+(epstopdf)             \includegraphics on input line 594.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 629.
-(pdftex.def)             Requested size: 144.54pt x 23.42201pt.
- [12]
-Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
-(epstopdf)                    size: 283246 bytes
-(epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-03-30 15:56:58
-(epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 762.
-Package epstopdf Info: Output file is already uptodate.
-File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
-
-<use PLOS-submission-eps-converted-to.pdf>
-Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 762.
+e 594.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [13]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
@@ -1231,13 +1127,13 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 871.
+(epstopdf)             \includegraphics on input line 636.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 871.
+e 636.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [14]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
@@ -1248,15 +1144,51 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 958.
+(epstopdf)             \includegraphics on input line 770.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 958.
+e 770.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
- [15]
+ [15
+
+]
+Package epstopdf Info: Source file: <PLOS-submission.eps>
+(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    size: 283246 bytes
+(epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-03-30 15:56:58
+(epstopdf)                    size: 15452 bytes
+(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
+ted-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 885.
+Package epstopdf Info: Output file is already uptodate.
+File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
+
+<use PLOS-submission-eps-converted-to.pdf>
+Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
+e 885.
+(pdftex.def)             Requested size: 144.54pt x 23.42201pt.
+ [16]
+Package epstopdf Info: Source file: <PLOS-submission.eps>
+(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    size: 283246 bytes
+(epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-03-30 15:56:58
+(epstopdf)                    size: 15452 bytes
+(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
+ted-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 954.
+Package epstopdf Info: Output file is already uptodate.
+File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
+
+<use PLOS-submission-eps-converted-to.pdf>
+Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
+e 954.
+(pdftex.def)             Requested size: 144.54pt x 23.42201pt.
+ [17]
 
 AED: lastpage setting LastPage
 Package epstopdf Info: Source file: <PLOS-submission.eps>
@@ -1267,67 +1199,58 @@ Package epstopdf Info: Source file: <PLOS-submission.eps>
 (epstopdf)                    size: 15452 bytes
 (epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
 ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 1000.
+(epstopdf)             \includegraphics on input line 1010.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 1000.
+e 1010.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
- [16]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1000.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1000.
+ [18]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1010.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1010.
  (./manuscript-plos-gen.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1000.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1000.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1010.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1010.
 
 Package rerunfilecheck Info: File `manuscript-plos-gen.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1000.
- )
-(\end occurred inside a group at level 2)
-
-### simple group (level 2) entered at line 307 ({)
-### simple group (level 1) entered at line 225 ({)
-### bottom level 
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1010.
+ ) 
 Here is how much of TeX's memory you used:
- 11071 strings out of 493033
- 168945 string characters out of 6134139
- 320174 words of memory out of 5000000
- 14178 multiletter control sequences out of 15000+600000
- 16110 words of font info for 110 fonts, out of 8000000 for 9000
+ 11093 strings out of 493033
+ 169129 string characters out of 6134139
+ 320028 words of memory out of 5000000
+ 14173 multiletter control sequences out of 15000+600000
+ 16698 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,15n,43p,1513b,882s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmbxti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmitt10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.
-pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
-></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></u
-sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr
-/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/loc
-al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local
-/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on manuscript-plos-gen.pdf (16 pages, 313614 bytes).
+ 42i,16n,43p,1873b,865s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on manuscript-plos-gen.pdf (18 pages, 308965 bytes).
 PDF statistics:
- 384 PDF objects out of 1000 (max. 8388607)
- 341 compressed objects within 4 object streams
- 105 named destinations out of 1000 (max. 500000)
+ 430 PDF objects out of 1000 (max. 8388607)
+ 386 compressed objects within 4 object streams
+ 118 named destinations out of 1000 (max. 500000)
  17926 words of extra memory for PDF output out of 20736 (max. 10000000)
 

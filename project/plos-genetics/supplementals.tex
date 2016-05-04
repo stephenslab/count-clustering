@@ -1,0 +1,97 @@
+% adopt PLoS genetics environment settings
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% Use Unicode characters when possible
+\usepackage[utf8x]{inputenc}
+
+% amsmath and amssymb packages, useful for mathematical formulas and symbols
+\usepackage{amsmath,amssymb}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+\usepackage{subcaption}
+\usepackage{rotating}
+\usepackage{color} 
+\usepackage{multirow}
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in 
+\textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+
+\input{header.tex}
+
+\begin{document}
+
+
+\section{Supplementary figures}
+
+\paragraph*{S1 Fig.}
+\label{figS0}
+{\bf Structure plot of GTEx V6 all tissue samples for (a) $K=5$, (b) $K=10$, (c) $K=15$, (d) $K=20$.} Some tissues form a separate cluster from the rest of the tissues from $K=5$ onwards (for example: Whole Blood, Skin), whereas some tissues only form a distinctive subgroup only at $K=20$ (for example: Arteries).
+\begin{figure*}[ht]
+\centering
+\includegraphics[height=7.5in, width=6.5in]{../plots/gtex-figures/gtex-multiple-ks-04-30-2016}
+\end{figure*}
+\clearpage
+
+\paragraph*{S2 Fig.}
+\label{figS1}  
+{\bf Structure plot of GTEx V6 all tissue samples K=20 in 2 runs under the thinning parameters settings (a) $p_{thin}=0.01$ and (b) $p_{thin}=0.0001$.} The patterns in two plots closely correspond to the plot in Fig ~\ref{fig1} (a), though there are a few differences from the unthinned version. 
+\begin{figure*}[ht]
+\centering
+\includegraphics[height=7.5in, width=6.5in]{../plots/gtex-figures/gtex_thinned_04_25_2016.pdf}
+\end{figure*}
+\clearpage
+
+\paragraph*{S3 Fig.}
+\label{figS2}
+{\bf A comparison of ``accuracy" of hierarchical vs. model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.01$ and $p_{thin}=0.0001$.}  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Fig~\ref{fig2}), but even then the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
+ \begin{figure*}[ht]
+    \centering    
+     \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/rsz_1hierarchy_F_thin_0_01.png}
+        \caption{hierarchy thin 0.01}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/rsz_1admixture_F_thin_0_01.png}
+        \caption{GoM thin 0.01}
+    \end{subfigure}\\
+    
+     \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/rsz_1hierarchy_F_thin_0_0001.png}
+        \caption{hierarchy 0.0001}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../plots/rsz_1admixture_F_thin_0_0001.png}
+        \caption{GoM thin 0.0001}
+    \end{subfigure}\\
+\end{figure*}
+\clearpage
+
+\input{supptab_1_2.tex}
+\input{supptab2.tex}
+\input{supptab3.tex}
+
+
+\end{document}
