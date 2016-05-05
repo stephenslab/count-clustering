@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.15)  4 MAY 2016 17:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.15)  4 MAY 2016 20:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -523,10 +523,6 @@ Overfull \hbox (14.50977pt too wide) in paragraph at lines 48--49
 
 ]
 [2 <../plots/gtex-figures/gtex-multiple-ks-04-30-2016.pdf>]
-
-LaTeX Warning: Reference `fig1' on page 3 undefined on input line 54.
-
-
 <../plots/gtex-figures/gtex_thinned_04_25_2016.pdf, id=57, 770.88pt x 1027.84pt
 >
 File: ../plots/gtex-figures/gtex_thinned_04_25_2016.pdf Graphic file (type pdf)
@@ -543,9 +539,6 @@ Overfull \hbox (14.50977pt too wide) in paragraph at lines 57--58
 [3
 
 ] [4 <../plots/gtex-figures/gtex_thinned_04_25_2016.pdf>]
-
-LaTeX Warning: Reference `fig2' on page 5 undefined on input line 63.
-
 <../plots/rsz_1hierarchy_F_thin_0_01.png, id=101, 414.54875pt x 466.74374pt>
 File: ../plots/rsz_1hierarchy_F_thin_0_01.png Graphic file (type png)
 
@@ -865,17 +858,13 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 97.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 97.
 Package rerunfilecheck Info: File `supplementals.out' has not changed.
 (rerunfilecheck)             Checksum: 0A639B6B2C253DA58C0C2A1A8ED4D57A;111.
-
-
-LaTeX Warning: There were undefined references.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 97.
  ) 
 Here is how much of TeX's memory you used:
- 8251 strings out of 493033
- 125882 string characters out of 6134139
+ 8249 strings out of 493033
+ 125870 string characters out of 6134139
  236519 words of memory out of 5000000
- 11598 multiletter control sequences out of 15000+600000
+ 11596 multiletter control sequences out of 15000+600000
  7856 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,12n,40p,666b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -889,7 +878,7 @@ ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
 l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
 ive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on supplementals.pdf (14 pages, 710400 bytes).
+Output written on supplementals.pdf (14 pages, 710157 bytes).
 PDF statistics:
  223 PDF objects out of 1000 (max. 8388607)
  165 compressed objects within 2 object streams
