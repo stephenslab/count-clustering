@@ -9,9 +9,9 @@ In addition, each cluster $k$ is characterized by a probability vector, $\theta_
 the relative expression of gene $g$ in cluster $k$. 
 The GoM model is then
 \begin{equation} \label{eqn:mult}
-c_{n\cdot} \sim \text{Mult}(c_{n+}, p_{n\cdot}),
+\left ( c_{n1}, c_{n2}, \cdots, c_{nG} \right) \sim \text{Multinomial} \left(c_{n+}, p_{n1}, p_{n2}, \cdots, p_{nG} \right),
 \end{equation}
-where
+where $c_{n+} = \sum_{g=1}^{G} c_{ng}$ and we assume
 \begin{equation} \label{eqn:gom}
 p_{ng} := \sum_{k=1}^{K} q_{nk}\theta_{kg}.    
 \end{equation}
