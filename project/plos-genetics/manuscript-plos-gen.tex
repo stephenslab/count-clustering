@@ -154,8 +154,7 @@ The methods are implemented in the Bioconductor package {\tt CountClust}.
 % Use first person. PLOS ONE authors please skip this step. 
 % Author Summary not valid for PLOS ONE submissions.   
 \section*{Author Summary}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
-
+Gene expression profile of biological samples (e.g., tissue or single cells) results from the complex interplay between many biological processes. Two distal tissue samples, for example, may be similar in their gene expression profiles because of the shared biological processes. Our goal here is to illustrate that grade of membership (GoM) models -- an approach widely used in popular genetics to model admixed individuals who have ancestry from multiple populations -- are a natural approach for clustering biological samples of RNA sequencing data. The GoM approach allows each biological sample to have partial memberships in multiple biological-distinct clusters, contrary to traditional clustering methods that partition samples into distinct subgroups. We also provide methods for identifying genes that are distinctively expressed in each cluster. Applied to a dataset of 51 human tissues, the GoM approach highlights similarities among biologically-related tissues and identifies distinctively-expressed genes that recapitulate known biology. Applied to gene expression data of single cells from mouse preimplantation embryos, the approach highlights both discrete and continuous variation through early embryonic development stages, and genes involved in a variety of relevant processes. Our study highlights the potential of GoM models for elucidating biological structure in RNA-seq gene expression data.
 \linenumbers
 
 
@@ -181,9 +180,9 @@ been applied to detect mutation signatures in cancer samples \cite{Shiraishi2015
 
 Although we are not the first to apply GoM-like models to gene expression data, previous applications
 have been primarily motivated by a specific goal, ``cell type deconvolution", which involves  
-using cell-type-specific expression profiles of marker genes to estimate the proportions of different cell types in a mixture \cite{Lindsay2013, Wang2015, Ahn2013, Quon2013}. 
+using cell-type-specific expression profiles of marker genes to estimate the proportions of different cell types in a mixture \cite{Lindsay2013, Ahn2013, Quon2013}. 
 Specifically, the GoM model we use here is analogous to -- although different in detail from -- 
-blind deconvolution approaches \cite{Schwartz2010,Repsilber2010}
+blind deconvolution approaches \cite{Schwartz2010,Repsilber2010,Wang2015}
  which estimate cell type proportions and cell type signatures jointly (see also \cite{Shen-Orr2010,Qiao2012} for semi-supervised approaches). 
 Our goal here is to demonstrate that GoM models can be useful much more broadly
 for understanding structure in RNA-seq data -- not only to deconvolve 
@@ -214,7 +213,7 @@ In addition, each cluster $k$ is characterized by a probability vector, $\theta_
 the relative expression of gene $g$ in cluster $k$. 
 The GoM model is then
 \begin{equation} \label{eqn:mult}
-c_{n\cdot} \sim \text{Mult}(c_{n+}, p_{n\cdot}),
+\left ( c_{n1}, c_{n2}, \cdots, c_{nG} \right) \sim \text{Multinomial} \left(c_{n+}, p_{n1}, p_{n2}, \cdots, p_{nG} \right),
 \end{equation}
 where
 \begin{equation} \label{eqn:gom}
@@ -287,7 +286,7 @@ Cluster & Top 5 Driving \qquad Genes  &  Top significant GO terms \\
 13. Sky blue & \textit{TG, PRL, GH1, PRM2, PRM1} & GO:0019953 (sexual reproduction), GO:0048232 (male gamete generation), GO:0035686 (sperm fibrous sheath), GO:0005179 (hormone activity), GO:0042403 (thyroid hormone metabolism) \\ \hline
 14. Light pink & \textit{NPPA, MYH6, TNNT2, ACTC1, MYBPC3} & GO:0045333 (cellular respiration), GO:0022904 (respiratory electron transport), GO:0031966 (mitochondrial membrane), GO:0015980 (energy derivation by oxidation of organic compounds) \\ \hline
 15. Light gray & \textit{KRT13, KRT4, MUC7, CRNN, KRT6A} & GO:0043230 (extracellular organelle), GO:0070062 (extracellular exosome), GO:0031982 (vesicle), GO:0008544 (epidermis development), GO:0043588 (skin development) \\ \hline
-16. Gray & \textit{SFTPBß, SFTPA1, SFTPA2, SFTPC, A2M} & GO:0001525 (angiogenesis), GO:0048514 (blood vessel morphogenesis), GO:2000145 (cell motility regulation), GO:0071944 (cell periphery), GO:0009611 (response to wounding) \\ \hline
+16. Gray & \textit{SFTPB$\beta$, SFTPA1, SFTPA2, SFTPC, A2M} & GO:0001525 (angiogenesis), GO:0048514 (blood vessel morphogenesis), GO:2000145 (cell motility regulation), GO:0071944 (cell periphery), GO:0009611 (response to wounding) \\ \hline
 17. Brown & \textit{CSF3R, MMP25, IL1R2, SELL, VNN2} & GO:0006955 (immune response), GO:0006952 (defense response), GO:0071944 (cell periphery), GO:0005886 (plasma membrane), GO:0050776 (regulation of immune response) \\ \hline
 18. Purple & \textit{PRSS1, CPA1, PNLIP, CELA3A, GP2} & GO:0007586 (digestion), GO:0004252 (serine-type endopeptidase activity), GO:0006508 (proteolysis), GO:0044241 (lipid digestion), GO:0016787 (hydrolase activity) \\ \hline 
 19. Pink & \textit{HBB, HBA2, HBA1, FKBP8, HBD} & GO:0005833 (hemoglobin complex), GO:0015669 (gas transport), GO:0020037 (heme binding), GO:0031720 (haptoglobin binding), GO:0006950 (response to stress) \\ \hline 
@@ -617,7 +616,7 @@ The authors have no conflict of interest.
 \section*{Acknowledgments}
 The Genotype-Tissue Expression (GTEx) Project was supported by the Common Fund of the Office of the Director of the National Institutes of Health. Additional funds were provided by the NCI, NHGRI, NHLBI, NIDA, NIMH, and NINDS. Donors were enrolled at Biospecimen Source Sites funded by NCI $\ $ SAIC-Frederick, Inc. (SAIC-F) subcontracts to the National Disease Research Interchange (10XS170), Roswell Park Cancer Institute (10XS171), and Science Care, Inc. (X10S172). The Laboratory, Data Analysis, and Coordinating Center (LDACC) was funded through a contract (HHSN268201000029C) to The Broad Institute, Inc. Biorepository operations were funded through an SAIC-F subcontract to Van Andel Institute (10ST1035). Additional data repository and project management were provided by SAIC-F (HHSN261200800001E). The Brain Bank was supported by a supplements to University of Miami grants DA006227 $\&$ DA033684 and to contract N01MH000028. Statistical Methods development grants were made to the University of Geneva (MH090941 $\&$ MH101814), the University of Chicago (MH090951, MH090937, MH101820, MH101825), the University of North Carolina - Chapel Hill (MH090936 $\&$ MH101819), Harvard University (MH090948), Stanford University (MH101782), Washington University St Louis (MH101810), and the University of Pennsylvania (MH101822). The data used for the analyses described in this manuscript were obtained from: the GTEx Portal on 10/19/2015 and  dbGaP accession number phs000424.v6.p1.
 
-We thank Matt Taddy, Amos Tanay and Effi Kenigsberg for helpful discussions. We thank Po-Yuan Tung and John Blischak for helpful comments on a draft manuscript.
+We thank Matt Taddy, Amos Tanay, Effi Kenigsberg, Yoav Gilad and Jonathan Pritchard for helpful discussions. We thank Po-Yuan Tung and John Blischak for helpful comments on a draft manuscript.
 
 \nolinenumbers
 
