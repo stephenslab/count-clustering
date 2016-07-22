@@ -1,0 +1,56 @@
+---
+title: "t-SNE on the Deng et al 2014"
+author: "Kushal K Dey"
+date: "July 19, 2016"
+output: html_document
+---
+
+```{r warning=FALSE, message=FALSE}
+library(singleCellRNASeqMouseDeng2014)
+library(qtlcharts)
+counts <- exprs(Deng2014MouseESC)
+meta_data <- pData(Deng2014MouseESC)
+gene_names <- rownames(counts)
+```
+
+We first look at the voom transformed data
+
+```{r}
+voom_data <- t(limma::voom(counts)$E);
+```
+
+## t-SNE (Deng)
+We apply t-SNE on the voom transformed data
+
+```{r echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+tsne_out <- get(load("../internal_data/tsne_deng_data_k_2.rda"));
+tsne_out <- as.matrix(tsne_out)
+iplot(tsne_out[,1],tsne_out[,2],as.numeric(meta_data$cell_type),meta_data$cell_type)
+```
+
+We perform PCA on the voom transformed data and plot PC1 vs PC2, PC1 vs PC3 and PC2 vs PC3.
+
+## PC (Deng)
+
+```{r echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+pc_out <- prcomp(voom_data)$x;
+```
+
+### PC1 vs PC2
+
+```{r echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+iplot(pc_out[,1],pc_out[,2],as.numeric(meta_data$cell_type),meta_data$cell_type)
+```
+
+### PC1 vs PC3
+
+```{r echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+iplot(pc_out[,1],pc_out[,3],as.numeric(meta_data$cell_type),meta_data$cell_type)
+```
+
+### PC2 vs PC3
+
+```{r echo=TRUE, eval=TRUE, message=FALSE, warning=FALSE}
+iplot(pc_out[,2],pc_out[,3],as.numeric(meta_data$cell_type),meta_data$cell_type)
+```
+
