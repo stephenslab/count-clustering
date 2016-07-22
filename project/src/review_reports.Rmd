@@ -1,0 +1,81 @@
+---
+title: "Review Report"
+author: "Kushal K Dey"
+date: "July 17, 2016"
+output: html_document
+---
+
+##  Reviewer 2 
+
+*GoM models are related to a wide class of factorization methods, which also allow samples to represented as a combination of multiple overlapping clusters/factors, as the authors acknowledge. However they do not provide sufficient evidence/discussion of the relationship of GoM compared to these methods. The authors mention PCA couldn’t provide the same type of visualization/interpretation is this due to the fact that it is not sparse or not being able to interpret parameters as proportions? In particular, Sparse Factor Analysis, which the authors themselves have worked with, seems like a natural alternative that could capture many of the same effects (of course a transformation would have to be applied rather than working with raw counts) and interpretability. A direct comparison should be made, applying 1 or 2 matrix factorization methods to the same dataset(s) evaluated here, in terms of the enrichments found etc, and to demonstrate the advantages and disadvantages of the various approaches even simply regarding interpretation/visualization.*
+
+**Possible Answer**
+
+- Provide PCA plots/t-SNE for GTEX and Deng data (may be also sparse PCA results from the PMA package due to Witten and Tibshirani)
+
+- SFA has already been applied on GTEX data for K=20 for voom transformed and sqrt-transformed data. We provide the SFA loadings plot for these two transforms.It had seemed from that analysis that not all the factors seem to give distinct tissue specific information as CountClust does, in many cases, multiple tissues not necessarily biologically related show high expression in the same factor. Now that can also mean it is producing gene sets that were not picked up by CountClust, but it does seem CountClust did a better job in picking gene sets that separate tissues/clusters much better, which a clustering algorithm should do. 
+
+- Enrichment on Factor analysis is something we haven't had a good answer to yet because regular enrichment (as in CountClust) does not seem to work so well due to overlapping information across factors. We may try to address something along these lines.
+
+
+*The GTEx results demonstrate that they capture clusters relevant to tissue biology, but are not particularly unexpected or detailed. Are they somehow better than standard clustering/PCA/SFA? The discussion of these results is quite long without providing clearly novel biological results or insight, or clear discussion of methodological
+advantage, though the visualization is nice.*
+
+**Possible Answer**
+
+- I think the above pipeline should be sufficient to answer this part of the question.
+
+*Significance of the cluster enrichments and important genes is not clearlydisplayed/discussed, so it is hard to assess how meaningful it is.*
+
+**Possible Answer**
+
+- I have the q-value and p-value for each enriched GO category
+as obtained from the gene set enrichment analysis. We can provide these along with the GO categories in the Table.
+
+*The authors demonstrate application of the method to various data and capture different categories of effects. Notably, for one dataset they primarily identify batch effects, but this raises an important point regarding the interpretation of the results overall that
+should be made more clear in the text that any cluster in any dataset could be technicalor biological, and the method provides no guidance for distinguishing the two. That’s fine, and is true of the entire class of methods, but should be clearly stated. For instance, what if GTEx tissues had been confounded by batch? Even without confounding some of the clusters with the effect of interest, any clustering result are likely to include technical effects.*
+
+**Possible Answer**
+
+- Seems more like a discussion on batch effects that is wanted here. We can also say that when there is perfect confounding of the batches with the biological subgroups as in Jaitin data case, it is difficult to separate them out by any method (whether CountClust/PCA/SFA). But gene set enrichment can be used as a mechanism to check if there is biological meaning to the clusters obtained. As in GTEX, the gene set enrichment seems to be giving gene sets that are biologically meaningful, so most likely batch effects are not substantial in this case.
+
+
+*Some brief insight should be provided in the main text to explain their method for identifying the genes that characterize each cluster. Could this be applied to other methods than GoM?*
+
+**Possible Answer**
+
+- We can expand the cluster annotation part slightly. Highlight the fact that we use KL divergence just as a potential distance measure, some other distance mesaure should have been fine too. The same technique cannot be applied to SFA or factor analysis constraints as the sum constraint is important to make sure the scale of comparison remains same for all clusters
+
+*Overall, the novelty in the manuscript has not been made fully clear - it is an existing method is applied to 3 RNA-seq datasets and the results are not biologically novel or discussed in much depth. The method is interesting, and is discussed conceptually but not in sufficient detail/comparison to other methods for readers to use this manuscript it as a guide when choosing methods for analysis*.
+
+**Possible Answer**
+
+- Seems like a summary of his previous points. Not sure we answer the biological novelty part by answering the above questions, but I think we address the other parts of the summary.
+
+
+## Reviewer 1 
+
+*Lack of technical novelty. Sample clustering of RNA expression data
+is the area where there are numerous existing methods. There needs to
+be either more technical advancement of the presented method (e.g.,
+extending the latent Dirichlet allocation method). The authors could
+also perform or a more thorough comparison with alternative methods
+for clustering samples by soft assignment to justify the choice of the specific method used in the paper.*
+
+**Possible Answer**
+
+- Technical advancement is probably not the route we want to take as we stressed already that the method as it is performs pretty well. That leaves us the second route. We are already comparing it with SFA and PCA. I can take a look at the other soft clustering methods that are there. But overall, we may need to convince him of the novelty, that seems a bit difficult.
+
+*Lack of novelty in biological discovery. A demonstration of how the
+GoM model can reveal novel biology would improve the manuscript.*
+
+**Possible Answer**
+
+- Not clear to me what sort of biological discovery is expected here. 
+
+
+
+
+
+
+
