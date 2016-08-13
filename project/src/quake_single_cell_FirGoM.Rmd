@@ -1,0 +1,14 @@
+---
+title: "Quake single cell data"
+author: "Kushal K Dey"
+date: "July 26, 2016"
+output: html_document
+---
+
+In this script, we shall apply FitGoM() function in the package **CountClust** on the Quake et al single cell data collecte from Brain. We know of the underlying cell types from the marker methods and we intend to check if the clusters we obtain using the FitGoM() function matches well with the known cell type information.
+
+```{r}
+quake_counts <- get(load("../external_data/"))
+
+```
+
