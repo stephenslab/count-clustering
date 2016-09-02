@@ -8,6 +8,10 @@ output:
     toc: true
 ---
 
+```{r chunk-options, include=FALSE}
+source("chunk-options.R")
+```
+
 
 ```{r packages, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
 #library(maptpx)
@@ -147,7 +151,7 @@ colored_bars(colors = labels_mat$cell_type,
 
 ## Combined plot
 
-```{r, fig.width=7, fig.height=7}
+```{r deng-pca-tsne, fig.width=9, fig.height=9}
 # plot the PCA plot twice
 # first time without legend,
 # and second time with legend

@@ -8,6 +8,10 @@ output:
     toc: true
 ---
 
+```{r chunk-options, include=FALSE}
+source("chunk-options.R")
+```
+
 
 ```{r packages, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
 #library(maptpx)
@@ -38,7 +42,7 @@ sample_labels$SMTSD <- factor(sample_labels$SMTSD)
 
 Make color palette for gtex tissues
 
-```{r}
+```{r gtex-color-wheel}
 library(RColorBrewer)
 n <- 53
 qual_col_pals <- brewer.pal.info[brewer.pal.info$category == 'qual',]
@@ -111,7 +115,7 @@ library(colorspace)
 
 Make legend plot
 
-```{r, fig.width=10, fig.height=4}
+```{r ggplot-legend, fig.width=10, fig.height=4}
 coord_xy <- cbind(c(rep(c(1,5,9,13), each = 13),13) - .4,
                   c(rep(c(13:1),4), 0))
 
@@ -131,7 +135,7 @@ plot_legend
 
 ## Combined plot
 
-```{r, fig.width=9, fig.height=4}
+```{r gtex-pca-sne, fig.width=9, fig.height=4}
 # plot the PCA plot twice
 # first time without legend,
 # and second time with legend
