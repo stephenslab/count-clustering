@@ -1,0 +1,25 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+\input{../header.tex}
+
+\begin{document}
+
+  \begin{figure*}[ht]
+    \centering
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=3.5in]{../../plots/hierarchy_F_thin_0_1.png}
+        \caption{hierarchy method}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=3.5in]{../../plots/admixture_F_thin_0_1.png}
+        \caption{GoM method}
+    \end{subfigure} \\
+\caption{A comparison of accuracy of GoM model vs hierarchical clustering. For each pair of tissues from the GTEX data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
+\label{fig:fig2}
+\end{figure*}
+
+\end{document}
