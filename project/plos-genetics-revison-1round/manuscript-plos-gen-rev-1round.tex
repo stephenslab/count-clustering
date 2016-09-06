@@ -241,7 +241,7 @@ the actual architecture of cell heterogeneity may be more complex, and in some c
 
 To be applicable to single-cell RNA-seq data, methods must be able to deal with lower sequencing depth than in bulk RNA experiments:
  single-cell RNA-seq data typically involve substantially lower effective sequencing depth compared with bulk experiments, due to the relatively small number of molecules available to sequence in a single cell. Therefore, as a first step towards demonstrating its potential for single cell analysis, we checked robustness of the GoM model to sequencing depth. Specifically,
-we repeated the analyses above after thinning the GTEx data by a factor of $100$ and $10,000$ to mimic the lower sequencing depth of a typical single cell experiment. For the thinned GTEx data the Structure plot for $K=20$ preserves most of the major features of the original analysis on unthinned data (\nameref{figS1}). For the accuracy comparisons with distance-based methods, both methods suffer reduced accuracy in thinned data, but the GoM model remains superior (\nameref{figS2}). For example, when thinning by a factor of $10,000$, the success rate in separating pairs of tissues is $0.32$ for the GoM model vs. $0.10$ for hierarchical clustering.
+we repeated the analyses above after thinning the GTEx data by a factor of $100$ and $10,000$ to mimic the lower sequencing depth of a typical single cell experiment. For the thinned GTEx data the Structure plot for $K=20$ preserves most of the major features of the original analysis on unthinned data (\nameref{figS1}). For the accuracy comparisons with distance-based methods, both methods suffer reduced accuracy in thinned data, but the GoM model remains superior (\nameref{figS3}). For example, when thinning by a factor of $10,000$, the success rate in separating pairs of tissues is $0.32$ for the GoM model vs. $0.10$ for hierarchical clustering.
 
 Having established its robustness to sequencing depth, we now illustrate the GoM model on two single cell RNA-seq datasets, from Jaitin \textit{et al} \cite{Jaitin2014} and Deng \textit{et al} \cite{Deng2014}.
 
@@ -502,15 +502,15 @@ The authors have no conflict of interest.
 
 \section*{Supporting Information}
 \paragraph*{S1 Fig.}
-\label{figS0}
+\label{figS1}
 {\bf Structure plot of GTEx V6 all tissue samples for (a) $K=5$, (b) $K=10$, (c) $K=15$, (d) $K=20$.} Some tissues form a separate cluster from the rest of the tissues from $K=5$ onwards (for example: Whole Blood, Skin), whereas some tissues only form a distinctive subgroup only at $K=20$ (for example: Arteries).
 
 \paragraph*{S2 Fig.}
-\label{figS1}
+\label{figS2}
 {\bf Structure plot of GTEx V6 all tissue samples K=20 in 2 runs under the thinning parameters settings (a) $p_{thin}=0.01$ and (b) $p_{thin}=0.0001$.} The patterns in two plots closely correspond to the plot in Fig ~\ref{fig1} (a), though there are a few differences from the unthinned version.
 
 \paragraph*{S3 Fig.}
-\label{figS2}
+\label{figS3}
 {\bf A comparison of ``accuracy" of hierarchical vs. model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.01$ and $p_{thin}=0.0001$.}  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Fig~\ref{fig2}), but even then the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
 
 \paragraph*{S1 Table.}
