@@ -29,14 +29,14 @@ figS4: S4_Fig.tex ../header.tex ../../src/figure/gtex-pca-vs-tsne.Rmd/gtex-with-
 figS5: S5_Fig.tex ../header.tex ../../src/figure/deng-pca-vs-tsne.Rmd/deng-with-legend.jpeg
 		pdflatex S5_Fig.tex
 
-tableS1: S1_Table.tex ../header.tex
-		pdflatex S1_Table.tex
+tableS1: supptab1.tex ../header.tex
+		pdflatex supptab1.tex
 
-tableS2: S2_Table.tex ../header.tex
-		pdflatex S2_Table.tex
+tableS2: supptab2.tex ../header.tex
+		pdflatex supptab2.tex
 
-tableS3: S3_Table.tex ../header.tex
-		pdflatex S3_Table.tex
+tableS3: supptab3.tex ../header.tex
+		pdflatex supptab3.tex
 
 clean:
 	\rm -f *.aux *.bbl *.blg *.log *.bak *.out *~ *.Rout */*~ */*.Rout */*.aux */*.log
