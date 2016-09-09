@@ -1,5 +1,5 @@
 
-supps: supplementals.tex ../header.tex S1_Fig.tex S2_Fig.tex S3_Fig.tex S4_Fig.tex S5_Fig.tex S1_Table.tex S2_Table.tex S3_Table.tex
+supps: supplementals.tex ../header.tex S1_Fig.tex S2_Fig.tex S3_Fig.tex S4_Fig.tex S5_Fig.tex S6_Fig.tex S7_Fig.tex S1_Table.tex S2_Table.tex S3_Table.tex
 	pdflatex supplementals.tex
 
 fig1: fig1.tex ../header.tex ../../plots/gtex-figures/gtex-k20-05-01-2016.pdf
@@ -28,6 +28,12 @@ figS4: S4_Fig.tex ../header.tex ../../src/figure/gtex-pca-vs-tsne.Rmd/gtex-with-
 
 figS5: S5_Fig.tex ../header.tex ../../src/figure/deng-pca-vs-tsne.Rmd/deng-with-legend.jpeg
 		pdflatex S5_Fig.tex
+
+figS6: S6_Fig.tex ../header.tex ../../plots/gtex-figures/sfa_gtex_figs.png
+		pdflatex S6_Fig.tex
+
+figS7: S7_Fig.tex ../header.tex ../../plots/deng-figures/sfa_deng_figs.pdf
+		pdflatex S7_Fig.tex
 
 tableS1: S1_Table.tex ../header.tex
 		pdflatex S1_Table.tex
