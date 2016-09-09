@@ -217,8 +217,7 @@ where
 \begin{equation} \label{eqn:gom}
 p_{ng} := \sum_{k=1}^{K} q_{nk}\theta_{kg}.    
 \end{equation}
-The number of clusters $K$ is set by the analyst, and it can be helpful to explore multiple
-values of $K$ (see Discussion).
+\textcolor{red}{Here $c_{n+}$ is the library size, or number of reads mapped to the genome, for sample $n$}. The number of clusters $K$ is set by the analyst, and it can be helpful to explore multiple values of $K$ (see Discussion).
 
 To fit this model to RNA-seq data, we exploit the fact that exactly the same GoM model is commonly used for document clustering \cite{Blei2003}.
 This is because, just as RNA-seq samples can be summarized by counts of reads mapping to each possible gene in the genome, 
