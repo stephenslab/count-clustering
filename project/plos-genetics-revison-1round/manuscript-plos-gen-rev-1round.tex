@@ -2,10 +2,11 @@
 % Version 3.2 March 2016
 
 \documentclass[10pt,letterpaper]{article}
-\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
 
+% Document settings general to the text and the figures
 \input{header.tex}
 
+% Document settings specific to the main tex file
 % Header and Footer with logo
 \usepackage{lastpage,fancyhdr,graphicx}
 \usepackage{epstopdf}
@@ -13,12 +14,15 @@
 \pagestyle{fancy}
 \fancyhf{}
 \setlength{\headheight}{27.023pt}
-\lhead{\includegraphics[width=2.0in]{../PLOS-submission.eps}}
+\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
 \rfoot{\thepage/\pageref{LastPage}}
 \renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
 \fancyheadoffset[L]{2.25in}
 \fancyfootoffset[L]{2.25in}
 \lfoot{\sf PLOS}
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
+
 
 \begin{document}
 
@@ -28,7 +32,7 @@
 % Please use "title case" (capitalize all terms in the title except conjunctions, prepositions, and articles).
 \begin{flushleft}
 {\Large
-\textbf\newline{Clustering RNA-seq Expression Data using Grade of Membership Models}
+\textbf\newline{Visualizing the Structure of RNA-seq Expression Data using Grade of Membership Models}
 }
 \newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
@@ -44,11 +48,12 @@ Matthew Stephens\textsuperscript{1,2}
 \\
 \bigskip
 
-
 % Use the asterisk to denote corresponding authorship and provide email address in note below.
 * mstephens@uchicago.edu
 
 \end{flushleft}
+
+
 % Please keep the abstract below 300 words
 \section*{Abstract}
 Grade of membership models, also known as ``admixture models", ``topic models" or ``Latent Dirichlet Allocation",
@@ -220,20 +225,6 @@ The remaining samples all show membership in multiple clusters. Samples from the
 
 
 
-\subsection*{Quantitative comparison with hierarchical clustering}
-
-We used the GTEx data to test whether the GoM model is more accurate in detecting substructure than distance-based clustering methods.
-Specifically, for each pair of tissues in the GTEx data we assessed whether or not each clustering method
-correctly partitioned samples into the two tissue groups (see Methods). The GoM model was substantially more accurate in this test, succeeding in $81 \%$ of comparisons, compared with $29 \%$ for the distance-based method (Fig~\ref{fig2}). This presumably reflects the general tendency for model-based
-approaches to be more efficient that distance-based approaches, provided that the model is sufficiently accurate.
-
-% Figure 2
-%\begin{figure}[!h]
-%\caption{{\bf A comparison of accuracy of GoM model vs. hierarchical clustering.} For each pair of tissues from the GTEX data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
-%\label{fig2}
-%\end{figure}
-
-
 \subsection*{Clustering of single-cell RNA-seq data}
 
 Recently RNA-sequencing has become viable for single cells \cite{Tang2009}, and this technology has the promise to revolutionize understanding of intra-cellular variation in expression, and regulation more generally \cite{Trapnell2015}. Although it is traditional to describe and categorize cells in terms of distinct cell-types,
@@ -291,6 +282,27 @@ Finally, we note that, like clustering methods, the GoM model can be helpful in 
 the GoM results highlight a few single cells as outliers. For example, a cell from a 16-cell embryo is represented by the blue cluster - a cluster that represents cells at the zygote and early 2-cell stage. Also, a cell from an 8-stage embryo has strong membership in the purple cluster - a cluster that represents cells from the blastocyst stage. It would seem prudent to consider excluding these cells from subsequent analyses of these data.
 
 
+\subsection*{Comparison with other visualization methods}
+
+GoM models also have close connections with dimension reduction techniques such as factor analysis, principal components analysis and non-negative matrix factorization. All of these methods can also be used for RNA-seq data, and may often be useful. See  \cite{Engelhardt2010} for discussion of
+relationships among these methods in the context of inferring population genetic structure. While not arguing that the GoM model
+is uniformly superior to these other methods, we believe our examples illustrate the appeals of the approach. In particular, we would argue that for the GTEx data, the Structure plot (Fig~\ref{fig1}) combined with the cluster annotations (Table \ref{tab1}) provide a more visually and biologically appealing summary of the data
+than would a principal components analysis.
+
+\subsubsection*{Quantitative comparison with hierarchical clustering}
+
+We used the GTEx data to test whether the GoM model is more accurate in detecting substructure than distance-based clustering methods.
+Specifically, for each pair of tissues in the GTEx data we assessed whether or not each clustering method
+correctly partitioned samples into the two tissue groups (see Methods). The GoM model was substantially more accurate in this test, succeeding in $81 \%$ of comparisons, compared with $29 \%$ for the distance-based method (Fig~\ref{fig2}). This presumably reflects the general tendency for model-based
+approaches to be more efficient that distance-based approaches, provided that the model is sufficiently accurate.
+
+% Figure 2
+%\begin{figure}[!h]
+%\caption{{\bf A comparison of accuracy of GoM model vs. hierarchical clustering.} For each pair of tissues from the GTEX data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
+%\label{fig2}
+%\end{figure}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %% <--- Discussion
@@ -316,11 +328,6 @@ The GoM model is also better able to represent the situation where there is not 
 but where samples may cluster differently at different genes. For example, in the GTEx data, the stomach samples share memberships in common with
 both the pancreas (purple) and the adrenal gland (light green). This pattern can be seen in the Structure plot (Fig~\ref{fig1}) but would be hard to
 discern from a standard hierarchical clustering.
-
-GoM models also have close connections with dimension reduction techniques such as factor analysis, principal components analysis and non-negative matrix factorization. All of these methods can also be used for RNA-seq data, and may often be useful. See  \cite{Engelhardt2010} for discussion of
-relationships among these methods in the context of inferring population genetic structure. While not arguing that the GoM model
-is uniformly superior to these other methods, we believe our examples illustrate the appeals of the approach. In particular, we would argue that for the GTEx data, the Structure plot (Fig~\ref{fig1}) combined with the cluster annotations (Table \ref{tab1}) provide a more visually and biologically appealing summary of the data
-than would a principal components analysis.
 
 Fitting GoM models can be computationally-intensive for large data sets. For the datasets we considered here the computation time ranged from $12$ minutes for the data from \cite{Deng2014} ($n=259; K=6$), through $33$ minutes for the
 data from \cite{Jaitin2014} ($n=1,041; K=7$) to 3,370 minutes for the GTEx data ($n=8,555; K=20$).
