@@ -45,7 +45,7 @@ tableS3: supptab3.tex ../header.tex
 		pdflatex supptab3.tex
 
 clean:
-	\rm -f *.aux *.bbl *.blg *.log *.bak *.out *~ *.Rout */*~ */*.Rout */*.aux */*.log
+	\rm -f *.aux *.bbl *.blg *.log *.bak *.out *.gz *~ *.Rout */*~ */*.Rout */*.aux */*.log */*.gz
 
 cleanall:
 	\rm -f *.aux *.bbl *.blg *.log *.bak *.out *~ *.Rout *.pdf */*~ */*.Rout */*.aux */*.log
