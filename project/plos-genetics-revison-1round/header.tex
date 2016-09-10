@@ -1,8 +1,10 @@
 % Template for PLoS
 % Version 3.2 March 2016
 
-% General commands for the entire paper
-%
+% General commands for text/figures
+
+% Page margin
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
 % Use Unicode characters when possible
 \usepackage[utf8x]{inputenc}
 % amsmath package, useful for mathematical formulas
@@ -38,14 +40,6 @@
 %\usepackage{setspace}
 %\doublespacing
 
-% Text layout
-\topmargin 0.0cm
-\oddsidemargin 0.5cm
-\evensidemargin 0.5cm
-\textwidth 16cm
-\textheight 21cm
-
-\setlength{\parskip}{1em}
 
 % Bold the 'Figure #' in the caption and separate it with a period
 % Captions will be left justified
@@ -91,7 +85,6 @@
 
 \def\KL{\text{KL}}
 
-
 % Text layout
 \raggedright
 \setlength{\parindent}{0.5cm}
@@ -111,27 +104,6 @@
 \renewcommand{\@biblabel}[1]{\quad#1.}
 \makeatother
 
-
-% % Header and Footer with logo
-% \usepackage{lastpage,fancyhdr,graphicx}
-% \usepackage{epstopdf}
-% \pagestyle{myheadings}
-% \pagestyle{fancy}
-% \fancyhf{}
-% \setlength{\headheight}{27.023pt}
-% \lhead{\includegraphics[width=2.0in]{../PLOS-submission.eps}}
-% \rfoot{\thepage/\pageref{LastPage}}
-% \renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
-% \fancyheadoffset[L]{2.25in}
-% \fancyfootoffset[L]{2.25in}
-% \lfoot{\sf PLOS}
-
-%% Include all macros below
-
-\newcommand{\lorem}{{\bf LOREM}}
-\newcommand{\ipsum}{{\bf IPSUM}}
-
-%% END MACROS SECTION
 
 %% Author's settings
 \def\KL{\text{KL}}
