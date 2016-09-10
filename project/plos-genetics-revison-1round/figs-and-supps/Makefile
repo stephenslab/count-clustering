@@ -38,11 +38,11 @@ figS7: S7_Fig.tex ../header.tex ../../plots/deng-figures/sfa_deng_figs.pdf
 tableS1: S1_Table.tex ../header.tex
 		pdflatex S1_Table.tex
 
-tableS2: supptab2.tex ../header.tex
-		pdflatex supptab2.tex
+tableS2: S2_Table.tex ../header.tex
+		pdflatex S2_Table.tex
 
-tableS3: supptab3.tex ../header.tex
-		pdflatex supptab3.tex
+tableS3: S3_Table.tex ../header.tex
+		pdflatex S3_Table.tex
 
 clean:
 	\rm -f *.aux *.bbl *.blg *.log *.bak *.out *.gz *~ *.Rout */*~ */*.Rout */*.aux */*.log */*.gz
