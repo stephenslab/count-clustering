@@ -1,8 +1,19 @@
 % adopt PLoS genetics environment settings
 \documentclass[10pt,letterpaper]{article}
-\usepackage{standalone} %load only in the main file
+
+% Load to combine multiple standalone tex files into Supplemental Material
+\usepackage{standalone} 
 
 \input{../header.tex}
+
+% Text layout specific to Supplemental Materials
+\topmargin 0.0cm
+\oddsidemargin 0.5cm
+\evensidemargin 0.5cm
+\textwidth 16cm 
+\textheight 21cm
+
+\setlength{\parskip}{1em}
 
 \begin{document}
 
@@ -19,11 +30,11 @@
 \clearpage
 
 \section{Supplementary tables}
-\input{supptab1}
+\input{S1_Table}
 \clearpage
-\input{supptab2}
+\input{S2_Table}
 \clearpage
-\input{supptab3}
+\input{S3_Table}
 \clearpage
 
 \end{document}
