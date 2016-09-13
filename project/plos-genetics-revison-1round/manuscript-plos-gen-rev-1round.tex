@@ -3,10 +3,6 @@
 
 \documentclass[10pt,letterpaper]{article}
 
-<<<<<<< HEAD
-% Document settings general to the text and the figures
-=======
->>>>>>> upstream/master
 \input{header.tex}
 
 % Document settings specific to the main tex file
@@ -61,7 +57,7 @@ Matthew Stephens\textsuperscript{1,2}
 % Please keep the abstract below 300 words
 \section*{Abstract}
 Grade of membership models, also known as ``admixture models", ``topic models" or ``Latent Dirichlet Allocation",
-are a generalization of cluster models that allow each sample to have membership in multiple clusters.
+are a generalization of cluster models that allow each othersample to have membership in multiple clusters.
 These models are widely used in population genetics to model admixed individuals who have ancestry from multiple ``populations",
 and in natural language processing to model documents having words from multiple ``topics". Here we illustrate the potential for these models
 to cluster samples of RNA-seq gene expression data, measured on either bulk samples or single cells.
@@ -180,7 +176,7 @@ structure plots, and identifying the distinctive (``driving") genes in each clus
 We begin by illustrating the GoM model on bulk RNA expression measurements from the GTEx project (V6 dbGaP accession phs000424.v6.p1, release date: Oct 19, 2015, \url{http://www.gtexportal.org/home/}).  These data consist of per-gene read counts from RNA-seq performed on $8,555$ samples collected from $450$ human donors across $51$ tissues, lymphoblastoid cell lines, and transformed fibroblast cell-lines. We analyzed $16,069$ genes that satisfied filters (e.g.~exceeding certain minimum expression levels) that were used during eQTL analyses by the GTEx project (gene list available in \url{http://stephenslab.github.io/count-clustering/project/utilities/gene_names_all_gtex.txt}).
 
 We fit the GoM model to these data, with number of clusters $K=5,10,15,20$. For each $K$ we ran the fitting algorithm three times and
-kept the result with the highest log-likelihood. Fig~\ref{fig1}(a) shows the Structure plot for $K=20$, with results for other $K$ in \nameref{figS0}. (See also \url{http://stephenslab.github.io/count-clustering/project/src/tissues_tSNE_2.html} for
+kept the result with the highest log-likelihood. Fig~\ref{fig1}(a) shows the Structure plot for $K=20$, with results for other $K$ in \nameref{figS1}. (See also \url{http://stephenslab.github.io/count-clustering/project/src/tissues_tSNE_2.html} for
 an alternative visualization using a 2-dimensional projection with t-SNE \cite{Maaten2008, Maaten2014}.)
 
 In all cases results reflect the known division of samples into tissues: that is, samples from the same tissue tend to have similar cluster membership proportions. As might be expected, increasing $K$ highlights finer structure in the data, with tissues that cluster together with smaller $K$ being subdivided into distinct subgroups for larger $K$. For brevity we focus on results for $K=20$ (Fig~\ref{fig1}(a)). Here some tissues are represented by essentially a single cluster (e.g.~Pancreas, Liver), whereas other tissues are represented as a mixture of multiple clusters (e.g.~Thyroid, Spleen). Furthermore, the results highlight biological similarity among some tissues by assigning similar membership proportions to samples from those tissues.  For example, samples from several different parts of the brain often have similar memberships, as do the arteries (aorta, tibial and coronary) and skin samples (sun-exposed and un-exposed).
@@ -286,19 +282,20 @@ Finally, we note that, like clustering methods, the GoM model can be helpful in 
 the GoM results highlight a few single cells as outliers. For example, a cell from a 16-cell embryo is represented by the blue cluster - a cluster that represents cells at the zygote and early 2-cell stage. Also, a cell from an 8-stage embryo has strong membership in the purple cluster - a cluster that represents cells from the blastocyst stage. It would seem prudent to consider excluding these cells from subsequent analyses of these data.
 
 
-\subsection*{Comparison with other visualization methods}
+\subsection*{Visualization using other dimension reduction techniques}
 
-GoM models also have close connections with dimension reduction techniques such as factor analysis, principal components analysis and non-negative matrix factorization. All of these methods can also be used for RNA-seq data, and may often be useful. See  \cite{Engelhardt2010} for discussion of
-relationships among these methods in the context of inferring population genetic structure. While not arguing that the GoM model
-is uniformly superior to these other methods, we believe our examples illustrate the appeals of the approach. In particular, we would argue that for the GTEx data, the Structure plot (Fig~\ref{fig1}) combined with the cluster annotations (Table \ref{tab1}) provide a more visually and biologically appealing summary of the data
-than would a principal components analysis.
+GoM models have close connections with dimension reduction techniques such as sparse factor analysis, principal components analysis and t-Distributed Stochastic Neighbor Embedding (t-SNE). All of these methods have been routinely used to visualize the sample variation of RNA-seq data. See \cite{Engelhardt2010} for discussion of relationships among these methods in the context of inferring population genetic structure. We applied these related methods to the GTEx (\nameref{figS4}, \nameref{figS6}, \nameref{S8}) and the single-cell RNA-seq (\nameref{figS5}, \nameref{figS7}) data examples. The results revealed that the GoM models provide a more visually and biologically appealing summary of the data than the other dimension reduction techniques.
 
-\subsubsection*{Quantitative comparison with hierarchical clustering}
+[visualize in high dimensions] In particular, for the GTEx data, the GoM models combined with Structure plot provides a convenient visualization of tissue samples in 20 dimensions corresponding to 20 clusters. While, PCA, MDS and t-SNE provide solutions that are difficult to visualize more than two dimensions at one time. Our example illustrates that the results produced by PCA and MDS are unable to distinguish majority of the tissues samples, except for whole blood and brain tissue samples. Meanwhile, although the t-SNE can accurately cluster most samples by their corresponding tissue types, these results provide little insight into tissue similarity. Applying SFA to the GTEx data (\nameref{figS7}) revealed several underlying clusters sharing across tissue samples, which (how about GOs? Are these clusters similar to the GoM results). However, the factor loadings are difficult to visualize to provide insight into sample structure. 
 
-We used the GTEx data to test whether the GoM model is more accurate in detecting substructure than distance-based clustering methods.
-Specifically, for each pair of tissues in the GTEx data we assessed whether or not each clustering method
-correctly partitioned samples into the two tissue groups (see Methods). The GoM model was substantially more accurate in this test, succeeding in $81 \%$ of comparisons, compared with $29 \%$ for the distance-based method (Fig~\ref{fig2}). This presumably reflects the general tendency for model-based
+[tissue sharing] Comparing the methods for the GTEx brain tissue samples, we observed that PCA and MDS produce a solution in which most of the brain regions are not well distinguished except for Cerebellum and Cerebellar Hemisphere. Meanwhile, the GoM model revealed possibly four cell types underlying the brain subregions that are suggested as similar in PCA and MDS. As can be seen in Figure 1b, these brain subregions differ in their admixture of the four cell types (Royal Blue cluster, Turquoise cluster, Bright Red cluster, and Yellow Orange cluster). In addition, these brain subregions are similar in the admixture of the Royal Blue cluster, possibly suggest a pattern of sharing across brain regions. On the other hand, t-SNE fails to uncover a clustering pattern of the brain tissue samples (\nameref{S8}). For the GTEx data, t-SNE performs better than PCA and MDS and 
+
+[continuous variation] Finally, applying to embryonic cells, the PCA and MDS recover a pattern of variation that is consistent with the developmental stages from which the embryos were collected. While, the results produced by t-SNE arrange cell samples by their embryonic stage by do not order the samples on a developmental continuum. In contract, the GoM results revealed a rich admixture of cell types which reflect important biological processes during embryonic preimplantation development. 
+
+[Where does this go??]
+In addition, we used the GTEx data to test whether the GoM model is more accurate in detecting substructure than distance-based clustering methods. Specifically, for each pair of tissues in the GTEx data we assessed whether or not each clustering method correctly partitioned samples into the two tissue groups (see Methods). The GoM model was substantially more accurate in this test, succeeding in $81 \%$ of comparisons, compared with $29 \%$ for the distance-based method (Fig~\ref{fig2}). This presumably reflects the general tendency for model-based
 approaches to be more efficient that distance-based approaches, provided that the model is sufficiently accurate.
+
 
 % Figure 2
 %\begin{figure}[!h]
