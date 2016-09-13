@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  12 SEP 2016 19:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  13 SEP 2016 12:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1373,33 +1373,24 @@ Overfull \hbox (18.06653pt too wide) in paragraph at lines 1119--1120
 [][] 
  []
 
-<../plots/hierarchy_F_thin_0_1.png, id=348, 481.8pt x 481.8pt>
-File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
+<../plots/hierarchical_separation_plot.png, id=348, 424.58624pt x 401.5pt>
+File: ../plots/hierarchical_separation_plot.png Graphic file (type png)
 
-<use ../plots/hierarchy_F_thin_0_1.png>
-Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 1
-129.
-(pdftex.def)             Requested size: 252.94142pt x 252.94499pt.
+<use ../plots/hierarchical_separation_plot.png>
+Package pdftex.def Info: ../plots/hierarchical_separation_plot.png used on inpu
+t line 1129.
+(pdftex.def)             Requested size: 180.67676pt x 252.95245pt.
 
-Overfull \hbox (63.23268pt too wide) in paragraph at lines 1129--1130
+<../plots/admixture_separation_plot.png, id=350, 427.5975pt x 401.5pt>
+File: ../plots/admixture_separation_plot.png Graphic file (type png)
+
+<use ../plots/admixture_separation_plot.png>
+Package pdftex.def Info: ../plots/admixture_separation_plot.png used on input l
+ine 1135.
+(pdftex.def)             Requested size: 180.6728pt x 252.95245pt.
+
+Overfull \hbox (66.8464pt too wide) in paragraph at lines 1135--1136
  [][] 
- []
-
-<../plots/admixture_F_thin_0_1.png, id=350, 481.8pt x 481.8pt>
-File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
-
-<use ../plots/admixture_F_thin_0_1.png>
-Package pdftex.def Info: ../plots/admixture_F_thin_0_1.png used on input line 1
-135.
-(pdftex.def)             Requested size: 252.94142pt x 252.94499pt.
-
-Overfull \hbox (63.23268pt too wide) in paragraph at lines 1135--1136
- [][] 
- []
-
-
-Overfull \hbox (4.44441pt too wide) in paragraph at lines 1127--1137
- [][]  [] 
  []
 
 
@@ -1471,7 +1462,8 @@ File: PLOS-Submission-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: PLOS-Submission-eps-converted-to.pdf used on input lin
 e 1173.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
- [20 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>]
+ [20 <../plots/hierarchical_separation_plot.png> <../plots/admixture_separation
+_plot.png>]
 Package epstopdf Info: Source file: <PLOS-Submission.eps>
 (epstopdf)                    date: 2016-03-31 20:31:16
 (epstopdf)                    size: 283246 bytes
@@ -1513,11 +1505,15 @@ Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1173.
 
 Package rerunfilecheck Info: File `manuscript-plos-gen-2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1173.
  ) 
 Here is how much of TeX's memory you used:
  10927 strings out of 493117
- 167675 string characters out of 6135433
+ 167740 string characters out of 6135433
  321780 words of memory out of 5000000
  13997 multiletter control sequences out of 15000+600000
  11629 words of font info for 73 fonts, out of 8000000 for 9000
@@ -1540,7 +1536,7 @@ ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive
 14/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/201
 4/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2014/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on manuscript-plos-gen-2.pdf (22 pages, 1100843 bytes).
+Output written on manuscript-plos-gen-2.pdf (22 pages, 1081303 bytes).
 PDF statistics:
  609 PDF objects out of 1000 (max. 8388607)
  509 compressed objects within 6 object streams
