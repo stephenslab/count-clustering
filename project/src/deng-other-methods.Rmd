@@ -1,7 +1,7 @@
 ---
 title: 'Plotting results of PCA vs. t-SNE: Deng'
 author: "Joyce Hsiao"
-date: "2016-08-24"
+date: "2016-09-12"
 output: 
   html_document:
     css: floating-toc.css
@@ -44,6 +44,14 @@ Load Deng t-SNE results that were prepared previously to save time.
 tsne_out <- get(load("../rdas/tsne_deng_data_k_2.rda"))
 tsne_out <- as.matrix(tsne_out)
 ```
+
+Load Deng MDS results
+
+```{r load-deng-mds, echo = TRUE, eval = TRUE}
+mds_out <- get(load("../rdas/mds_deng.rda"))
+mds_out <- as.matrix(mds_out)
+```
+
 
 ## Making plots
 
@@ -107,59 +115,63 @@ pca_plot <- ggplot(plot_data_pca, aes(x = PC1, y = PC2)) +
 ```
 
 
-Dendrogram (to be completed)
 
-```{r ggplot-deng-dendrogram, echo = TRUE, eval = FALSE}
-dist_rda <- get(load("../rdas/euclidean_object_deng.rda"))
-dist_mat <- as.matrix(dist_rda$euclidean_mat)
+MDS plot
 
-# make the metadata table
-# that displays the corresponence between
-# column names of the distance matrix and the 
-# cell_type vector
-labels_mat <- cbind(
-    rownames(dist_rda$euclidean_mat),
-    as.numeric(dist_rda$metadata$cell_type),
-    levels(dist_rda$metadata$cell_type)[as.numeric(dist_rda$metadata$cell_type)])
-labels_mat <- data.frame(labels_mat)
-colnames(labels_mat) <- c("var_names", "cell_type", "cell_type_labels")
+```{r ggplot-deng-mds, echo = TRUE, eval = TRUE}
+# name columns of MDS output
+colnames(mds_out) <- c("dim1", "dim2")
 
-# use the R package dendextend 
-# to make colored dendrogram
-library(dendextend)
-library(dendextendRcpp)
-library(colorspace)
+# combine in one data.frame tsne results with cell type labels 
+plot_data_mds <- cbind(mds_out, meta_data)
+plot_data_mds <- as.data.frame(plot_data_mds)
 
-# make hclust object
-dist_mat_hclust <- hclust(as.dist(dist_mat), method = "average")
-dend <- as.dendrogram(dist_mat_hclust)
-
-# rearrange labels table
-# to re-order rows by the dendrogram node order
-labels_mat <- labels_mat[match(labels(dend), labels_mat$var_names), ]
-
-# make dendrogram
-dend %>% set("labels", as.character(labels_mat$cell_type) ) %>%
-    set("labels_colors") %>% 
-    set("branches_k_color") %>% 
-#   plot(horiz = TRUE) %>%
-    plot
-colored_bars(colors = labels_mat$cell_type,
-             dend = dend)
+# make color scheme
+cols <- c("darkblue", 
+          "blue", "cornflowerblue", "cadetblue2",
+          "darkgreen", "darkolivegreen4", "darkolivegreen3",
+          "coral4", "coral3", "coral")
+    
+# make plot
+mds_plot <- ggplot(plot_data_mds, aes(x = dim1, y = dim2)) + 
+    geom_point(aes(fill = cell_type),
+                   colour = "grey20", 
+                   pch = 21, alpha = 1) +
+    labs(x = "MDS 1st dimension", y = "MDS 2nd dimension") +
+    scale_fill_manual(values = cols) +
+    theme_classic() +
+    theme(panel.border = element_rect(fill = "NA", colour = "black"))
 ```
 
 
 ## Combined plot
 
-```{r deng-pca-tsne, fig.width=9, fig.height=9}
-# plot the PCA plot twice
-# first time without legend,
-# and second time with legend
+```{r deng-combined-plot, fig.width=7, fig.height=7}
 cowplot::plot_grid(
     pca_plot + theme(legend.position="none"), 
     tsne_plot  + theme(legend.position="none"),
-    pca_plot, 
+    mds_plot + theme(legend.position="none"),
     labels = LETTERS[1:3])
+```
+
+
+Make legend
+
+```{r make-legend, fig.height=4, fig.width=3}
+coord_xy <- cbind(rep(1,11) - .4,
+                  c(1:11))
+
+library(pryr)
+plot_legend %<a-% {
+    plot(coord_xy, pch = 21, lwd = .8, 
+        bg = cols, col = "grey20",
+        xlim = c(0, 17), ylim = c(0, 14),
+        ann = F, axes = F)
+    text(x = coord_xy[,1] + .8, y = coord_xy[,2],
+         labels = levels(factor(meta_data$cell_type)),
+         cex = .6, adj = 0)
+}
+plot_legend
 ```
 
 

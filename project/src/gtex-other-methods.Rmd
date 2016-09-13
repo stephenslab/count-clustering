@@ -1,7 +1,7 @@
 ---
-title: 'Plotting results of PCA vs. t-SNE: GTEx'
+title: 'GTEx all tissue: Plotting results of other methods'
 author: "Joyce Hsiao"
-date: "2016-08-24"
+date: "2016-09-12"
 output: 
   html_document:
     css: floating-toc.css
@@ -26,7 +26,7 @@ library(knitr)
 
 ## Objective
 
-Make annotated plots for PCA and t-SNE results of GTEx data.
+Make annotated plots for visualizing results of t-SNE, PCA and MDS.
 
 
 ## Setting up
@@ -40,6 +40,30 @@ sample_labels <- read.table("../rdas/samples-id-for-paper.txt",
 sample_labels$SMTSD <- factor(sample_labels$SMTSD)
 ```
 
+
+Load t-SNE data
+
+```{r}
+tsne_out <- read.table("../rdas/tsne_samples.txt", sep = "")
+# name columns of tsne output
+colnames(tsne_out) <- c("PC1", "PC2")
+```
+
+Load PCA results
+
+```{r}
+pca_out <- get(load("../rdas/pc_gtex_v6_x.rda"))
+```
+
+Load MDS data
+
+```{r}
+mds_out <- get(load("../rdas/mds_gtex_whole.rda"))
+colnames(mds_out) <- c("dim1", "dim2")
+```
+
+
+
 Make color palette for gtex tissues
 
 ```{r gtex-color-wheel}
@@ -52,19 +76,14 @@ pie(rep(1,n), col=sample(col_vector, n), radius = 1)
 ```
 
 
+
 ## Making plots
 
 t-SNE plot, using t-SNE reuslts of all genes
 
 ```{r ggplot-tsne, echo = TRUE, eval = TRUE}
-tsne_out <- read.table("../rdas/tsne_samples.txt", sep = "")
-
-# name columns of tsne output
-colnames(tsne_out) <- c("PC1", "PC2")
-
 # combine in one data.frame tsne results with cell type labels 
-plot_data_tsne <- cbind(tsne_out, sample_labels)
-plot_data_tsne <- as.data.frame(plot_data_tsne)
+plot_data_tsne <- data.frame(tsne_out, sample_labels)
 plot_data_tsne$SMTSD <- as.factor(plot_data_tsne$SMTSD)
 
 # make plot
@@ -79,13 +98,11 @@ tsne_plot <- ggplot(plot_data_tsne, aes(x = PC1, y = PC2)) +
 ```
 
 
-
 PCA plot
 
 ```{r gtex-pca, echo = TRUE, eval = TRUE}
-pca_rda <- get(load("../rdas/pc_gtex_v6_x.rda"))
-plot_data_pca <- data.frame(PC1 = pca_rda[,1],
-                            PC2 = pca_rda[,2],
+plot_data_pca <- data.frame(PC1 = pca_out[,1],
+                            PC2 = pca_out[,2],
                             SMTSD = sample_labels$SMTSD)
 plot_data_pca$SMTSD <- as.factor(plot_data_pca$SMTSD)
 
@@ -101,21 +118,40 @@ pca_plot <- ggplot(plot_data_pca, aes(x = PC1, y = PC2)) +
 ```
 
 
-Dendrogram (to be completed)
+MDS plot
 
-```{r dendrogram, echo = TRUE, eval = FALSE}
-dist_rda <- get(load("../rdas/dd_gtex.rda"))
+```{r gtex-mds, echo = TRUE, eval = TRUE}
+plot_data_mds <- data.frame(mds_out,
+                            SMTSD = sample_labels$SMTSD)
+plot_data_mds$SMTSD <- as.factor(plot_data_mds$SMTSD)
 
-# use the R package dendextend 
-# to make colored dendrogram
-library(dendextend)
-library(dendextendRcpp)
-library(colorspace)
+# make plot
+mds_plot <- ggplot(plot_data_mds, aes(x = dim1, y = dim2)) + 
+    geom_point(aes(fill = SMTSD),
+                   colour = "grey20", 
+                   pch = 21, alpha = 1) +
+    labs(x = "PC1", y = "PC2") +
+    scale_fill_manual(values = col_vector) +
+    theme_classic() +
+    theme(panel.border = element_rect(fill = "NA", colour = "black"))
 ```
 
-Make legend plot
 
-```{r ggplot-legend, fig.width=10, fig.height=4}
+
+## Combined plot
+
+```{r gtex-pca-sne, fig.width=9, fig.height=9}
+cowplot::plot_grid(
+    pca_plot + theme(legend.position="none"), 
+    tsne_plot  + theme(legend.position="none"),
+    mds_plot  + theme(legend.position="none"),
+    labels = LETTERS[1:3])
+```
+
+
+Make legend
+
+```{r make-legend, fig.width=10,fig.height=5}
 coord_xy <- cbind(c(rep(c(1,5,9,13), each = 13),13) - .4,
                   c(rep(c(13:1),4), 0))
 
@@ -125,26 +161,12 @@ plot_legend %<a-% {
         bg = col_vector, col = "grey20",
         xlim = c(0, 17), ylim = c(0, 14),
         ann = F, axes = F)
-    text(x = coord_xy[,1] + .2, y = coord_xy[,2],
-         labels = levels(sample_labels$SMTSD),
+    text(x = coord_xy[,1] + .4, y = coord_xy[,2],
+         labels = levels(factor(sample_labels$SMTSD)),
          cex = .6, adj = 0)
 }
 plot_legend
 ```
-
-
-## Combined plot
-
-```{r gtex-pca-sne, fig.width=9, fig.height=4}
-# plot the PCA plot twice
-# first time without legend,
-# and second time with legend
-cowplot::plot_grid(
-    pca_plot + theme(legend.position="none"), 
-    tsne_plot  + theme(legend.position="none"),
-    labels = LETTERS[1:3])
-```
-
 
 ## Session information
 
