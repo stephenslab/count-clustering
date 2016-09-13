@@ -4,7 +4,7 @@
 \documentclass[10pt,letterpaper]{article}
 \usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
 
-\input{../header.tex}
+\input{header.tex}
 
 % Header and Footer with logo
 \usepackage{lastpage,fancyhdr,graphicx}
@@ -931,28 +931,28 @@ Unstable Kinetochore-Microtubule capture and chromosomal instability following d
 \renewcommand{\arraystretch}{1.7}
 \begin{tabular}{|p{1.0in}|p{1.5in}|p{4.3in}|}
 \hline
-Cluster & Top 5 Driving \qquad Genes  &  Top significant GO terms \\
+Cluster & Top 5 Driving \qquad Genes  &  Top significant GO terms (function)[q-value] \\
 \hline
-1. Royal purple & \textit{NEAT1, IGFBP5, CCLN2, SRSF5, PNISR} & GO:0005654 (nucleoplasm), GO:0044428 (nuclear part), GO:0044822 (poly-A RNA binding), GO:0043233 (organelle lumen)  \\ \hline
-2. Light purple & \textit{SNAP25, FBXL16, NCDN, SNCB, SLC17A7} & GO:0097458 (neuron part), GO:0007268 (synaptic transmission), GO:0030182 (neuron differentiation), GO:0022008 (neurogenesis), GO:0007267 (cell-cell signaling) \\ \hline
-3. Red & \textit{FABP4, PLIN1, FASN, GPX3, LIPE} & GO:0044255 (cellular lipid metabolism), GO:0006629 (lipid metabolism), GO:0006639 (acylglycerol metabolism), GO:0045765 (angiogenesis regulation), GO:0019915 (lipid storage) \\ \hline
-4. Salmon & \textit{ACTG2, MYH11, SYNM, MYLK, CSRP1} & GO:0043292 (contractile fiber), GO:0006936 (muscle contraction), GO:0015629 (actin cytoskeleton), GO:0030016 (myofibril), GO:0005925 (focal adhesion) \\ \hline
-5. Denim & \textit{RGS5, MGP,  AEBP1, IGFBP7, MFGE8} & GO:0005578 (proteinaceous extracellular matrix), GO:0030198 (extracellular matrix), GO:0007155 (cell adhesion), GO:0001568 (blood vessel development) \\ \hline
-6. Light denim & \textit{KRT10, KRT1, KRT2, LOR, KRT14} & GO:0008544 (epidermis development), GO:0043588 (skin development), GO:0042303 (molting cycle), GO:0042633 (hair cycle), GO:0048513 (organ development \\ \hline
-7. Orange & \textit{NEB, MYH1, MYH2, MYBPC1, ACTA1} & GO:0043292 (contractile fiber), GO:0030016 (myofibril), GO:0030017 (sarcomere), GO:0003012 (muscle system process), GO:0015629 (actin cytoskeleton) \\ \hline
-8. Light orange & \textit{FN1, COL1A1, COL1A2, COL3A1, COL6A3} & GO:0030198 (extracellular matrix), GO:0043062 (extracellular structure), GO:0032963 (collagen metabolism), GO:0030199 (collagen fibril organization), GO:0030574 (collagen catabolism) \\ \hline
-9. Green & \textit{MBP, GFAP, MTURN, HIPK2, CARNS1} & GO:0043209 (myelin sheath), GO:0007399 (nervous system development), GO:0008366 (axon ensheathment), GO:0044430 (cytoskeletal part), GO:0005874 (microtubule) \\ \hline
-10. Light green & \textit{CYP17A1, CYP11B1, PIGR, GKN1, STAR} & GO:0006694 (steroid biosynthesis), GO:0008202 (steroid metabolism), GO:0016125 (sterol metabolism), GO:0042446 (hormone biosynthesis), GO:0008207 (C21-steroid hormone metabolism) \\ \hline
-11. Turquoise & \textit{MPZ, APOD, PMP22, PRX, NGFR} & GO:0008366 (axon ensheathment), GO:0048856 (anatomical structure development), GO:0007272 (ensheathment of neurons), GO:0042552 (myelination), GO:0005578 (proteinaceous extracellular matrix) \\ \hline
-12. Yellow & \textit{IGHM, IGHG1, IGHG2, IGHG4, CD74} & GO:0006955 (immune response), GO:0002252 (immune effector process), GO:0003823 (antigen binding), GO:0019724 (B-cell mediated immunity), GO:0002684 (positive regulation immune system) \\ \hline
-13. Sky blue & \textit{TG, PRL, GH1, PRM2, PRM1} & GO:0019953 (sexual reproduction), GO:0048232 (male gamete generation), GO:0035686 (sperm fibrous sheath), GO:0005179 (hormone activity), GO:0042403 (thyroid hormone metabolism) \\ \hline
-14. Light pink & \textit{NPPA, MYH6, TNNT2, ACTC1, MYBPC3} & GO:0045333 (cellular respiration), GO:0022904 (respiratory electron transport), GO:0031966 (mitochondrial membrane), GO:0015980 (energy derivation by oxidation of organic compounds) \\ \hline
-15. Light gray & \textit{KRT13, KRT4, MUC7, CRNN, KRT6A} & GO:0043230 (extracellular organelle), GO:0070062 (extracellular exosome), GO:0031982 (vesicle), GO:0008544 (epidermis development), GO:0043588 (skin development) \\ \hline
-16. Gray & \textit{SFTPB$\beta$, SFTPA1, SFTPA2, SFTPC, A2M} & GO:0001525 (angiogenesis), GO:0048514 (blood vessel morphogenesis), GO:2000145 (cell motility regulation), GO:0071944 (cell periphery), GO:0009611 (response to wounding) \\ \hline
-17. Brown & \textit{CSF3R, MMP25, IL1R2, SELL, VNN2} & GO:0006955 (immune response), GO:0006952 (defense response), GO:0071944 (cell periphery), GO:0005886 (plasma membrane), GO:0050776 (regulation of immune response) \\ \hline
-18. Purple & \textit{PRSS1, CPA1, PNLIP, CELA3A, GP2} & GO:0007586 (digestion), GO:0004252 (serine-type endopeptidase activity), GO:0006508 (proteolysis), GO:0044241 (lipid digestion), GO:0016787 (hydrolase activity) \\ \hline
-19. Pink & \textit{HBB, HBA2, HBA1, FKBP8, HBD} & GO:0005833 (hemoglobin complex), GO:0015669 (gas transport), GO:0020037 (heme binding), GO:0031720 (haptoglobin binding), GO:0006950 (response to stress) \\ \hline
-20. Dark gray  & \textit{ALB, HP, FGB, FGA, ORM1} & GO:0034364 (high density lipoprotein), GO:0019752 (carboxylic acid metabolism), GO:0044710 (single organism metabolism), GO:0002526 (acute inflammatory response), GO:0031982 (vesicle) \\ \hline
+1. Royal purple & \textit{NEAT1, IGFBP5, CCLN2, SRSF5, PNISR} & GO:0005654 (nucleoplasm)[2e-10], GO:0044822 (poly-A RNA binding)[3e-09], GO:0044428 (nuclear part)[1e-09], GO:0043233 (organelle lumen)[2e-08]  \\ \hline
+2. Light purple & \textit{SNAP25, FBXL16, NCDN, SNCB, SLC17A7} & GO:0097458 (neuron part)[2e-25], GO:0007268 (synaptic transmission)[9e-18], GO:0030182 (neuron differentiation)[2e-14], GO:0022008 (neurogenesis)[1e-13], GO:0007267 (cell-cell signaling)[3e-13]\\ \hline
+3. Red & \textit{FABP4, PLIN1, FASN, GPX3, LIPE} & GO:0044255 (cellular lipid metabolism)[1e-09], GO:0006629 (lipid metabolism)[1e-09], GO:0006639 (acylglycerol metabolism)[3e-08], GO:0045765 (angiogenesis regulation)[4e-08], GO:0019915 (lipid storage)[4e-08] \\ \hline
+4. Salmon & \textit{ACTG2, MYH11, SYNM, MYLK, CSRP1} & GO:0043292 (contractile fiber)[3e-13], GO:0006936 (muscle contraction)[5e-12], GO:0030016 (myofibril)[5e-12], GO:0015629 (actin cytoskeleton)[2e-12],  GO:0005925 (focal adhesion)[6e-11] \\ \hline
+5. Denim & \textit{RGS5, MGP,  AEBP1, IGFBP7, MFGE8} & GO:0005578 (proteinaceous extracellular matrix)[4e-20], GO:0030198 (extracellular matrix)[2e-18], GO:0007155 (cell adhesion)[4e-14], GO:0001568 (blood vessel development)[4e-13] \\ \hline
+6. Light denim & \textit{KRT10, KRT1, KRT2, LOR, KRT14} & GO:0008544 (epidermis development)[3e-12], GO:0043588 (skin development)[5e-10], GO:0042303 (molting cycle)[8e-06], GO:0042633 (hair cycle)[7e-06], GO:0048513 (organ development)[6e-05] \\ \hline
+7. Orange & \textit{NEB, MYH1, MYH2, MYBPC1, ACTA1} & GO:0043292 (contractile fiber)[6e-52], GO:0030016 (myofibril)[1e-51], GO:0030017 (sarcomere)[5e-40], GO:0003012 (muscle system process)[2e-25], GO:0015629 (actin cytoskeleton)[1e-25] \\ \hline
+8. Light orange & \textit{FN1, COL1A1, COL1A2, COL3A1, COL6A3} & GO:0030198 (extracellular matrix)[6e-29], GO:0043062 (extracellular structure)[4e-29], GO:0032963 (collagen metabolism)[3e-16], GO:0030199 (collagen fibril organization)[1e-14], GO:0030574 (collagen catabolism)[1e-14] \\ \hline
+9. Green & \textit{MBP, GFAP, MTURN, HIPK2, CARNS1} & GO:0043209 (myelin sheath)[4e-07], GO:0007399 (nervous system development)[4e-05], GO:0008366 (axon ensheathment)[9e-05], GO:0044430 (cytoskeletal part)[1e-04], GO:0005874 (microtubule)[3e-04] \\ \hline
+10. Light green & \textit{CYP17A1, CYP11B1, PIGR, GKN1, STAR} & GO:0006694 (steroid biosynthesis)[2e-13], GO:0008202 (steroid metabolism)[1e-12], GO:0016125 (sterol metabolism)[1e-11], GO:0042446 (hormone biosynthesis)[1e-10], GO:0008207 (C21-steroid hormone metabolism)[3e-10] \\ \hline
+11. Turquoise & \textit{MPZ, APOD, PMP22, PRX, NGFR} & GO:0007272 (ensheathment of neurons)[4e-07], GO:0008366 (axon ensheathment)[7e-07], GO:0042552 (myelination)[7e-06], GO:0048856 (anatomical structure development)[1e-06], GO:0005578 (proteinaceous extracellular matrix)[1e-06] \\ \hline
+12. Yellow & \textit{IGHM, IGHG1, IGHG2, IGHG4, CD74} & GO:0006955 (immune response)[1e-18], GO:0002252 (immune effector process)[7e-18], GO:0003823 (antigen binding)[1e-15], GO:0019724 (B-cell mediated immunity)[5e-13], GO:0002684 (positive regulation immune system)[6e-13] \\ \hline
+13. Sky blue & \textit{TG, PRL, GH1, PRM2, PRM1} & GO:0019953 (sexual reproduction)[8e-10], GO:0048232 (male gamete generation)[2e-08], GO:0035686 (sperm fibrous sheath)[4e-06], GO:0005179 (hormone activity)[6e-05], GO:0042403 (thyroid hormone metabolism)[2e-04] \\ \hline
+14. Light pink & \textit{NPPA, MYH6, TNNT2, ACTC1, MYBPC3} & GO:0045333 (cellular respiration)[2e-34], GO:0022904 (respiratory electron transport)[8e-33], GO:0015980 (energy derivation by oxidation of organic compounds)[4e-30], GO:0031966 (mitochondrial membrane)[5e-26] \\ \hline
+15. Light gray & \textit{KRT13, KRT4, MUC7, CRNN, KRT6A} & GO:0070062 (extracellular exosome)[2e-23], GO:0043230 (extracellular organelle)[3e-23], GO:0031982 (vesicle)[3e-20], GO:0008544 (epidermis development)[2e-18], GO:0043588 (skin development)[1e-13] \\ \hline
+16. Gray & \textit{SFTPB$\beta$, SFTPA1, SFTPA2, SFTPC, A2M} & GO:0001525 (angiogenesis)[5e-08], GO:0001944 (vasculature development)[2e-07], GO:0048514 (blood vessel morphogenesis)[2e-07], GO:0040012 (locomotion regulation)[4e-06], GO:2000145 (cell motility)[1e-05] \\ \hline
+17. Brown & \textit{CSF3R, MMP25, IL1R2, SELL, VNN2} & GO:0006955 (immune response)[8e-22], GO:0006952 (defense response)[9e-16], GO:0071944 (cell periphery)[7e-15], GO:0005886 (plasma membrane)[7e-15], GO:0050776 (regulation of immune response)[2e-12]\\ \hline
+18. Purple & \textit{PRSS1, CPA1, PNLIP, CELA3A, GP2} & GO:0007586 (digestion)[3e-14], GO:0004252 (serine-type endopeptidase activity)[4e-08], GO:0006508 (proteolysis)[6e-06], GO:0016787 (hydrolase activity)[6e-05], GO:0044241 (lipid digestion)[1e-04]\\ \hline
+19. Pink & \textit{HBB, HBA2, HBA1, FKBP8, HBD} & GO:0005833 (hemoglobin complex)[1e-13], GO:0015669 (gas transport)[4e-11], GO:0020037 (heme binding)[3e-07], GO:0031720 (haptoglobin binding)[3e-06], GO:0006950 (response to stress)[6e-04] \\ \hline
+20. Dark gray  & \textit{ALB, HP, FGB, FGA, ORM1} & GO:0072562 (blood microparticle)[1e-27], GO:0043230 (extracellular organelle)[1e-24],  GO:0044710 (single organism metabolism)[7e-20], GO:0019752 (carboxylic acid metabolism)[1e-18], GO:0034364 (high density lipoprotein)[3e-16] \\ \hline
 \end{tabular} \label{tab1}
 \end{adjustwidth}
 \end{table}
