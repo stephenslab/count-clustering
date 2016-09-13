@@ -263,7 +263,7 @@ cols <- c("blue", "darkgoldenrod1", "cyan", "red")
 #     height = 4, width = 4)
 CountClust::StructureGGplot(omega = omega,
                             annotation= annotation,
-                            palette = cols,
+                            palette = 1:6,
                             yaxis_label = "",
                             order_sample = TRUE,
                             split_line = list(split_lwd = .4,

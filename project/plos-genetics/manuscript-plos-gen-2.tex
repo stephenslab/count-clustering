@@ -81,7 +81,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \setlength{\headheight}{27.023pt}
-\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
+\lhead{\includegraphics[width=2.0in]{PLOS-Submission.eps}}
 \rfoot{\thepage/\pageref{LastPage}}
 \renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
 \fancyheadoffset[L]{2.25in}
@@ -109,7 +109,7 @@
 % Please use "title case" (capitalize all terms in the title except conjunctions, prepositions, and articles).
 \begin{flushleft}
 {\Large
-\textbf\newline{Clustering RNA-seq Expression Data using Grade of Membership Models} 
+\textbf\newline{Visualizing structure in RNA-seq Expression Data using Grade of Membership Models} 
 }
 \newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
@@ -149,7 +149,7 @@ The methods are implemented in the Bioconductor package {\tt CountClust}.
 
 
 % Please keep the Author Summary between 150 and 200 words
-% Use first person. PLOS ONE authors please skip this step. 
+% Use first person. ONE authors please skip this step. 
 % Author Summary not valid for PLOS ONE submissions.   
 \section*{Author Summary}
 The gene expression profile of a biological sample (either tissue or single cells) results from a complex interplay between many biological processes. Consequently, for example, distal tissue samples may be similar in their gene expression profiles because they share biological processes. Our goal here is to illustrate that grade of membership (GoM) models -- an approach widely used in population genetics to cluster admixed individuals who have ancestry from multiple populations -- provide an attractive approach for clustering biological samples of RNA sequencing data. The GoM model allows each biological sample to have partial memberships in multiple biological-distinct clusters, in contrast to traditional clustering methods that partition samples into distinct subgroups. We also provide methods for identifying genes that are distinctively expressed in each cluster to help biologically interpret the results. Applied to a dataset of 51 human tissues, the GoM approach highlights similarities among biologically-related tissues and identifies distinctively-expressed genes that recapitulate known biology. Applied to gene expression data of single cells from mouse preimplantation embryos, the approach highlights both discrete and continuous variation through early embryonic development stages, and genes involved in a variety of relevant processes. Our study highlights the potential of GoM models for elucidating biological structure in RNA-seq gene expression data.
@@ -181,10 +181,12 @@ have been primarily motivated by a specific goal, ``cell type deconvolution", wh
 using cell-type-specific expression profiles of marker genes to estimate the proportions of different cell types in a mixture \cite{Lindsay2013, Ahn2013, Quon2013}. 
 Specifically, the GoM model we use here is analogous to -- although different in detail from -- 
 blind deconvolution approaches \cite{Schwartz2010,Repsilber2010,Wang2015}
- which estimate cell type proportions and cell type signatures jointly (see also \cite{Shen-Orr2010,Qiao2012} for semi-supervised approaches). 
+ which estimate cell type proportions and cell type signatures jointly (see also \cite{Shen-Orr2010,Qiao2012} for semi-supervised approaches). \textcolor{red}{Also, the GoM model is similar in spirit to the Non-negative Matrix Factorization (NMF) approach, although differs in choice of prior and has been shown to produce more coherent topics than NMF} \cite{Xu2003} \cite{Stevens2012}.
+ 
+ 
 Our goal here is to demonstrate that GoM models can be useful much more broadly
 for understanding structure in RNA-seq data -- not only to deconvolve 
-mixtures of cell types. For example, in our analysis of human tissue samples from the GTEX project below, the GoM model
+mixtures of cell types. For example, in our analysis of human tissue samples from the GTEx project below, the GoM model
 usefully captures biological heterogeneity among samples even though the inferred grades of
 membership are unlikely to correspond precisely to proportions of specific cell types.
 And in our analyses of single-cell expression data the GoM model highlights interesting
@@ -309,7 +311,7 @@ approaches to be more efficient that distance-based approaches, provided that th
 
 % Figure 2
 %\begin{figure}[!h]
-%\caption{{\bf A comparison of accuracy of GoM model vs. hierarchical clustering.} For each pair of tissues from the GTEX data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
+%\caption{{\bf A comparison of accuracy of GoM model vs. hierarchical clustering.} For each pair of tissues from the GTEx data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
 %\label{fig2}
 %\end{figure}
 
@@ -700,6 +702,17 @@ Erosheva EA. 2006.
 Latent class representation of the grade of membership model.
 Seattle: University of Washington.
 
+\bibitem{Xu2003}
+Xu W, Liu X, Gong Y. 2003.
+Document clustering based on non-negative matrix factorization.
+\textit{SIGIR '03}, 267-273
+
+\bibitem{Stevens2012}
+Stevens K, Kegelmayer P, Andrzejewski D, Buttler D. 2012.
+Exploring topic coherence over many models and many topics.
+\textit{Proceeding EMNLP-CoNLL '12}, 952-961
+
+
 \bibitem{Tang2009}
 Tang F,  Barbacioru C,  Wang Y,  Nordman E,  Lee C  et al. 2009.
 mRNA-Seq whole-transcriptome analysis of a single cell.
@@ -1005,61 +1018,60 @@ Unstable Kinetochore-Microtubule capture and chromosomal instability following d
 \clearpage
 \begin{table}[!hp]
 \begin{adjustwidth}{-2in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\footnotesize
+\scriptsize
 \centering
 \caption{\bf Cluster Annotations GTEx V6 data (with GO annotations).}
 \renewcommand{\arraystretch}{1.7}
-\begin{tabular}{|p{1.0in}|p{1.5in}|p{4.3in}|} 
+\begin{tabular}{|p{1.0in}|p{1.0in}|p{5.0in}|}
 \hline
-Cluster & Top 5 Driving \qquad Genes  &  Top significant GO terms \\
+Cluster & Top 5 Driving \qquad Genes  &  Top significant GO terms (function)[q-value] \\
 \hline
-1. Royal purple & \textit{NEAT1, IGFBP5, CCLN2, SRSF5, PNISR} & GO:0005654 (nucleoplasm), GO:0044428 (nuclear part), GO:0044822 (poly-A RNA binding), GO:0043233 (organelle lumen)  \\ \hline
-2. Light purple & \textit{SNAP25, FBXL16, NCDN, SNCB, SLC17A7} & GO:0097458 (neuron part), GO:0007268 (synaptic transmission), GO:0030182 (neuron differentiation), GO:0022008 (neurogenesis), GO:0007267 (cell-cell signaling) \\ \hline
-3. Red & \textit{FABP4, PLIN1, FASN, GPX3, LIPE} & GO:0044255 (cellular lipid metabolism), GO:0006629 (lipid metabolism), GO:0006639 (acylglycerol metabolism), GO:0045765 (angiogenesis regulation), GO:0019915 (lipid storage) \\ \hline
-4. Salmon & \textit{ACTG2, MYH11, SYNM, MYLK, CSRP1} & GO:0043292 (contractile fiber), GO:0006936 (muscle contraction), GO:0015629 (actin cytoskeleton), GO:0030016 (myofibril), GO:0005925 (focal adhesion) \\ \hline
-5. Denim & \textit{RGS5, MGP,  AEBP1, IGFBP7, MFGE8} & GO:0005578 (proteinaceous extracellular matrix), GO:0030198 (extracellular matrix), GO:0007155 (cell adhesion), GO:0001568 (blood vessel development) \\ \hline
-6. Light denim & \textit{KRT10, KRT1, KRT2, LOR, KRT14} & GO:0008544 (epidermis development), GO:0043588 (skin development), GO:0042303 (molting cycle), GO:0042633 (hair cycle), GO:0048513 (organ development \\ \hline
-7. Orange & \textit{NEB, MYH1, MYH2, MYBPC1, ACTA1} & GO:0043292 (contractile fiber), GO:0030016 (myofibril), GO:0030017 (sarcomere), GO:0003012 (muscle system process), GO:0015629 (actin cytoskeleton) \\ \hline
-8. Light orange & \textit{FN1, COL1A1, COL1A2, COL3A1, COL6A3} & GO:0030198 (extracellular matrix), GO:0043062 (extracellular structure), GO:0032963 (collagen metabolism), GO:0030199 (collagen fibril organization), GO:0030574 (collagen catabolism) \\ \hline
-9. Green & \textit{MBP, GFAP, MTURN, HIPK2, CARNS1} & GO:0043209 (myelin sheath), GO:0007399 (nervous system development), GO:0008366 (axon ensheathment), GO:0044430 (cytoskeletal part), GO:0005874 (microtubule) \\ \hline
-10. Light green & \textit{CYP17A1, CYP11B1, PIGR, GKN1, STAR} & GO:0006694 (steroid biosynthesis), GO:0008202 (steroid metabolism), GO:0016125 (sterol metabolism), GO:0042446 (hormone biosynthesis), GO:0008207 (C21-steroid hormone metabolism) \\ \hline
-11. Turquoise & \textit{MPZ, APOD, PMP22, PRX, NGFR} & GO:0008366 (axon ensheathment), GO:0048856 (anatomical structure development), GO:0007272 (ensheathment of neurons), GO:0042552 (myelination), GO:0005578 (proteinaceous extracellular matrix) \\ \hline
-12. Yellow & \textit{IGHM, IGHG1, IGHG2, IGHG4, CD74} & GO:0006955 (immune response), GO:0002252 (immune effector process), GO:0003823 (antigen binding), GO:0019724 (B-cell mediated immunity), GO:0002684 (positive regulation immune system) \\ \hline
-13. Sky blue & \textit{TG, PRL, GH1, PRM2, PRM1} & GO:0019953 (sexual reproduction), GO:0048232 (male gamete generation), GO:0035686 (sperm fibrous sheath), GO:0005179 (hormone activity), GO:0042403 (thyroid hormone metabolism) \\ \hline
-14. Light pink & \textit{NPPA, MYH6, TNNT2, ACTC1, MYBPC3} & GO:0045333 (cellular respiration), GO:0022904 (respiratory electron transport), GO:0031966 (mitochondrial membrane), GO:0015980 (energy derivation by oxidation of organic compounds) \\ \hline
-15. Light gray & \textit{KRT13, KRT4, MUC7, CRNN, KRT6A} & GO:0043230 (extracellular organelle), GO:0070062 (extracellular exosome), GO:0031982 (vesicle), GO:0008544 (epidermis development), GO:0043588 (skin development) \\ \hline
-16. Gray & \textit{SFTPB$\beta$, SFTPA1, SFTPA2, SFTPC, A2M} & GO:0001525 (angiogenesis), GO:0048514 (blood vessel morphogenesis), GO:2000145 (cell motility regulation), GO:0071944 (cell periphery), GO:0009611 (response to wounding) \\ \hline
-17. Brown & \textit{CSF3R, MMP25, IL1R2, SELL, VNN2} & GO:0006955 (immune response), GO:0006952 (defense response), GO:0071944 (cell periphery), GO:0005886 (plasma membrane), GO:0050776 (regulation of immune response) \\ \hline
-18. Purple & \textit{PRSS1, CPA1, PNLIP, CELA3A, GP2} & GO:0007586 (digestion), GO:0004252 (serine-type endopeptidase activity), GO:0006508 (proteolysis), GO:0044241 (lipid digestion), GO:0016787 (hydrolase activity) \\ \hline 
-19. Pink & \textit{HBB, HBA2, HBA1, FKBP8, HBD} & GO:0005833 (hemoglobin complex), GO:0015669 (gas transport), GO:0020037 (heme binding), GO:0031720 (haptoglobin binding), GO:0006950 (response to stress) \\ \hline 
-20. Dark gray  & \textit{ALB, HP, FGB, FGA, ORM1} & GO:0034364 (high density lipoprotein), GO:0019752 (carboxylic acid metabolism), GO:0044710 (single organism metabolism), GO:0002526 (acute inflammatory response), GO:0031982 (vesicle) \\ \hline 
+1. Royal purple & \textit{NEAT1, IGFBP5, CCLN2, SRSF5, PNISR} & GO:0005654 (nucleoplasm)[2e-10], GO:0044822 (poly-A RNA binding)[3e-09], GO:0044428 (nuclear part)[1e-09], GO:0043233 (organelle lumen)[2e-08]  \\ \hline
+2. Light purple & \textit{SNAP25, FBXL16, NCDN, SNCB, SLC17A7} & GO:0097458 (neuron part)[2e-25], GO:0007268 (synaptic transmission)[9e-18], GO:0030182 (neuron differentiation)[2e-14], GO:0022008 (neurogenesis)[1e-13], GO:0007267 (cell-cell signaling)[3e-13]\\ \hline
+3. Red & \textit{FABP4, PLIN1, FASN, GPX3, LIPE} & GO:0044255 (cellular lipid metabolism)[1e-09], GO:0006629 (lipid metabolism)[1e-09], GO:0006639 (acylglycerol metabolism)[3e-08], GO:0045765 (angiogenesis regulation)[4e-08], GO:0019915 (lipid storage)[4e-08] \\ \hline
+4. Salmon & \textit{ACTG2, MYH11, SYNM, MYLK, CSRP1} & GO:0043292 (contractile fiber)[3e-13], GO:0006936 (muscle contraction)[5e-12], GO:0030016 (myofibril)[5e-12], GO:0015629 (actin cytoskeleton)[2e-12],  GO:0005925 (focal adhesion)[6e-11] \\ \hline
+5. Denim & \textit{RGS5, MGP,  AEBP1, IGFBP7, MFGE8} & GO:0005578 (proteinaceous extracellular matrix)[4e-20], GO:0030198 (extracellular matrix)[2e-18], GO:0007155 (cell adhesion)[4e-14], GO:0001568 (blood vessel development)[4e-13] \\ \hline
+6. Light denim & \textit{KRT10, KRT1, KRT2, LOR, KRT14} & GO:0008544 (epidermis development)[3e-12], GO:0043588 (skin development)[5e-10], GO:0042303 (molting cycle)[8e-06], GO:0042633 (hair cycle)[7e-06], GO:0048513 (organ development)[6e-05] \\ \hline
+7. Orange & \textit{NEB, MYH1, MYH2, MYBPC1, ACTA1} & GO:0043292 (contractile fiber)[6e-52], GO:0030016 (myofibril)[1e-51], GO:0030017 (sarcomere)[5e-40], GO:0003012 (muscle system process)[2e-25], GO:0015629 (actin cytoskeleton)[1e-25] \\ \hline
+8. Light orange & \textit{FN1, COL1A1, COL1A2, COL3A1, COL6A3} & GO:0030198 (extracellular matrix)[6e-29], GO:0043062 (extracellular structure)[4e-29], GO:0032963 (collagen metabolism)[3e-16], GO:0030199 (collagen fibril organization)[1e-14], GO:0030574 (collagen catabolism)[1e-14] \\ \hline
+9. Green & \textit{MBP, GFAP, MTURN, HIPK2, CARNS1} & GO:0043209 (myelin sheath)[4e-07], GO:0007399 (nervous system development)[4e-05], GO:0008366 (axon ensheathment)[9e-05], GO:0044430 (cytoskeletal part)[1e-04], GO:0005874 (microtubule)[3e-04] \\ \hline
+10. Light green & \textit{CYP17A1, CYP11B1, PIGR, GKN1, STAR} & GO:0006694 (steroid biosynthesis)[2e-13], GO:0008202 (steroid metabolism)[1e-12], GO:0016125 (sterol metabolism)[1e-11], GO:0042446 (hormone biosynthesis)[1e-10], GO:0008207 (C21-steroid hormone metabolism)[3e-10] \\ \hline
+11. Turquoise & \textit{MPZ, APOD, PMP22, PRX, NGFR} & GO:0007272 (ensheathment of neurons)[4e-07], GO:0008366 (axon ensheathment)[7e-07], GO:0042552 (myelination)[7e-06], GO:0048856 (anatomical structure development)[1e-06], GO:0005578 (proteinaceous extracellular matrix)[1e-06] \\ \hline
+12. Yellow & \textit{IGHM, IGHG1, IGHG2, IGHG4, CD74} & GO:0006955 (immune response)[1e-18], GO:0002252 (immune effector process)[7e-18], GO:0003823 (antigen binding)[1e-15], GO:0019724 (B-cell mediated immunity)[5e-13], GO:0002684 (positive regulation immune system)[6e-13] \\ \hline
+13. Sky blue & \textit{TG, PRL, GH1, PRM2, PRM1} & GO:0019953 (sexual reproduction)[8e-10], GO:0048232 (male gamete generation)[2e-08], GO:0035686 (sperm fibrous sheath)[4e-06], GO:0005179 (hormone activity)[6e-05], GO:0042403 (thyroid hormone metabolism)[2e-04] \\ \hline
+14. Light pink & \textit{NPPA, MYH6, TNNT2, ACTC1, MYBPC3} & GO:0045333 (cellular respiration)[2e-34], GO:0022904 (respiratory electron transport)[8e-33], GO:0015980 (energy derivation by oxidation of organic compounds)[4e-30], GO:0031966 (mitochondrial membrane)[5e-26] \\ \hline
+15. Light gray & \textit{KRT13, KRT4, MUC7, CRNN, KRT6A} & GO:0070062 (extracellular exosome)[2e-23], GO:0043230 (extracellular organelle)[3e-23], GO:0031982 (vesicle)[3e-20], GO:0008544 (epidermis development)[2e-18], GO:0043588 (skin development)[1e-13] \\ \hline
+16. Gray & \textit{SFTPB$\beta$, SFTPA1, SFTPA2, SFTPC, A2M} & GO:0001525 (angiogenesis)[5e-08], GO:0001944 (vasculature development)[2e-07], GO:0048514 (blood vessel morphogenesis)[2e-07], GO:0040012 (locomotion regulation)[4e-06], GO:2000145 (cell motility)[1e-05] \\ \hline
+17. Brown & \textit{CSF3R, MMP25, IL1R2, SELL, VNN2} & GO:0006955 (immune response)[8e-22], GO:0006952 (defense response)[9e-16], GO:0071944 (cell periphery)[7e-15], GO:0005886 (plasma membrane)[7e-15], GO:0050776 (regulation of immune response)[2e-12]\\ \hline
+18. Purple & \textit{PRSS1, CPA1, PNLIP, CELA3A, GP2} & GO:0007586 (digestion)[3e-14], GO:0004252 (serine-type endopeptidase activity)[4e-08], GO:0006508 (proteolysis)[6e-06], GO:0016787 (hydrolase activity)[6e-05], GO:0044241 (lipid digestion)[1e-04]\\ \hline
+19. Pink & \textit{HBB, HBA2, HBA1, FKBP8, HBD} & GO:0005833 (hemoglobin complex)[1e-13], GO:0015669 (gas transport)[4e-11], GO:0020037 (heme binding)[3e-07], GO:0031720 (haptoglobin binding)[3e-06], GO:0006950 (response to stress)[6e-04] \\ \hline
+20. Dark gray  & \textit{ALB, HP, FGB, FGA, ORM1} & GO:0072562 (blood microparticle)[1e-27], GO:0043230 (extracellular organelle)[1e-24],  GO:0044710 (single organism metabolism)[7e-20], GO:0019752 (carboxylic acid metabolism)[1e-18], GO:0034364 (high density lipoprotein)[3e-16] \\ \hline
 \end{tabular} \label{tab1}
 \end{adjustwidth}
-\end{table} 
-
+\end{table}
 
 
 \begin{table}[!hp]
 \begin{adjustwidth}{-2in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\footnotesize
+\scriptsize
 \centering
 \caption{\bf Cluster Annotations for GTEx V6 Brain data.}
 \renewcommand{\arraystretch}{1.7}
-\begin{tabular}{|p{1.0in}|p{1.5in}|p{4.3in}|} 
+\begin{tabular}{|p{1.0in}|p{1.0in}|p{5in}|} 
  \hline
- Cluster & Top 5 Driving \qquad Genes  &  Top significant GO terms \\
+ Cluster & Top 5 Driving \qquad Genes  &  Top significant GO terms (function)[q-value] \\
 \hline
- 1. Royal blue &  \textit{CLU, OXT,  GLUL, NDRG2, CST3} & GO:0043230 (extracellular organelle), GO:1903561 (extracellular vesicle), GO:0070062 (extracellular exosome), GO:0006950 (response to stress), GO:0031988 (membrane bound vesicle) \\ 
+ 1. Royal blue &  \textit{CLU, OXT,  GLUL, NDRG2, CST3} & GO:0043230 (extracellular organelle)[1e-14], GO:1903561 (extracellular vesicle)[2e-14], GO:0031988 (membrane bound vesicle)[3e-14], GO:0070062 (extracellular exosome)[4e-13], GO:0006950 (response to stress)[2e-12] \\ 
  \hline
-2. Turquoise & \textit{ENC1, NCALD, YWHAH, KIF5A, NPTXR} & GO:0097458 (neuron part), GO:0008092 (cytoskeletal protein binding), GO:0031175 (neuron projection development), GO:0030182 (neuron differentiation), GO:0007268 (synaptic transmission) \\
+2. Turquoise & \textit{ENC1, NCALD, YWHAH, KIF5A, NPTXR} & GO:0097458 (neuron part)[3e-11], GO:0008092 (cytoskeletal protein binding)[7e-11], GO:0031175 (neuron projection development)[7e-09], GO:0007268 (synaptic transmission)[1e-08], GO:0030182 (neuron differentiation)[4e-08]\\
 \hline
- 3. Lime green & \textit{PKD1, CBLN3, CHGB, COL27A1, ABLIM1} & GO:0005089 (Rho guanyl-nucleotide exchange factor activity), GO:0022008 (neurogenesis), GO:0035239 (tube morphogenesis), GO:0016604 (neuron body), GO:0006836 (neurotransmitter transport) \\
+ 3. Lime green & \textit{PKD1, CBLN3, CHGB, COL27A1, ABLIM1} & GO:0005089 (Rho guanyl-nucleotide exchange factor activity)[1e-03], GO:0016604 (nuclear body)[1e-03], GO:0022008 (neurogenesis)[2e-02], GO:0035239 (tube morphogenesis)[8e-02], GO:0007269 (neurotransmitter secretion)[0.13] \\
 \hline
-4. Red & \textit{PPP1R1B, RGS14, NCDN, PDE1B, RAP1GAP} & GO:0065009 (regulation of molecular function), GO:0036477 (somatodendritic compartment), GO:0007268 (synaptic transmission), GO:0023051 (signaling regulation), GO:0010646 (cell communication regulation) \\
+4. Red & \textit{PPP1R1B, RGS14, NCDN, PDE1B, RAP1GAP} & GO:0065009 (regulation of molecular function)[2e-06], GO:0036477 (somatodendritic compartment)[6e-05], GO:0007268 (synaptic transmission)[1e-03], GO:0010646 (cell communication regulation)[1e-03], GO:0023051 (signaling regulation)[2e-03] \\
 \hline	
-5. Yellow orange & \textit{MBP, GFAP, TF, MTURN, SCD} & GO:0043209 (myelin sheath), GO:0007399 (nervous system development), GO:0007272 (ensheathment of neurons), GO:0048471 (perinuclear region of cytoplasm), GO:0010646 (cell communication regulation)\\
+5. Yellow orange & \textit{MBP, GFAP, TF, MTURN, SCD} & GO:0043209 (myelin sheath)[2e-09], GO:0007399 (nervous system development)[1e-05], GO:0005737 (cytoplasm)[1e-04], GO:0007272 (ensheathment of neurons)[1e-03], GO:0008366 (axon ensheathment)[1e-03] \\
 \hline	
-6. Yellow & \textit{IQGAP1, A2M, C3, MYH7, TG} & GO:0072562 (blood microparticle), GO:0044449 (contractile fiber part), GO:0043230 (extracellular organelle), GO:0030017 (sarcomere), GO:0072376 (protein activation cascade) \\
+6. Yellow & \textit{IQGAP1, A2M, C3, MYH7, TG} & GO:0072562 (blood microparticle)[1e-10], GO:0044449 (contractile fiber part)[1e-10], GO:0043230 (extracellular organelle)[7e-10], GO:0030017 (sarcomere)[1e-09], GO:0072376 (protein activation cascade)[1e-08] \\
 \hline
 \end{tabular} \label{tab2}
 \end{adjustwidth}
@@ -1070,31 +1082,31 @@ Cluster & Top 5 Driving \qquad Genes  &  Top significant GO terms \\
 % Table 3
 \begin{table}[!hp]
 \begin{adjustwidth}{-2in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\footnotesize
+\scriptsize
 \centering
 \caption{\bf Cluster Annotations for Deng et al (2014) data.}
 \renewcommand{\arraystretch}{1.7}
 \begin{tabular}{|p{1.0in}|p{1.5in}|p{4.3in}|}
 \hline
-Cluster & Top 10 Driving \qquad Genes &  Top significant GO terms \\
+Cluster & Top 10 Driving \qquad Genes &  Top significant GO terms (function)[q-value] \\
 \hline
-1. Blue & \textit{Bcl2l10}, \textit{E330034G19Rik}, \textit{Tcl1},\textit{LOC100502936}, \textit{Oas1d}, \textit{AU022751}, \textit{Spin1}, \textit{Khdc1b}, \textit{D6Ertd527e}, \textit{Btg4} & GO:0007276 (gamete generation), GO:0032504 (multicellular organism reproduction), GO:0044702 (single organism reproduction), GO:0048477 (oogenesis), GO:0048599 (oocyte development), GO:0009994 (oocyte differentiation), GO:0051321 (meiotic cell cycle), GO:0006306 (DNA methylation), GO:0051302 (regulation of cell division)\\
+1. Blue & \textit{Bcl2l10}, \textit{E330034G19Rik}, \textit{Tcl1},\textit{LOC100502936}, \textit{Oas1d}, \textit{AU022751}, \textit{Spin1}, \textit{Khdc1b}, \textit{D6Ertd527e}, \textit{Btg4} & GO:0007276 (gamete generation)[7e-06], GO:0032504 (multicellular organism reproduction)[3e-06], GO:0044702 (single organism reproduction)[2e-05], GO:0048477 (oogenesis)[5e-04], GO:0048599 (oocyte development)[9e-04], GO:0009994 (oocyte differentiation)[1e-03]\\
 \hline
 2. Magenta & \textit{Obox3}, \textit{Zfp352}, \textit{Gm8300}, \textit{Usp17l5}, \textit{BB287469}, \textit{Rfpl4b}, \textit{Gm2022}, \textit{Gm5662}, \textit{Gm11544 }, \textit{Gm4850}
-& GO:0016604 (nuclear body), GO:0005814 (centriole), GO:0044450 (microtubule organizing center part) \\ 			
+& GO:0016604 (nuclear body)[1e-04], GO:0005814 (centriole)[4e-03], GO:0044450 (microtubule organizing center part)[8e-03] \\ 			
 \hline
-3. Yellow & \textit{Rtn2}, \textit{Ebna1bp2}, \textit{Zfp259}, \textit{Nasp}, \textit{Cenpe}, \textit{Rnf216}, \textit{Ctsl}, \textit{Tor1b}, \textit{Ankrd10}, \textit{Lamp2} & GO:0044428 (nuclear part), GO:0031981 (nuclear lumen), GO:0070013 (intracellular organelle lumen), GO:0005730 (nucleolus), GO:0005654 (nucleoplasm),  GO:0003723 (RNA binding), GO:0005874 (microtubule), GO:0043229 (intracellular organelle)\\
+3. Yellow & \textit{Rtn2}, \textit{Ebna1bp2}, \textit{Zfp259}, \textit{Nasp}, \textit{Cenpe}, \textit{Rnf216}, \textit{Ctsl}, \textit{Tor1b}, \textit{Ankrd10}, \textit{Lamp2} & GO:0044428 (nuclear part)[1e-08], GO:0031981 (nuclear lumen)[3e-08], GO:0070013 (intracellular organelle lumen)[9e-08], GO:0005730 (nucleolus)[5e-07], GO:0005654 (nucleoplasm)[4e-05] \\
 \hline
 4. Green  
 &  \textit{Timd2}, \textit{Isyna1}, \textit{Alppl2}, \textit{Prame15},  \textit{Fbxo15}, \textit{Tceb1}, \textit{Gpd1l}, \textit{Pemt}, \textit{Hsp90aa1}, \textit{Hsp90ab1}
-& GO:0005829 (cytosol), GO:0044444 (cytoplasmic part), GO:1901575 (organic substance catabolic process), GO:0000151 (ubiquitin ligase com- plex),  GO:0009056 (catabolic process), GO:0072655 (protein localization mitochondrion), GO:0044265 (cellular macromolecule catabolic process), GO:0051082 (unfolded protein binding), GO:0023026 (MHC class II protein complex binding), GO:0055131 (C3HC4-type RING finger domain binding) \\ 
+& GO:0005829 (cytosol)[4e-10], GO:0044444 (cytoplasmic part)[2e-05], GO:1901575 (organic substance catabolic process)[9e-05], GO:0000151 (ubiquitin ligase com- plex)[1e-04],  GO:0023026 (MHC class II protein complex binding)[4e-04], GO:0051082 (unfolded protein binding)[9e-04] \\ 
 \hline
 5. Purple & \textit{Upp1}, \textit{Tdgf1}, \textit{Aqp8}, \textit{Fabp5}, \textit{Tat}, \textit{Pdgfra}, \textit{Pyy}, \textit{Prdx1}, \textit{Col4a1}, \textit{Spp1}
-& GO:0070062 (extracellular exosome), GO:0043230 (extracellular organelle), GO:1903561 (extracellular vesicle), GO:0006950 (response to stress), GO:0006979 (response to oxidative stress), GO:0044710 (metabolic process), GO:0048514 (blood vessel morphogenesis), GO:0001944 (vasculature development), GO:0030198 (extracellular matrix organization) \\ 
+& GO:0070062 (extracellular exosome)[1e-05], GO:0043230 (extracellular organelle)[2e-05], GO:1903561 (extracellular vesicle)[1e-05], GO:0006950 (response to stress)[1e-05], GO:0048514 (blood vessel morphogenesis)[7e-04], GO:0001944 (vasculature development)[3e-03] \\ 
 \hline
 6. Orange & \textit{Actb}, \textit{Krt18}, \textit{Fabp3}, \textit{Id2}, \textit{Tspan8}, \textit{Gm2a}, \textit{Lgals1}, \textit{Adh1}
 , \textit{Lrp2}, \textit{BC051665}
-& GO:0065010 (extracellular membrane-bounded organelle), GO:0070062 (extracellular exosome),  GO:0043230 (extracellular organelle), GO:1903561 (extracellular vesicle), GO:0031982 (vesicle), GO:0048468 (cell development), GO:0030036 (actin cytoskeleton and organization), GO:0032432 (actin filament bundle),  GO:0005912 (adherens junction)\\ 
+& GO:0065010 (extracellular membrane-bounded organelle)[3e-23], GO:1903561 (extracellular vesicle)[3e-23], GO:0070062 (extracellular exosome)[4e-23],  GO:0043230 (extracellular organelle)[5e-23], GO:0032432 (actin filament bundle)[1e-09], GO:0030036 (actin cytoskeleton and organization)[5e-09] \\ 
 \hline
 \end{tabular} \label{tab3}
 \end{adjustwidth}
@@ -1123,7 +1135,7 @@ Cluster & Top 10 Driving \qquad Genes &  Top significant GO terms \\
         \includegraphics[height=3.5in]{../plots/admixture_F_thin_0_1.png}
         \caption{GoM method}
     \end{subfigure} \\
-\caption{A comparison of accuracy of GoM model vs hierarchical clustering. For each pair of tissues from the GTEX data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
+\caption{A comparison of accuracy of GoM model vs hierarchical clustering. For each pair of tissues from the GTEx data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
 \label{fig2}
 \end{figure}
 
