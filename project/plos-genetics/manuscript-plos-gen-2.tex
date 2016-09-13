@@ -109,7 +109,7 @@
 % Please use "title case" (capitalize all terms in the title except conjunctions, prepositions, and articles).
 \begin{flushleft}
 {\Large
-\textbf\newline{Clustering RNA-seq Expression Data using Grade of Membership Models} 
+\textbf\newline{Visualizing structure in RNA-seq Expression Data using Grade of Membership Models} 
 }
 \newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
@@ -181,10 +181,12 @@ have been primarily motivated by a specific goal, ``cell type deconvolution", wh
 using cell-type-specific expression profiles of marker genes to estimate the proportions of different cell types in a mixture \cite{Lindsay2013, Ahn2013, Quon2013}. 
 Specifically, the GoM model we use here is analogous to -- although different in detail from -- 
 blind deconvolution approaches \cite{Schwartz2010,Repsilber2010,Wang2015}
- which estimate cell type proportions and cell type signatures jointly (see also \cite{Shen-Orr2010,Qiao2012} for semi-supervised approaches). 
+ which estimate cell type proportions and cell type signatures jointly (see also \cite{Shen-Orr2010,Qiao2012} for semi-supervised approaches). \textcolor{red}{Also, the GoM model is similar in spirit to the Non-negative Matrix Factorization (NMF) approach, although differs in choice of prior and has been shown to produce more coherent topics than NMF} \cite{Xu2003} \cite{Stevens2012}.
+ 
+ 
 Our goal here is to demonstrate that GoM models can be useful much more broadly
 for understanding structure in RNA-seq data -- not only to deconvolve 
-mixtures of cell types. For example, in our analysis of human tissue samples from the GTEX project below, the GoM model
+mixtures of cell types. For example, in our analysis of human tissue samples from the GTEx project below, the GoM model
 usefully captures biological heterogeneity among samples even though the inferred grades of
 membership are unlikely to correspond precisely to proportions of specific cell types.
 And in our analyses of single-cell expression data the GoM model highlights interesting
@@ -309,7 +311,7 @@ approaches to be more efficient that distance-based approaches, provided that th
 
 % Figure 2
 %\begin{figure}[!h]
-%\caption{{\bf A comparison of accuracy of GoM model vs. hierarchical clustering.} For each pair of tissues from the GTEX data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
+%\caption{{\bf A comparison of accuracy of GoM model vs. hierarchical clustering.} For each pair of tissues from the GTEx data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
 %\label{fig2}
 %\end{figure}
 
@@ -699,6 +701,17 @@ Cluster Analysis for Gene Expression Data: A Survey.
 Erosheva EA. 2006.
 Latent class representation of the grade of membership model.
 Seattle: University of Washington.
+
+\bibitem{Xu2003}
+Xu W, Liu X, Gong Y. 2003.
+Document clustering based on non-negative matrix factorization.
+\textit{SIGIR '03}, 267-273
+
+\bibitem{Stevens2012}
+Stevens K, Kegelmayer P, Andrzejewski D, Buttler D. 2012.
+Exploring topic coherence over many models and many topics.
+\textit{Proceeding EMNLP-CoNLL '12}, 952-961
+
 
 \bibitem{Tang2009}
 Tang F,  Barbacioru C,  Wang Y,  Nordman E,  Lee C  et al. 2009.
@@ -1122,7 +1135,7 @@ Cluster & Top 10 Driving \qquad Genes &  Top significant GO terms (function)[q-v
         \includegraphics[height=3.5in]{../plots/admixture_F_thin_0_1.png}
         \caption{GoM method}
     \end{subfigure} \\
-\caption{A comparison of accuracy of GoM model vs hierarchical clustering. For each pair of tissues from the GTEX data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
+\caption{A comparison of accuracy of GoM model vs hierarchical clustering. For each pair of tissues from the GTEx data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
 \label{fig2}
 \end{figure}
 

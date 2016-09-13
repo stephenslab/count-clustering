@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  26 MAY 2016 11:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  12 SEP 2016 18:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -382,21 +382,150 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
 )
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/marvosym/marvosym.sty
+Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/fixltx2e.sty
+Package: fixltx2e 2014/05/13 v1.1q fixes to LaTeX
+LaTeX Info: Redefining \em on input line 429.
+LaTeX Info: The control sequence `\[' is already robust on input line 480.
+LaTeX Info: The control sequence `\]' is already robust on input line 481.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/lineno/lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count125
+\output=\toks27
+\linenoprevgraf=\count126
+\linenumbersep=\dimen147
+\linenumberwidth=\dimen148
+\c@linenumber=\count127
+\c@pagewiselinenumber=\count128
+\c@LN@truepage=\count129
+\c@internallinenumber=\count130
+\c@internallinenumbers=\count131
+\quotelinenumbersep=\dimen149
+\bframerule=\dimen150
+\bframesep=\dimen151
+\bframebox=\box29
+LaTeX Info: Redefining \\ on input line 3056.
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2013/05/23 v2.5a Micro-typographical refinements (RS)
+\MT@toks=\toks28
+\MT@count=\count132
+LaTeX Info: Redefining \textls on input line 766.
+\MT@outer@kern=\dimen152
+LaTeX Info: Redefining \textmicrotypecontext on input line 1285.
+\MT@listname@count=\count133
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2013/05/23 v2.5a Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 915.
+LaTeX Info: Redefining \lslig on input line 915.
+\MT@outer@space=\skip49
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2013/05/23 v2.5a microtype main configuration file (RS)
+))
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
-\@enLab=\toks27
+\@enLab=\toks29
 )
 (/usr/local/texlive/2014/texmf-dist/tex/latex/tools/xr.sty
 Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 )
-\c@algorithm=\count125
-\c@proposition=\count126
-\c@restateproposition=\count127
-\c@lemma=\count128
-\c@corollary=\count129
-\c@result=\count130
-\c@note=\count131
-\c@definition=\count132
+\c@algorithm=\count134
+\c@proposition=\count135
+\c@restateproposition=\count136
+\c@lemma=\count137
+\c@corollary=\count138
+\c@result=\count139
+\c@note=\count140
+\c@definition=\count141
 ) (./figures.aux)
 \openout1 = `figures.aux'.
 
@@ -414,6 +543,13 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
 LaTeX Font Info:    ... okay on input line 37.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
 LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 37.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 37.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -427,8 +563,8 @@ LaTeX Font Info:    ... okay on input line 37.
 * v-part:(T,H,B)=(61.42993pt, 638.14268pt, 95.39737pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=455.24408pt
-* \textheight=597.50787pt
+* \textwidth=379.4175pt
+* \textheight=632.36249pt
 * \oddsidemargin=14.22636pt
 * \evensidemargin=14.22636pt
 * \topmargin=0.0pt
@@ -452,180 +588,4 @@ LaTeX Font Info:    ... okay on input line 37.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: hyperref package is loaded.
-Package caption Info: rotating package is loaded.
-Package caption Info: End \AtBeginDocument code.
-
-(/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count133
-\scratchdimen=\dimen147
-\scratchbox=\box29
-\nofMPsegments=\count134
-\nofMParguments=\count135
-\everyMPshowfont=\toks28
-\MPscratchCnt=\count136
-\MPscratchDim=\dimen148
-\MPnumerator=\count137
-\makeMPintoPDFobject=\count138
-\everyMPtoPDFconversion=\toks29
-) (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
-)
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-\AtBeginShipoutBox=\box30
-Package hyperref Info: Link coloring OFF on input line 37.
-LaTeX Info: Redefining \ref on input line 37.
-LaTeX Info: Redefining \pageref on input line 37.
-LaTeX Info: Redefining \nameref on input line 37.
-\@outlinefile=\write3
-\openout3 = `figures.out'.
-
-
-<../plots/gtex-figures/gtex-k20-05-01-2016.pdf, id=4, 770.88pt x 1027.84pt>
-File: ../plots/gtex-figures/gtex-k20-05-01-2016.pdf Graphic file (type pdf)
-
-<use ../plots/gtex-figures/gtex-k20-05-01-2016.pdf>
-Package pdftex.def Info: ../plots/gtex-figures/gtex-k20-05-01-2016.pdf used on 
-input line 46.
-(pdftex.def)             Requested size: 469.75385pt x 542.02367pt.
-
-Overfull \hbox (14.50977pt too wide) in paragraph at lines 46--47
- [][]
- []
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 47.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 47.
-
-(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-LaTeX Warning: Float too large for page by 29.5158pt on input line 49.
-
-<../plots/hierarchy_F_thin_0_1.png, id=5, 481.8pt x 481.8pt>
-File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
-
-<use ../plots/hierarchy_F_thin_0_1.png>
-Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 7
-0.
-(pdftex.def)             Requested size: 252.94142pt x 252.94499pt.
-
-Overfull \hbox (25.31938pt too wide) in paragraph at lines 70--71
- [][] 
- []
-
-<../plots/admixture_F_thin_0_1.png, id=7, 481.8pt x 481.8pt>
-File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
-
-<use ../plots/admixture_F_thin_0_1.png>
-Package pdftex.def Info: ../plots/admixture_F_thin_0_1.png used on input line 7
-6.
-(pdftex.def)             Requested size: 252.94142pt x 252.94499pt.
-
-Overfull \hbox (25.31938pt too wide) in paragraph at lines 76--77
- [][] 
- []
-
-
-Overfull \hbox (4.44443pt too wide) in paragraph at lines 68--78
- [][]  [] 
- []
-
-<../plots/jaitin-figures/jaitin-main2.pdf, id=8, 794.97pt x 614.295pt>
-File: ../plots/jaitin-figures/jaitin-main2.pdf Graphic file (type pdf)
-
-<use ../plots/jaitin-figures/jaitin-main2.pdf>
-Package pdftex.def Info: ../plots/jaitin-figures/jaitin-main2.pdf used on input
- line 353.
-(pdftex.def)             Requested size: 542.0402pt x 433.62169pt.
-
-Overfull \hbox (86.79613pt too wide) in paragraph at lines 353--354
- [][] 
- []
-
-
-LaTeX Warning: Citation `Jaitin2014' on page 1 undefined on input line 354.
-
-<../plots/deng-figures/deng-main-v4.pdf, id=9, 770.88pt x 1027.84pt>
-File: ../plots/deng-figures/deng-main-v4.pdf Graphic file (type pdf)
-
-<use ../plots/deng-figures/deng-main-v4.pdf>
-Package pdftex.def Info: ../plots/deng-figures/deng-main-v4.pdf used on input l
-ine 362.
-(pdftex.def)             Requested size: 469.75385pt x 542.02367pt.
-
-Overfull \hbox (14.50977pt too wide) in paragraph at lines 362--366
- [][] 
- []
-
-
-LaTeX Warning: Citation `Deng2014' on page 1 undefined on input line 366.
-
-
-LaTeX Warning: Reference `tab:tab3' on page 1 undefined on input line 366.
-
-
-LaTeX Warning: Float too large for page by 41.5158pt on input line 368.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 370.
-[1{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../pl
-ots/gtex-figures/gtex-k20-05-01-2016.pdf>] [2 <../plots/hierarchy_F_thin_0_1.pn
-g> <../plots/admixture_F_thin_0_1.png>] [3 <../plots/jaitin-figures/jaitin-main
-2.pdf>] [4 <../plots/deng-figures/deng-main-v4.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 370.
- (./figures.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 370.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 370.
-
-
-Package rerunfilecheck Warning: File `figures.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `figures.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 370.
- ) 
-Here is how much of TeX's memory you used:
- 8171 strings out of 493117
- 124500 string characters out of 6135433
- 221983 words of memory out of 5000000
- 11494 multiletter control sequences out of 15000+600000
- 6607 words of font info for 26 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 42i,8n,40p,903b,470s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-Output written on figures.pdf (4 pages, 851090 bytes).
-PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
- 140 compressed objects within 2 object streams
- 8 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+Package caption Info

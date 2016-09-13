@@ -35,6 +35,7 @@ save(deng_fit_even, file="../rdas/deng_topic_fit_k_6_even_chromosome.rda")
 deng_fit_odd <- maptpx::topics(t(counts_odd), K=6, tol=100)
 save(deng_fit_odd, file="../rdas/deng_topic_fit_k_6_odd_chromosome.rda")
 
+
 omega <- deng_fit_odd$omega
 
 annotation <- data.frame(
@@ -47,10 +48,14 @@ annotation <- data.frame(
                                         "lateblast") ) ) )
 rownames(omega) <- annotation$sample_id; 
 
+cols <- RColorBrewer::brewer.pal(8, "Accent")
+cols[5] <- RColorBrewer::brewer.pal(8, "Accent")[6]
+cols[6] <- RColorBrewer::brewer.pal(8, "Accent")[5]
+
 StructureGGplot(omega = omega,
                 annotation = annotation,
                 figure_title = "Deng et al Structure Plot(odd chromosome genes)",
-                palette = RColorBrewer::brewer.pal(8, "Accent"),
+                palette = cols,
                 yaxis_label = "Development Phase",
                 order_sample = TRUE,
                 axis_tick = list(axis_ticks_length = .1,
@@ -58,6 +63,8 @@ StructureGGplot(omega = omega,
                                  axis_ticks_lwd_x = .1,
                                  axis_label_size = 7,
                                  axis_label_face = "bold"))
+
+deng_fit_even <- get(load("../rdas/deng_topic_fit_k_6_even_chromosome.rda"))
 
 omega <- deng_fit_even$omega
 
@@ -74,7 +81,7 @@ rownames(omega) <- annotation$sample_id;
 StructureGGplot(omega = omega,
                 annotation = annotation,
                 figure_title = "Deng et al Structure Plot(even chromosome genes)",
-                palette = RColorBrewer::brewer.pal(8, "Accent"),
+                palette = cols,
                 yaxis_label = "Development Phase",
                 order_sample = TRUE,
                 axis_tick = list(axis_ticks_length = .1,
