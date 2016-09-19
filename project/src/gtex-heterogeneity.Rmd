@@ -1,0 +1,159 @@
+---
+title: 'GTEx all tissue: Explore tissue heterogeneity'
+author: "Joyce Hsiao"
+date: "2016-09-19"
+output: 
+  html_document:
+    css: floating-toc.css
+    toc: true
+---
+
+```{r chunk-options, include=FALSE}
+source("chunk-options.R")
+```
+
+
+```{r packages, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+#library(maptpx)
+library(ggplot2)
+library(testit)
+library(data.table)
+library(mygene)
+library(knitr)
+```
+
+
+
+## Objective
+
+We investigated whether the grade of membership model can reveal tissue heterogeneity, specifically variation in sample admixtures. We will focux can be used 
+
+
+## Setting up
+
+Load sample labels
+
+```{r load-metadata, echo = TRUE, eval = TRUE}
+sample_labels <- read.table("../rdas/samples-id-for-paper.txt",
+                            header = TRUE, sep = "\t",
+                            stringsAsFactors = FALSE)
+sample_labels$SMTSD <- factor(sample_labels$SMTSD)
+```
+
+
+Load PCA results
+
+```{r}
+pca_out <- get(load("../rdas/pc_gtex_v6_x.rda"))
+```
+
+
+Make color palette for gtex tissues
+
+```{r gtex-color-wheel}
+library(RColorBrewer)
+n <- 53
+qual_col_pals <- brewer.pal.info[brewer.pal.info$category == 'qual',]
+col_vector <- unlist(mapply(brewer.pal, 
+                    qual_col_pals$maxcolors, rownames(qual_col_pals)))
+pie(rep(1,n), col=sample(col_vector, n), radius = 1)
+```
+
+
+
+## Making plots
+
+
+PCA plot
+
+```{r gtex-pca, echo = TRUE, eval = TRUE}
+data_pca_plot <- data.frame(PC1 = pca_out[,1],
+                            PC2 = pca_out[,2],
+                            PC3 = pca_out[,3],
+                            PC4 = pca_out[,4],
+                            PC5 = pca_out[,5],
+                            PC6 = pca_out[,6],
+                            PC7 = pca_out[,7],
+                            PC8 = pca_out[,8],
+                            PC9 = pca_out[,9],
+                            PC10 = pca_out[,10],
+                            SMTSD = sample_labels$SMTSD)
+data_pca_plot$SMTSD <- as.factor(data_pca_plot$SMTSD)
+```
+
+Function to make PCA plot.
+
+```{r}
+# make plot
+plot_pca <- function(data_pca, pcx, pcy, legend = TRUE) {
+    xaxis <- paste0("PC", pcx)
+    yaxis <- paste0("PC", pcy)
+    
+  out_plot <- ggplot(data_pca, aes_string(x = paste0("PC", pcx),
+                                               y = paste0("PC", pcy))) + 
+    geom_point(aes(fill = SMTSD),
+                   colour = "grey20", 
+                   pch = 21, alpha = 1) +
+    labs(x = "PC1", y = "PC2") +
+    scale_fill_manual(values = col_vector) +
+    theme_classic() +
+    theme(panel.border = element_rect(fill = "NA", colour = "black")) +
+    labs(x = xaxis, y = yaxis)
+  
+  if (legend==TRUE) {
+      return(out_plot)
+  } else {
+      return(out_plot + theme(legend.position="none"))
+  }
+}
+```
+
+
+
+## Combined plot
+
+```{r gtex-pca-combined, fig.width=12, fig.height=12}
+cowplot::plot_grid(
+    plot_pca(data_pca_plot, pcy = 1, pcx = 2, legend = FALSE), 
+    plot_pca(data_pca_plot, pcy = 1, pcx = 3, legend = FALSE),
+    plot_pca(data_pca_plot, pcy = 1, pcx = 4, legend = FALSE),
+    plot_pca(data_pca_plot, pcy = 1, pcx = 5, legend = FALSE),
+    NULL,
+    plot_pca(data_pca_plot, pcy = 2, pcx = 3, legend = FALSE),
+    plot_pca(data_pca_plot, pcy = 2, pcx = 4, legend = FALSE),
+    plot_pca(data_pca_plot, pcy = 2, pcx = 5, legend = FALSE),
+    NULL, NULL,
+    plot_pca(data_pca_plot, pcy = 3, pcx = 4, legend = FALSE),
+    plot_pca(data_pca_plot, pcy = 3, pcx = 5, legend = FALSE),
+    NULL, NULL, NULL,
+    plot_pca(data_pca_plot, pcy = 4, pcx = 5, legend = FALSE),
+    ncol = 4, 
+    labels = NULL)
+```
+
+
+Make legend
+
+```{r make-legend, fig.width=10,fig.height=5}
+coord_xy <- cbind(c(rep(c(1,5,9,13), each = 13),13) - .4,
+                  c(rep(c(13:1),4), 0))
+
+library(pryr)
+plot_legend %<a-% {
+    plot(coord_xy, pch = 21, lwd = .8, 
+        bg = col_vector, col = "grey20",
+        xlim = c(0, 17), ylim = c(0, 14),
+        ann = F, axes = F)
+    text(x = coord_xy[,1] + .4, y = coord_xy[,2],
+         labels = levels(factor(sample_labels$SMTSD)),
+         cex = .6, adj = 0)
+}
+plot_legend
+```
+
+## Session information
+
+```{r, eval = TRUE, echo = TRUE}
+sessionInfo()
+```
+
