@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  14 SEP 2016 21:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  19 SEP 2016 15:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -503,8 +503,7 @@ Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 \c@result=\count139
 \c@note=\count140
 \c@definition=\count141
-)
-No file S11_Fig.aux.
+) (./S11_Fig.aux)
 \openout1 = `S11_Fig.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 7.
@@ -523,6 +522,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 7.
 LaTeX Font Info:    ... okay on input line 7.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 7.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 7.
+
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
@@ -542,9 +542,9 @@ LaTeX Font Info:    ... okay on input line 7.
 * \paperheight=794.96999pt
 * \textwidth=379.4175pt
 * \textheight=632.36249pt
-* \oddsidemargin=14.22636pt
-* \evensidemargin=14.22636pt
-* \topmargin=0.0pt
+* \oddsidemargin=126.4725pt
+* \evensidemargin=126.4725pt
+* \topmargin=-47.84006pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -570,6 +570,8 @@ Package hyperref Info: Link coloring OFF on input line 7.
 LaTeX Info: Redefining \ref on input line 7.
 LaTeX Info: Redefining \pageref on input line 7.
 LaTeX Info: Redefining \nameref on input line 7.
+ (./S11_Fig.out)
+(./S11_Fig.out)
 \@outlinefile=\write3
 \openout3 = `S11_Fig.out'.
 
@@ -626,9 +628,9 @@ File: ../../plots/dendextend_gtex_brain.pdf Graphic file (type pdf)
 <use ../../plots/dendextend_gtex_brain.pdf>
 Package pdftex.def Info: ../../plots/dendextend_gtex_brain.pdf used on input li
 ne 15.
-(pdftex.def)             Requested size: 505.89645pt x 455.31221pt.
+(pdftex.def)             Requested size: 433.62885pt x 455.31221pt.
 
-Overfull \hbox (126.47896pt too wide) in paragraph at lines 15--19
+Overfull \hbox (54.21135pt too wide) in paragraph at lines 15--19
  [][] 
  []
 
@@ -641,18 +643,8 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 22.
  (./S11_Fig.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 22.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 22.
-
-
-Package rerunfilecheck Warning: File `S11_Fig.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `S11_Fig.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+Package rerunfilecheck Info: File `S11_Fig.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 22.
  )
 (\end occurred inside a group at level 1)
@@ -660,17 +652,17 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 22.
 ### simple group (level 1) entered at line 12 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 10449 strings out of 493117
- 159927 string characters out of 6135433
- 284490 words of memory out of 5000000
- 13774 multiletter control sequences out of 15000+600000
+ 10453 strings out of 493117
+ 159989 string characters out of 6135433
+ 284593 words of memory out of 5000000
+ 13772 multiletter control sequences out of 15000+600000
  4662 words of font info for 21 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,7n,38p,590b,378s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr10.pfb>
-Output written on S11_Fig.pdf (2 pages, 99563 bytes).
+Output written on S11_Fig.pdf (2 pages, 107643 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  26 compressed objects within 1 object stream
