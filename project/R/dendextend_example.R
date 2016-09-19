@@ -27,18 +27,21 @@ dend <- as.dendrogram(hc_iris)
 dend <- rotate(dend, 1:150)
 
 # Color the branches based on the clusters:
-dend <- color_branches(dend, k=3) #, groupLabels=iris_species)
+#dend <- color_branches(dend, k=3) #, groupLabels=iris_species)
 
 # Manually match the labels, as much as possible, to the real classification of the flowers:
-labels_colors(dend) <-
-  rainbow_hcl(3)[sort_levels_values(
-    as.numeric(iris[,5])[order.dendrogram(dend)]
-  )]
+#labels_colors(dend) <-
+#  rainbow_hcl(3)[sort_levels_values(
+#    as.numeric(iris[,5])[order.dendrogram(dend)]
+#  )]
 
-labels(dend) <- paste(as.character(iris[,5])[order.dendrogram(dend)],
-                      "(",labels(dend),")", 
-                      sep = "")
+#labels(dend) <- paste(as.character(iris[,5])[order.dendrogram(dend)],
+#                      "(",labels(dend),")", 
+#                      sep = "")
 # We hang the dendrogram a bit:
+labels(dend) <- rep("",length(species_col))
+dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col) 
+  
 dend <- hang.dendrogram(dend,hang_height=0.1)
 # reduce the size of the labels:
 # dend <- assign_values_to_leaves_nodePar(dend, 0.5, "lab.cex")
@@ -79,18 +82,21 @@ dend <- as.dendrogram(hc_deng)
 # order it the closest we can to the order of the observations:
 dend <- rotate(dend, 1:259)
 
+dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col) 
+
+labels(dend) <- rep("", length(species_col))
 # Color the branches based on the clusters:
-dend <- color_branches(dend, k=6) #, groupLabels=iris_species)
+#dend <- color_branches(dend, k=6) #, groupLabels=iris_species)
 
 # Manually match the labels, as much as possible, to the real classification of the flowers:
-labels_colors(dend) <-
-  rainbow_hcl(numtypes)[sort_levels_values(
-    as.numeric(celltype_labels)[order.dendrogram(dend)]
-  )]
+#labels_colors(dend) <-
+#  rainbow_hcl(numtypes)[sort_levels_values(
+#    as.numeric(celltype_labels)[order.dendrogram(dend)]
+#  )]
 
-labels(dend) <- paste(as.character(celltype_labels)[order.dendrogram(dend)],
-                      "(",labels(dend),")", 
-                      sep = "")
+#labels(dend) <- paste(as.character(celltype_labels)[order.dendrogram(dend)],
+#                     "(",labels(dend),")", 
+#                      sep = "")
 
 
 dend <- hang.dendrogram(dend,hang_height=0.1)
@@ -126,7 +132,10 @@ library(colorspace) # get nice colors
 species_col <- rev(rainbow_hcl(numtypes))[as.numeric(celltype_labels)]
 
 d_gtex_brain <- dist(t(voom_counts)) # method="man" # is a bit better
-hc_gtex_brain <- hclust(d_gtex_brain, method = "complete")
+#hc_gtex_brain <- hclust(d_gtex_brain, method = "complete")
+#save(hc_gtex_brain, file="../rdas/hc_gtex_brain.rda")
+
+hc_gtex_brain <- get(load("../rdas/hc_gtex_brain.rda"))
 gtex_brain_celltypes <- rev(levels(celltype_labels))
 
 library(dendextend)
@@ -135,17 +144,21 @@ dend <- as.dendrogram(hc_gtex_brain)
 dend <- rotate(dend, 1:1259)
 
 # Color the branches based on the clusters:
-dend <- color_branches(dend, k=6) #, groupLabels=iris_species)
+#dend <- color_branches(dend, k=6) #, groupLabels=iris_species)
 
 # Manually match the labels, as much as possible, to the real classification of the flowers:
-labels_colors(dend) <-
-  rainbow_hcl(numtypes)[sort_levels_values(
-    as.numeric(celltype_labels)[order.dendrogram(dend)]
-  )]
+#labels_colors(dend) <-
+#  rainbow_hcl(numtypes)[sort_levels_values(
+#    as.numeric(celltype_labels)[order.dendrogram(dend)]
+#  )]
 
-labels(dend) <- paste(as.character(celltype_labels)[order.dendrogram(dend)],
-                      "(",labels(dend),")", 
-                      sep = "")
+#labels(dend) <- paste(as.character(celltype_labels)[order.dendrogram(dend)],
+#                      "(",labels(dend),")", 
+#                      sep = "")
+
+dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col) 
+
+labels(dend) <- rep("",length(species_col))
 
 
 dend <- hang.dendrogram(dend,hang_height=0.1)
@@ -161,3 +174,56 @@ plot(dend,
      horiz =  TRUE,  nodePar = list(cex = .007))
 legend("topleft", legend = gtex_brain_celltypes, fill = rainbow_hcl(numtypes))
 dev.off()
+
+###############   dendextend  GTEx whole tissues  #####################
+
+samples_id <- read.table("../external_data/GTEX_V6/samples_id.txt")
+tissue_labels <- factor(samples_id[,3])
+numtypes <- length(unique(tissue_labels))
+
+color = grDevices::colors()[grep('gr(a|e)y', grDevices::colors(), invert = T)]
+color1 <- sample(color, 53)
+
+species_col <- rev(color1)[as.numeric(tissue_labels)]
+
+
+hc_gtex <- get(load("../rdas/hclust_gtex.rda"))
+gtex_celltypes <- rev(levels(tissue_labels))
+
+library(dendextend)
+dend <- as.dendrogram(hc_gtex)
+# order it the closest we can to the order of the observations:
+dend <- rotate(dend, 1:8555)
+
+# Color the branches based on the clusters:
+#dend <- color_branches(dend, k=6) #, groupLabels=iris_species)
+
+# Manually match the labels, as much as possible, to the real classification of the flowers:
+#labels_colors(dend) <-
+#  rainbow_hcl(numtypes)[sort_levels_values(
+#    as.numeric(celltype_labels)[order.dendrogram(dend)]
+#  )]
+
+#labels(dend) <- paste(as.character(celltype_labels)[order.dendrogram(dend)],
+#                      "(",labels(dend),")", 
+#                      sep = "")
+
+dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col) 
+
+labels(dend) <- rep("",length(species_col))
+
+
+dend <- hang.dendrogram(dend,hang_height=0.1)
+# reduce the size of the labels:
+# dend <- assign_values_to_leaves_nodePar(dend, 0.5, "lab.cex")
+dend <- set(dend, "labels_cex", 0.5)
+# And plot:
+pdf("../plots/dendextend_gtex.pdf")
+par(mar = c(3,3,3,3))
+plot(dend, 
+     main = "Clustered GTEx all tissues data 
+     (Labels give true tissue states)", 
+     horiz =  TRUE,  nodePar = list(cex = .007))
+legend("topleft", legend = gtex_celltypes, fill = color1, ncol=2, cex=0.5)
+dev.off()
+
