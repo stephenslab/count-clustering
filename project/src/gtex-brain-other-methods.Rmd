@@ -1,0 +1,185 @@
+---
+title: 'GTEx brain tissues: Plotting results of other methods'
+author: "Joyce Hsiao"
+date: "2016-09-12"
+output: 
+  html_document:
+    css: floating-toc.css
+    toc: true
+---
+
+```{r chunk-options, include=FALSE}
+source("chunk-options.R")
+```
+
+
+```{r packages, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+#library(maptpx)
+library(ggplot2)
+library(testit)
+library(data.table)
+library(mygene)
+library(knitr)
+```
+
+
+
+## Objective
+
+Make annotated plots for visualizing results of t-SNE, PCA, and MDS.
+
+
+## Setting up
+
+Load sample labels
+
+```{r load-metadata, echo = TRUE, eval = TRUE}
+sample_labels <- read.table("../rdas/samples-id-for-paper.txt",
+                            header = TRUE, sep = "\t",
+                            stringsAsFactors = FALSE)
+sample_labels$SMTSD <- factor(sample_labels$SMTSD)
+```
+
+
+Load t-SNE results.
+
+```{r}
+tsne_out <- get(load("../rdas/tsne_gtex_brain.rda"))
+colnames(tsne_out) <- c("dim1", "dim2")
+tsne_out <- as.matrix(tsne_out)
+```
+
+
+Load MDS results.
+
+```{r}
+mds_out <- get(load("../rdas/mds_gtex_brain.rda"))
+colnames(mds_out) <- c("dim1", "dim2")
+mds_out <- as.matrix(mds_out)
+```
+
+
+Load PCA results.
+
+```{r}
+pca_out <- get(load("../rdas/pca_gtex_brain.rda"))
+colnames(pca_out) <- c("dim1", "dim2")
+pca_out <- as.matrix(pca_out)
+```
+
+Make color palette for gtex tissues
+
+```{r color-labels}
+# make cell sample labels
+# want a version consistent with majority of the literature
+sample_labels <- read.table("../rdas/samples_id.txt",
+                            header = TRUE, sep = " ",
+                            stringsAsFactors = FALSE)
+brain_labels <- sample_labels[grep("Brain", sample_labels[,3]), 3]
+
+library(RColorBrewer)
+# make color scheme
+col_vector <- c(RColorBrewer::brewer.pal(8, "Accent"),
+          RColorBrewer::brewer.pal(8, "Dark2")[1:4],
+          RColorBrewer::brewer.pal(12, "Paired")[1])
+```
+
+
+## Making plots
+
+
+```{r ggplot-tsne, echo = TRUE, eval = TRUE}
+# combine in one data.frame tsne results with cell type labels 
+plot_data_tsne <- data.frame(tsne_out, brain_labels)
+
+# make plot
+tsne_plot <- ggplot(plot_data_tsne, aes(x = dim1, y = dim2)) + 
+    geom_point(aes(fill = factor(brain_labels)),
+                   colour = "grey20", 
+                   pch = 21, alpha = 1) +
+    labs(x = "t-SNE 1st dimension", y = "t-SNE 2nd dimension") +
+    scale_fill_manual(values = col_vector) +
+    theme_classic() +
+    theme(panel.border = element_rect(fill = "NA", colour = "black")) +
+    theme(legend.position="none") 
+```
+
+
+
+PCA plot
+
+```{r gtex-pca, echo = TRUE, eval = TRUE}
+plot_data_pca <- data.frame(pca_out,
+                            brain_labels)
+
+# make plot
+pca_plot <- ggplot(plot_data_pca, aes(x = dim1, y = dim2)) + 
+    geom_point(aes(fill = factor(brain_labels)),
+                   colour = "grey20", 
+                   pch = 21, alpha = 1) +
+    labs(x = "PC1", y = "PC2") +
+    scale_fill_manual(values = col_vector) +
+    theme_classic() +
+    theme(panel.border = element_rect(fill = "NA", colour = "black")) +
+    theme(legend.position="none") 
+```
+
+
+MDS plot
+
+```{r ggplot-mds, echo = TRUE, eval = TRUE}
+plot_data_mds <- data.frame(mds_out, brain_labels)
+
+# make plot
+mds_plot <- ggplot(plot_data_mds, aes(x = dim1, y = dim2)) + 
+    geom_point(aes(fill = factor(brain_labels)),
+                   colour = "grey20", 
+                   pch = 21, alpha = 1) +
+    labs(x = "MDS 1st dimension", y = "MDS 2nd dimension") +
+    scale_fill_manual(values = col_vector) +
+    theme_classic() +
+    theme(panel.border = element_rect(fill = "NA", colour = "black")) +
+    theme(legend.position = "none")
+```
+
+
+## Combined plot
+
+```{r combined-plots, fig.width=8, fig.height=8}
+# plot the PCA plot twice
+# first time without legend,
+# and second time with legend
+cowplot::plot_grid(
+    pca_plot, 
+    tsne_plot,
+    mds_plot,
+    labels = LETTERS[1:3])
+```
+
+
+Make legend
+
+```{r make-legend}
+coord_xy <- cbind(rep(1,13) - .4,
+                  c(1:13))
+
+library(pryr)
+plot_legend %<a-% {
+    plot(coord_xy, pch = 21, lwd = .8, 
+        bg = col_vector, col = "grey20",
+        xlim = c(0, 17), ylim = c(0, 14),
+        ann = F, axes = F)
+    text(x = coord_xy[,1] + .8, y = coord_xy[,2],
+         labels = levels(factor(brain_labels)),
+         cex = .6, adj = 0)
+}
+plot_legend
+```
+
+
+## Session information
+
+```{r, eval = TRUE, echo = TRUE}
+sessionInfo()
+```
+

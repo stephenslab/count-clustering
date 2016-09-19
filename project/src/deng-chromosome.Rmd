@@ -1,0 +1,123 @@
+---
+title: 'Deng - different chromosome'
+author: "Joyce Hsiao"
+date: "2016-09-12"
+output: 
+  html_document:
+    css: floating-toc.css
+    toc: true
+---
+
+```{r chunk-options, include=FALSE}
+source("chunk-options.R")
+```
+
+
+```{r packages, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+#library(maptpx)
+library(ggplot2)
+library(testit)
+library(data.table)
+library(mygene)
+library(knitr)
+```
+
+
+## Objective
+
+Make Structure plot for visualizing Deng data using 1) genes on odd-numbered chromosome, 2) genes on even-numbered chromosome.
+
+
+## Setting up
+
+Load sample labels.
+
+```{r load-labels, ech = TRUE, eval = TRUE}
+library(singlecellRNAseqData)
+MouseDengESC <- get(data("MouseDengESC"))
+meta_data <- pData(MouseDengESC)
+```
+
+Load result of odd-numbered chromosomes.
+
+```{r load-odd, echo=TRUE, eval=TRUE}
+odd_out <- get(load("../rdas/deng_topic_fit_k_6_odd_chromosome.rda"))
+odd_out <- as.matrix(odd_out)
+```
+
+Load result of even-numbered chromosomes.
+
+```{r load-even, echo=TRUE, eval=TRUE}
+even_out <- get(load("../rdas/deng_topic_fit_k_6_even_chromosome.rda"))
+even_out <- as.matrix(even_out)
+```
+
+
+## Making plots
+
+Odd-numbered chromosome.
+
+```{r structure-odd, echo = TRUE, eval = TRUE}
+library(CountClust)
+
+omega_odd <- odd_out[[3]]
+
+annotation <- data.frame(
+  sample_id = paste("X", c(1:NROW(omega_odd))),
+  tissue_label = factor(meta_data$cell_type) )
+
+odd_structure <- StructureGGplot(omega = omega_odd,
+                annotation = annotation,
+                palette = RColorBrewer::brewer.pal(8, "Accent"),
+                yaxis_label = "Developmental phase",
+                order_sample = TRUE,
+                plot_labels = FALSE,
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 7,
+                                 axis_label_face = "bold"))
+```
+
+
+Even-numbered chromosome.
+
+```{r structure-even, echo = TRUE, eval = TRUE}
+library(CountClust)
+
+omega_even <- even_out[[3]]
+
+annotation <- data.frame(
+  sample_id = paste("X", c(1:NROW(omega_even))),
+  tissue_label = factor(meta_data$cell_type) )
+
+even_structure <- StructureGGplot(omega = omega_even,
+                annotation = annotation,
+                palette = RColorBrewer::brewer.pal(8, "Accent"),
+                yaxis_label = "Developmental phase",
+                order_sample = TRUE,
+                plot_labels = FALSE,
+                axis_tick = list(axis_ticks_length = .1,
+                                 axis_ticks_lwd_y = .1,
+                                 axis_ticks_lwd_x = .1,
+                                 axis_label_size = 7,
+                                 axis_label_face = "bold"))
+```
+
+Combine plot
+
+```{r deng-chromosome-plot, eval = TRUE, echo = TRUE, fig.height=8, fig.width=7}
+cowplot::plot_grid(
+    odd_structure,
+    even_structure,
+    labels = letters[1:2]
+)
+```
+
+
+## Session information
+
+```{r, eval = TRUE, echo = TRUE}
+sessionInfo()
+```
+
