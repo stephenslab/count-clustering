@@ -18,11 +18,13 @@
 \paragraph*{S12 Fig.}
 
 \label{figS12}
-{\bf Visualizing GTEx data using the first five principal components.}
+{\bf Dendogram representation for GTEx all tissues level data.}
 \begin{figure}[ht]
 \centering
-\includegraphics[height=8in, width=6in]{../../src/figure/gtex-high-pcs.Rmd/gtex-high-pcs.jpeg}
-\caption{Results of Principal component analysis are visualized in higher dimensions to reveal the structure of sample variation in the GTEx data of all tissue samples.}
+\includegraphics[height=6.3in, width=6in]{../../plots/dendextend_gtex.pdf}
+\caption{Dendogram representation of the 8555 GTEx tissue samples across all the tissues.
+The hierarchical clustering in this case has been performed on the log counts per million (cpm) data.
+Very clearly, samples from different tissues seem to cluster together, but any further patterns, for instance, how similar different tissue types are, is hard to see.}
 \end{figure}
 
 \end{document}
