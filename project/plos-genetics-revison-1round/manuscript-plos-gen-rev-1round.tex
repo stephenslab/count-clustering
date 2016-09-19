@@ -2,10 +2,10 @@
 % Version 3.2 March 2016
 
 \documentclass[10pt,letterpaper]{article}
-\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
 
 \input{header.tex}
 
+% Document settings specific to the main tex file
 % Header and Footer with logo
 \usepackage{lastpage,fancyhdr,graphicx}
 \usepackage{epstopdf}
@@ -13,12 +13,16 @@
 \pagestyle{fancy}
 \fancyhf{}
 \setlength{\headheight}{27.023pt}
-\lhead{\includegraphics[width=2.0in]{../PLOS-submission.eps}}
+\lhead{\includegraphics[width=2.0in]{PLOS-submission.eps}}
 \rfoot{\thepage/\pageref{LastPage}}
 \renewcommand{\footrule}{\hrule height 2pt \vspace{2mm}}
 \fancyheadoffset[L]{2.25in}
 \fancyfootoffset[L]{2.25in}
 \lfoot{\sf PLOS}
+
+\newcommand{\lorem}{{\bf LOREM}}
+\newcommand{\ipsum}{{\bf IPSUM}}
+
 
 \begin{document}
 
@@ -28,7 +32,7 @@
 % Please use "title case" (capitalize all terms in the title except conjunctions, prepositions, and articles).
 \begin{flushleft}
 {\Large
-\textbf\newline{Clustering RNA-seq Expression Data using Grade of Membership Models}
+\textbf\newline{Visualizing the Structure of RNA-seq Expression Data using Grade of Membership Models}
 }
 \newline
 % Insert author names, affiliations and corresponding author email (do not include titles, positions, or degrees).
@@ -44,15 +48,16 @@ Matthew Stephens\textsuperscript{1,2}
 \\
 \bigskip
 
-
 % Use the asterisk to denote corresponding authorship and provide email address in note below.
 * mstephens@uchicago.edu
 
 \end{flushleft}
+
+
 % Please keep the abstract below 300 words
 \section*{Abstract}
 Grade of membership models, also known as ``admixture models", ``topic models" or ``Latent Dirichlet Allocation",
-are a generalization of cluster models that allow each sample to have membership in multiple clusters.
+are a generalization of cluster models that allow each othersample to have membership in multiple clusters.
 These models are widely used in population genetics to model admixed individuals who have ancestry from multiple ``populations",
 and in natural language processing to model documents having words from multiple ``topics". Here we illustrate the potential for these models
 to cluster samples of RNA-seq gene expression data, measured on either bulk samples or single cells.
@@ -166,12 +171,12 @@ structure plots, and identifying the distinctive (``driving") genes in each clus
 
 \section*{Results}
 
-\subsection*{Clustering human tissue samples using bulk RNA-seq}
+\subsection*{Bulk RNA-seq data of human tissue samples}
 
 We begin by illustrating the GoM model on bulk RNA expression measurements from the GTEx project (V6 dbGaP accession phs000424.v6.p1, release date: Oct 19, 2015, \url{http://www.gtexportal.org/home/}).  These data consist of per-gene read counts from RNA-seq performed on $8,555$ samples collected from $450$ human donors across $51$ tissues, lymphoblastoid cell lines, and transformed fibroblast cell-lines. We analyzed $16,069$ genes that satisfied filters (e.g.~exceeding certain minimum expression levels) that were used during eQTL analyses by the GTEx project (gene list available in \url{http://stephenslab.github.io/count-clustering/project/utilities/gene_names_all_gtex.txt}).
 
 We fit the GoM model to these data, with number of clusters $K=5,10,15,20$. For each $K$ we ran the fitting algorithm three times and
-kept the result with the highest log-likelihood. Fig~\ref{fig1}(a) shows the Structure plot for $K=20$, with results for other $K$ in \nameref{figS0}. (See also \url{http://stephenslab.github.io/count-clustering/project/src/tissues_tSNE_2.html} for
+kept the result with the highest log-likelihood. Fig~\ref{fig1}(a) shows the Structure plot for $K=20$, with results for other $K$ in \nameref{figS1}. (See also \url{http://stephenslab.github.io/count-clustering/project/src/tissues_tSNE_2.html} for
 an alternative visualization using a 2-dimensional projection with t-SNE \cite{Maaten2008, Maaten2014}.)
 
 In all cases results reflect the known division of samples into tissues: that is, samples from the same tissue tend to have similar cluster membership proportions. As might be expected, increasing $K$ highlights finer structure in the data, with tissues that cluster together with smaller $K$ being subdivided into distinct subgroups for larger $K$. For brevity we focus on results for $K=20$ (Fig~\ref{fig1}(a)). Here some tissues are represented by essentially a single cluster (e.g.~Pancreas, Liver), whereas other tissues are represented as a mixture of multiple clusters (e.g.~Thyroid, Spleen). Furthermore, the results highlight biological similarity among some tissues by assigning similar membership proportions to samples from those tissues.  For example, samples from several different parts of the brain often have similar memberships, as do the arteries (aorta, tibial and coronary) and skin samples (sun-exposed and un-exposed).
@@ -220,28 +225,14 @@ The remaining samples all show membership in multiple clusters. Samples from the
 
 
 
-\subsection*{Quantitative comparison with hierarchical clustering}
-
-We used the GTEx data to test whether the GoM model is more accurate in detecting substructure than distance-based clustering methods.
-Specifically, for each pair of tissues in the GTEx data we assessed whether or not each clustering method
-correctly partitioned samples into the two tissue groups (see Methods). The GoM model was substantially more accurate in this test, succeeding in $81 \%$ of comparisons, compared with $29 \%$ for the distance-based method (Fig~\ref{fig2}). This presumably reflects the general tendency for model-based
-approaches to be more efficient that distance-based approaches, provided that the model is sufficiently accurate.
-
-% Figure 2
-%\begin{figure}[!h]
-%\caption{{\bf A comparison of accuracy of GoM model vs. hierarchical clustering.} For each pair of tissues from the GTEX data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
-%\label{fig2}
-%\end{figure}
-
-
-\subsection*{Clustering of single-cell RNA-seq data}
+\subsection*{Single-cell RNA-seq data}
 
 Recently RNA-sequencing has become viable for single cells \cite{Tang2009}, and this technology has the promise to revolutionize understanding of intra-cellular variation in expression, and regulation more generally \cite{Trapnell2015}. Although it is traditional to describe and categorize cells in terms of distinct cell-types,
 the actual architecture of cell heterogeneity may be more complex, and in some cases perhaps better captured by the more ``continuous"  GoM model. In this section we illustrate the potential for the GoM model to be applied to single cell data.
 
 To be applicable to single-cell RNA-seq data, methods must be able to deal with lower sequencing depth than in bulk RNA experiments:
  single-cell RNA-seq data typically involve substantially lower effective sequencing depth compared with bulk experiments, due to the relatively small number of molecules available to sequence in a single cell. Therefore, as a first step towards demonstrating its potential for single cell analysis, we checked robustness of the GoM model to sequencing depth. Specifically,
-we repeated the analyses above after thinning the GTEx data by a factor of $100$ and $10,000$ to mimic the lower sequencing depth of a typical single cell experiment. For the thinned GTEx data the Structure plot for $K=20$ preserves most of the major features of the original analysis on unthinned data (\nameref{figS1}). For the accuracy comparisons with distance-based methods, both methods suffer reduced accuracy in thinned data, but the GoM model remains superior (\nameref{figS2}). For example, when thinning by a factor of $10,000$, the success rate in separating pairs of tissues is $0.32$ for the GoM model vs. $0.10$ for hierarchical clustering.
+we repeated the analyses above after thinning the GTEx data by a factor of $100$ and $10,000$ to mimic the lower sequencing depth of a typical single cell experiment. For the thinned GTEx data the Structure plot for $K=20$ preserves most of the major features of the original analysis on unthinned data (\nameref{figS1}). For the accuracy comparisons with distance-based methods, both methods suffer reduced accuracy in thinned data, but the GoM model remains superior (\nameref{figS3}). For example, when thinning by a factor of $10,000$, the success rate in separating pairs of tissues is $0.32$ for the GoM model vs. $0.10$ for hierarchical clustering.
 
 Having established its robustness to sequencing depth, we now illustrate the GoM model on two single cell RNA-seq datasets, from Jaitin \textit{et al} \cite{Jaitin2014} and Deng \textit{et al} \cite{Deng2014}.
 
@@ -284,11 +275,33 @@ In more detail: Initially, at the zygote and early 2-cell stages, the embryos ar
 Finally, during the blastocyst stages two new clusters (purple and orange in Fig~\ref{fig4}) dominate. The orange cluster is enriched with genes involved in the formation of outer trophoblast cells (e.g., \textit{Tspan8}, \textit{Krt8}, \textit{Id2} \cite{Guo2010}), while the purple cluster is enriched with genes responsible for the formation of inner cell mass (e.g., \textit{Pdgfra}, \textit{Pyy} \cite{Hou2007}). Thus these two clusters are consistent with the two cell lineages, the trophectoderm and the primitive endoderm, that make up the majority of the cells of the blastocyst \cite{Rossant1995}. Interestingly, however, the cells do not appear to fall into two distinct and clearly-separated populations -- at least, not in terms of their expression patterns -- but rather show a continuous
 range of memberships in these two clusters, even in the late blastocyst stage.
 
-In addition to these trends across development stages, the GoM results also highlight some embryo-level effects in the early stages (Fig~\ref{fig4}). Specifically, cells from the same embryo sometimes show greater similarity than cells from different embryos.
-For example, while all cells from the 16-cell stage have high memberships in the green cluster, cells from two of the embryos at this stage have memberships in both the purple and yellow clusters, while the other two embryos have memberships only in the yellow cluster.
+In addition to these trends across development stages, the GoM results also highlight some embryo-level effects in the early stages (Fig~\ref{fig4}). Specifically, cells from the same embryo sometimes show greater similarity than cells from different embryos. For example, while all cells from the 16-cell stage have high memberships in the green cluster, cells from two of the embryos at this stage have memberships in both the purple and yellow clusters, while the other two embryos have memberships only in the yellow cluster.
 
-Finally, we note that, like clustering methods, the GoM model can be helpful in exploratory data analysis and quality control. Indeed,
-the GoM results highlight a few single cells as outliers. For example, a cell from a 16-cell embryo is represented by the blue cluster - a cluster that represents cells at the zygote and early 2-cell stage. Also, a cell from an 8-stage embryo has strong membership in the purple cluster - a cluster that represents cells from the blastocyst stage. It would seem prudent to consider excluding these cells from subsequent analyses of these data.
+Finally, we note that, like clustering methods, the GoM model can be helpful in exploratory data analysis and quality control. Indeed, the GoM results highlight a few single cells as outliers. For example, a cell from a 16-cell embryo is represented by the blue cluster - a cluster that represents cells at the zygote and early 2-cell stage. Also, a cell from an 8-stage embryo has strong membership in the purple cluster - a cluster that represents cells from the blastocyst stage. It would seem prudent to consider excluding these cells from subsequent analyses of these data.
+
+
+\subsection*{Existing visualization tools}
+
+Common methods for visualizing the structure of gene expression data include hierarchical clustering, PCA, multidimensional scaling (MDS), and t-Distributed Stochastic Neighbor Embedding (t-SNE). All of these methods, except for hierarchical clustering, are tools for dimension reduction of multivariate data. The visualizations produced by these methods may vary and depend on the structure of sample variation in the dataset. To highlight their differences and similarities, we provide visualizations produced by these methods for all the example datasets in the supplementary materials.
+
+PCA and MDS map multivariate gene expression data to linear dimensions that aim to maximize global variation between samples. The sample coordinates in PCA/MDS dimensions are traditionally presented in two-dimensional scatter plots. For the GTEx data, the PCA plot of the first versus the second dimension reveals that the whole blood samples are the most distinct among all the GTEx tissue samples. The higher PCA/MDS dimensions further reveal that xx tissue samples are separated from xx tissue samples (when plotting xx versus xx dimension) and xx tissue samples are separated from xx tissue samples (xx versus xx dimension) (TO DO: check PCA/MDS results to see if this is true and also up to which dimension). However, currently there does not exist a compact visualization for representing all the PCA/MDS dimensions for high dimensional data, except for series of bi-scatter plots.
+
+t-SNE was specifically developed for compact visualization using two-dimensional plots. For the GTEx data and the mouse embryos datasets, the solutions produced by t-SNE appear to produce accurate clustering of samples that correspond to their tissue labels. However, these visualizations provide little insight into the similarity between GTEx tissues. Applying to the GTEx brain data, t-SNE indicates no structure among the brain samples and the visualization does not group brain samples by subregions. Interesting, the t-SNE visualization of the GTEx brain data is similar to the dendrogram produced by hierarchical clustering. 
+
+Hierarchical clustering is a distance-based clustering method that is frequently used to detect the substructure of gene expression data. The method computes pairwise distance between samples and applies agglomerative clustering technique to produce a dendrogram visualization. The number of distances to be computed increases exponentially with the number of samples. For instance, the GTEx visualization using hierarchical clustering requires xx calculations. We performed calculations on a xx computer and were unable to generate the distance matrix for the GTEx v6 data due to the limited computing power. However, previously GTEx pilot study analyzed xx tissue samples. Their visualization revealed that whole blood samples and brain tissue samples are the out-groups of all the GTEx tissue samples. These results are consistent with the PCA/MDS visualization. Furthermore, we used the GTEx data to test whether the GoM model is more accurate in detecting substructure than distance-based clustering methods. Specifically, for each pair of tissues in the GTEx data we assessed whether or not each clustering method correctly partitioned samples into the two tissue groups (see Methods). The GoM model was substantially more accurate in this test, succeeding in $81 \%$ of comparisons, compared with $29 \%$ for the distance-based method (Fig~\ref{fig2}). This presumably reflects the general tendency for model-based approaches to be more efficient that distance-based approaches, provided that the model is sufficiently accurate.
+
+Another method that has close connection to the GoM models is sparse factor analysis (SFA). See \cite{Engelhardt2010} for discussion of relationships among these methods in the context of inferring population genetic structure. The GoM model requires all factors to be positive and their loadings summing up to 1. While, SFA is more flexible than the GoM model and allows the factors to be sparse as well as to hold either positive or negative loadings. However, the flexibility of SFA comes at the cost of making the results harder to interpret or to visualize. We have developed methods to visualize results from SFA for this particular application, but we feel that the visualization produced by SFA does not have the immediate appeal of the Structure plot. On the other hand, the flexibility of SFA in modeling both positive and negative contribution of underlying factors might allow the model to capture features that cannot be easily captured by the GoM models. Future work is needed to investigate the application of SFAT for detecting the structure of gene expression data.
+
+[Say something about NMF here?] Although people have applied NMF to expression data, they never used it to interpret the results and look at visualization as we have.
+
+In summary, our examples illustrate that the GoM models provide a more visually and biologically appealing summary of the data than the other dimension reduction techniques. In particular, for the GTEx data, the GoM models combined with Structure plot provides a convenient visualization of tissue samples in 20 dimensions corresponding to 20 clusters. While, PCA, MDS and t-SNE provide solutions that are difficult to visualize more than two dimensions at one time. For the GTEx brain tissue samples, PCA and MDS produce a solution in which most of the brain regions are not well distinguished except for Cerebellum and Cerebellar Hemisphere, and t-SNE fails to uncover a clustering pattern of the brain tissue samples (\nameref{S8}). While, the GoM model revealed possibly four cell types underlying the brain subregions that are suggested as similar in PCA and MDS. Finally, applying to embryonic cell samples collected at each developmental stage, PCA and MDS recover a pattern of sample variation that is consistent with the developmental stages from which the embryos were collected. t-SNE groups cell samples by their embryonic stage. At the same time, the GoM models revealed a rich admixture of cell types that reflect important biological processes during embryonic preimplantation development.
+
+
+% Figure 2
+%\begin{figure}[!h]
+%\caption{{\bf A comparison of accuracy of GoM model vs. hierarchical clustering.} For each pair of tissues from the GTEX data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
+%\label{fig2}
+%\end{figure}
 
 
 
@@ -298,8 +311,7 @@ the GoM results highlight a few single cells as outliers. For example, a cell fr
 
 \section*{Discussion}
 
-Our goal here is to highlight the potential for GoM models to elucidate
-structure in RNA-seq data from both single cell sequencing and bulk sequencing of pooled cells.
+Our goal here is to highlight the potential for GoM models to elucidate structure in RNA-seq data from both single cell sequencing and bulk sequencing of pooled cells.
 We also provide tools to identify which genes
 are most distinctively expressed in each cluster, to aid interpretation of results.
 As our applications illustrate, these methods have the potential to highlight biological processes
@@ -317,11 +329,6 @@ but where samples may cluster differently at different genes. For example, in th
 both the pancreas (purple) and the adrenal gland (light green). This pattern can be seen in the Structure plot (Fig~\ref{fig1}) but would be hard to
 discern from a standard hierarchical clustering.
 
-GoM models also have close connections with dimension reduction techniques such as factor analysis, principal components analysis and non-negative matrix factorization. All of these methods can also be used for RNA-seq data, and may often be useful. See  \cite{Engelhardt2010} for discussion of
-relationships among these methods in the context of inferring population genetic structure. While not arguing that the GoM model
-is uniformly superior to these other methods, we believe our examples illustrate the appeals of the approach. In particular, we would argue that for the GTEx data, the Structure plot (Fig~\ref{fig1}) combined with the cluster annotations (Table \ref{tab1}) provide a more visually and biologically appealing summary of the data
-than would a principal components analysis.
-
 Fitting GoM models can be computationally-intensive for large data sets. For the datasets we considered here the computation time ranged from $12$ minutes for the data from \cite{Deng2014} ($n=259; K=6$), through $33$ minutes for the
 data from \cite{Jaitin2014} ($n=1,041; K=7$) to 3,370 minutes for the GTEx data ($n=8,555; K=20$).
 %maybe add comparison with hierarchical model (346 mins on GTEx data)
@@ -337,8 +344,7 @@ as $K$ increases is one way to capture some notion of hierarchy in the clusters 
 fruitful to analyse data in multiple ways using the same tool: for example our GTEx analyses illustrate how
 analysis of subsets of the data (in this case the brain samples) can complement analyses of the entire data.
 
-The version of the GoM model fitted here is relatively simple, and could certainly be embellished. For example,
-the model allows the expression of each gene in each cluster to be a free parameter, whereas we might expect expression of most
+The version of the GoM model fitted here is relatively simple, and could certainly be embellished. For example, the model allows the expression of each gene in each cluster to be a free parameter, whereas we might expect expression of most
 genes to be ``similar" across clusters. This is analogous to the idea in population genetics applications that allele frequencies in different populations may
 be similar to one another \cite{Falush2003}, or in document clustering applications that most words may not differ appreciably in frequency in different topics.
 In population genetics applications incorporating this idea into the model, by using a correlated prior distribution on these frequencies,
@@ -502,15 +508,44 @@ The authors have no conflict of interest.
 
 \section*{Supporting Information}
 \paragraph*{S1 Fig.}
-\label{figS0}
+\label{figS1}
 {\bf Structure plot of GTEx V6 all tissue samples for (a) $K=5$, (b) $K=10$, (c) $K=15$, (d) $K=20$.} Some tissues form a separate cluster from the rest of the tissues from $K=5$ onwards (for example: Whole Blood, Skin), whereas some tissues only form a distinctive subgroup only at $K=20$ (for example: Arteries).
 
 \paragraph*{S2 Fig.}
-\label{figS1}
+\label{figS2}
 {\bf Structure plot of GTEx V6 all tissue samples K=20 in 2 runs under the thinning parameters settings (a) $p_{thin}=0.01$ and (b) $p_{thin}=0.0001$.} The patterns in two plots closely correspond to the plot in Fig ~\ref{fig1} (a), though there are a few differences from the unthinned version.
 
 \paragraph*{S3 Fig.}
-\label{figS2}
+\label{figS3}
+{\bf A comparison of ``accuracy" of hierarchical vs. model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.01$ and $p_{thin}=0.0001$.}  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Fig~\ref{fig2}), but even then the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
+
+\paragraph*{S4 Fig.}
+\label{figS4}
+{\bf GTEx data visualization of all tissue samples using (a) principle component
+analysis and (b) t-SNE (c) Multidimenstional scaling.} Samples of matching tissue types are
+indicated by points of matching color.
+
+\paragraph*{S5 Fig.}
+\label{figS5}
+{\bf Mouse embryo single cell sample visualization using (a) principle component
+analysis and (b) t-SNE (c) Multidimensional scaling.} Single cell samples collected at the same
+developmental stage are indicated by points of matching color.
+
+\paragraph*{S6 Fig.}
+\label{figS6}
+{\bf Visualization of loadings from Sparse Factor Analysis on GTEx data.}
+
+\paragraph*{S7 Fig.}
+\label{figS7}
+{\bf Visualization of loadings from Sparse Factor Analysis on Deng et al single cell
+developmental phase data.}
+
+\paragraph*{S8 Fig.}
+\label{figS7}
+{\bf A comparison of ``accuracy" of hierarchical vs. model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.01$ and $p_{thin}=0.0001$.}  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Fig~\ref{fig2}), but even then the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
+
+\paragraph*{S9 Fig.}
+\label{figS7}
 {\bf A comparison of ``accuracy" of hierarchical vs. model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.01$ and $p_{thin}=0.0001$.}  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Fig~\ref{fig2}), but even then the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
 
 \paragraph*{S1 Table.}
