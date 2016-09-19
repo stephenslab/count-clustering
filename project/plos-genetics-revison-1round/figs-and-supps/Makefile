@@ -1,5 +1,5 @@
 
-supps: supplementals.tex ../header.tex S1_Fig.tex S2_Fig.tex S3_Fig.tex S4_Fig.tex S5_Fig.tex S6_Fig.tex S7_Fig.tex S8_Fig.tex S9_Fig.tex S10_Fig.tex S11_Fig.tex S12_Fig.tex S1_Table.tex S2_Table.tex S3_Table.tex
+supps: supplementals.tex ../header.tex S1_Fig.tex S2_Fig.tex S3_Fig.tex S4_Fig.tex S5_Fig.tex S6_Fig.tex S7_Fig.tex S8_Fig.tex S9_Fig.tex S10_Fig.tex S11_Fig.tex S12_Fig.tex  S13_Fig.tex S1_Table.tex S2_Table.tex S3_Table.tex
 	pdflatex supplementals.tex
 
 fig1: fig1.tex ../header.tex ../../plots/gtex-figures/gtex-k20-05-01-2016.pdf
@@ -41,8 +41,17 @@ figS8: S8_Fig.tex ../header.tex ../../src/figure/gtex-brain-other-methods.Rmd/gt
 figS9: S9_Fig.tex ../header.tex ../../src/figure/deng-chromosome.Rmd/deng-chromosome-plot-1.png
 		pdflatex S9_Fig.tex
 
-figS12: S12_Fig.tex ../header.tex ../../src/figure/gtex-high-pcs.Rmd/gtex-high-pcs.jpeg
+figS10: S10_Fig.tex ../header.tex ../../plots/dendextend_deng.pdf
+		pdflatex S10_Fig.tex
+
+figS11: S11_Fig.tex ../header.tex ../../plots/dendextend_gtex_brain.pdf
+		pdflatex S11_Fig.tex
+
+figS12: S12_Fig.tex ../header.tex ../../plots/dendextend_gtex.pdf
 		pdflatex S12_Fig.tex
+
+figS13: S13_Fig.tex ../header.tex ../../src/figure/gtex-high-pcs.Rmd/gtex-high-pcs.jpeg
+		pdflatex S13_Fig.tex
 
 tableS1: S1_Table.tex ../header.tex
 		pdflatex S1_Table.tex

@@ -23,6 +23,7 @@ iris_species <- rev(levels(iris[,5]))
 
 library(dendextend)
 dend <- as.dendrogram(hc_iris)
+species_col_adjusted <- species_col[hc_iris$order]
 # order it the closest we can to the order of the observations:
 dend <- rotate(dend, 1:150)
 
@@ -36,12 +37,13 @@ dend <- rotate(dend, 1:150)
 #  )]
 
 #labels(dend) <- paste(as.character(iris[,5])[order.dendrogram(dend)],
-#                      "(",labels(dend),")", 
+#                      "(",labels(dend),")",
 #                      sep = "")
 # We hang the dendrogram a bit:
 labels(dend) <- rep("",length(species_col))
-dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col) 
-  
+
+dend <- dend %>% set("leaves_pch", 15) %>% set("leaves_cex", 1) %>% set("leaves_col", species_col_adjusted)
+
 dend <- hang.dendrogram(dend,hang_height=0.1)
 # reduce the size of the labels:
 # dend <- assign_values_to_leaves_nodePar(dend, 0.5, "lab.cex")
@@ -49,9 +51,9 @@ dend <- set(dend, "labels_cex", 0.5)
 # And plot:
 pdf("../plots/dendextend_iris.pdf")
 par(mar = c(3,3,3,3))
-plot(dend, 
+plot(dend,
      main = "Clustered Iris data set
-     (the labels give the true flower species)", 
+     (the labels give the true flower species)",
      horiz =  TRUE,  nodePar = list(cex = .007))
 legend("topleft", legend = iris_species, fill = rainbow_hcl(3))
 dev.off()
@@ -72,9 +74,12 @@ celltype_labels <- meta_data$cell_type
 numtypes <- length(unique(celltype_labels))
 library(colorspace) # get nice colors
 species_col <- rev(rainbow_hcl(numtypes))[as.numeric(celltype_labels)]
+species_col_adjusted <- species_col[hc_deng$order]
 
 d_deng <- dist(t(voom_counts)) # method="man" # is a bit better
 hc_deng <- hclust(d_deng, method = "complete")
+labels(hc_deng)
+hc_deng$order
 deng_celltypes <- rev(levels(celltype_labels))
 
 library(dendextend)
@@ -82,7 +87,7 @@ dend <- as.dendrogram(hc_deng)
 # order it the closest we can to the order of the observations:
 dend <- rotate(dend, 1:259)
 
-dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col) 
+dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col_adjusted)
 
 labels(dend) <- rep("", length(species_col))
 # Color the branches based on the clusters:
@@ -95,7 +100,7 @@ labels(dend) <- rep("", length(species_col))
 #  )]
 
 #labels(dend) <- paste(as.character(celltype_labels)[order.dendrogram(dend)],
-#                     "(",labels(dend),")", 
+#                     "(",labels(dend),")",
 #                      sep = "")
 
 
@@ -106,9 +111,9 @@ dend <- set(dend, "labels_cex", 0.5)
 # And plot:
 pdf("../plots/dendextend_deng.pdf")
 par(mar = c(3,3,3,3))
-plot(dend, 
+plot(dend,
      main = "Clustered Deng et al data set
-     (Labels give true developmental stages)", 
+     (Labels give true developmental stages)",
      horiz =  TRUE,  nodePar = list(cex = .007))
 legend("topleft", legend = deng_celltypes, fill = rainbow_hcl(numtypes))
 dev.off()
@@ -131,11 +136,13 @@ numtypes <- length(unique(celltype_labels))
 library(colorspace) # get nice colors
 species_col <- rev(rainbow_hcl(numtypes))[as.numeric(celltype_labels)]
 
-d_gtex_brain <- dist(t(voom_counts)) # method="man" # is a bit better
+#d_gtex_brain <- dist(t(voom_counts)) # method="man" # is a bit better
 #hc_gtex_brain <- hclust(d_gtex_brain, method = "complete")
 #save(hc_gtex_brain, file="../rdas/hc_gtex_brain.rda")
 
 hc_gtex_brain <- get(load("../rdas/hc_gtex_brain.rda"))
+species_col_adjusted <- species_col[hc_gtex_brain$order]
+
 gtex_brain_celltypes <- rev(levels(celltype_labels))
 
 library(dendextend)
@@ -153,10 +160,10 @@ dend <- rotate(dend, 1:1259)
 #  )]
 
 #labels(dend) <- paste(as.character(celltype_labels)[order.dendrogram(dend)],
-#                      "(",labels(dend),")", 
+#                      "(",labels(dend),")",
 #                      sep = "")
 
-dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col) 
+dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col_adjusted)
 
 labels(dend) <- rep("",length(species_col))
 
@@ -168,15 +175,16 @@ dend <- set(dend, "labels_cex", 0.5)
 # And plot:
 pdf("../plots/dendextend_gtex_brain.pdf")
 par(mar = c(3,3,3,3))
-plot(dend, 
+plot(dend,
      main = "Clustered GTEx Brain data set
-     (Labels give true tissue states)", 
+     (Labels give true tissue states)",
      horiz =  TRUE,  nodePar = list(cex = .007))
 legend("topleft", legend = gtex_brain_celltypes, fill = rainbow_hcl(numtypes))
 dev.off()
 
 ###############   dendextend  GTEx whole tissues  #####################
-
+library(data.table)
+cis_data <- data.frame(fread("../external_data/GTEX_V6/cis_gene_expression.txt"))
 samples_id <- read.table("../external_data/GTEX_V6/samples_id.txt")
 tissue_labels <- factor(samples_id[,3])
 numtypes <- length(unique(tissue_labels))
@@ -188,6 +196,8 @@ species_col <- rev(color1)[as.numeric(tissue_labels)]
 
 
 hc_gtex <- get(load("../rdas/hclust_gtex.rda"))
+order <- hc_gtex[[3]]
+species_col_adjusted <- species_col[order];
 gtex_celltypes <- rev(levels(tissue_labels))
 
 library(dendextend)
@@ -205,10 +215,10 @@ dend <- rotate(dend, 1:8555)
 #  )]
 
 #labels(dend) <- paste(as.character(celltype_labels)[order.dendrogram(dend)],
-#                      "(",labels(dend),")", 
+#                      "(",labels(dend),")",
 #                      sep = "")
 
-dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col) 
+dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col)
 
 labels(dend) <- rep("",length(species_col))
 
@@ -220,10 +230,10 @@ dend <- set(dend, "labels_cex", 0.5)
 # And plot:
 pdf("../plots/dendextend_gtex.pdf")
 par(mar = c(3,3,3,3))
-plot(dend, 
-     main = "Clustered GTEx all tissues data 
-     (Labels give true tissue states)", 
+plot(dend,
+     main = "Clustered GTEx all tissues data
+     (Labels give true tissue states)",
      horiz =  TRUE,  nodePar = list(cex = .007))
-legend("topleft", legend = gtex_celltypes, fill = color1, ncol=2, cex=0.5)
+legend("topleft", legend = gtex_celltypes, fill = color1[1:numtypes], ncol=2, cex=0.5)
 dev.off()
 
