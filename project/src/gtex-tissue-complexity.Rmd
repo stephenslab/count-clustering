@@ -1,0 +1,151 @@
+---
+title: 'GTEx: sort tissues by germ layers of origin'
+author: "Joyce Hsiao"
+date: "2016-09-21"
+output: 
+  html_document:
+    css: floating-toc.css
+    toc: true
+---
+
+
+```{r chunk-options, include=FALSE}
+source("chunk-options.R")
+```
+
+
+## Objective
+
+The goal of our analysis was to learn biological insight from the application of grade of membership models. We applied the grade of membership model to liver and lung tissue samples separately, and compute tissue complexity measure based on the admixture probabilities.  
+
+
+## Results
+
+Our analysis indicated that lung tissues are more heterogeneous than liver tissues. The GoM model was fitted for K=4 and K=40 for each of the tissue samples, and Shannon's entropy was used to quantify heterogeneity of the admixtures. 
+
+
+## Setting up
+
+Load packages
+
+```{r packages, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+#library(maptpx)
+library(ggplot2)
+library(testit)
+library(data.table)
+library(mygene)
+library(knitr)
+library(flowMap)
+library(CountClust)
+```
+
+
+Load GTEx sample labels
+
+```{r}
+sample_labels <- read.table("../rdas/samples-id-for-paper.txt",
+                            header = TRUE, sep = "\t",
+                            stringsAsFactors = FALSE)
+sample_labels$SMTSD <- factor(sample_labels$SMTSD)
+sample_labels_list <- levels(sample_labels$SMTSD)
+```
+
+Load GTEx data
+
+```{r}
+counts <- read.table("../rdas/cis_gene_expression.txt",
+                    header = TRUE, sep = " ",
+                    stringsAsFactors = FALSE)
+dim(counts)
+
+rownames(counts) <- counts[,1]
+counts <- counts[-1,]
+```
+
+Extract tissues
+
+```{r}
+liver <- counts[ ,which(sample_labels$SMTSD == "Liver")]
+lung <- counts[ ,which(sample_labels$SMTSD == "Lung")]
+breast <- counts[ ,which(sample_labels$SMTSD == "Breast - Mammary Tissue")]
+fibro <- counts[ ,which(sample_labels$SMTSD == "Cells - Transformed fibroblasts")]
+lympho <- counts[ ,which(sample_labels$SMTSD == "Cells -EBV-lymphocytes")]
+```
+
+
+## Apply GoM
+
+We ran GoM for K = 4 and K = 10. These results took some time to converge. In this document, we load the previously computed results for the analysis of tissue complexity.
+
+K = 4
+
+*[Chunk not evaluated]*
+```{r, eval = FALSE}
+fit_liver <- FitGoM(t(liver), tol=.5, K = 4)
+    
+fit_lung <- FitGoM(t(lung), tol=1000, K = 4)
+
+save(fit_liver, fit_lung,
+     file = "../rdas/gtex-tissue-complexity.rda")
+```
+
+K = 10
+
+*[Chunk not evaluated]*
+```{r, eval = FALSE}
+fit_liver_k10 <- FitGoM(t(liver), tol=100000, K = 10)
+    
+fit_lung_k10 <- FitGoM(t(lung), tol=100000, K = 10)
+
+save(fit_liver_k10, fit_lung_k10,
+     file = "../rdas/gtex-tissue-complexity-k10.rda")
+```
+
+
+Load the above results
+
+```{r}
+load("../rdas/gtex-tissue-complexity.rda")
+load("../rdas/gtex-tissue-complexity-k10.rda")
+```
+
+
+Function that computes Shannon's entropy
+
+```{r}
+compute_entropy <- function(prob_vec) {
+    sum(-1*(prob_vec*log2(prob_vec)))
+}
+```
+
+Compute Shannon's entropy
+
+```{r, fig.height=3.5, fig.width=6}
+lung_entropy <- apply(fit_lung$clust_4$omega, 1, 
+                      compute_entropy)
+liver_entropy <- apply(fit_liver$clust_4$omega, 1, 
+                      compute_entropy)
+
+lung_entropy_k10 <- apply(fit_lung_k10$clust_10$omega, 1, 
+                      compute_entropy)
+liver_entropy_k10 <- apply(fit_liver_k10$clust_10$omega, 1, 
+                      compute_entropy)
+
+par(mfrow = c(1,2))
+boxplot(list(lung = lung_entropy, 
+             liver = liver_entropy),
+        ylab = "Shannon's entropy", main = "K=4")
+
+boxplot(list(lung = lung_entropy_k10, 
+             liver = liver_entropy_k10),
+        ylab = "Shannon's entropy", main = "K=10")
+```
+
+
+
+## Session information
+
+```{r, include = FALSE}
+sessionInfo()
+```
+
