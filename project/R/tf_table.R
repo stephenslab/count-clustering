@@ -40,6 +40,9 @@ gene_names_tf <- out$external_gene_name;
 matched_indices <- match(gene_names_tf, deng.gene_names)
 matched_indices <- matched_indices[!is.na(matched_indices)]
 
+temp <- deng.gene_names[matched_indices]
+save(temp, file="../external_data/Deng_Data/TF_gene_names.rda")
+
 deng_counts_tf <- deng.counts[matched_indices,]
 
 ###  topic model
