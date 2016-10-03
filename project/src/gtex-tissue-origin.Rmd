@@ -1,0 +1,128 @@
+---
+title: 'GTEx: sort tissues by germ layers of origin'
+author: "Joyce Hsiao"
+date: "2016-09-21"
+output: 
+  html_document:
+    css: floating-toc.css
+    toc: true
+---
+
+
+```{r chunk-options, include=FALSE}
+source("chunk-options.R")
+```
+
+
+## Objective
+
+In order to aid the biological interpretation of GTEx tissue clustering, we made a dendrogram of the tissues based on the multivariate distance matrix of admixtures. Specifically, we take the GoM fitting of 20 clusters, compute the Friedman-Rafsky test statistic comparing the admixtures between any two tissues, then use make a dendrogram of the resulting distance matrix. We use this dendrogram to gain insight into tissue variation in the Structure plot.
+
+
+## Setting up
+
+Load packages
+
+```{r packages, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+#library(maptpx)
+library(ggplot2)
+library(testit)
+library(data.table)
+library(mygene)
+library(knitr)
+library(flowMap)
+```
+
+
+Import GoM fit
+
+```{r}
+fit <- get(load("../rdas/gtexv6fit.k.20.master.rda"))
+omega <- fit$omega
+```
+
+Load sample labels
+
+```{r}
+sample_labels <- read.table("../rdas/samples-id-for-paper.txt",
+                            header = TRUE, sep = "\t",
+                            stringsAsFactors = FALSE)
+sample_labels$SMTSD <- factor(sample_labels$SMTSD)
+sample_labels_list <- levels(sample_labels$SMTSD)
+```
+
+
+## Multivariate distance between tissues
+
+Make an empty distance matrix
+
+```{r}
+distmat_fr <- matrix(0, nrow = length(sample_labels_list),
+                        ncol = length(sample_labels_list))
+```
+
+Make an index matrix for upper triangular matrix
+
+```{r}
+distmat_upper_index <- which( upper.tri(distmat_fr, diag = FALSE),
+                              arr.ind = TRUE)
+```
+
+Fill in the distance matrix. This requres 1,378 calculations of FR distances. 
+
+```{r}
+rda_name <- "../rdas/gtex-tissue-distance.rda"
+if (file.exists(rda_name)) {
+    load(rda_name)
+} else {
+    message("The GTEx distance matrix does not exist. Compute the distances now.")
+    for (i in 1:nrow(distmat_upper_index)) {
+        tissue1_index <- distmat_upper_index[i,1]
+        tissue2_index <- distmat_upper_index[i,2]
+        distmat_fr[distmat_upper_index[i,1], distmat_upper_index[i,2]] <- 
+            getFR(omega[sample_labels$SMTSD == sample_labels_list[tissue1_index], ],
+                  omega[sample_labels$SMTSD == sample_labels_list[tissue2_index], ])$ww
+    }
+    
+    rownames(distmat_fr) <- sample_labels_list
+    colnames(distmat_fr) <- sample_labels_list
+
+    # Make distmat_fr into a distance matrix
+    # library(Matrix)
+    distmat_fr2 <- Matrix::sparseMatrix(
+            i=distmat_upper_index[,1],
+            j=distmat_upper_index[,2],
+            x=distmat_fr[upper.tri(distmat_fr)],
+            symmetric=TRUE,    
+            dims=c(nrow(distmat_fr),nrow(distmat_fr)))
+
+    distmat <- -1*distmat_fr2
+    distmat <- as.dist(distmat)
+    
+    save(distmat, file = "../rdas/gtex-tissue-distance.rda")
+}
+```
+
+
+## Make dendrogram
+
+```{r gtex-gom-clusters-dendrogram, fig.height=9, fig.width=9}
+colors <- c(seq(-2,10,length=120),seq(10,30,length=200))
+colors <- colors[!duplicated(colors)]
+my_palette <- colorRampPalette(
+    c("blue", "yellow", "orange", "orangered", "red4"))(n = length(colors)-1)
+gplots::heatmap.2(as.matrix(distmat), 
+                  breaks = colors,
+                  col = my_palette,
+                  labRow = sample_labels_list,
+                  trace = "none", dendrogram = "row",
+                  symm=F,symkey=F,symbreaks=T, scale="none")
+```
+
+
+## Session information
+
+```{r, echo = FALSE, include = FALSE}
+sessionInfo()
+```
+

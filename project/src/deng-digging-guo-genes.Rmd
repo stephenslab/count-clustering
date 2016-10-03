@@ -1,0 +1,303 @@
+---
+title: 'Deng data: learn more about the blastocyst stages'
+author: "Joyce Hsiao"
+date: "2016-10-01"
+output: 
+  html_document:
+    css: floating-toc.css
+    toc: true
+---
+
+
+## Objectives
+
+These analyses are part of the our efforts to shed biological insights into our single-cell anaysis results, specifically focusing on the mouse embryonic development dataset. In this document, we referenced the findings by single-cell qPCR by [Guo et al., 2010][guo2010] and explored the grades of membership during the blastocyst stages in relation to the three known cell types: trophectoderm (TE), the primitive endoderm (PE), and the epiblast (EPI). 
+
+
+## Summary of results
+
+We examined expression profiles of the genes identified as markers in differentiating between the three cell types in Guo et al. 2010. The heatmap of the 48 genes revealed that ACTB - one of the two endogeneous control genes (ACTB, GADPH) - are highly expressed through blastocyst stages. Because ACTB is not a marker gene for the three cell types, we excluded ACTB from further analysis. 
+
+The analysis of the 47 genes in the Deng data revealed a different transcriptional profile in comparison to the Guo single-cell qPCR results. First, we did not find the same marker gene expression patterns for the TE, PE, and EPI cell types. Many of the genes in the Deng data have low expression, an observation that is likely due to the technical artifacts of RNA-seq. Notwithstanding, the cell samples were observed to cluster into two groups. The group of cells on the left are mostly from mid to late blastocyst and the group of cells on the right are mostly from early to mid blastocyst stages.
+
+Finally, note that ACTB expression levels vary across cell stages showing lower expression levels prior to blastocyst stages compared to during blastocyste stages. We suspect that this control gene may also need to be removed from the grade of membership model analysis.
+
+
+Reference: Guoji Guo, Mikael Huss, Guo Qing Tong, Chaoyang Wang, Li Li Sun, Neil D. Clarke, and Paul Robson. Resolution of cell fate decisions revealed by single-cell gene expression analysis from zygote to blastocyst. Developmental Cell 2016, 18:4, 675-685. doi: 10.1016/j.devcel.2010.02.012 [link][guo2010]
+
+[guo2010]: http://dx.doi.org/10.1016/j.devcel.2010.02.012
+
+
+## Setting up
+
+Load packages
+
+```{r packages, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+#library(maptpx)
+library(ggplot2)
+library(testit)
+library(data.table)
+library(mygene)
+library(knitr)
+library(flowMap)
+library(CountClust)
+```
+
+Load Deng data
+
+```{r load-deng-data, ech = TRUE, eval = TRUE}
+library(singlecellRNAseqData)
+MouseDengESC <- get(data("MouseDengESC"))
+meta_data <- pData(MouseDengESC)
+```
+
+Compute index variable for the blastocyst cell samples
+
+```{r}
+is_blastocyst <- which(meta_data$cell_type == "earlyblast"|
+                        meta_data$cell_type == "midblast" |
+                        meta_data$cell_type == "lateblast")
+```
+
+Import list of 48 genes identified in Guo et al.
+
+```{r}
+guo_genes <- c("Creb3l2", "Tcf23", "Snai1", "Pdgfra", "Gata4", "Sox13",
+               "Klf5", "Tcfap2c", "Gapdh", "Actb", "Pdgfa", "Msc", "Hand1",
+               "Runx1", "Gata6", "Fgfr2", "Dab2", "Msx2", "Hnf4a", "Pou5f1",
+               "Utf1", "Sall4", "Ahcy", "Sox17", "Klf4", "Fgf4", "Klf2", 
+               "Esrrb", "Nanog", "Bmp4", "Sox2", "Fn1", "Pecam1", "Tspan8", 
+               "Dppa1", "Lcp1", "Aqp3", "Id2", "Krt8", "Cebpa", "Eomes", 
+               "Gata3", "Mbnl3", "Tcfap2a", "Grhl1", "Atp12a", "Grhl2", "Cdx2")
+```
+
+
+Normalize the count data. Use the method implemented in voom/limma.
+
+```{r}
+counts <- exprs(MouseDengESC)
+lib_size <- colSums(counts)
+expr_log2cpm <- t(log2(t(counts + 0.5)/(lib_size + 1) * 1e+06))
+```
+
+Create a subset of 48 genes included in Guo et al., 2010.
+
+```{r}
+ind_match <- match(guo_genes, rownames(counts))
+
+expr_log2cpm_guo <- expr_log2cpm[ind_match,]
+```
+
+
+
+## Expression heatmap
+
+At first, I wasn’t able to replicate their gene dendrogram). But the blastocysts from the three stages did not separate out nicely as in theirs. In addition, many of the genes in the Deng dat (see the first few rows) have low expression (which is consistent with the disadvantage of using RNA-seq versus single-cell qPCR).
+
+After removing the endogenous control genes (Actb and Gapdh), we were able to find some interseting patterns in the data. Now the cells can be seen clustered into two groups. The group of cells on the left are mostly from mid to late blastocyst and the group of cells on the right are mostly from early to mid blastocyst stages.
+
+
+### With endogeneous controls
+
+```{r, fig.height=7, fig.width=10}
+colors <- c(seq(-1,10,length=100),seq(10,20,length=100))
+colors <- colors[!duplicated(colors)]
+my_palette <- colorRampPalette(
+    c("white", "yellow", "orange", "orangered", "red4"))(n = length(colors)-1)
+
+gplots::heatmap.2(as.matrix(expr_log2cpm_guo[,is_blastocyst]), 
+                  breaks = colors,
+                  col = rev(my_palette),
+                  labCol = substr(meta_data$cell_type[is_blastocyst], 1, 4),
+                  trace = "none", dendrogram = "both",
+                  symm=F,symkey=F,symbreaks=T, scale="none",
+                  main = "Deng blastocyst cells")
+```
+
+
+Now redo the heatmap and arrange the genes as in Guo et al. 2010.
+
+```{r, fig.height=7, fig.width=10}
+gplots::heatmap.2(as.matrix(expr_log2cpm_guo[,is_blastocyst]), 
+                  breaks = colors,
+                  col = rev(my_palette),
+                  labCol = substr(meta_data$cell_type[is_blastocyst], 1, 4),
+                  trace = "none", 
+                  dendrogram = "col", Rowv = FALSE,
+                  symm=F,symkey=F,symbreaks=T, scale="none",
+                  main = "Deng blastocyst cells (with Guo gene orders)")
+```
+
+
+### Without endogeneous controls
+
+Remove the endogenoeus control genes Actb and Gapdh
+
+```{r, fig.height=7, fig.width=10}
+xx <- as.matrix(expr_log2cpm_guo[,is_blastocyst])
+ind_notcontrol <- !(rownames(xx) %in% c("Actb", "Gapdh"))
+gplots::heatmap.2(xx[ind_notcontrol, ], 
+                  breaks = colors,
+                  col = rev(my_palette),
+                  labCol = substr(meta_data$cell_type[is_blastocyst], 1, 4),
+                  trace = "none", 
+                  dendrogram = "both", 
+                  symm=F,symkey=F,symbreaks=T, scale="none",
+                  main = "Deng blastocyst cells (with Guo gene orders)")
+```
+
+Fixing row order as in Guo.
+
+```{r, fig.height=7, fig.width=10}
+xx <- as.matrix(expr_log2cpm_guo[,is_blastocyst])
+ind_notcontrol <- !(rownames(xx) %in% c("Actb", "Gapdh"))
+gplots::heatmap.2(xx[ind_notcontrol, ], 
+                  breaks = colors,
+                  col = rev(my_palette),
+                  labCol = substr(meta_data$cell_type[is_blastocyst], 1, 4),
+                  trace = "none", 
+                  dendrogram = "col", Rowv = FALSE,
+                  symm=F,symkey=F,symbreaks=T, scale="none",
+                  main = "Deng blastocyst cells (with Guo gene orders)")
+```
+
+
+### Exclude ACTB
+
+Remove the endogenoeus control gene Actb
+
+```{r, fig.height=7, fig.width=10}
+xx <- as.matrix(expr_log2cpm_guo[,is_blastocyst])
+ind_notACTB <- !(rownames(xx) %in% c("Actb"))
+gplots::heatmap.2(xx[ind_notACTB, ], 
+                  breaks = colors,
+                  col = rev(my_palette),
+                  labCol = substr(meta_data$cell_type[is_blastocyst], 1, 4),
+                  trace = "none", 
+                  dendrogram = "both", 
+                  symm=F,symkey=F,symbreaks=T, scale="none",
+                  main = "Deng blastocyst cells (with Guo gene orders)")
+```
+
+Fixing row order as in Guo.
+
+```{r, fig.height=7, fig.width=10}
+xx <- as.matrix(expr_log2cpm_guo[,is_blastocyst])
+ind_notACTB <- !(rownames(xx) %in% c("Actb"))
+gplots::heatmap.2(xx[ind_notACTB, ], 
+                  breaks = colors,
+                  col = rev(my_palette),
+                  labCol = substr(meta_data$cell_type[is_blastocyst], 1, 4),
+                  trace = "none", 
+                  dendrogram = "col", Rowv = FALSE,
+                  symm=F,symkey=F,symbreaks=T, scale="none",
+                  main = "Deng blastocyst cells (with Guo gene orders)")
+```
+
+## PCA
+
+The PCA analysis did not show three clusters as the Guo paper. However, we do see a separation of the cell samples into early/mid versus mid/late.
+
+load PCA functions
+
+```{r}
+source("../R/plot-pca-functions.R")
+```
+
+All genes
+
+```{r}
+pca_allgenes <- run_pca(expr_log2cpm[,is_blastocyst])
+pca_plots_allgenes <- plot_pca(
+    x = pca_allgenes$PCs,
+    metadata = meta_data[is_blastocyst, ],
+    explained = pca_allgenes$explained,
+    color = "cell_type",
+    factors = "cell_type")
+```
+
+All genes excluding ACTB.
+
+```{r}
+pca_allgenes_noACTB <- run_pca(
+    expr_log2cpm[rownames(expr_log2cpm)!="Actb", is_blastocyst])
+pca_plots_allgenes_noACTB <- plot_pca(
+    x = pca_allgenes_noACTB$PCs,
+    metadata = meta_data[is_blastocyst, ],
+    explained = pca_allgenes_noACTB$explained,
+    color = "cell_type",
+    factors = "cell_type")
+```
+
+48 genes analyzed in Guo et al., 2016
+
+```{r}
+pca_48genes <- run_pca(expr_log2cpm_guo[, is_blastocyst])
+pca_plots_48genes <- plot_pca(
+    x = pca_48genes$PCs,
+    metadata = meta_data[is_blastocyst, ],
+    explained = pca_48genes$explained,
+    color = "cell_type",
+    factors = "cell_type")
+```
+
+
+48 genes analyzed in Guo et al., 2016 excluding ACTB
+
+```{r}
+pca_47genes_noACTB <- run_pca(expr_log2cpm_guo[ind_notACTB, is_blastocyst])
+pca_plots_47genes_noACTB <- plot_pca(
+    x = pca_47genes_noACTB$PCs,
+    metadata = meta_data[is_blastocyst, ],
+    explained = pca_47genes_noACTB$explained,
+    color = "cell_type",
+    factors = "cell_type")
+```
+
+
+
+```{r deng-guo-pca, fig.height=7, fig.width=11}
+cowplot::plot_grid(
+    pca_plots_allgenes + ggtitle("All genes"),
+    pca_plots_allgenes_noACTB + ggtitle("All genes, w/o ACTB"),
+    pca_plots_48genes + ggtitle("48 genes"),
+    pca_plots_47genes_noACTB + ggtitle("47 genes, w/o ACTB"),               
+    labels = LETTERS[1:4])
+```
+
+
+
+## Endogenoeus control genes
+
+
+```{r}
+par(mfrow = c(1,2))
+plot(expr_log2cpm[rownames(expr_log2cpm) == "Actb",],
+     cex = .8, pch = 16, 
+     xlab = "Cell type", ylab = "Gene expression (log2 CPM)",
+     ylim = c(-10,17),
+     main = "log2 CPM")
+points(expr_log2cpm[rownames(expr_log2cpm) == "Gapdh",],
+       cex = .8, pch = 1, col = "blue")
+abline(v = 259-133, col = "grey20")
+text(label = "blastocyst", x = 259-133+1, y = 16, adj = 0, cex = .8)
+
+plot(log2(counts[rownames(counts) == "Actb",] + 1),
+     cex = .8, pch = 16, 
+     xlab = "Cell type", ylab = "Gene expression (log2 (counts + 1))",
+     ylim = c(0,20),
+     main = "log2 (counts + 1)")
+points(log2(counts[rownames(counts) == "Gapdh",] + 1),
+       cex = .8, pch = 1, col = "blue")
+abline(v = 259-133, col = "grey20")
+text(label = "blastocyst", x = 259-133+1, y = 18, adj = 0, cex = .8)
+```
+
+
+
+## Session information
+
+```{r}
+sessionInfo()
+```
+
