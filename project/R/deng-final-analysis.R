@@ -95,7 +95,7 @@ StructureGGplot(omega = omega,
                                  axis_label_size = 7,
                                  axis_label_face = "bold"))
 
-indices <- ExtractTopFeatures(topic_clus$theta, top_features = 15, method="poisson",
+indices <- ExtractTopFeatures(topic_clus$theta, top_features = 20, method="poisson",
                    options="min")
 
 apply(indices, c(1,2), function(x) return(guo_gene_names[x]))
