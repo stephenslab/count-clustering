@@ -57,7 +57,7 @@ library(readxl)
 guo_genes <- read_excel("../external_data/Deng_Data/guo48genes.xls")
 
 guo_gene_names <- guo_genes$`Gene Symbol`
-guo_gene_names <- setdiff(guo_gene_names, c("Actb", "Gapdh"))
+#guo_gene_names <- setdiff(guo_gene_names, c("Actb", "Gapdh"))
 
 matched_indices <- match(guo_gene_names, deng.gene_names)
 matched_indices <- matched_indices[!is.na(matched_indices)]
@@ -85,7 +85,7 @@ library(CountClust)
 
 StructureGGplot(omega = omega,
                 annotation = annotation,
-                figure_title = "Deng et al Structure Plot (on 46 genes due to Guo et al), k=4",
+                figure_title = "Deng et al Structure Plot (on 48 genes due to Guo et al), k=4",
                 palette = RColorBrewer::brewer.pal(8, "Accent"),
                 yaxis_label = "Development Phase",
                 order_sample = TRUE,
@@ -98,6 +98,9 @@ StructureGGplot(omega = omega,
 indices <- ExtractTopFeatures(topic_clus$theta, top_features = 20, method="poisson",
                    options="min")
 
-apply(indices, c(1,2), function(x) return(guo_gene_names[x]))
+imp_features <- apply(indices, c(1,2), function(x) return(guo_gene_names[x]))
 
-
+for(k in 1:3){
+  out <- mygene::queryMany(imp_features[k,],  scopes="ensembl.gene", fields=c("name", "summary", "symbol"), species="human");
+  write.table(as.factor(out$query), paste0("../utilities/guo_deng_blast_clusters_",k,".txt"), col.names = FALSE, row.names=FALSE, quote=FALSE);
+}
