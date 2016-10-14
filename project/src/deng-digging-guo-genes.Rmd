@@ -9,6 +9,10 @@ output:
 ---
 
 
+```{r chunk-options, include=FALSE}
+source("chunk-options.R")
+```
+
 ## Objectives
 
 These analyses are part of the our efforts to shed biological insights into our single-cell anaysis results, specifically focusing on the mouse embryonic development dataset. In this document, we referenced the findings by single-cell qPCR by [Guo et al., 2010][guo2010] and explored the grades of membership during the blastocyst stages in relation to the three known cell types: trophectoderm (TE), the primitive endoderm (PE), and the epiblast (EPI). 

@@ -1,0 +1,167 @@
+---
+title: 'Deng data: finalizing analysis in reference to Guo data'
+author: "Joyce Hsiao"
+date: "2016-10-06"
+output: 
+  html_document:
+    css: floating-toc.css
+    toc: true
+---
+
+
+```{r chunk-options, include=FALSE}
+source("chunk-options.R")
+```
+
+## Objective
+
+In this document, we analyzed the blastocyst samples including only the 48 genes that were used in differentiating cell types during blastocyst stages in Guo et al., 2010. We applied the GoM with K = 3 and investigated the expression profile of the 48 genes under K = 3 with cell samples re-ordered according to topic proportions.
+
+
+```{r packages, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+#library(maptpx)
+library(ggplot2)
+library(testit)
+library(data.table)
+library(mygene)
+library(knitr)
+library(flowMap)
+library(CountClust)
+```
+
+Load Deng data
+
+```{r load-deng-data, ech = TRUE, eval = TRUE}
+library(singlecellRNAseqData)
+MouseDengESC <- get(data("MouseDengESC"))
+meta_data <- pData(MouseDengESC)
+```
+
+Compute index variable for the blastocyst cell samples
+
+```{r}
+is_blastocyst <- which(meta_data$cell_type == "earlyblast"|
+                        meta_data$cell_type == "midblast" |
+                        meta_data$cell_type == "lateblast")
+```
+
+Import list of 48 genes identified in Guo et al.
+
+```{r}
+guo_genes <- c("Creb3l2", "Tcf23", "Snai1", "Pdgfra", "Gata4", "Sox13",
+               "Klf5", "Tcfap2c", "Gapdh", "Actb", "Pdgfa", "Msc", "Hand1",
+               "Runx1", "Gata6", "Fgfr2", "Dab2", "Msx2", "Hnf4a", "Pou5f1",
+               "Utf1", "Sall4", "Ahcy", "Sox17", "Klf4", "Fgf4", "Klf2", 
+               "Esrrb", "Nanog", "Bmp4", "Sox2", "Fn1", "Pecam1", "Tspan8", 
+               "Dppa1", "Lcp1", "Aqp3", "Id2", "Krt8", "Cebpa", "Eomes", 
+               "Gata3", "Mbnl3", "Tcfap2a", "Grhl1", "Atp12a", "Grhl2", "Cdx2")
+```
+
+
+Normalize the count data. Use the method implemented in voom/limma.
+
+```{r}
+counts <- exprs(MouseDengESC)
+lib_size <- colSums(counts)
+expr_log2cpm <- t(log2(t(counts + 0.5)/(lib_size + 1) * 1e+06))
+```
+
+
+Create a subset of 48 genes included in Guo et al., 2010.
+
+```{r}
+ind_match <- match(guo_genes, rownames(counts))
+
+expr_log2cpm_guo <- expr_log2cpm[ind_match,]
+```
+
+Load GoM results.
+
+```{r}
+load(file = "../rdas/blast_deng_topic_fit_k_3_48_genes.rda")
+```
+
+## Make structure plot
+
+```{r structure, fig.height=6, fig.width=5}
+# cell_type_blast <- as.character(meta_data$cell_type)
+# cell_type_blast[grep("blast", cell_type_blast)] <- "blast"
+# cell_type_blast <- factor(cell_type_blast, 
+#       levels = rev(c("zy", "early2cell", "mid2cell", "late2cell",
+#                  "4cell", "8cell", "16cell", "blast")))
+StructureGGplot(omega = topic_clus$omega,
+    annotation = data.frame(
+                   sample_id = paste0("X", c(1:NROW(topic_clus$omega))),
+                   tissue_label = rep("blast", NROW(topic_clus$omega))),
+               palette = RColorBrewer::brewer.pal(3, "Accent"),
+               figure_title = "",
+               yaxis_label = "Cell type",
+               sample_order_decreasing = FALSE)
+```
+
+
+## Recover cell sample order
+
+
+```{r}
+source("../R/StructureGGplot-simple.R")
+df_mlt <- StructureGGplot_simple(omega = topic_clus$omega,
+    annotation = data.frame(
+                   sample_id = paste0("X", c(1:NROW(topic_clus$omega))),
+                   tissue_label = rep("blast", NROW(topic_clus$omega))),
+               palette = RColorBrewer::brewer.pal(3, "Accent"),
+               figure_title = "",
+               yaxis_label = "Cell type",
+               sample_order_decreasing = FALSE)
+structure_order_blast <- rev(as.character(df_mlt$document[!duplicated(df_mlt$document)]))
+```
+
+## Heatmap
+
+```{r heatmap-blast, fig.height=7, fig.width=6}
+colors <- seq(-6,16,length=220)
+my_palette <- colorRampPalette(
+    c("white", "yellow", "orange", "orangered", "red4"))(n = length(colors)-1)
+
+xx <- as.matrix(expr_log2cpm_guo[,is_blastocyst])
+
+gplots::heatmap.2(xx[, rev(structure_order_blast)], 
+                  breaks = colors,
+                  col = rev(my_palette),
+                  #labCol = "",
+                  trace = "none", 
+                  dendrogram = "row", Colv = FALSE,
+                  symm=F,symkey=F,symbreaks=T, scale="none",
+                  main = "")
+```
+
+
+## Blastocyst labels
+
+Summarize the blastocyst stages of the cell samples in the re-ordered dataset.
+
+```{r}
+meta_data_blast <- meta_data[grep("blast", meta_data$cell_type),]
+meta_data_blast <- meta_data_blast[ match(rev(structure_order_blast), rownames(meta_data_blast)), ]
+```
+
+Make barplot to indicate blastocyst stages 
+
+```{r}
+par(mfrow = c(3,1))
+for (i in c("earlyblast", "midblast", "lateblast")) {
+    plot(x = which(meta_data_blast$cell_type == i), 
+         y = rep(1, length(which(meta_data_blast$cell_type == i))), 
+         type = "h", ann = FALSE, xaxt = "n", yaxt = "n",
+         xlim = c(0,133))
+}
+```
+
+
+
+## Session information
+
+```{r, echo = FALSE, include=FALSE}
+sessionInfo()
+```
+
