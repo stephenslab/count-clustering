@@ -50,6 +50,7 @@ library(CountClust)
 Load Deng data
 
 ```{r load-deng-data, ech = TRUE, eval = TRUE}
+#install_github("kkdey/singlecellRNAseqData")
 library(singlecellRNAseqData)
 MouseDengESC <- get(data("MouseDengESC"))
 meta_data <- pData(MouseDengESC)
@@ -90,6 +91,11 @@ Create a subset of 48 genes included in Guo et al., 2010.
 ind_match <- match(guo_genes, rownames(counts))
 
 expr_log2cpm_guo <- expr_log2cpm[ind_match,]
+
+ind_notcontrol <- which((rownames(expr_log2cpm_guo) %in% c("Actb")))
+
+expr_log2cpm_guo_no_actb <- t(apply(expr_log2cpm_guo[-ind_notcontrol,], 1, function(x) return(x - expr_log2cpm_guo[ind_notcontrol,])))
+
 ```
 
 
@@ -104,7 +110,7 @@ After removing the endogenous control genes (Actb and Gapdh), we were able to fi
 ### With endogeneous controls
 
 ```{r, fig.height=7, fig.width=10}
-colors <- c(seq(-1,10,length=100),seq(10,20,length=100))
+colors <- c(seq(-1,10,length=100),seq(10,20,length=100)) - 18
 colors <- colors[!duplicated(colors)]
 my_palette <- colorRampPalette(
     c("white", "yellow", "orange", "orangered", "red4"))(n = length(colors)-1)
