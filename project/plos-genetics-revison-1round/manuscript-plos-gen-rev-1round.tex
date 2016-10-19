@@ -255,7 +255,7 @@ The fact that batch effects are detectable in these data is not particularly sur
 
 \subsubsection*{Deng \text{et al}, 2014}
 
-Deng \textit{et al} collected single-cell expression data of mouse preimplantation embryos from the zygote to blastocyst stage \cite{Deng2014}, with cells from four different embryos sequenced at each stage. The original analysis \cite{Deng2014} focusses on trends of allele-specific expression in early embryo development. Here we use the GoM model to assess the primary structure in these data without regard to allele-specific effects (i.e.~combining counts of the two alleles). Visual inspection of the Principal Components Analysis in \cite{Deng2014} suggested perhaps 6-7 clusters, and we focus here on results with $K=6$.
+Deng \textit{et al} collected single-cell expression data of mouse preimplantation embryos from the zygote to blastocyst stage \cite{Deng2014}, with cells from four different embryos sequenced at each stage. The original analysis \cite{Deng2014} focuses on trends of allele-specific expression in early embryo development. Here we use the GoM model to assess the primary structure in these data without regard to allele-specific effects (i.e.~combining counts of the two alleles). Visual inspection of the Principal Components Analysis in \cite{Deng2014} suggested perhaps 6-7 clusters, and we focus here on results with $K=6$.
 
 The results from the GoM model (Fig~\ref{fig4}) clearly highlight changes in expression profiles that occur through early embryonic development stages, and enrichment analysis of the driving genes in each cluster (Table~\ref{tab3},  \nameref{supptab3}) indicate that many of these expression changes reflect important biological processes during embryonic preimplantation development.
 
@@ -272,8 +272,13 @@ The results from the GoM model (Fig~\ref{fig4}) clearly highlight changes in exp
 In more detail: Initially, at the zygote and early 2-cell stages, the embryos are represented by a single cluster (blue in Fig~\ref{fig4}) that
  is enriched with genes responsible for germ cell development (e.g., \textit{Bcl2l10} \cite{Yoon2009}, \textit{Spin1} \cite{Evsikov2009}). Moving through subsequent stages the grades of membership evolve to a mixture of blue and magenta clusters (mid 2-cell), a mixture of magenta and yellow clusters (late 2-cell) and a mixture of yellow and green (4-cell stage). The green cluster then becomes more prominent in the 8-cell and 16-cell stages, before dropping  substantially in the early and mid-blastocyst stages. That is, we see a progression in the importance of different clusters through these stages, from the blue cluster, moving through magenta and yellow to green. By examining the genes distinguishing each cluster we see that this progression reflects the changing relative importance of several fundamental biological processes. The magenta cluster is driven by genes responsible for the beginning of transcription of zygotic genes (e.g., \textit{Zscan4c-f} show up in the list of top $100$ driving genes : see \url{https://stephenslab.github.io/count-clustering/project/src/deng_cluster_annotations.html}), which takes place in the late 2-cell stage of early mouse embryonic development \cite{Falco2007}. The yellow cluster is enriched for genes responsible for heterochromation \textit{Smarcc1} \cite{Schaniel2009} and chromosome stability \textit{Cenpe} \cite{{Putkey2002}} (see \nameref{supptab3}) . And the green cluster is enriched for cytoskeletal genes (e.g., \textit{Fbxo15}) and cytoplasm genes (e.g., \textit{Tceb1}, \textit{Hsp90ab1}), all of which are essential for compaction at the 8-cell stage and morula formation at the 16-cell stage.
 
-Finally, during the blastocyst stages two new clusters (purple and orange in Fig~\ref{fig4}) dominate. The orange cluster is enriched with genes involved in the formation of outer trophoblast cells (e.g., \textit{Tspan8}, \textit{Krt8}, \textit{Id2} \cite{Guo2010}), while the purple cluster is enriched with genes responsible for the formation of inner cell mass (e.g., \textit{Pdgfra}, \textit{Pyy} \cite{Hou2007}). Thus these two clusters are consistent with the two cell lineages, the trophectoderm and the primitive endoderm, that make up the majority of the cells of the blastocyst \cite{Rossant1995}. Interestingly, however, the cells do not appear to fall into two distinct and clearly-separated populations -- at least, not in terms of their expression patterns -- but rather show a continuous
+Finally, during the blastocyst stages two new clusters (purple and orange in Fig~\ref{fig4}) dominate. The orange cluster is enriched with genes involved in the formation of trophectoderm (TE) (e.g., \textit{Tspan8}, \textit{Krt8}, \textit{Id2} \cite{Guo2010}), while the purple cluster is enriched with genes responsible for the formation of inner cell mass (ICM) (e.g., \textit{Pdgfra}, \textit{Pyy} \cite{Hou2007}). Thus these two clusters are consistent with the cell lineages at early blastocyst (~32-cell stage). These findings, however, are incongruent with the literature of three cell types within the blastocyst (ref). The primitive endoderm (PE) and the epiblast (EPI) cells are formed from the ICM cells in mid to late blastocyst \cite{Rossant2009}.
+
+To explain the blastocyst results, we performed additional analysis investigating embryos within the blastocyst stages and compared to a previous single-cell qPCR study for mouse preimplantation development \cite{Guo2010}. Their data revealed three distinct clusters of cell samples within the blastocyst based on 48 marker genes that are of known function in early development or known differential expression within the blastocyst. They found these three clusters to be enriched for genes responsible for the formation of TE, PE, and EPI. To compare to their results, we fitted the GoM model on the same 48 marker genes with three clusters (\nameref{figS14}) and identified the driving genes of each cluster (\nameref{supptab4}). Unlike Guo et al, there is not a clear relationship between the three GoM clusters and the three cell types within the blastocyst, neither in the driving genes nor in the transcriptional expression patterns (\nameref{figS14}). Other visualization tools, however, also reveal a two-cluster pattern (\nameref{figS15}). [Say something about the technical artifacts in qPCR study versus in RNA-study?]
+
+%%Interestingly, however, the cells do not appear to fall into two distinct and clearly-separated populations -- at least, not in terms of their expression patterns -- but rather show a continuous
 range of memberships in these two clusters, even in the late blastocyst stage.
+%
 
 In addition to these trends across development stages, the GoM results also highlight some embryo-level effects in the early stages (Fig~\ref{fig4}). Specifically, cells from the same embryo sometimes show greater similarity than cells from different embryos. For example, while all cells from the 16-cell stage have high memberships in the green cluster, cells from two of the embryos at this stage have memberships in both the purple and yellow clusters, while the other two embryos have memberships only in the yellow cluster.
 
@@ -365,7 +370,7 @@ The {\tt maptpx} package fits this model using an EM algorithm to perform Maximu
 
 \subsection*{Visualizing Results}
 
-In addition to the Structure plot, we have also found it useful to visualize results using t-distributed Stochastic Neighbor Embedding (t-SNE), which is a method for visualizing high dimensional datasets by placing them in a two dimensional space, attempting to preserve the relative distance between nearby samples \cite{Maaten2014,Maaten2008}. Compared with the Structure plot our t-SNE plots contain less information, but can better emphasise clustering of samples that have similar membership proportions in many clusters. Specifically, t-SNE tends to place samples with similar membership proportions together in the two-dimensional plot, forming visual ``clusters" that can be identified by eye (e.g. \url{http://stephenslab.github.io/count-clustering/project/src/tissues_tSNE_2.html}). This may be particularly helpful in settings where no external information is available to aid in making an informative Structure plot.
+In addition to the Structure plot, we have also found it useful to visualize results using t-distributed Stochastic Neighbor Embedding (t-SNE), which is a method for visualizing high dimensional datasets by placing them in a two dimensional space, attempting to preserve the relative distance between nearby samples \cite{Maaten2014,Maaten2008}. Compared with the Structure plot our t-SNE plots contain less information, but can better emphasize clustering of samples that have similar membership proportions in many clusters. Specifically, t-SNE tends to place samples with similar membership proportions together in the two-dimensional plot, forming visual ``clusters" that can be identified by eye (e.g. \url{http://stephenslab.github.io/count-clustering/project/src/tissues_tSNE_2.html}). This may be particularly helpful in settings where no external information is available to aid in making an informative Structure plot.
 
 
 \subsection*{Cluster annotation}
@@ -459,7 +464,7 @@ For each cluster $k$, we filter out a number of genes (top $100$ for the Deng \t
 We compared the GoM model with a distance-based hierarchical clustering algorithm by applying both methods to samples from
 pairs of tissues from the GTEx project, and assessed their accuracy in
 separating samples according to tissue.  For each pair of tissues  we randomly selected $50$ samples from the pool of all samples coming from these tissues.
-For the hierarchical clustering approach we cut the dendogram at $K=2$, and checked whether or not this cut partitions the samples into the two tissue groups.
+For the hierarchical clustering approach we cut the dendrogram at $K=2$, and checked whether or not this cut partitions the samples into the two tissue groups.
 (We applied hierarchical clustering using Euclidean distance, with both complete and average linkage; results were similar and so we showed results only for complete linkage.)
 
 For the GoM model we analysed the data with $K=2$, and sorted the samples by their membership in cluster 1. We then partitioned the samples at the point of the steepest fall in this membership, and again we checked whether this cut partitions the samples into the two tissue groups.
@@ -522,44 +527,79 @@ The authors have no conflict of interest.
 \paragraph*{S4 Fig.}
 \label{figS4}
 {\bf GTEx data visualization of all tissue samples using (a) principle component
-analysis and (b) t-SNE (c) Multidimenstional scaling.} Samples of matching tissue types are
+analysis and (b) t-SNE (c) Multidimensional scaling.} Samples of matching tissue types are
 indicated by points of matching color.
 
 \paragraph*{S5 Fig.}
 \label{figS5}
-{\bf Mouse embryo single cell sample visualization using (a) principle component
-analysis and (b) t-SNE (c) Multidimensional scaling.} Single cell samples collected at the same
-developmental stage are indicated by points of matching color.
+{\bf Mouse embryo single cell sample visualization using (a) principle component analysis and (b) t-SNE (c) Multidimensional scaling.} Single cell samples collected at the same developmental stage are indicated by points of matching color.
 
 \paragraph*{S6 Fig.}
 \label{figS6}
-{\bf Visualization of loadings from Sparse Factor Analysis on GTEx data.}
+{\bf Visualization of loadings from Sparse Factor Analysis on GTEx data.} Stacked bar chart visualization of loadings Sparse Factor Analysis (SFA) on $8555$ tissue samples across the 53 tissue types in GTEx V6 data. \textbf{(left)}: when the loadings are sparse. \textbf{(right)} when the factors are sparse.
 
 \paragraph*{S7 Fig.}
 \label{figS7}
-{\bf Visualization of loadings from Sparse Factor Analysis on Deng et al single cell
-developmental phase data.}
+{\bf Visualization of loadings from Sparse Factor Analysis on Deng et al single cell developmental phase data.} Stacked bar chart visualization of loadings Sparse Factor Analysis (SFA) on $259$ single cell samples across developmental phases in mouse embryo for Deng \textit{et al} data. \textbf{(left)}: when the loadings are sparse. \textbf{(right)} when the factors are sparse.
 
 \paragraph*{S8 Fig.}
-\label{figS7}
-{\bf A comparison of ``accuracy" of hierarchical vs. model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.01$ and $p_{thin}=0.0001$.}  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Fig~\ref{fig2}), but even then the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
+\label{figS8}
+{\bf Visualization of loadings from Sparse Factor Analysis on GTEx Brain data.}
+Stacked bar chart visualization of loadings Sparse Factor Analysis (SFA) on $1259$ samples from different Brain tissues in the GTEx V6 data. \textbf{(left)}: when the loadings are sparse. \textbf{(right)} when the factors are sparse.
 
 \paragraph*{S9 Fig.}
-\label{figS7}
-{\bf A comparison of ``accuracy" of hierarchical vs. model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.01$ and $p_{thin}=0.0001$.}  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Fig~\ref{fig2}), but even then the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
+\label{figS9}
+{\bf Comparison between GoM model and hierarchical in terms of power to separate samples from pairs of tissues.} A comparison of accuracy of GoM model vs hierarchical clustering.  Image plots to compare the GoM model with 4 different hierarchical clustering models on various transformations of the data. For each pair of tissues from the GTEx data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Very clearly, the GoM model seems to be more successful in separating pairs of tissues compared to any of the hierarchical clustering approaches. In SubFig (a), hierarchical clustering was performed on log counts per million (cpm) data using Euclidean distance. In SubFig(b), the log cpm data data was mean and scale transformed for each gene and then the hierarchical clustering was performed on the transformed data using the Euclidean distance. In SubFig (d), the hierarchical clustering was  performed on counts data with the assumption the counts $c_{ng}$ for each gene have a variance  $\bar{c}_{g} + 1$, which we used to scale while computing distance matrix. In SubFig (e), we took the same scaled data as in SubFig(c), but we additionally performed mean and scale adjustments further so that all genes have expression of mean 0 and variance 1. In SubFig(c), GoM model is used to separate the tissues. Very clearly, GoM model seems to be performing better than any of the hierarchical methods.
+
+\paragraph*{S10 Fig.}
+\label{figS10}
+{\bf Dendrogram representation for Deng et al (2014) developmental phase single cell data.} Dendrogram representation of the 259 cells collected across different
+developmental phases by Deng et al (2014). The hierarchical clustering in
+this case has been performed on the log counts per million (cpm) data.
+Note that the labels in this case are difficult to interpret and also the hierarchical
+clustering fails to represent the continuum among the different developmental
+phases as in PCA or the GoM model.
+
+\paragraph*{S11 Fig.}
+\label{figS11}
+{\bf Dendrogram representation for GTEx Brain tissue level data.} Dendrogram representation of the 1259 GTEx brain tissue samples.
+The hierarchical clustering in this case has been performed on the log counts per million (cpm) data.
+Note that the labels in this case are not visible because of large sample size but largely it separates out
+Brain Cerebellar, Cerebellar hemisphere  and Brain Spinal Cord, Substantia Nigra from other parts of the brain. But any other structure in the data is not easy to see or interpret.
+
+\paragraph*{S12 Fig.}
+\label{figS12}
+{\bf Dendrogram representation for GTEx all tissues level data.} Dendrogram representation of the 8555 GTEx tissue samples across all the tissues.
+The hierarchical clustering in this case has been performed on the log counts per million (cpm) data.
+Very clearly, samples from different tissues seem to cluster together, but any further patterns, for instance, how similar different tissue types are, is hard to see.
+
+\paragraph*{S13 Fig.}
+\label{figS13}
+{\bf Top oder PC scatter plots for GTEx V6 all tissues data.} Scatter plot representation of the different top order PCs of the GTEx samples based on the RNA-seq expression data (log cpm normalized).
+
+\paragraph*{S14 Fig.}
+\label{figS15}
+{\bf GoM results of Deng data including 48 marker genes.} The top panel plots the Structure plot of $K = 3$. The bottom panel plots the expression heatmap of the 48 genes (log2 CPM values). The dendrogram is generated using hierarchical clustering with complete lineage and Euclidean distance.
+
+\paragraph*{S15 Fig.}
+\label{figS15}
+{\bf Visualization of PCA and t-SNE results of Deng data using 48 marker genes}
 
 \paragraph*{S1 Table.}
 \label{supptab1}
-{\bf Cluster Annotations GTEx V6 data with top driving gene summaries.}
+{\bf Cluster Annotations of GTEx V6 data with top driving gene summaries.}
 
 \paragraph*{S2 Table.}
 \label{supptab2}
-{\bf Cluster Annotations GTEx V6 Brain data with top driving gene summaries.}
+{\bf Cluster Annotations of GTEx V6 Brain data with top driving gene summaries.}
 
 \paragraph*{S3 Table.}
 \label{supptab3}
-{\bf Deng et al (2014) Cluster GO annotations of top driving genes.}
+{\bf Cluster Annotations of Deng data with top driving genes.}
 
+\paragraph*{S4 Table.}
+\label{supptab3}
+{\bf Cluster Annotation of Deng data analysis using 48 genes with top driving gene summaries.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -590,11 +630,6 @@ The authors have no conflict of interest.
 
 \begin{thebibliography}{9}
 
-%\bibitem{Sanders2014}
-%S Anders, T P Pyl, W Huber.
-%\textit{HTSeq :  A Python framework to work with high-throughput sequencing data}.
-%Bioinformatics, 2014, in print; online at doi:10.1093/bioinformatics/btu638
-%
 %\bibitem{Li2009}
 %Li H.*, Handsaker B.*, Wysoker A., Fennell T., Ruan J., Homer N., Marth G., Abecasis G., Durbin R. and 1000 Genome Project Data Processing Subgroup.
 %\textit{The Sequence alignment/map (SAM) format and SAMtools}.
@@ -614,6 +649,22 @@ The authors have no conflict of interest.
 %Ritchie ME, Phipson B, Wu D, Hu Y, Law CW, Shi W and Smyth GK.
 %\textit{limma powers differential expression analyses for RNA-sequencing and microarray studies}.
 %Nucleic Acids Research, 2015, 43(7), pp. e47.
+
+%\bibitem{Sanders2014}
+%S Anders, T P Pyl, W Huber.
+%\textit{HTSeq :  A Python framework to work with high-throughput sequencing data}.
+%Bioinformatics, 2014, in print; online at doi:10.1093/bioinformatics/btu638
+%
+
+\bibitem{Guo2010}
+Guo G, Huss M, Tong GQ, Wang C, SUn LL, Clarke ND, and Robson P. 2010.
+Resolution of cell fate decisions revealed by single-cell gene expression analysis from zygote to blastocyst.
+\textit{Developmental Cell},18(4): 675-685.
+
+\bibitem{Rossant2009}
+Rossant J, and Tam PP. 2009.
+Blastocyst lineage formation, early embryonic assymmetries and axis patterning in the mouse.
+\textit{Development},136(5): 701-13.
 
 \bibitem{Hernandez1997}
 Hernandez MC , Andres-Barquin PJ , Martinez S , Bulfone A , Rubenstein JL , Israel MA. 1997.
@@ -795,7 +846,7 @@ Gentleman, R., Bates, D., Bolstad, B \textit{et al}.
 School of Public Health, Boston}. \url{https://bioconductor.org/}
 
 %
-%\bibitem{Gr�n2015}
+%\bibitem{Grun2015}
 %Gr�n D, Lyubimova A, Kester L, Wiebrands K, Basak O,  Sasaki N,  Clevers H, van Oudenaarden A.
 %\textit{Single-cell messenger RNA sequencing reveals rare intestinal cell types}.
 %Nature. 2015 Sep 10;525(7568), 251-5.

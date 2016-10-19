@@ -157,6 +157,56 @@ for (i in c("earlyblast", "midblast", "lateblast")) {
 }
 ```
 
+## PCA and t-SNE
+
+### PCA
+
+load PCA functions
+
+```{r load-pca-functions}
+source("../R/plot-pca-functions.R")
+```
+
+48 genes analyzed in Guo et al., 2016
+
+```{r deng-48-pca}
+pca_48genes <- run_pca(expr_log2cpm_guo[, is_blastocyst])
+pca_plots_48genes <- plot_pca(
+    x = pca_48genes$PCs,
+    metadata = meta_data[is_blastocyst, ],
+    explained = pca_48genes$explained,
+    color = "cell_type",
+    factors = "cell_type")
+```
+
+### t-SNE
+
+```{r}
+library(tsne)
+tsne_48genes <- tsne(t(expr_log2cpm_guo[, is_blastocyst]), 
+#                     epoch_callback = ecb, 
+                     perplexity=50)
+tsne_48genes <- data.frame(tsne_48genes)
+colnames(tsne_48genes) <- c("dim1","dim2")
+tsne_48genes <- data.frame(tsne_48genes,
+                           cell_type = meta_data[is_blastocyst, ]$cell_type)
+
+tsne_plots_48genes <- 
+  ggplot(data = tsne_48genes,
+         mapping = aes(x = dim1, y = dim2, color = as.factor(cell_type))) +
+  geom_point() +
+  ylab("2nd dimension") + xlab("1st dimension")
+```
+
+
+### Combined plot
+
+```{r combined-visualization, fig.height=4, fig.width=9}
+cowplot::plot_grid(
+  pca_plots_48genes + ggtitle("PCA"),
+  tsne_plots_48genes + ggtitle("t-SNE"),
+  labels = c("A", "B"))
+```
 
 
 ## Session information
