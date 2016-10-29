@@ -16,33 +16,13 @@
 \begin{document}
 
 \paragraph*{S14 Fig.}
-\label{figS14}
-{\bf A comparison of ``accuracy" of hierarchical vs. model-based clustering on thinned GTEx data, with thinning parameter $p_{thin}=0.01$ and $p_{thin}=0.001$.}  For each pair of tissues from the GTEx data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their actual tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Fig~2), but even then the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
- \begin{figure}[ht]
-    \centering
-     \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../../plots/hierarchical_separation_thinned_0_001.png}
-        \caption{hierarchy thin 0.01}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../../plots/admixture_separation_thinned_0_01.png}
-        \caption{GoM thin 0.01}
-    \end{subfigure}\\
 
-     \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../../plots/hierarchical_separation_thinned_0_001.png}
-        \caption{hierarchy 0.001}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[t]{0.5\textwidth}
-        \centering
-        \includegraphics[height=2.5in]{../../plots/admixture_separation_thinned_0_001.png}
-        \caption{GoM thin 0.001}
-    \end{subfigure}\\
+\label{figS14}
+{\bf GoM results of Deng data including 48 marker genes.} The top panel plots the Structure plot of $K = 3$. The bottom panel plots the expression heatmap of the 48 genes (log2 CPM values). The dendrogram is generated using hierarchical clustering with complete lineage and Euclidean distance.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[height=5in, width=6in]{../../src/figure/deng-digging-final.Rmd/deng-structure-combo.png}
 \end{figure}
 
 \end{document}

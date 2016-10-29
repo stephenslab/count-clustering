@@ -3,8 +3,8 @@
 ########  Apply dendextend to the Deng et al and Iris data ################
 
 
-install.packages("dendextend")
-install.packages('dendextendRcpp')
+#install.packages("dendextend")
+#install.packages('dendextendRcpp')
 
 
 library(dendextend)
@@ -25,7 +25,7 @@ library(dendextend)
 dend <- as.dendrogram(hc_iris)
 species_col_adjusted <- species_col[hc_iris$order]
 # order it the closest we can to the order of the observations:
-dend <- rotate(dend, 1:150)
+#dend <- rotate(dend, 1:150)
 
 # Color the branches based on the clusters:
 #dend <- color_branches(dend, k=3) #, groupLabels=iris_species)
@@ -44,7 +44,7 @@ labels(dend) <- rep("",length(species_col))
 
 dend <- dend %>% set("leaves_pch", 15) %>% set("leaves_cex", 1) %>% set("leaves_col", species_col_adjusted)
 
-dend <- hang.dendrogram(dend,hang_height=0.1)
+#dend <- hang.dendrogram(dend,hang_height=0.1)
 # reduce the size of the labels:
 # dend <- assign_values_to_leaves_nodePar(dend, 0.5, "lab.cex")
 dend <- set(dend, "labels_cex", 0.5)
@@ -57,6 +57,28 @@ plot(dend,
      horiz =  TRUE,  nodePar = list(cex = .007))
 legend("topleft", legend = iris_species, fill = rainbow_hcl(3))
 dev.off()
+
+library(circlize)
+circlize_dendrogram(dend)
+
+pdf("../plots/circle_dendextend_iris.pdf")
+par(mar = rep(0,4))
+circlize_dendrogram(dend)
+dev.off()
+
+
+library(circlize)
+rownames(iris) <- NULL
+dend <- iris[,-5] %>% dist %>% hclust %>% as.dendrogram %>%
+    set("labels_colors") %>% set("labels_cex", 0.5) %>%
+    set("leaves_pch", 15) %>% set("leaves_cex", 1) %>% set("leaves_col", species_col_adjusted)
+par(mar = rep(0,4))
+circlize_dendrogram(dend, labels=FALSE)
+legend("topleft", legend = iris_species, fill = rainbow_hcl(3))
+
+
+
+
 
 
 #############  Deng et al   ########################
@@ -71,25 +93,37 @@ gene_names <- rownames(counts)
 voom_counts <- limma::voom(counts)$E;
 
 celltype_labels <- meta_data$cell_type
+celltype_labels <-   factor(celltype_labels, levels = c("zy",
+                             "early2cell",
+                             "mid2cell",
+                             "late2cell",
+                             "4cell",
+                             "8cell",
+                             "16cell",
+                             "earlyblast",
+                             "midblast",
+                             "lateblast"))
+
 numtypes <- length(unique(celltype_labels))
 library(colorspace) # get nice colors
 species_col <- rev(rainbow_hcl(numtypes))[as.numeric(celltype_labels)]
-species_col_adjusted <- species_col[hc_deng$order]
 
 d_deng <- dist(t(voom_counts)) # method="man" # is a bit better
 hc_deng <- hclust(d_deng, method = "complete")
+species_col_adjusted <- species_col[hc_deng$order]
+
 labels(hc_deng)
 hc_deng$order
-deng_celltypes <- rev(levels(celltype_labels))
+deng_celltypes <- levels(celltype_labels)
 
 library(dendextend)
 dend <- as.dendrogram(hc_deng)
 # order it the closest we can to the order of the observations:
-dend <- rotate(dend, 1:259)
+#dend <- rotate(dend, 1:259)
 
 dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col_adjusted)
 
-labels(dend) <- rep("", length(species_col))
+#labels(dend) <- rep("", length(species_col))
 # Color the branches based on the clusters:
 #dend <- color_branches(dend, k=6) #, groupLabels=iris_species)
 
@@ -115,7 +149,13 @@ plot(dend,
      main = "Clustered Deng et al data set
      (Labels give true developmental stages)",
      horiz =  TRUE,  nodePar = list(cex = .007))
-legend("topleft", legend = deng_celltypes, fill = rainbow_hcl(numtypes))
+legend("topleft", legend = deng_celltypes, fill = rev(rainbow_hcl(numtypes)))
+dev.off()
+
+pdf("../plots/dendextend_deng_circle.pdf")
+par(mar = c(3,3,3,3))
+circlize_dendrogram(dend, labels=FALSE)
+legend("topleft", legend = deng_celltypes, fill = rev(rainbow_hcl(numtypes)))
 dev.off()
 
 
@@ -148,7 +188,7 @@ gtex_brain_celltypes <- rev(levels(celltype_labels))
 library(dendextend)
 dend <- as.dendrogram(hc_gtex_brain)
 # order it the closest we can to the order of the observations:
-dend <- rotate(dend, 1:1259)
+#dend <- rotate(dend, 1:1259)
 
 # Color the branches based on the clusters:
 #dend <- color_branches(dend, k=6) #, groupLabels=iris_species)
@@ -165,10 +205,10 @@ dend <- rotate(dend, 1:1259)
 
 dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col_adjusted)
 
-labels(dend) <- rep("",length(species_col))
+#labels(dend) <- rep("",length(species_col))
 
 
-dend <- hang.dendrogram(dend,hang_height=0.1)
+#dend <- hang.dendrogram(dend,hang_height=0.1)
 # reduce the size of the labels:
 # dend <- assign_values_to_leaves_nodePar(dend, 0.5, "lab.cex")
 dend <- set(dend, "labels_cex", 0.5)
@@ -181,6 +221,15 @@ plot(dend,
      horiz =  TRUE,  nodePar = list(cex = .007))
 legend("topleft", legend = gtex_brain_celltypes, fill = rainbow_hcl(numtypes))
 dev.off()
+
+pdf("../plots/dendextend_gtex_brain_circle.pdf")
+par(mar = c(3,3,3,3))
+circlize_dendrogram(dend, labels=FALSE)
+legend("topleft", legend = gtex_brain_celltypes,
+       fill = rainbow_hcl(numtypes), cex=0.6)
+dev.off()
+
+
 
 ###############   dendextend  GTEx whole tissues  #####################
 library(data.table)
@@ -218,12 +267,13 @@ dend <- rotate(dend, 1:8555)
 #                      "(",labels(dend),")",
 #                      sep = "")
 
-dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>% set("leaves_col", species_col)
+dend <- dend %>% set("leaves_pch", c(15)) %>% set("leaves_cex", c(1)) %>%
+    set("leaves_col", species_col_adjusted)
 
-labels(dend) <- rep("",length(species_col))
+#labels(dend) <- rep("",length(species_col))
 
 
-dend <- hang.dendrogram(dend,hang_height=0.1)
+#dend <- hang.dendrogram(dend,hang_height=0.1)
 # reduce the size of the labels:
 # dend <- assign_values_to_leaves_nodePar(dend, 0.5, "lab.cex")
 dend <- set(dend, "labels_cex", 0.5)
@@ -234,6 +284,13 @@ plot(dend,
      main = "Clustered GTEx all tissues data
      (Labels give true tissue states)",
      horiz =  TRUE,  nodePar = list(cex = .007))
-legend("topleft", legend = gtex_celltypes, fill = color1[1:numtypes], ncol=2, cex=0.5)
+legend("topleft", legend = gtex_celltypes, 
+       fill = color1[1:numtypes], ncol=2, cex=0.5)
 dev.off()
 
+pdf("../plots/dendextend_gtex_circle.pdf")
+par(mar = c(3,3,3,3))
+circlize_dendrogram(dend, labels=FALSE)
+legend("topleft", legend = gtex_celltypes, 
+       fill = color1[1:numtypes], ncol=2, cex=0.5)
+dev.off()
