@@ -69,7 +69,12 @@ deng_counts_guo_blast <- deng.counts[matched_indices, grep("blast", deng.meta_da
 
 
 
-topic_clus_blast <- maptpx::topics(t(deng_counts_guo_blast), K=5, tol=0.1)
+topic_clus_blast <- maptpx::topics(t(deng_counts_guo_blast), K=3, tol=0.1)
+save(topic_clus_blast, file="../rdas/deng_guo_blast_48_genes_k_3.rda")
+
+topic_clus_blast <- maptpx::topics(t(deng_counts_guo_blast), K=4, tol=0.1)
+save(topic_clus_blast, file="../rdas/deng_guo_blast_48_genes_k_4.rda")
+
 
 omega <- topic_clus_blast$omega
 
