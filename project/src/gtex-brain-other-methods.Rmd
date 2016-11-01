@@ -94,7 +94,9 @@ plot_data_tsne <- data.frame(tsne_out, brain_labels)
 
 # make plot
 tsne_plot <- ggplot(plot_data_tsne, aes(x = dim1, y = dim2)) + 
+#    geom_jitter(width = 1, height = 1) +
     geom_point(aes(fill = factor(brain_labels)),
+                   position = position_jitter(w = 200, h = 200),
                    colour = "grey20", 
                    pch = 21, alpha = 1) +
     labs(x = "t-SNE 1st dimension", y = "t-SNE 2nd dimension") +
@@ -115,6 +117,7 @@ plot_data_pca <- data.frame(pca_out,
 # make plot
 pca_plot <- ggplot(plot_data_pca, aes(x = dim1, y = dim2)) + 
     geom_point(aes(fill = factor(brain_labels)),
+#                    position = position_jitter(w = 2, h = 2),
                    colour = "grey20", 
                    pch = 21, alpha = 1) +
     labs(x = "PC1", y = "PC2") +
@@ -133,6 +136,7 @@ plot_data_mds <- data.frame(mds_out, brain_labels)
 # make plot
 mds_plot <- ggplot(plot_data_mds, aes(x = dim1, y = dim2)) + 
     geom_point(aes(fill = factor(brain_labels)),
+#                    position = position_jitter(w = 2, h = 2),
                    colour = "grey20", 
                    pch = 21, alpha = 1) +
     labs(x = "MDS 1st dimension", y = "MDS 2nd dimension") +
@@ -145,7 +149,7 @@ mds_plot <- ggplot(plot_data_mds, aes(x = dim1, y = dim2)) +
 
 ## Combined plot
 
-```{r combined-plots, fig.width=8, fig.height=8}
+```{r combined-plots, fig.width=7, fig.height=7, dpi=300, dev="tiff"}
 # plot the PCA plot twice
 # first time without legend,
 # and second time with legend
@@ -159,7 +163,7 @@ cowplot::plot_grid(
 
 Make legend
 
-```{r make-legend}
+```{r make-legend, fig.height=4, fig.width=4, dev="png", dpi=300}
 coord_xy <- cbind(rep(1,13) - .4,
                   c(1:13))
 
