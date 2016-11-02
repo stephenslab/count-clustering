@@ -149,7 +149,7 @@ mds_plot <- ggplot(plot_data_mds, aes(x = dim1, y = dim2)) +
 
 ## Combined plot
 
-```{r combined-plots, fig.width=7, fig.height=7, dpi=300, dev="tiff"}
+```{r combined-plots, fig.width=7, fig.height=7}
 # plot the PCA plot twice
 # first time without legend,
 # and second time with legend
