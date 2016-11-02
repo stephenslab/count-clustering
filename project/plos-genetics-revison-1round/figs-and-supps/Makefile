@@ -1,5 +1,4 @@
-
-supps: supplementals.tex ../header.tex S1_Fig.tex S2_Fig.tex S3_Fig.tex S4_Fig.tex S5_Fig.tex S6_Fig.tex S7_Fig.tex S8_Fig.tex S9_Fig.tex S10_Fig.tex S11_Fig.tex S12_Fig.tex  S13_Fig.tex S14_Fig.tex S15_Fig.tex S1_Table.tex S2_Table.tex S3_Table.tex S3_Table.tex
+supps: supplementals.tex ../header.tex S1_Fig.tex S2_Fig.tex S3_Fig.tex S4_Fig.tex S5_Fig.tex S6_Fig.tex S7_Fig.tex S8_Fig.tex S9_Fig.tex S10_Fig.tex S11_Fig.tex S12_Fig.tex  S13_Fig.tex S14_Fig.tex S15_Fig.tex S16_Fig.tex S17_Fig.tex S18_Fig.tex S18_Fig.tex S1_Table.tex S2_Table.tex S3_Table.tex S3_Table.tex
 	pdflatex supplementals.tex
 
 fig1: fig1.tex ../header.tex ../../plots/gtex-figures/gtex-k20-05-01-2016.pdf
@@ -35,7 +34,7 @@ figS6: S6_Fig.tex ../header.tex ../../plots/gtex-figures/sfa_gtex_figs.png
 figS7: S7_Fig.tex ../header.tex ../../plots/deng-figures/sfa_deng_figs.pdf
 		pdflatex S7_Fig.tex
 
-figS8: S8_Fig.tex ../header.tex ../../src/figure/gtex-brain-other-methods.Rmd/gtex-brain-with-legend.jpeg
+figS8: S8_Fig.tex ../header.tex ../../src/figure/gtex-brain-other-methods.Rmd/gtex-brain-with-legend.tiff
 		pdflatex S8_Fig.tex
 
 figS9: S9_Fig.tex ../header.tex ../../src/figure/deng-chromosome.Rmd/deng-chromosome-plot-1.png
