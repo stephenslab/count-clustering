@@ -18,13 +18,10 @@
 \paragraph*{S17 Fig.}
 
 \label{figS17}
-{\bf Circular Dendrogram representation for GTEx Brain tissue level data.} Circular Dendrogram representation of the 1259 GTEx brain tissue samples.
-The hierarchical clustering in this case has been performed on the log counts per million (cpm) data.
-Note that the labels in this case are not visible because of large sample size but largely it separates out
-Brain Cerebellar, Cerebellar hemisphere  and Brain Spinal Cord, Substantia Nigra from other parts of the brain. But any other structure in the data is not easy to see or interpret.
+{\bf Additional GoM analysis of Deng et al (2014) data including blastocyst samples and 48 blastocyst marker genes.} We considered 48 blastocyst marker genes (see Guo et al., 2010 for inclusion criteria) and fitted GoM model with $K = 3$ to 133 blastocyst samples. In the Structure plot, blastocyst samples are arranged in ascending order from right to left by their membership proportions in the Green cluster. The panel located above the Structure plot shows the corresponding pre-implantation stage from which blastocyst samples were collected. The heatmap located below the Structure plot represents expression levels of the 48 blastocyst marker genes (log2 CPM), and the corresponding dendrogram represents the results of hierarchical clustering based on complete lineage method. The table located to the right of the expression heatmap display gene information, showing, from left to right, 1) genes that are known as transcription factor, 2) the driving GoM cluster if the gene was among the top five driving genes, and 3) the featured cell type (TE: trophecoderm, EPI: epiblast, PE: primitive endoderm) that was found in Guo et al., 2010.
 \begin{figure}[ht]
 \centering
-\includegraphics[height=6.3in, width=6in]{../../plots/dendextend_gtex_brain_circle.pdf}
+\includegraphics[height=5in, width=6in]{../../src/figure/deng-digging-final.Rmd/deng-structure-combo.png}
 \end{figure}
 
 \end{document}

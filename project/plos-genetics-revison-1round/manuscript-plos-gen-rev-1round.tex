@@ -57,7 +57,7 @@ Matthew Stephens\textsuperscript{1,2}
 % Please keep the abstract below 300 words
 \section*{Abstract}
 Grade of membership models, also known as ``admixture models", ``topic models" or ``Latent Dirichlet Allocation",
-are a generalization of cluster models that allow each othersample to have membership in multiple clusters.
+are a generalization of cluster models that allow each sample to have membership in multiple clusters.
 These models are widely used in population genetics to model admixed individuals who have ancestry from multiple ``populations",
 and in natural language processing to model documents having words from multiple ``topics". Here we illustrate the potential for these models
 to cluster samples of RNA-seq gene expression data, measured on either bulk samples or single cells.
@@ -144,7 +144,7 @@ p_{ng} := \sum_{k=1}^{K} q_{nk}\theta_{kg}.
 The number of clusters $K$ is set by the analyst, and it can be helpful to explore multiple
 values of $K$ (see Discussion).
 
-To fit this model to RNA-seq data, we exploit the fact that exactly the same GoM model is commonly used for document clustering \cite{Blei2003}.
+To fit this model to RNA-seq data, we exploit the fact that this GoM model is commonly used for document clustering \cite{Blei2003}.
 This is because, just as RNA-seq samples can be summarized by counts of reads mapping to each possible gene in the genome,
 document data can be summarized by counts of each possible word in a dictionary.
 Recognizing this allows existing methods and software for document clustering to be applied directly to RNA-seq data. Here we use the R package {\tt maptpx} \cite{Taddy2012} to fit the GoM model.
@@ -176,12 +176,54 @@ structure plots, and identifying the distinctive (``driving") genes in each clus
 We begin by illustrating the GoM model on bulk RNA expression measurements from the GTEx project (V6 dbGaP accession phs000424.v6.p1, release date: Oct 19, 2015, \url{http://www.gtexportal.org/home/}).  These data consist of per-gene read counts from RNA-seq performed on $8,555$ samples collected from $450$ human donors across $51$ tissues, lymphoblastoid cell lines, and transformed fibroblast cell-lines. We analyzed $16,069$ genes that satisfied filters (e.g.~exceeding certain minimum expression levels) that were used during eQTL analyses by the GTEx project (gene list available in \url{http://stephenslab.github.io/count-clustering/project/utilities/gene_names_all_gtex.txt}).
 
 We fit the GoM model to these data, with number of clusters $K=5,10,15,20$. For each $K$ we ran the fitting algorithm three times and
-kept the result with the highest log-likelihood. Fig~\ref{fig1}(a) shows the Structure plot for $K=20$, with results for other $K$ in \nameref{figS1}. (See also \url{http://stephenslab.github.io/count-clustering/project/src/tissues_tSNE_2.html} for
-an alternative visualization using a 2-dimensional projection with t-SNE \cite{Maaten2008, Maaten2014}.)
+kept the result with the highest log-likelihood. As might be expected, increasing $K$ highlights finer structure in the data, and for brevity we focus discussion
+on results for $K=20$ (Fig~\ref{fig1}(a)), with results for other $K$ shown in \nameref{figS1}. 
+For comparison we also ran several other commonly-used methods for clustering and visualizing gene expression data: 
+Principal Components Analysis (PCA), multidimensional scaling (MDS), $t$-Distributed Stochastic Neighbor Embedding 
+($t$-SNE) \cite{Maaten2008, Maaten2014}, and 
+hierarchical clustering (Supplementary Figures \ref{fig:}). 
 
-In all cases results reflect the known division of samples into tissues: that is, samples from the same tissue tend to have similar cluster membership proportions. As might be expected, increasing $K$ highlights finer structure in the data, with tissues that cluster together with smaller $K$ being subdivided into distinct subgroups for larger $K$. For brevity we focus on results for $K=20$ (Fig~\ref{fig1}(a)). Here some tissues are represented by essentially a single cluster (e.g.~Pancreas, Liver), whereas other tissues are represented as a mixture of multiple clusters (e.g.~Thyroid, Spleen). Furthermore, the results highlight biological similarity among some tissues by assigning similar membership proportions to samples from those tissues.  For example, samples from several different parts of the brain often have similar memberships, as do the arteries (aorta, tibial and coronary) and skin samples (sun-exposed and un-exposed).
+%All of these methods, except for distance-based methods, are techniques for dimension reduction of multivariate data. The visualizations produced by these methods may vary and depend on the structure of sample variation in the dataset. To highlight their differences and similarities, we provide visualizations produced by these methods for all the example datasets in the supplementary materials.
 
-To help biologically interpret results we implemented methods to identify the genes and genetic processes that characterize each cluster (see Methods). Table~\ref{tab1} summarizes results for the GTEx results in Fig~\ref{fig1}a (see also \nameref{supptab1}). Reassuringly, many results align with known biology. For example,  the purple cluster (cluster 18), which distinguishes Pancreas from other tissues, is enriched for genes responsible for digestion and proteolysis, (e.g. \textit{PRSS1}, \textit{CPA1}, \textit{PNLIP}). Similarly the yellow cluster (cluster 12), which primarily distinguishes Cell EBV Lymphocytes from other tissues, is enriched with genes responsible for immune responses (e.g. \textit{IGHM}, \textit{IGHG1}) and the pink cluster (cluster 19) which mainly shows up in Whole Blood, is enriched with genes related hemoglobin complex and oxygen transport (e.g. \textit{HBB}, \textit{HBA1}, \textit{HBA2}). Further, Keratin-related genes characterize the skin cluster (cluster 6, light denim), Myosin-related genes characterize the muscle skeletal cluster (cluster 7, orange), etc. The royal purple cluster (cluster 1) has memberships in most tissues and the genes distinguishing the cluster seem to be responsible for  nucleus and nucleoplasm related functionality. In cases where a cluster occurs in multiple tissues these biological annotations may be particularly helpful for understanding what is driving this co-membership. For example, the top genes in the red cluster (cluster 3), which is common to Breast Mammary tissue, Adipose Subcutaneous and Adipose Visceral, are related to adipocytes and/or fatty acid synthesis; and the top genes in the salmon cluster (cluster 4), which is common to the Gastroesophageal Junction, Esophagus Muscularis and Colon Sigmoid, are related to smooth muscle.
+These data present a challenge to visualization and clustering tools, because of both the relatively large number of samples and
+the complex structure created by the inclusion of many different tissues. Indeed, neither PCA nor MDS 
+provide satisfactory summaries of the structure in these data (Supplementary Figures \ref{}): samples from quite different tissues
+are often super-imposed on one another in plots of PC1 vs PC2, and this issue is only partly alleviated by examining more PCs 
+(Supplementary Figure \ref{}). The hierarchical clustering provides perhaps better separation of tissues (Figure \ref{}), but producing
+a clear (static) visualization of the tree is difficult with this many samples. By comparison $t$-SNE (Supplementary Figure \ref{}) and
+the GoM model (Figure \ref{}) both show a much clearer visual separation of samples by tissue, although they achieve this in very different ways.
+The $t$-SNE representation produces a two-dimensional plot with 20-25 visually-distinct clusters. In contrast, the GoM
+highlights similarity among samples by assigning them similar membership proportions, resulting in groups of similarly-colored bars in the structure plot.
+Some tissues are represented by essentially a single cluster/color (e.g.~Pancreas, Liver), 
+whereas other tissues are represented as a mixture of multiple clusters (e.g.~Thyroid, Spleen).
+Furthermore, the GoM results highlight biological similarity among some tissues by assigning similar membership proportions to samples from those tissues.  For example, samples from several different parts of the brain often have similar memberships, as do the arteries (aorta, tibial and coronary) and skin samples (sun-exposed and un-exposed).
+
+Although it is not suprising that samples cluster by tissue, other results could have occurred. For example,
+samples could have clustered according to technical variables, such as sequencing batch  \cite{yoav} or sample collection center. 
+While our results do not exclude the possibility that technical variables could have influenced these data, 
+the $t$-SNE and GoM results clearly demonstrate that tissue of origin is the primary source of heterogeneity,
+and provide a useful initial assurance of data quality. 
+
+While in these data both the GoM model and $t$-SNE highlight the primary structure due to tissue of origin, the GoM results have at least two advantages over $t$-SNE.
+First, the GoM model provides an explicit, quantitative, estimate of the mean expression of each gene in each cluster, making it straightforward to assess which genes and processes drive differences among clusters; see Table~\ref{tab1} (and also \nameref{supptab1}). Reassuringly, many results align with known biology. For example,  the purple cluster (cluster 18), which distinguishes Pancreas from other tissues, is enriched for genes responsible for digestion and proteolysis, (e.g. \textit{PRSS1}, \textit{CPA1}, \textit{PNLIP}). Similarly the yellow cluster (cluster 12), which primarily distinguishes Cell EBV Lymphocytes from other tissues, is enriched with genes responsible for immune responses (e.g. \textit{IGHM}, \textit{IGHG1}) and the pink cluster (cluster 19) which mainly appears in Whole Blood, is enriched with genes related hemoglobin complex and oxygen transport (e.g. \textit{HBB}, \textit{HBA1}, \textit{HBA2}). Further, Keratin-related genes characterize the skin cluster (cluster 6, light denim), Myosin-related genes characterize the muscle skeletal cluster (cluster 7, orange), etc. These biological annotations are particularly helpful for understanding instances where a cluster appears in multiple tissues. For example, 
+the top genes in the salmon cluster (cluster 4), which is common to the Gastroesophageal Junction, Esophagus Muscularis and Colon Sigmoid, are related to smooth muscle.
+And the top genes in the red cluster, highlighted above as common to Breast Mammary tissue, Adipose Subcutaneous and Adipose Visceral, are all related to adipocytes and/or fatty acid synthesis. 
+
+Second, because the GoM model allows partial membership in each cluster, it is better able to highlight partial similarities among distinct tissues.
+For example, in Figure \ref{fig1}a the 
+%red cluster (cluster 3), appears in all of Breast Mammary tissue, Adipose Subcutaneous and Adipose Visceral, pointing to their sharing of adipocytes. And the 
+ sky blue cluster (cluster 13), appears in testis, pituitary, and thyroid, reflecting shared homonal-related processes. At the same time, these tissues
+are distinguished from one another both by their degree of membership in this cluster (testis samples have consistently stronger membership; thyroid samples consistently weaker), and by membership in other clusters. For example, pituitary samples, but not tesis or thyroid samples, have membership in the light purple cluster (cluster 2)
+which is driven by genes related to neurons and synapsis. In the $t$-SNE results these three tissues simply cluster separately into visually distinct groups, with no indication that their expression profiles have something in common. Thus, although we find the $t$-SNE results visually attractive, this 2-dimensional projection inevitably contains less information than the Structure plot from the GoM (Fig \ref{}a), which uses color to represent the samples in a 20-dimensional space.
+
+
+
+ 
+ %The royal purple cluster (cluster 1) has memberships in most tissues and the genes distinguishing the cluster seem to be responsible for  nucleus and nucleoplasm related functionality.
+
+
+
+ 
 
 %\clearpage
 %\begin{table}[!hp]
@@ -219,10 +261,14 @@ To help biologically interpret results we implemented methods to identify the ge
 %\end{table}
 %
 
-Although global analysis of all tissues is useful for highlighting major structure in the data, it may miss finer-scale structure within tissues or among similar tissues. For example, here the global analysis allocated only three clusters to all brain tissues (clusters 1,2 and 9 in Fig~\ref{fig1}(a)), and we suspected that additional substructure might be uncovered by analyzing the brain samples separately with larger $K$.  Fig~\ref{fig1}(b) shows the Structure plot for $K=6$ on only the Brain samples. The results highlight much finer-scale structure compared with the global analysis. Brain Cerebellum and Cerebellar hemisphere are essentially assigned to a separate cluster (lime green), which is enriched with genes related to cell periphery and communication (e.g. \textit{PKD1}, \textit{CBLN3}) as well as genes expressed largely in neuronal cells and playing a role in neuron differentiation (e.g. \textit{CHGB}). The spinal cord samples also show consistently strong membership in a single cluster (yellow-orange), the top defining gene for the cluster being \textit{MBP} which is involved in myelination of nerves in the nervous system\cite{Hu2016}.  Another driving gene, \textit{GFAP}, participates in system development by acting as a marker to distinguish astrocytes during development \cite{Baba1997}.
+\subsection*{Sub-analysis of Brain tissues}
+
+Although global analysis of all tissues is useful for highlighting the major structure in the data, it may miss finer-scale structure within tissues or among similar tissues. For example, here the GoM model applied to all tissues effectively allocated only three clusters to all brain tissues (clusters 1,2 and 9 in Fig~\ref{fig1}(a)), and we suspected that additional substructure might be uncovered by analyzing the brain samples separately and using more clusters.  Fig~\ref{fig1}(b) shows the Structure plot for $K=6$ on only the Brain samples. The results highlight much finer-scale structure compared with the global analysis. Brain Cerebellum and Cerebellar hemisphere are essentially assigned to a separate cluster (lime green), which is enriched with genes related to cell periphery and communication (e.g. \textit{PKD1}, \textit{CBLN3}) as well as genes expressed largely in neuronal cells and playing a role in neuron differentiation (e.g. \textit{CHGB}). The spinal cord samples also show consistently strong membership in a single cluster (yellow-orange), the top defining gene for the cluster being \textit{MBP} which is involved in myelination of nerves in the nervous system\cite{Hu2016}.  Another driving gene, \textit{GFAP}, participates in system development by acting as a marker to distinguish astrocytes during development \cite{Baba1997}.
 
 The remaining samples all show membership in multiple clusters. Samples from the putamen, caudate and nucleus accumbens show similar profiles, and are distinguished by strong membership in a cluster (cluster 4, bright red) whose top driving gene is \textit{PPP1R1B}, a target for dopamine. And cortex samples are distinguished from others by stronger membership in a cluster (cluster 2, turquoise in Fig~\ref{fig1}(b)) whose distinctive genes include \textit{ENC1}, which interacts with actin and contributes to the organisation of the cytoskeleton during the specification of neural fate \cite{Hernandez1997}.
 
+In comparison, applying PCA, MDS, hierarchical clustering and $t$-SNE to these data reveals less of this finer-scale structure. Both PCA and MDS effectively cluster the samples into two groups -- those related to the cerebellum vs everything else -- although labelling the samples by tissue does indicate some finer-scale structure within the larger cluster. Hierarchical clustering also separates out the cerebellum-related tissues from the others, but again the tree format seems ill-suited to static 
+visualization of over a thousand samples.  For reasons that we do not understand $t$-SNE performs poorly for these data: many samples are allocated to essentially identical locations, so overplotting obscures them.
 
 
 \subsection*{Single-cell RNA-seq data}
@@ -292,6 +338,9 @@ Common methods for visualizing the structure of gene expression data include PCA
 PCA and MDS map multivariate gene expression data to linear dimensions which reveal global variation between samples. The sample coordinates in PCA/MDS dimensions are traditionally presented in two-dimensional scatter plots. For the GTEx data, the PCA plot of the first two dimensions reveals that the whole blood samples are the most distinct among all the GTEx tissue samples, followed by the brain tissue samples. The fifth PC dimension further suggests that transformed fibroblasts and transformed lymphocytes are distinct from the other tissue samples (\nameref{S13}). Although PCA plots may be useful in spotting global sample variation, the visualization of all PCA dimensions is difficult to interpret. Currently, there does not exist a compact visualization for representing all the PCA/MDS dimensions for high dimensional data, except for making series of bi-scatter plots.
 
 t-SNE was specifically developed for compact visualization using two-dimensional plots. For the GTEx data and the mouse embryos datasets, the solutions produced by t-SNE appear to produce accurate clustering of samples that correspond to their tissue labels. However, these visualizations provide little insight into the similarity between GTEx tissues. Applying to the GTEx brain data, t-SNE indicates no structure among the brain samples and the visualization does not group brain samples by subregions. Interesting, the t-SNE visualization of the GTEx brain data is similar to the dendrogram produced by hierarchical clustering.
+
+%(See also \url{http://stephenslab.github.io/count-clustering/project/src/tissues_tSNE_2.html} for
+%an alternative visualization using a 2-dimensional projection with t-SNE \cite{Maaten2008, Maaten2014}.)
 
 Hierarchical clustering is a distance-based clustering method that is frequently used to detect the substructure of gene expression data. The method computes pairwise distance between samples and applies agglomerative clustering technique to produce a dendrogram visualization. The number of distances to be computed increases exponentially with the number of samples. For instance, the GTEx visualization using hierarchical clustering requires xx calculations. We performed calculations on a xx computer and were unable to generate the distance matrix for the GTEx v6 data due to the limited computing power. However, previously GTEx pilot study analyzed xx tissue samples. Their visualization revealed that whole blood samples and brain tissue samples are the out-groups of all the GTEx tissue samples. These results are consistent with the PCA/MDS visualization. Furthermore, we used the GTEx data to test whether the GoM model is more accurate in detecting substructure than distance-based clustering methods. Specifically, for each pair of tissues in the GTEx data we assessed whether or not each clustering method correctly partitioned samples into the two tissue groups (see Methods). The GoM model was substantially more accurate in this test, succeeding in $81 \%$ of comparisons, compared with $29 \%$ for the distance-based method (Fig~\ref{fig2}). This presumably reflects the general tendency for model-based approaches to be more efficient that distance-based approaches, provided that the model is sufficiently accurate.
 
