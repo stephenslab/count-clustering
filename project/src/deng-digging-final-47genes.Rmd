@@ -1,0 +1,519 @@
+---
+title: 'Deng data: finalizing analysis in reference to Guo data'
+author: "Joyce Hsiao"
+date: "2016-10-27"
+output: 
+  html_document:
+    css: floating-toc.css
+    toc: true
+---
+
+
+```{r chunk-options, include=FALSE}
+source("chunk-options.R")
+```
+
+## Objective
+
+In this document, we analyzed the blastocyst samples including only the 48 genes that were used in differentiating cell types during blastocyst stages in Guo et al., 2010. We applied the GoM with K = 3 and investigated the expression profile of the 48 genes under K = 3 with cell samples re-ordered according to topic proportions.
+
+
+```{r packages, echo=FALSE, eval=TRUE, warning=FALSE, message=FALSE}
+#library(maptpx)
+library(ggplot2)
+library(testit)
+library(data.table)
+library(mygene)
+library(knitr)
+#library(CountClust)
+```
+
+Load Deng data
+
+```{r load-deng-data, ech = TRUE, eval = TRUE}
+library(singlecellRNAseqData)
+MouseDengESC <- get(data("MouseDengESC"))
+meta_data <- pData(MouseDengESC)
+```
+
+Compute index variable for the blastocyst cell samples
+
+```{r}
+is_blastocyst <- which(meta_data$cell_type == "earlyblast"|
+                        meta_data$cell_type == "midblast" |
+                        meta_data$cell_type == "lateblast")
+```
+
+Import list of 48 genes identified in Guo et al.
+
+```{r}
+guo_genes <- c("Creb3l2", "Tcf23", "Snai1", "Pdgfra", "Gata4", "Sox13",
+               "Klf5", "Tcfap2c", "Gapdh", "Actb", "Pdgfa", "Msc", "Hand1",
+               "Runx1", "Gata6", "Fgfr2", "Dab2", "Msx2", "Hnf4a", "Pou5f1",
+               "Utf1", "Sall4", "Ahcy", "Sox17", "Klf4", "Fgf4", "Klf2", 
+               "Esrrb", "Nanog", "Bmp4", "Sox2", "Fn1", "Pecam1", "Tspan8", 
+               "Dppa1", "Lcp1", "Aqp3", "Id2", "Krt8", "Cebpa", "Eomes", 
+               "Gata3", "Mbnl3", "Tcfap2a", "Grhl1", "Atp12a", "Grhl2", "Cdx2")
+```
+
+
+Normalize the count data. Use the method implemented in voom/limma.
+
+```{r}
+counts <- exprs(MouseDengESC)
+lib_size <- colSums(counts)
+expr_log2cpm <- t(log2(t(counts + 0.5)/(lib_size + 1) * 1e+06))
+```
+
+
+Create a subset of 48 genes included in Guo et al., 2010.
+
+```{r}
+ind_match <- match(guo_genes, rownames(counts))
+
+expr_log2cpm_guo <- expr_log2cpm[ind_match,]
+```
+
+## K = 3
+
+Load GoM results. Fitting k = 3 on the blastocyst samples and including 48 marker genes.
+
+```{r}
+fit <- get(load("../rdas/deng_guo_blast_47_genes_k_3.rda"))
+```
+
+
+### Make structure plot
+
+```{r structure-k3, fig.height=6, fig.width=5}
+# cell_type_blast <- as.character(meta_data$cell_type)
+# cell_type_blast[grep("blast", cell_type_blast)] <- "blast"
+# cell_type_blast <- factor(cell_type_blast, 
+#       levels = rev(c("zy", "early2cell", "mid2cell", "late2cell",
+#                  "4cell", "8cell", "16cell", "blast")))
+source("~/Dropbox/GitHub/CountClust/R/StructureGGplot.R")
+StructureGGplot(omega = fit$omega,
+    annotation = data.frame(
+                   sample_id = paste0("X", c(1:NROW(fit$omega))),
+                   tissue_label = rep("blast", NROW(fit$omega))),
+               palette = RColorBrewer::brewer.pal(3, "Accent")[c(2,1,3)],
+               figure_title = "",
+               yaxis_label = "Cell type",
+               sample_order_decreasing = FALSE)
+```
+
+
+### Recover cell sample order
+
+
+```{r}
+source("../R/StructureGGplot-simple.R")
+df_mlt <- StructureGGplot_simple(omega = fit$omega,
+    annotation = data.frame(
+                   sample_id = paste0("X", c(1:NROW(fit$omega))),
+                   tissue_label = rep("blast", NROW(fit$omega))),
+               palette = RColorBrewer::brewer.pal(3, "Accent")[c(2,1,3)],
+               figure_title = "",
+               yaxis_label = "Cell type",
+               sample_order_decreasing = FALSE)
+structure_order_blast <- rev(as.character(df_mlt$document[!duplicated(df_mlt$document)]))
+```
+
+### Heatmap
+
+```{r heatmap-blast-k3, fig.height=7, fig.width=6}
+colors <- seq(-6,16,length=220)
+my_palette <- colorRampPalette(
+    c("white", "yellow", "orange", "orangered", "red4"))(n = length(colors)-1)
+
+xx <- as.matrix(expr_log2cpm_guo[,is_blastocyst])
+xx_noactb <- xx[rownames(xx)!= "Actb", ]
+
+gplots::heatmap.2(xx_noactb[, rev(structure_order_blast)], 
+                  breaks = colors,
+                  col = rev(my_palette),
+                  #labCol = "",
+                  trace = "none", 
+                  dendrogram = "row", Colv = FALSE,
+                  symm=F,symkey=F,symbreaks=T, scale="none",
+                  main = "")
+```
+
+
+### Blastocyst labels
+
+Summarize the blastocyst stages of the cell samples in the re-ordered dataset.
+
+```{r}
+meta_data_blast <- meta_data[grep("blast", meta_data$cell_type),]
+meta_data_blast <- meta_data_blast[ match(rev(structure_order_blast), rownames(meta_data_blast)), ]
+```
+
+Make barplot to indicate blastocyst stages 
+
+```{r blast-barplot-k3}
+par(mfrow = c(3,1))
+for (i in c("earlyblast", "midblast", "lateblast")) {
+    plot(x = which(meta_data_blast$cell_type == i), 
+         y = rep(1, length(which(meta_data_blast$cell_type == i))), 
+         type = "h", ann = FALSE, xaxt = "n", yaxt = "n",
+         xlim = c(0,133))
+}
+```
+
+### Extract top features
+
+
+```{r, eval = TRUE}
+source("~/Dropbox/GitHub/CountClust/R/ExtractTopFeatures.R")
+top_features <- ExtractTopFeatures(fit$theta,
+                               top_features = 5,
+                               method = c("poisson"),
+                               options=c("min"))
+```
+
+*Get gene description.*
+
+Purple cluster
+
+```{r}
+mygene::queryMany(attr(fit$theta, "dimnames")[["phrase"]][top_features[1,]],
+                  scopes="symbol", 
+                  fields= c("query", "name", "description"),
+                  species="mouse")
+```
+
+Green cluster
+
+```{r}
+mygene::queryMany(attr(fit$theta, "dimnames")[["phrase"]][top_features[2,]],
+                  scopes="symbol", 
+                  fields= c("query", "name", "description"),
+                  species="mouse")
+```
+
+Orange cluster
+
+```{r}
+mygene::queryMany(attr(fit$theta, "dimnames")[["phrase"]][top_features[3,]],
+                  scopes="symbol", 
+                  fields= c("query", "name", "description"),
+                  species="mouse")
+```
+
+
+
+
+## K = 2
+
+Load GoM results. Fitting k = 2 on the blastocyst samples and including 48 marker genes.
+
+```{r}
+fit_k2 <- get(load("../rdas/deng_guo_blast_47_genes_k_2.rda"))
+```
+
+
+### Make structure plot
+
+```{r structure-k2, fig.height=6, fig.width=5}
+# cell_type_blast <- as.character(meta_data$cell_type)
+# cell_type_blast[grep("blast", cell_type_blast)] <- "blast"
+# cell_type_blast <- factor(cell_type_blast, 
+#       levels = rev(c("zy", "early2cell", "mid2cell", "late2cell",
+#                  "4cell", "8cell", "16cell", "blast")))
+source("~/Dropbox/GitHub/CountClust/R/StructureGGplot.R")
+StructureGGplot(omega = fit_k2$omega,
+    annotation = data.frame(
+                   sample_id = paste0("X", c(1:NROW(fit_k2$omega))),
+                   tissue_label = rep("blast", NROW(fit_k2$omega))),
+               palette = RColorBrewer::brewer.pal(3, "Accent"),
+               figure_title = "",
+               yaxis_label = "Cell type",
+               sample_order_decreasing = FALSE)
+```
+
+
+### Recover cell sample order
+
+
+```{r}
+source("../R/StructureGGplot-simple.R")
+df_mlt <- StructureGGplot_simple(omega = fit_k2$omega,
+    annotation = data.frame(
+                   sample_id = paste0("X", c(1:NROW(fit_k2$omega))),
+                   tissue_label = rep("blast", NROW(fit_k2$omega))),
+               palette = RColorBrewer::brewer.pal(3, "Accent"),
+               figure_title = "",
+               yaxis_label = "Cell type",
+               sample_order_decreasing = FALSE)
+structure_order_blast <- rev(as.character(df_mlt$document[!duplicated(df_mlt$document)]))
+```
+
+### Heatmap
+
+```{r heatmap-blast-k2, fig.height=7, fig.width=6}
+colors <- seq(-6,16,length=220)
+my_palette <- colorRampPalette(
+    c("white", "yellow", "orange", "orangered", "red4"))(n = length(colors)-1)
+
+xx <- as.matrix(expr_log2cpm_guo[,is_blastocyst])
+xx_noactb <- xx[rownames(xx)!= "Actb", ]
+
+gplots::heatmap.2(xx_noactb[, rev(structure_order_blast)], 
+                  breaks = colors,
+                  col = rev(my_palette),
+                  #labCol = "",
+                  trace = "none", 
+                  dendrogram = "row", Colv = FALSE,
+                  symm=F,symkey=F,symbreaks=T, scale="none",
+                  main = "")
+```
+
+
+### Blastocyst labels
+
+Summarize the blastocyst stages of the cell samples in the re-ordered dataset.
+
+```{r}
+meta_data_blast <- meta_data[grep("blast", meta_data$cell_type),]
+meta_data_blast <- meta_data_blast[ match(rev(structure_order_blast), rownames(meta_data_blast)), ]
+```
+
+Make barplot to indicate blastocyst stages 
+
+```{r blast-barplot-k2}
+par(mfrow = c(3,1))
+for (i in c("earlyblast", "midblast", "lateblast")) {
+    plot(x = which(meta_data_blast$cell_type == i), 
+         y = rep(1, length(which(meta_data_blast$cell_type == i))), 
+         type = "h", ann = FALSE, xaxt = "n", yaxt = "n",
+         xlim = c(0,133))
+}
+```
+
+### Extract top features
+
+
+```{r, eval = TRUE}
+source("~/Dropbox/GitHub/CountClust/R/ExtractTopFeatures.R")
+top_features <- ExtractTopFeatures(fit_k2$theta,
+                               top_features = 5,
+                               method = c("poisson"),
+                               options=c("min"))
+```
+
+*Get gene description.*
+
+Green cluster
+
+```{r}
+mygene::queryMany(attr(fit_k2$theta, "dimnames")[["phrase"]][top_features[1,]],
+                  scopes="symbol", 
+                  fields= c("query", "name", "description"),
+                  species="mouse")
+```
+
+Purple cluster
+
+```{r}
+mygene::queryMany(attr(fit_k2$theta, "dimnames")[["phrase"]][top_features[2,]],
+                  scopes="symbol", 
+                  fields= c("query", "name", "description"),
+                  species="mouse")
+```
+
+
+
+## K = 4
+
+Load GoM results. Fitting k = 4 on the blastocyst samples and including 48 marker genes.
+
+```{r}
+fit_k4 <- get(load("../rdas/deng_guo_blast_47_genes_k_4.rda"))
+```
+
+### Make structure plot
+
+```{r structure-k4, fig.height=6, fig.width=5}
+# cell_type_blast <- as.character(meta_data$cell_type)
+# cell_type_blast[grep("blast", cell_type_blast)] <- "blast"
+# cell_type_blast <- factor(cell_type_blast, 
+#       levels = rev(c("zy", "early2cell", "mid2cell", "late2cell",
+#                  "4cell", "8cell", "16cell", "blast")))
+source("~/Dropbox/GitHub/CountClust/R/StructureGGplot.R")
+StructureGGplot(omega = fit_k4$omega,
+    annotation = data.frame(
+                   sample_id = paste0("X", c(1:NROW(fit_k4$omega))),
+                   tissue_label = rep("blast", NROW(fit_k4$omega))),
+               palette = c(RColorBrewer::brewer.pal(3, "Accent"), "deeppink")[c(1,3,4,2)],
+               figure_title = "",
+               yaxis_label = "Cell type",
+               sample_order_decreasing = FALSE)
+```
+
+
+### Recover cell sample order
+
+
+```{r}
+source("../R/StructureGGplot-simple.R")
+df_mlt <- StructureGGplot_simple(omega = fit_k4$omega,
+    annotation = data.frame(
+                   sample_id = paste0("X", c(1:NROW(fit$omega))),
+                   tissue_label = rep("blast", NROW(fit$omega))),
+               palette = c(RColorBrewer::brewer.pal(3, "Accent"), "deeppink"),
+               figure_title = "",
+               yaxis_label = "Cell type",
+               sample_order_decreasing = FALSE)
+structure_order_blast <- rev(as.character(df_mlt$document[!duplicated(df_mlt$document)]))
+```
+
+### Heatmap
+
+```{r heatmap-blast-k4, fig.height=7, fig.width=6}
+colors <- seq(-6,16,length=220)
+my_palette <- colorRampPalette(
+    c("white", "yellow", "orange", "orangered", "red4"))(n = length(colors)-1)
+
+xx <- as.matrix(expr_log2cpm_guo[,is_blastocyst])
+xx_noactb <- xx[rownames(xx) != "Actb", ]
+
+gplots::heatmap.2(xx_noactb[, rev(structure_order_blast)], 
+                  breaks = colors,
+                  col = rev(my_palette),
+                  #labCol = "",
+                  trace = "none", 
+                  dendrogram = "row", Colv = FALSE,
+                  symm=F,symkey=F,symbreaks=T, scale="none",
+                  main = "")
+```
+
+
+### Blastocyst labels
+
+Summarize the blastocyst stages of the cell samples in the re-ordered dataset.
+
+```{r}
+meta_data_blast <- meta_data[grep("blast", meta_data$cell_type),]
+meta_data_blast <- meta_data_blast[ match(rev(structure_order_blast), rownames(meta_data_blast)), ]
+```
+
+Make barplot to indicate blastocyst stages 
+
+```{r blast-barplot-k4}
+par(mfrow = c(3,1))
+for (i in c("earlyblast", "midblast", "lateblast")) {
+    plot(x = which(meta_data_blast$cell_type == i), 
+         y = rep(1, length(which(meta_data_blast$cell_type == i))), 
+         type = "h", ann = FALSE, xaxt = "n", yaxt = "n",
+         xlim = c(0,133))
+}
+```
+
+### Extract top features
+
+
+```{r, eval = TRUE}
+source("~/Dropbox/GitHub/CountClust/R/ExtractTopFeatures.R")
+top_features <- ExtractTopFeatures(fit_k4$theta,
+                               top_features = 5,
+                               method = c("poisson"),
+                               options=c("min"))
+```
+
+*Get gene description.*
+
+Green cluster
+
+```{r}
+mygene::queryMany(attr(fit_k4$theta, "dimnames")[["phrase"]][top_features[1,]],
+                  scopes="symbol", 
+                  fields= c("query", "name", "description"),
+                  species="mouse")
+```
+
+Orange cluster
+
+```{r}
+mygene::queryMany(attr(fit_k4$theta, "dimnames")[["phrase"]][top_features[2,]],
+                  scopes="symbol", 
+                  fields= c("query", "name", "description"),
+                  species="mouse")
+```
+
+Pink cluster
+
+```{r}
+mygene::queryMany(attr(fit_k4$theta, "dimnames")[["phrase"]][top_features[3,]],
+                  scopes="symbol", 
+                  fields= c("query", "name", "description"),
+                  species="mouse")
+```
+
+Purple cluster
+
+```{r}
+mygene::queryMany(attr(fit_k4$theta, "dimnames")[["phrase"]][top_features[4,]],
+                  scopes="symbol", 
+                  fields= c("query", "name", "description"),
+                  species="mouse")
+```
+
+## PCA and t-SNE
+
+### PCA
+
+load PCA functions
+
+```{r load-pca-functions}
+source("../R/plot-pca-functions.R")
+```
+
+48 genes analyzed in Guo et al., 2016
+
+```{r deng-48-pca}
+pca_48genes <- run_pca(expr_log2cpm_guo[, is_blastocyst])
+pca_plots_48genes <- plot_pca(
+    x = pca_48genes$PCs,
+    metadata = meta_data[is_blastocyst, ],
+    explained = pca_48genes$explained,
+    color = "cell_type",
+    factors = "cell_type")
+```
+
+### t-SNE
+
+```{r}
+library(tsne)
+tsne_48genes <- tsne(t(expr_log2cpm_guo[, is_blastocyst]), 
+#                     epoch_callback = ecb, 
+                     perplexity=50)
+tsne_48genes <- data.frame(tsne_48genes)
+colnames(tsne_48genes) <- c("dim1","dim2")
+tsne_48genes <- data.frame(tsne_48genes,
+                           cell_type = meta_data[is_blastocyst, ]$cell_type)
+
+tsne_plots_48genes <- 
+  ggplot(data = tsne_48genes,
+         mapping = aes(x = dim1, y = dim2, color = as.factor(cell_type))) +
+  geom_point() +
+  ylab("2nd dimension") + xlab("1st dimension")
+```
+
+
+### Combined plot
+
+```{r combined-visualization, fig.height=4, fig.width=9}
+cowplot::plot_grid(
+  pca_plots_48genes + ggtitle("PCA"),
+  tsne_plots_48genes + ggtitle("t-SNE"),
+  labels = c("A", "B"))
+```
+
+
+## Session information
+
+```{r, echo = FALSE, include=FALSE}
+sessionInfo()
+```
+
