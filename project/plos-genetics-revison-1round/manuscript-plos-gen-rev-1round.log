@@ -1,26 +1,14 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  24 OCT 2016 09:11
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.3.15)  19 OCT 2016 01:22
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  2 NOV 2016 11:42
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **manuscript-plos-gen-rev-1round.tex
 (./manuscript-plos-gen-rev-1round.tex
-<<<<<<< HEAD
-LaTeX2e <2016/03/31>
-Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size10.clo
-=======
-LaTeX2e <2016/02/01>
-Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/size10.clo
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -35,23 +23,6 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 ) (./header.tex
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
-Package: geometry 2010/09/12 v5.6 Page Geometry
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks14
-)
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
-)
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
-Package ifvtex Info: VTeX not detected.
-)
-(/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -68,7 +39,6 @@ Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
 (/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count87
@@ -84,24 +54,11 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/inputenc.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/inputenc.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks16
 \inpenc@posthook=\toks17
 
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/ucs/utf8x.def
-File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
-))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/ucs/ucs.sty
-Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/ucs/data/uni-global.def
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/utf8x.def
 File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
 ))
@@ -109,7 +66,6 @@ File: utf8x.def 2004/10/17 UCS: Input encoding UTF-8
 Package: ucs 2013/05/11 v2.2 UCS: Unicode input support
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/data/uni-global.def
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 File: uni-global.def 2013/05/13 UCS: Unicode global data
 )
 \uc@secondtry=\count90
@@ -117,67 +73,41 @@ File: uni-global.def 2013/05/13 UCS: Unicode global data
 \uc@combtoksb=\toks19
 \uc@temptokena=\toks20
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/03/10 v2.15b AMS math features
-\@mathmargin=\skip43
-
-For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01 AMS text
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2016/03/03 v2.15a AMS math features
+Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2000/06/29 v2.01 AMS text
+Package: amstext 2000/06/29 v2.01
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsgen.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
-File: amsgen.sty 1999/11/30 v2.0 generic functions
+File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks21
 \ex@=\dimen111
 ))
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen112
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2016/03/08 v2.02 operator names
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsbsy.sty
-Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen112
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 )
 \inf@bad=\count91
-LaTeX Info: Redefining \frac on input line 199.
+LaTeX Info: Redefining \frac on input line 210.
 \uproot@=\count92
 \leftroot@=\count93
-LaTeX Info: Redefining \overline on input line 297.
+LaTeX Info: Redefining \overline on input line 306.
 \classnum@=\count94
 \DOTSCASE@=\count95
-LaTeX Info: Redefining \ldots on input line 394.
-LaTeX Info: Redefining \dots on input line 397.
-LaTeX Info: Redefining \cdots on input line 518.
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
 \big@size=\dimen113
-<<<<<<< HEAD
-LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
-=======
-LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \macc@depth=\count96
 \c@MaxMatrixCols=\count97
 \dotsspace@=\muskip10
@@ -198,36 +128,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \multlinegap=\skip44
 \multlinetaggap=\skip45
 \mathdisplay@stack=\toks25
-<<<<<<< HEAD
-LaTeX Info: Redefining \[ on input line 2739.
-LaTeX Info: Redefining \] on input line 2740.
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-=======
-LaTeX Info: Redefining \[ on input line 2735.
-LaTeX Info: Redefining \] on input line 2736.
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/booktabs/booktabs.sty
-Package: booktabs 2016/04/27 v1.618033 publication quality tables
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 \heavyrulewidth=\dimen120
 \lightrulewidth=\dimen121
 \cmidrulewidth=\dimen122
@@ -246,24 +161,6 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@lastruleclass=\count106
 \@thisrulewidth=\dimen132
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
-Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2016/05/05 v6.83n Hypertext links for LaTeX
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
-
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
@@ -280,106 +177,84 @@ Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 Package ifluatex Info: LuaTeX not detected.
 Package hobsub Info: Skipping package `ifvtex' (already loaded).
-Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
 Package hobsub Info: Skipping package `ifpdf' (already loaded).
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
-Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
 )
-Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
-Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
 )
 Package hobsub Info: Skipping package `hobsub' (already loaded).
-Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
-Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
-Package: xcolor-patch 2016/05/16 xcolor patch
-Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
-Package: atbegshi 2016/05/16 v1.17 At begin shipout hook (HO)
-Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
-Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/auxhook.sty
-Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 )
 \@linkdim=\dimen133
 \Hy@linkcounter=\count107
 \Hy@pagecounter=\count108
 
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2016/05/05 v6.83n Hyperref: PDFDocEncoding definition (HO)
-)
-\Hy@SavedSpaceFactor=\count109
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/hyperref.cfg
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count109
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/hyperref.cfg
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4446.
-Package hyperref Info: Link nesting OFF on input line 4451.
-Package hyperref Info: Hyper index ON on input line 4454.
-Package hyperref Info: Plain pages OFF on input line 4461.
-Package hyperref Info: Backreferencing OFF on input line 4466.
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4691.
+Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count110
 
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/url/url.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/url/url.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5044.
+LaTeX Info: Redefining \url on input line 5041.
 \XeTeXLinkMargin=\dimen134
 \Fld@menulength=\count111
 \Field@Width=\dimen135
 \Fld@charsize=\dimen136
-Package hyperref Info: Hyper figures OFF on input line 6298.
-Package hyperref Info: Link nesting OFF on input line 6303.
-Package hyperref Info: Hyper index ON on input line 6306.
-Package hyperref Info: backreferencing OFF on input line 6313.
-Package hyperref Info: Link coloring OFF on input line 6318.
-Package hyperref Info: Link coloring with OCG OFF on input line 6323.
-Package hyperref Info: PDF/A mode OFF on input line 6328.
-LaTeX Info: Redefining \ref on input line 6368.
-LaTeX Info: Redefining \pageref on input line 6372.
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
 \Hy@abspage=\count112
 \c@Item=\count113
 \c@Hfootnote=\count114
@@ -387,15 +262,6 @@ LaTeX Info: Redefining \pageref on input line 6372.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2016/05/05 v6.83n Hyperref driver for pdfTeX
-\Fld@listcount=\count115
-\c@bookmark@seq@number=\count116
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 \Fld@listcount=\count115
@@ -403,65 +269,38 @@ File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip46
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 96.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/pdftex-def/pdftex.def
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 95.
+Package graphics Info: Driver file: pdftex.def on input line 94.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 \Gread@gobject=\count117
 ))
 \Gin@req@height=\dimen137
 \Gin@req@width=\dimen138
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/changepage/changepage.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/changepage/changepage.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 Package: changepage 2009/10/20 v1.0c check page and change page layout
 \c@cp@cntr=\count118
 \cp@tempcnt=\count119
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/textcomp.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/textcomp.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -476,11 +315,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
 
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ts1enc.def
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1enc.def
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 334.
@@ -547,46 +382,28 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/marvosym/marvosym.sty
-Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/fixltx2e.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/marvosym/marvosym.sty
 Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/fixltx2e.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
-Package: fixltx2e 2015/06/22 v2.0b fixes to LaTeX (obsolete)
+Package: fixltx2e 2015/02/21 v2.0a fixes to LaTeX (obsolete)
 
 
 Package fixltx2e Warning: fixltx2e is not required with releases after 2015
 (fixltx2e)                All fixes are now in the LaTeX kernel.
 (fixltx2e)                See the latexrelease package for details.
 
-<<<<<<< HEAD
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/cite/cite.sty
-=======
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/cite/cite.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 332.
 Package: cite 2015/02/27  v 5.5
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/caption/caption3.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
-Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen139
 \captionmargin@=\dimen140
 \captionwidth=\dimen141
@@ -598,26 +415,15 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \c@ContinuedFloat=\count120
 Package caption Info: hyperref package is loaded.
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/subcaption.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/caption/subcaption.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
-Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
 \c@subfigure=\count121
 \c@subtable=\count122
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/rotating/rotating.sty
-Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/rotating/rotating.sty
 Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \c@r@tfl@t=\count123
@@ -626,32 +432,13 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \rot@float@box=\box28
 \rot@mess@toks=\toks26
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2016/05/09 v1.1c Standard LaTeX Color (DPC)
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 144.
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
-
-(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
-)
-\c@section@level=\count124
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/lineno/lineno.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2016/01/03 v1.1b Standard LaTeX Color (DPC)
+Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: pdftex.def on input line 143.
+Package color Info: Driver file: pdftex.def on input line 142.
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -662,7 +449,6 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 \c@section@level=\count124
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lineno/lineno.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \linenopenalty=\count125
 \output=\toks27
@@ -680,59 +466,35 @@ Package: lineno 2005/11/02 line numbers on paragraphs v4.41
 \bframebox=\box29
 LaTeX Info: Redefining \\ on input line 3056.
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/microtype.sty
-Package: microtype 2016/05/14 v2.6a Micro-typographical refinements (RS)
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/microtype.sty
 Package: microtype 2013/05/23 v2.5a Micro-typographical refinements (RS)
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 \MT@toks=\toks28
 \MT@count=\count132
-LaTeX Info: Redefining \textls on input line 774.
+LaTeX Info: Redefining \textls on input line 766.
 \MT@outer@kern=\dimen151
-LaTeX Info: Redefining \textmicrotypecontext on input line 1310.
+LaTeX Info: Redefining \textmicrotypecontext on input line 1285.
 \MT@listname@count=\count133
 
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2016/05/14 v2.6a Definitions specific to pdftex (RS)
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2013/05/23 v2.5a Definitions specific to pdftex (RS)
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 
-LaTeX Info: Redefining \lsstyle on input line 916.
-LaTeX Info: Redefining \lslig on input line 916.
+LaTeX Info: Redefining \lsstyle on input line 915.
+LaTeX Info: Redefining \lslig on input line 915.
 \MT@outer@space=\skip49
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2016/05/14 v2.6a microtype main configuration file (RS)
-))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/enumerate.sty
-Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
-\@enLab=\toks29
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/multirow/multirow.sty
-\bigstrutjot=\dimen152
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xr.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/microtype.cfg
 File: microtype.cfg 2013/05/23 v2.5a microtype main configuration file (RS)
 ))
 (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/enumerate.sty
-Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+Package: enumerate 2014/10/28 v3.00 enumerate extensions (DPC)
 \@enLab=\toks29
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen152
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/xr.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 )
 \c@algorithm=\count134
@@ -744,17 +506,10 @@ Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 \c@note=\count140
 \c@definition=\count141
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/lastpage/lastpage.sty
-Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 \fancy@headwidth=\skip50
 \f@ncyO@elh=\skip51
 \f@ncyO@erh=\skip52
@@ -765,16 +520,6 @@ Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 \f@ncyO@olf=\skip57
 \f@ncyO@orf=\skip58
 )
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf.sty
-Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf.sty
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 
@@ -783,29 +528,18 @@ Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 )
 Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
+(grfext)             \AppendGraphicsExtensions on input line 452.
 
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )))
 (./manuscript-plos-gen-rev-1round.aux
 
-<<<<<<< HEAD
-LaTeX Warning: Label `figS7' multiply defined.
-
-
-LaTeX Warning: Label `figS7' multiply defined.
-=======
 LaTeX Warning: Label `figS15' multiply defined.
 
 
@@ -813,7 +547,6 @@ LaTeX Warning: Label `supptab3' multiply defined.
 
 
 LaTeX Warning: Label `Guo2010' multiply defined.
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 
 )
 \openout1 = `manuscript-plos-gen-rev-1round.aux'.
@@ -834,11 +567,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
 LaTeX Font Info:    ... okay on input line 27.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 27.
-<<<<<<< HEAD
- (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ts1cmr.fd
-=======
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 27.
@@ -877,11 +606,7 @@ LaTeX Font Info:    ... okay on input line 27.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/ucs/ucsencs.def
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/ucs/ucsencs.def
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 \AtBeginShipoutBox=\box30
@@ -895,11 +620,7 @@ LaTeX Info: Redefining \nameref on input line 27.
 \openout3 = `manuscript-plos-gen-rev-1round.out'.
 
 
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count142
 \scratchdimen=\dimen153
@@ -926,11 +647,7 @@ Package microtype Info: Using default expansion set `basictext'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
-<<<<<<< HEAD
- (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-cmr.cfg
-=======
  (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-cmr.cfg
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
@@ -939,32 +656,18 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             ! on input line 27.
 LaTeX Font Info:    Try loading font information for U+msa on input line 40.
 
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msa.cfg
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-msa.cfg
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 40.
 
-<<<<<<< HEAD
-(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msb.cfg
-=======
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (/usr/local/texlive/2015/texmf-dist/tex/latex/microtype/mt-msb.cfg
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 Package microtype Info: Loading generic settings for font family
@@ -976,13 +679,13 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
 (epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 
@@ -995,20 +698,16 @@ e 81.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [1
 
-<<<<<<< HEAD
-{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./PLOS-
-=======
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./PLOS-
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 submission-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
 (epstopdf)             \includegraphics on input line 127.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
@@ -1018,690 +717,681 @@ Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
 e 127.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [2]
+
+LaTeX Warning: Reference `fig:' on page 3 undefined on input line 184.
+
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 181.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 185.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
-
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 181.
+e 185.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [3]
+
+LaTeX Warning: Reference `' on page 4 undefined on input line 190.
+
+
+LaTeX Warning: Reference `' on page 4 undefined on input line 192.
+
+
+LaTeX Warning: Reference `' on page 4 undefined on input line 192.
+
+
+LaTeX Warning: Reference `' on page 4 undefined on input line 193.
+
+
+LaTeX Warning: Reference `' on page 4 undefined on input line 194.
+
+
+LaTeX Warning: Citation `yoav' on page 4 undefined on input line 202.
+
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 223.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 211.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
-
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 223.
+e 211.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [4]
+
+LaTeX Warning: Reference `' on page 5 undefined on input line 217.
+
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 245.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 274.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
-
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 245.
+e 274.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [5]
-<<<<<<< HEAD
-=======
-
-LaTeX Warning: Reference `figS14' on page 6 undefined on input line 277.
-
-
-LaTeX Warning: Reference `supptab4' on page 6 undefined on input line 277.
-
-
-LaTeX Warning: Reference `figS14' on page 6 undefined on input line 277.
-
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 278.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 302.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 278.
+e 302.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [6]
 
-<<<<<<< HEAD
-LaTeX Warning: Reference `S13' on page 7 undefined on input line 287.
-=======
-LaTeX Warning: Reference `S13' on page 7 undefined on input line 292.
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+LaTeX Warning: Citation `rossant.tam.2009' on page 7 undefined on input line 33
+0.
 
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 295.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 336.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 295.
+e 336.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [7]
 
-<<<<<<< HEAD
-LaTeX Warning: Reference `S8' on page 8 undefined on input line 297.
-=======
-LaTeX Warning: Reference `S8' on page 8 undefined on input line 302.
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+LaTeX Warning: Citation `deng.etal' on page 8 undefined on input line 337.
+
+
+LaTeX Warning: Reference `supp' on page 8 undefined on input line 339.
+
+
+LaTeX Warning: Reference `fig:PCA-48genes' on page 8 undefined on input line 34
+1.
+
+
+LaTeX Warning: Reference `' on page 8 undefined on input line 343.
+
+
+LaTeX Warning: Citation `deng.etal' on page 8 undefined on input line 344.
 
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 317.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 379.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 317.
+e 379.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [8]
+
+LaTeX Warning: Reference `S8' on page 9 undefined on input line 382.
+
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 363.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 423.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
-
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 363.
+e 423.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [9]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 469.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 463.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 469.
+e 463.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [10]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 497.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 572.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 497.
+e 572.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [11]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 547.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 606.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 547.
+e 606.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [12]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 583.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 642.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 583.
+e 642.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
  [13]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 629.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 692.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 629.
+e 692.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
-<<<<<<< HEAD
- [14
-=======
  [14]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 764.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 709.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 764.
+e 709.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
- [15
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+ [15]
+Package epstopdf Info: Source file: <PLOS-submission.eps>
+(epstopdf)                    date: 2016-09-21 09:10:43
+(epstopdf)                    size: 283246 bytes
+(epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
+(epstopdf)                    date: 2016-09-21 09:10:43
+(epstopdf)                    size: 15452 bytes
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 844.
+Package epstopdf Info: Output file is already uptodate.
+File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
+
+<use PLOS-submission-eps-converted-to.pdf>
+Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
+e 844.
+(pdftex.def)             Requested size: 144.54pt x 23.42201pt.
+ [16
 
 ]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 873.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 953.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 873.
+e 953.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
-<<<<<<< HEAD
- [15]
-=======
- [16]
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+ [17]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 952.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 1032.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 952.
+e 1032.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
-<<<<<<< HEAD
- [16]
-=======
- [17]pdfTeX warning (ext4): destination with the same identifier (name{cite.Guo
+ [18]pdfTeX warning (ext4): destination with the same identifier (name{cite.Guo
 2010}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.968  \bibitem{Guo2010}
-                        
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+l.1048  \bibitem{Guo2010}
+                         
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 1011.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 1091.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
-
-<use PLOS-submission-eps-converted-to.pdf>
+ <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 1011.
+e 1091.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
-<<<<<<< HEAD
- [17]
-Underfull \hbox (badness 1454) in paragraph at lines 971--971
-=======
- [18]
-Underfull \hbox (badness 1454) in paragraph at lines 1022--1022
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+ [19]
+Underfull \hbox (badness 1454) in paragraph at lines 1102--1102
 []\OT1/cmr/m/n/8 (+20) GO:0005654 (nucleoplasm)[2e-10], GO:0044822 (poly-A RNA 
 binding)[3e-09],
  []
 
 
-Underfull \hbox (badness 1163) in paragraph at lines 1023--1023
+Underfull \hbox (badness 1163) in paragraph at lines 1103--1103
 []\OT1/cmr/m/n/8 (+20) GO:0097458 (neu-ron part)[2e-25], GO:0007268 (synap-tic 
 transmission)[9e-18],
  []
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 1023--1023
+Underfull \hbox (badness 1259) in paragraph at lines 1103--1103
 \OT1/cmr/m/n/8 (+20) GO:0030182 (neu-ron differentiation)[2e-14], GO:0022008 (n
 eurogenesis)[1e-13],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1024--1024
+Underfull \hbox (badness 10000) in paragraph at lines 1104--1104
 []\OT1/cmr/m/it/8 (+20) FABP4, PLIN1, FASN,
  []
 
 
-Underfull \hbox (badness 1478) in paragraph at lines 1024--1024
+Underfull \hbox (badness 1478) in paragraph at lines 1104--1104
 \OT1/cmr/m/n/8 (+20) 09], GO:0006639 (acyl-glyc-erol metabolism)[3e-08], GO:004
 5765 (an-gio-gen-e-sis
  []
 
 
-Underfull \hbox (badness 3148) in paragraph at lines 1025--1025
+Underfull \hbox (badness 3148) in paragraph at lines 1105--1105
 []\OT1/cmr/m/it/8 (+20) ACTG2, MYH11, SYNM,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1026--1026
+Underfull \hbox (badness 10000) in paragraph at lines 1106--1106
 []\OT1/cmr/m/it/8 (+20) RGS5, MGP, AEBP1,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1028--1028
+Underfull \hbox (badness 10000) in paragraph at lines 1108--1108
 []\OT1/cmr/m/it/8 (+20) NEB, MYH1, MYH2,
  []
 
 
-Underfull \hbox (badness 4060) in paragraph at lines 1029--1029
+Underfull \hbox (badness 4060) in paragraph at lines 1109--1109
 []\OT1/cmr/m/it/8 (+20) FN1, COL1A1, COL1A2,
  []
 
 
-Underfull \hbox (badness 2932) in paragraph at lines 1029--1029
+Underfull \hbox (badness 2932) in paragraph at lines 1109--1109
 \OT1/cmr/m/n/8 (+20) 29], GO:0032963 (col-la-gen metabolism)[3e-16], GO:0030199
  (col-la-gen fib-ril
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1030--1030
+Underfull \hbox (badness 10000) in paragraph at lines 1110--1110
 []\OT1/cmr/m/it/8 (+20) MBP, GFAP, MTURN,
  []
 
 
-Underfull \hbox (badness 8038) in paragraph at lines 1032--1032
+Underfull \hbox (badness 8038) in paragraph at lines 1112--1112
 \OT1/cmr/m/n/8 (+20) 07], GO:0042552 (myelination)[7e-06], GO:0048856 (anatom-i
 -cal struc-ture
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1033--1033
+Underfull \hbox (badness 10000) in paragraph at lines 1113--1113
 []\OT1/cmr/m/it/8 (+20) IGHM, IGHG1, IGHG2,
  []
 
 
-Underfull \hbox (badness 7116) in paragraph at lines 1034--1034
+Underfull \hbox (badness 7116) in paragraph at lines 1114--1114
 []\OT1/cmr/m/it/8 (+20) TG, PRL, GH1, PRM2,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1035--1035
+Underfull \hbox (badness 10000) in paragraph at lines 1115--1115
 []\OT1/cmr/m/it/8 (+20) NPPA, MYH6, TNNT2,
  []
 
 
-Underfull \hbox (badness 5217) in paragraph at lines 1035--1035
+Underfull \hbox (badness 5217) in paragraph at lines 1115--1115
 []\OT1/cmr/m/n/8 (+20) GO:0045333 (cel-lu-lar respiration)[2e-34], GO:0022904 (
 res-pi-ra-tory elec-tron
  []
 
 
-Underfull \hbox (badness 3635) in paragraph at lines 1035--1035
+Underfull \hbox (badness 3635) in paragraph at lines 1115--1115
 \OT1/cmr/m/n/8 (+20) transport)[8e-33], GO:0015980 (en-ergy deriva-tion by ox-i
 -da-tion of or-ganic
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1036--1036
+Underfull \hbox (badness 10000) in paragraph at lines 1116--1116
 []\OT1/cmr/m/it/8 (+20) KRT13, KRT4, MUC7,
  []
 
 
-Underfull \hbox (badness 2582) in paragraph at lines 1037--1037
+Underfull \hbox (badness 2582) in paragraph at lines 1117--1117
 []\OT1/cmr/m/n/8 (+20) GO:0001525 (angiogenesis)[5e-08], GO:0001944 (vas-cu-la-
 ture development)[2e-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1038--1038
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1118
 []\OT1/cmr/m/it/8 (+20) CSF3R, MMP25, IL1R2,
  []
 
 
-Underfull \hbox (badness 1014) in paragraph at lines 1038--1038
+Underfull \hbox (badness 1014) in paragraph at lines 1118--1118
 []\OT1/cmr/m/n/8 (+20) GO:0006955 (im-mune response)[8e-22], GO:0006952 (de-fen
 se response)[9e-16],
  []
 
 
-Underfull \hbox (badness 3058) in paragraph at lines 1038--1038
+Underfull \hbox (badness 3058) in paragraph at lines 1118--1118
 \OT1/cmr/m/n/8 (+20) GO:0071944 (cell periphery)[7e-15], GO:0005886 (plasma mem
 brane)[7e-15],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1039--1039
+Underfull \hbox (badness 10000) in paragraph at lines 1119--1119
 []\OT1/cmr/m/it/8 (+20) PRSS1, CPA1, PN-LIP,
  []
 
 
-Underfull \hbox (badness 1577) in paragraph at lines 1039--1039
+Underfull \hbox (badness 1577) in paragraph at lines 1119--1119
 \OT1/cmr/m/n/8 (+20) 08], GO:0006508 (proteolysis)[6e-06], GO:0016787 (hy-dro-l
 ase activity)[6e-05],
  []
 
 
-Underfull \hbox (badness 1062) in paragraph at lines 1040--1040
+Underfull \hbox (badness 1062) in paragraph at lines 1120--1120
 \OT1/cmr/m/n/8 (+20) GO:0020037 (heme binding)[3e-07], GO:0031720 (hap-toglobin
  binding)[3e-06],
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1041--1041
+Underfull \hbox (badness 10000) in paragraph at lines 1121--1121
 []\OT1/cmr/m/it/8 (+20) ALB, HP, FGB, FGA,
  []
 
 
-Overfull \hbox (3.47871pt too wide) in paragraph at lines 1018--1043
+Overfull \hbox (3.47871pt too wide) in paragraph at lines 1098--1123
  [] 
  []
 
 
-LaTeX Warning: Float too large for page by 103.08597pt on input line 1044.
+LaTeX Warning: Float too large for page by 103.08597pt on input line 1124.
 
 
-Underfull \hbox (badness 1092) in paragraph at lines 1060--1060
+Underfull \hbox (badness 1092) in paragraph at lines 1140--1140
 []\OT1/cmr/m/it/8 (+20) ENC1, NCALD, YWHAH,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1062--1062
+Underfull \hbox (badness 10000) in paragraph at lines 1142--1142
 []\OT1/cmr/m/it/8 (+20) PKD1, CBLN3, CHGB,
  []
 
 
-Underfull \hbox (badness 2334) in paragraph at lines 1066--1067
+Underfull \hbox (badness 2334) in paragraph at lines 1146--1147
 \OT1/cmr/m/n/8 (+20) (en-sheath-ment of neu-rons), GO:0048471 (per-in-u-clear r
 e-gion of cy-to-plasm),
  []
 
 
-Overfull \hbox (3.47871pt too wide) in paragraph at lines 1054--1071
+Overfull \hbox (3.47871pt too wide) in paragraph at lines 1134--1151
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1087--1087
+Underfull \hbox (badness 10000) in paragraph at lines 1167--1167
 []\OT1/cmr/m/it/8 (+20) Bcl2l10\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) E33
 0034G19Rik\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 1087--1087
+Underfull \hbox (badness 1147) in paragraph at lines 1167--1167
 \OT1/cmr/m/it/8 (+20) AU022751\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Spin
 1\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Khdc1b\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1089--1090
+Underfull \hbox (badness 10000) in paragraph at lines 1169--1170
 []\OT1/cmr/m/it/8 (+20) Obox3\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Zfp35
 2\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Gm8300\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1092--1092
+Underfull \hbox (badness 10000) in paragraph at lines 1172--1172
 []\OT1/cmr/m/it/8 (+20) Rtn2\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Ebna1b
 p2\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Zfp259\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1095--1096
+Underfull \hbox (badness 10000) in paragraph at lines 1175--1176
 []\OT1/cmr/m/it/8 (+20) Timd2\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Isyna
 1\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Alppl2\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 5847) in paragraph at lines 1095--1096
+Underfull \hbox (badness 5847) in paragraph at lines 1175--1176
 \OT1/cmr/m/it/8 (+20) Prame15\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Fbxo1
 5\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Tceb1\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1095--1096
+Underfull \hbox (badness 10000) in paragraph at lines 1175--1176
 \OT1/cmr/m/it/8 (+20) Gpd1l\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Pemt\OT
 1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Hsp90aa1\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 4096) in paragraph at lines 1098--1099
+Underfull \hbox (badness 4096) in paragraph at lines 1178--1179
 \OT1/cmr/m/it/8 (+20) Tat\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Pdgfra\OT
 1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Pyy\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/
 it/8 (+20) Prdx1\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Underfull \hbox (badness 5105) in paragraph at lines 1099--1100
+Underfull \hbox (badness 5105) in paragraph at lines 1179--1180
 []\OT1/cmr/m/n/8 (+20) GO:0070062 (ex-tra-cel-lu-lar ex-o-some), GO:0043230 (ex
 -tra-cel-lu-lar or-ganelle),
  []
 
 
-Underfull \hbox (badness 3849) in paragraph at lines 1101--1103
+Underfull \hbox (badness 3849) in paragraph at lines 1181--1183
 []\OT1/cmr/m/it/8 (+20) Actb\OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Krt18\
 OT1/cmr/m/n/8 (+20) , \OT1/cmr/m/it/8 (+20) Fabp3\OT1/cmr/m/n/8 (+20) , \OT1/cm
 r/m/it/8 (+20) Id2\OT1/cmr/m/n/8 (+20) ,
  []
 
 
-Overfull \hbox (3.47871pt too wide) in paragraph at lines 1083--1106
+Overfull \hbox (3.47871pt too wide) in paragraph at lines 1163--1186
  [] 
  []
 
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 1109.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 1189.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 1109.
+e 1189.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
-<<<<<<< HEAD
- [18]
-=======
- [19]
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+ [20]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 1109.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 1189.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 1109.
+e 1189.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
-<<<<<<< HEAD
- [19]
-<../plots/gtex-figures/gtex-k20-05-01-2016.pdf, id=358, 770.88pt x 1027.84pt>
-=======
- [20]
-<../plots/gtex-figures/gtex-k20-05-01-2016.pdf, id=371, 770.88pt x 1027.84pt>
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+ [21]
+<../plots/gtex-figures/gtex-k20-05-01-2016.pdf, id=374, 770.88pt x 1027.84pt>
 File: ../plots/gtex-figures/gtex-k20-05-01-2016.pdf Graphic file (type pdf)
 
 <use ../plots/gtex-figures/gtex-k20-05-01-2016.pdf>
 Package pdftex.def Info: ../plots/gtex-figures/gtex-k20-05-01-2016.pdf used on 
-input line 1113.
+input line 1193.
 (pdftex.def)             Requested size: 397.48402pt x 505.88876pt.
 
-Overfull \hbox (18.06653pt too wide) in paragraph at lines 1113--1114
+Overfull \hbox (18.06653pt too wide) in paragraph at lines 1193--1194
 [][] 
  []
 
-<<<<<<< HEAD
-<../plots/hierarchy_F_thin_0_1.png, id=359, 481.8pt x 481.8pt>
-=======
-<../plots/hierarchy_F_thin_0_1.png, id=372, 481.8pt x 481.8pt>
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+<../plots/hierarchy_F_thin_0_1.png, id=375, 481.8pt x 481.8pt>
 File: ../plots/hierarchy_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/hierarchy_F_thin_0_1.png>
 Package pdftex.def Info: ../plots/hierarchy_F_thin_0_1.png used on input line 1
-123.
+203.
 (pdftex.def)             Requested size: 252.94142pt x 252.94499pt.
 
-Overfull \hbox (63.23268pt too wide) in paragraph at lines 1123--1124
+Overfull \hbox (63.23268pt too wide) in paragraph at lines 1203--1204
  [][] 
  []
 
-<<<<<<< HEAD
-<../plots/admixture_F_thin_0_1.png, id=361, 481.8pt x 481.8pt>
-=======
-<../plots/admixture_F_thin_0_1.png, id=374, 481.8pt x 481.8pt>
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+<../plots/admixture_F_thin_0_1.png, id=377, 481.8pt x 481.8pt>
 File: ../plots/admixture_F_thin_0_1.png Graphic file (type png)
 
 <use ../plots/admixture_F_thin_0_1.png>
 Package pdftex.def Info: ../plots/admixture_F_thin_0_1.png used on input line 1
-129.
+209.
 (pdftex.def)             Requested size: 252.94142pt x 252.94499pt.
 
-Overfull \hbox (63.23268pt too wide) in paragraph at lines 1129--1130
+Overfull \hbox (63.23268pt too wide) in paragraph at lines 1209--1210
  [][] 
  []
 
 
-Overfull \hbox (4.44441pt too wide) in paragraph at lines 1121--1131
+Overfull \hbox (4.44441pt too wide) in paragraph at lines 1201--1211
  [][]  [] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<<<<<<< HEAD
-<../plots/jaitin-figures/jaitin-main2.pdf, id=362, 794.97pt x 614.295pt>
-=======
-<../plots/jaitin-figures/jaitin-main2.pdf, id=375, 794.97pt x 614.295pt>
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+<../plots/jaitin-figures/jaitin-main2.pdf, id=378, 794.97pt x 614.295pt>
 File: ../plots/jaitin-figures/jaitin-main2.pdf Graphic file (type pdf)
 
 <use ../plots/jaitin-figures/jaitin-main2.pdf>
 Package pdftex.def Info: ../plots/jaitin-figures/jaitin-main2.pdf used on input
- line 1139.
+ line 1219.
 (pdftex.def)             Requested size: 397.49615pt x 433.62169pt.
 
-Overfull \hbox (18.07866pt too wide) in paragraph at lines 1139--1140
+Overfull \hbox (18.07866pt too wide) in paragraph at lines 1219--1220
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<<<<<<< HEAD
-<../plots/deng-figures/deng-main-v4.pdf, id=364, 770.88pt x 1027.84pt>
-=======
-<../plots/deng-figures/deng-main-v4.pdf, id=377, 770.88pt x 1027.84pt>
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+<../plots/deng-figures/deng-main-v4.pdf, id=380, 770.88pt x 1027.84pt>
 File: ../plots/deng-figures/deng-main-v4.pdf Graphic file (type pdf)
 
 <use ../plots/deng-figures/deng-main-v4.pdf>
 Package pdftex.def Info: ../plots/deng-figures/deng-main-v4.pdf used on input l
-ine 1147.
+ine 1227.
 (pdftex.def)             Requested size: 397.48402pt x 505.88876pt.
 
-Overfull \hbox (18.06653pt too wide) in paragraph at lines 1147--1151
+Overfull \hbox (18.06653pt too wide) in paragraph at lines 1227--1231
  [][] 
  []
 
@@ -1711,99 +1401,78 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 AED: lastpage setting LastPage
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 1167.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 1247.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 1167.
+e 1247.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
-<<<<<<< HEAD
- [20
-=======
- [21
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+ [22
 
 
  <../plots/gtex-figures/gtex-k20-05-01-2016.pdf>]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 1167.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 1247.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
  <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 1167.
+e 1247.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
-<<<<<<< HEAD
- [21 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>]
-=======
- [22 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>]
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+ [23 <../plots/hierarchy_F_thin_0_1.png> <../plots/admixture_F_thin_0_1.png>]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 1167.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 1247.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
 
 <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 1167.
+e 1247.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
-<<<<<<< HEAD
- [22 <../plots/jaitin-figures/jaitin-main2.pdf>]
-=======
- [23 <../plots/jaitin-figures/jaitin-main2.pdf>]
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+ [24 <../plots/jaitin-figures/jaitin-main2.pdf>]
 Package epstopdf Info: Source file: <PLOS-submission.eps>
-(epstopdf)                    date: 2015-04-28 14:38:38
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 283246 bytes
 (epstopdf)             Output file: <PLOS-submission-eps-converted-to.pdf>
-(epstopdf)                    date: 2016-09-10 17:12:19
+(epstopdf)                    date: 2016-09-21 09:10:43
 (epstopdf)                    size: 15452 bytes
-(epstopdf)             Command: <repstopdf --outfile=PLOS-submission-eps-conver
-ted-to.pdf PLOS-submission.eps>
-(epstopdf)             \includegraphics on input line 1167.
+(epstopdf)             Command: <epstopdf --outfile=PLOS-submission-eps-convert
+ed-to.pdf PLOS-submission.eps>
+(epstopdf)             \includegraphics on input line 1247.
 Package epstopdf Info: Output file is already uptodate.
 File: PLOS-submission-eps-converted-to.pdf Graphic file (type pdf)
  <use PLOS-submission-eps-converted-to.pdf>
 Package pdftex.def Info: PLOS-submission-eps-converted-to.pdf used on input lin
-e 1167.
+e 1247.
 (pdftex.def)             Requested size: 144.54pt x 23.42201pt.
-<<<<<<< HEAD
- [23 <../plots/deng-figures/deng-main-v4.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1116.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1116.
+ [25 <../plots/deng-figures/deng-main-v4.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1247.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1247.
  (./manuscript-plos-gen-rev-1round.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1116.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1116.
-=======
- [24 <../plots/deng-figures/deng-main-v4.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1167.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1167.
- (./manuscript-plos-gen-rev-1round.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1167.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1167.
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1247.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1247.
 
 Package rerunfilecheck Info: File `manuscript-plos-gen-rev-1round.out' has not 
 changed.
@@ -1815,50 +1484,16 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1167.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1247.
  ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 11159 strings out of 493014
- 170461 string characters out of 6133351
- 320476 words of memory out of 5000000
- 14238 multiletter control sequences out of 15000+600000
- 16880 words of font info for 119 fonts, out of 8000000 for 9000
+ 11109 strings out of 493089
+ 169084 string characters out of 6134842
+ 318724 words of memory out of 5000000
+ 14119 multiletter control sequences out of 15000+600000
+ 16988 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,15n,43p,1884b,507s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
-local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2016/texmf
--dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on manuscript-plos-gen-rev-1round.pdf (23 pages, 1121996 bytes).
-
-PDF statistics:
- 625 PDF objects out of 1000 (max. 8388607)
- 522 compressed objects within 6 object streams
- 129 named destinations out of 1000 (max. 500000)
-=======
- 11127 strings out of 493033
- 169384 string characters out of 6134139
- 319403 words of memory out of 5000000
- 14191 multiletter control sequences out of 15000+600000
- 16880 words of font info for 119 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 38i,16n,43p,1884b,507s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,16n,43p,1606b,503s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -1878,12 +1513,11 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2015/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on manuscript-plos-gen-rev-1round.pdf (24 pages, 1126772 bytes).
+Output written on manuscript-plos-gen-rev-1round.pdf (25 pages, 1128818 bytes).
 
 PDF statistics:
- 639 PDF objects out of 1000 (max. 8388607)
- 535 compressed objects within 6 object streams
- 138 named destinations out of 1000 (max. 500000)
->>>>>>> a629602a1e338c3775994bc39903aaefb317e0a5
+ 644 PDF objects out of 1000 (max. 8388607)
+ 539 compressed objects within 6 object streams
+ 139 named destinations out of 1000 (max. 500000)
  19487 words of extra memory for PDF output out of 20736 (max. 10000000)
 
