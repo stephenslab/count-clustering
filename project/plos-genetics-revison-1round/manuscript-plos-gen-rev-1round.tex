@@ -162,7 +162,7 @@ as a stacked barchart, with bars of different colors representing  different clu
 %\end{figure}
 
 To help biologically interpret the clusters inferred by the GoM model we also implemented methods to identify, for each cluster, which genes
-are most distinctively differentially expressed in that cluster (see Methods). Functions for fitting the GoM model, plotting the
+are most distinctively differentially expressed in that cluster; that is, which genes show the biggest difference in expression compared with the most similar other cluster (see Methods). Functions for fitting the GoM model, plotting the
 structure plots, and identifying the distinctive (``driving") genes in each cluster, are included in our R package {\tt CountClust} \cite{Dey2016} available through Bioconductor \cite{Gentleman2003}.
 
 %%%%%%%%%%%%%%%%%%%
@@ -198,7 +198,7 @@ Some tissues are represented by essentially a single cluster/color (e.g.~Pancrea
 whereas other tissues are represented as a mixture of multiple clusters (e.g.~Thyroid, Spleen).
 Furthermore, the GoM results highlight biological similarity among some tissues by assigning similar membership proportions to samples from those tissues.  For example, samples from several different parts of the brain often have similar memberships, as do the arteries (aorta, tibial and coronary) and skin samples (sun-exposed and un-exposed).
 
-Although it is not suprising that samples cluster by tissue, other results could have occurred. For example,
+Although it is not surprising that samples cluster by tissue, other results could have occurred. For example,
 samples could have clustered according to technical variables, such as sequencing batch  \cite{yoav} or sample collection center. 
 While our results do not exclude the possibility that technical variables could have influenced these data, 
 the $t$-SNE and GoM results clearly demonstrate that tissue of origin is the primary source of heterogeneity,
@@ -297,7 +297,7 @@ by strong membership in both the blue and yellow clusters (2 and 6). Some adjace
 %\end{figure}
 
 
-The fact that batch effects are detectable in these data is not particularly surprising: there is a growing recognition of the importance of batch effects in high-throughput data generally \cite{Leek2010} and in single cell data specifically \cite{Hicks2015}. And indeed, both clustering methods and the GoM model can be viewed as dimension reduction methods, and such methods can be helpful in controlling for batch effects \cite{Leek2007, Stegle2012}. However, why these batch effects are not evident in Fig~2A and 2B of \cite{Jaitin2014} is unclear. 
+The fact that batch effects are detectable in these data is not particularly surprising: there is a growing recognition of the importance of batch effects in high-throughput data generally \cite{Leek2010, Danielsson2015} and in single cell data specifically \cite{Hicks2015, Gilad2015}. And indeed, both clustering methods and the GoM model can be viewed as dimension reduction methods, and such methods can be helpful in controlling for batch effects \cite{Leek2007, Stegle2012}. However, why these batch effects are not evident in Fig~2A and 2B of \cite{Jaitin2014} is unclear. 
 
 
 \subsubsection*{Mouse preimplantation embryo data from Deng \text{et al}, 2014}
@@ -909,10 +909,22 @@ Leek JT,  Scharpf RB,  Bravo HC,  Simcha D,  Langmead B,  Johnson WE,  Geman D, 
 Tackling the widespread and critical impact of batch effects in high-throughput data.
 \textit{Nature Reviews Genetics}. 11, 733-739.
 
+\bibitem{Danielsson2015}
+Danielsson F and James T and Gomez-Cabrero D and Huss  M. 2015.
+Assessing the consistency of public human tissue RNA-seq data sets.
+\textit{Briefings in Bioinformatics}.  doi :10.1093/bib/bbv017
+
+
 \bibitem{Hicks2015}
 Hicks SC, Teng M, Irizarry RA. 2015.
 On the widespread and critical impact of systematic bias and batch effects in single-cell RNA-Seq data.
 \textit{BiorXiv}. http://biorxiv.org/content/early/2015/09/04/025528
+
+\bibitem{Gilad2015}
+Gilad Y and Mizrahi-Man O. 2015.
+A reanalysis of mouse ENCODE comparative gene expression data [version 1; referees: 3 approved, 1 approved with reservations]. 
+\textit{F1000Research}. 4:121 (doi: 10.12688/f1000research.6536.1).
+
 
 %\bibitem{Houzel2005}
 %Herculano-Houzel S and Lent R.
