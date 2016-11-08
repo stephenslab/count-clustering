@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  29 OCT 2016 11:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  8 NOV 2016 14:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -505,7 +505,8 @@ Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 \c@result=\count139
 \c@note=\count140
 \c@definition=\count141
-) (./S16_Fig.aux)
+)
+No file S16_Fig.aux.
 \openout1 = `S16_Fig.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
@@ -524,7 +525,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 16.
-
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
@@ -624,39 +624,48 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-<../../plots/dendextend_gtex_circle.pdf, id=4, 505.89pt x 505.89pt>
-File: ../../plots/dendextend_gtex_circle.pdf Graphic file (type pdf)
+<../../plots/deng-figures/sfa_deng_figs.pdf, id=4, 1027.84pt x 770.88pt>
+File: ../../plots/deng-figures/sfa_deng_figs.pdf Graphic file (type pdf)
 
-<use ../../plots/dendextend_gtex_circle.pdf>
-Package pdftex.def Info: ../../plots/dendextend_gtex_circle.pdf used on input l
-ine 24.
-(pdftex.def)             Requested size: 433.62885pt x 455.31221pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 27.
- [1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+<use ../../plots/deng-figures/sfa_deng_figs.pdf>
+Package pdftex.def Info: ../../plots/deng-figures/sfa_deng_figs.pdf used on inp
+ut line 26.
+(pdftex.def)             Requested size: 505.88876pt x 455.29753pt.
 
- <../../plots/dendextend_gtex_circle.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 27.
+Overfull \hbox (50.64468pt too wide) in paragraph at lines 26--27
+ [][] 
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 29.
+[1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+ <../../plots/deng-figures/sfa_deng_figs.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 29.
  (./S16_Fig.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 27.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 27.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 29.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 29.
 Package rerunfilecheck Info: File `S16_Fig.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 27.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 29.
  ) 
 Here is how much of TeX's memory you used:
  10498 strings out of 493014
- 161357 string characters out of 6133351
- 286227 words of memory out of 5000000
+ 161369 string characters out of 6133351
+ 286182 words of memory out of 5000000
  13899 multiletter control sequences out of 15000+600000
- 4611 words of font info for 20 fonts, out of 8000000 for 9000
+ 4662 words of font info for 21 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,7n,38p,378b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,6n,38p,398b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-Output written on S16_Fig.pdf (1 page, 481692 bytes).
+Output written on S16_Fig.pdf (1 page, 151297 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
+ 56 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  4 named destinations out of 1000 (max. 500000)
  4614 words of extra memory for PDF output out of 10000 (max. 10000000)
 
