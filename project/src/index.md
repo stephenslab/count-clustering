@@ -9,3 +9,5 @@ This table of content was created for the repository count-clustering/project/sr
     * [Expression heatmaps](deng-digging-gom.html)
     * [GoM model application](deng-digging-guo-genes.html)
     * [Finalizing...](deng-digging-final.html)
+
+* [We repeated the analysis for when excluding *Actb*.](deng-digging-final-47genes.html)
