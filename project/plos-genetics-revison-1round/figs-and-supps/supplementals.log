@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  8 NOV 2016 14:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  8 NOV 2016 15:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -595,7 +595,11 @@ Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 \c@note=\count144
 \c@definition=\count145
 )
-(./supplementals.aux)
+(./supplementals.aux
+
+LaTeX Warning: Label `figS3' multiply defined.
+
+)
 \openout1 = `supplementals.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
@@ -614,8 +618,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 18.
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 18.
@@ -713,9 +716,10 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-(./S1_Fig.tex
+(./S1_Fig_new.tex
 LaTeX Font Info:    Try loading font information for U+msa on input line 20.
- (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/mt-msa.cfg
@@ -745,9 +749,46 @@ Overfull \hbox (14.50977pt too wide) in paragraph at lines 23--24
 ) [1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-[2 <../../plots/gtex-figures/gtex-multiple-ks-04-30-2016.pdf>] (./S2_Fig.tex
-<../../plots/gtex-figures/gtex_thinned_04_25_2016.pdf, id=57, 770.88pt x 1027.8
-4pt>
+[2 <../../plots/gtex-figures/gtex-multiple-ks-04-30-2016.pdf>]
+(./S2_Fig_new.tex
+<../../plots/gtex-figures/gtex-high-pcs.pdf, id=57, 1027.84pt x 770.88pt>
+File: ../../plots/gtex-figures/gtex-high-pcs.pdf Graphic file (type pdf)
+
+<use ../../plots/gtex-figures/gtex-high-pcs.pdf>
+Package pdftex.def Info: ../../plots/gtex-figures/gtex-high-pcs.pdf used on inp
+ut line 24.
+(pdftex.def)             Requested size: 433.61894pt x 361.34912pt.
+) [3
+
+ <../../plots/gtex-figures/gtex-high-pcs.pdf>] (./S3_Fig_new.tex
+<../../plots/gtex_hierarchical.jpeg, id=84, 1027.84pt x 770.88pt>
+File: ../../plots/gtex_hierarchical.jpeg Graphic file (type jpg)
+
+<use ../../plots/gtex_hierarchical.jpeg>
+Package pdftex.def Info: ../../plots/gtex_hierarchical.jpeg used on input line 
+24.
+(pdftex.def)             Requested size: 505.88876pt x 433.61894pt.
+
+Overfull \hbox (50.64468pt too wide) in paragraph at lines 24--25
+ [][] 
+ []
+
+) [4
+
+] [5 <../../plots/gtex_hierarchical.jpeg>] (./S4_Fig_new.tex
+<../../plots/gtex-figures/gtex_brain_combo_plot.pdf, id=96, 1027.84pt x 770.88p
+t>
+File: ../../plots/gtex-figures/gtex_brain_combo_plot.pdf Graphic file (type pdf
+)
+ <use ../../plots/gtex-figures/gtex_brain_combo_plot.pdf>
+Package pdftex.def Info: ../../plots/gtex-figures/gtex_brain_combo_plot.pdf use
+d on input line 26.
+(pdftex.def)             Requested size: 433.61894pt x 289.07928pt.
+) [6
+
+ <../../plots/gtex-figures/gtex_brain_combo_plot.pdf>] (./S5_Fig_new.tex
+<../../plots/gtex-figures/gtex_thinned_04_25_2016.pdf, id=126, 770.88pt x 1027.
+84pt>
 File: ../../plots/gtex-figures/gtex_thinned_04_25_2016.pdf Graphic file (type p
 df)
  <use ../../plots/gtex-figures/gtex_thinned_04_25_2016.pdf>
@@ -759,10 +800,11 @@ Overfull \hbox (14.50977pt too wide) in paragraph at lines 23--24
  [][] 
  []
 
-[3
+[7
 
-] [4 <../../plots/gtex-figures/gtex_thinned_04_25_2016.pdf>]) (./S3_Fig.tex
-<../../plots/hierarchical_separation_thinned_0_001.png, id=101, 425.59pt x 401.
+] [8 <../../plots/gtex-figures/gtex_thinned_04_25_2016.pdf>])
+(./S6_Fig_new.tex
+<../../plots/hierarchical_separation_thinned_0_001.png, id=171, 425.59pt x 401.
 5pt>
 File: ../../plots/hierarchical_separation_thinned_0_001.png Graphic file (type 
 png)
@@ -771,7 +813,7 @@ Package pdftex.def Info: ../../plots/hierarchical_separation_thinned_0_001.png
 used on input line 25.
 (pdftex.def)             Requested size: 191.52022pt x 180.67499pt.
 
-<../../plots/admixture_separation_thinned_0_01.png, id=103, 424.58624pt x 401.5
+<../../plots/admixture_separation_thinned_0_01.png, id=173, 424.58624pt x 401.5
 pt>
 File: ../../plots/admixture_separation_thinned_0_01.png Graphic file (type png)
 
@@ -791,7 +833,7 @@ Package pdftex.def Info: ../../plots/hierarchical_separation_thinned_0_001.png
 used on input line 37.
 (pdftex.def)             Requested size: 191.52022pt x 180.67499pt.
 
-<../../plots/admixture_separation_thinned_0_001.png, id=104, 432.61626pt x 401.
+<../../plots/admixture_separation_thinned_0_001.png, id=174, 432.61626pt x 401.
 5pt>
 File: ../../plots/admixture_separation_thinned_0_001.png Graphic file (type png
 )
@@ -804,44 +846,51 @@ Overfull \hbox (4.44443pt too wide) in paragraph at lines 35--45
  [][]  [] 
  []
 
-) [5
+) [9
 
 
  <../../plots/hierarchical_separation_thinned_0_001.png> <../../plots/admixture
 _separation_thinned_0_01.png> <../../plots/admixture_separation_thinned_0_001.p
-ng>] (./S5_Fig.tex
-<../../plots/gtex-figures/gtex-high-pcs.pdf, id=116, 1027.84pt x 770.88pt>
-File: ../../plots/gtex-figures/gtex-high-pcs.pdf Graphic file (type pdf)
-
-<use ../../plots/gtex-figures/gtex-high-pcs.pdf>
-Package pdftex.def Info: ../../plots/gtex-figures/gtex-high-pcs.pdf used on inp
-ut line 24.
-(pdftex.def)             Requested size: 433.61894pt x 361.34912pt.
-) [6
-
- <../../plots/gtex-figures/gtex-high-pcs.pdf>] (./S6_Fig.tex
-<../../plots/deng-figures/deng-combo-plot.pdf, id=143, 1027.84pt x 770.88pt>
+ng>] (./S7_Fig_new.tex
+<../../plots/deng-figures/deng-combo-plot.pdf, id=186, 1027.84pt x 770.88pt>
 File: ../../plots/deng-figures/deng-combo-plot.pdf Graphic file (type pdf)
 
 <use ../../plots/deng-figures/deng-combo-plot.pdf>
 Package pdftex.def Info: ../../plots/deng-figures/deng-combo-plot.pdf used on i
 nput line 25.
 (pdftex.def)             Requested size: 433.61894pt x 289.07928pt.
-) [7
+) [10
 
- <../../plots/deng-figures/deng-combo-plot.pdf>] (./S7_Fig.tex
-<../../plots/gtex-figures/gtex_brain_combo_plot.pdf, id=178, 1027.84pt x 770.88
-pt>
-File: ../../plots/gtex-figures/gtex_brain_combo_plot.pdf Graphic file (type pdf
+ <../../plots/deng-figures/deng-combo-plot.pdf>] (./S8_Fig_new.tex
+<../../src/figure/deng-digging-final.Rmd/deng-structure-combo.png, id=219, 1027
+.84pt x 770.88pt>
+File: ../../src/figure/deng-digging-final.Rmd/deng-structure-combo.png Graphic 
+file (type png)
+
+<use ../../src/figure/deng-digging-final.Rmd/deng-structure-combo.png>
+Package pdftex.def Info: ../../src/figure/deng-digging-final.Rmd/deng-structure
+-combo.png used on input line 25.
+(pdftex.def)             Requested size: 433.61894pt x 361.34912pt.
 )
- <use ../../plots/gtex-figures/gtex_brain_combo_plot.pdf>
-Package pdftex.def Info: ../../plots/gtex-figures/gtex_brain_combo_plot.pdf use
-d on input line 26.
-(pdftex.def)             Requested size: 433.61894pt x 289.07928pt.
-) [8
+[11
 
- <../../plots/gtex-figures/gtex_brain_combo_plot.pdf>] (./S14_Fig.tex
-<../../plots/gtex-figures/sfa_gtex_figs.png, id=208, 2855.66875pt x 2142.0025pt
+ <../../src/figure/deng-digging-final.Rmd/deng-structure-combo.png>]
+(./S9_Fig_new.tex
+<../../src/figure/deng-digging-final.Rmd/combined-visualization-11.png, id=227,
+ 1927.2pt x 770.88pt>
+File: ../../src/figure/deng-digging-final.Rmd/combined-visualization-11.png Gra
+phic file (type png)
+
+<use ../../src/figure/deng-digging-final.Rmd/combined-visualization-11.png>
+Package pdftex.def Info: ../../src/figure/deng-digging-final.Rmd/combined-visua
+lization-11.png used on input line 24.
+(pdftex.def)             Requested size: 361.34912pt x 144.53964pt.
+)
+[12
+
+ <../../src/figure/deng-digging-final.Rmd/combined-visualization-11.png>]
+(./S10_Fig_new.tex
+<../../plots/gtex-figures/sfa_gtex_figs.png, id=235, 2855.66875pt x 2142.0025pt
 >
 File: ../../plots/gtex-figures/sfa_gtex_figs.png Graphic file (type png)
  <use ../../plots/gtex-figures/sfa_gtex_figs.png>
@@ -853,11 +902,10 @@ Overfull \hbox (50.6058pt too wide) in paragraph at lines 24--25
  [][] 
  []
 
-) [9
+) [13
 
-
- <../../plots/gtex-figures/sfa_gtex_figs.png>] (./S15_Fig.tex
-<../../plots/gtex-figures/gtex_sfa_brain.jpeg, id=216, 1027.84pt x 770.88pt>
+ <../../plots/gtex-figures/sfa_gtex_figs.png>] (./S11_Fig_new.tex
+<../../plots/gtex-figures/gtex_sfa_brain.jpeg, id=244, 1027.84pt x 770.88pt>
 File: ../../plots/gtex-figures/gtex_sfa_brain.jpeg Graphic file (type jpg)
 
 <use ../../plots/gtex-figures/gtex_sfa_brain.jpeg>
@@ -869,10 +917,10 @@ Overfull \hbox (50.64468pt too wide) in paragraph at lines 25--26
  [][] 
  []
 
-) [10
+) [14
 
- <../../plots/gtex-figures/gtex_sfa_brain.jpeg>] (./S16_Fig.tex
-<../../plots/deng-figures/sfa_deng_figs.pdf, id=223, 1027.84pt x 770.88pt>
+ <../../plots/gtex-figures/gtex_sfa_brain.jpeg>] (./S12_Fig_new.tex
+<../../plots/deng-figures/sfa_deng_figs.pdf, id=251, 1027.84pt x 770.88pt>
 File: ../../plots/deng-figures/sfa_deng_figs.pdf Graphic file (type pdf)
 
 <use ../../plots/deng-figures/sfa_deng_figs.pdf>
@@ -884,52 +932,9 @@ Overfull \hbox (50.64468pt too wide) in paragraph at lines 26--27
  [][] 
  []
 
-) [11
+) [15
 
- <../../plots/deng-figures/sfa_deng_figs.pdf>] (./S17_Fig.tex
-<../../src/figure/deng-digging-final.Rmd/deng-structure-combo.png, id=262, 1027
-.84pt x 770.88pt>
-File: ../../src/figure/deng-digging-final.Rmd/deng-structure-combo.png Graphic 
-file (type png)
-
-<use ../../src/figure/deng-digging-final.Rmd/deng-structure-combo.png>
-Package pdftex.def Info: ../../src/figure/deng-digging-final.Rmd/deng-structure
--combo.png used on input line 25.
-(pdftex.def)             Requested size: 433.61894pt x 361.34912pt.
-)
-[12
-
- <../../src/figure/deng-digging-final.Rmd/deng-structure-combo.png>]
-(./S18_Fig.tex
-<../../src/figure/deng-digging-final.Rmd/combined-visualization-1.png, id=270, 
-1734.48pt x 770.88pt>
-File: ../../src/figure/deng-digging-final.Rmd/combined-visualization-1.png Grap
-hic file (type png)
-
-<use ../../src/figure/deng-digging-final.Rmd/combined-visualization-1.png>
-Package pdftex.def Info: ../../src/figure/deng-digging-final.Rmd/combined-visua
-lization-1.png used on input line 24.
-(pdftex.def)             Requested size: 361.34029pt x 144.53964pt.
-)
-[13
-
- <../../src/figure/deng-digging-final.Rmd/combined-visualization-1.png>]
-(./S19_Fig.tex
-<../../plots/gtex_hierarchical.jpeg, id=279, 1027.84pt x 770.88pt>
-File: ../../plots/gtex_hierarchical.jpeg Graphic file (type jpg)
-
-<use ../../plots/gtex_hierarchical.jpeg>
-Package pdftex.def Info: ../../plots/gtex_hierarchical.jpeg used on input line 
-24.
-(pdftex.def)             Requested size: 505.88876pt x 433.61894pt.
-
-Overfull \hbox (50.64468pt too wide) in paragraph at lines 24--25
- [][] 
- []
-
-) [14
-
-] [15 <../../plots/gtex_hierarchical.jpeg>] (./S1_Table.tex
+ <../../plots/deng-figures/sfa_deng_figs.pdf>] (./S1_Table.tex
 Underfull \hbox (badness 10000) in paragraph at lines 17--17
 []\OT1/cmr/m/n/10 (+20) Top
  []
@@ -1195,16 +1200,20 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 70.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 70.
 Package rerunfilecheck Info: File `supplementals.out' has not changed.
 (rerunfilecheck)             Checksum: 0A639B6B2C253DA58C0C2A1A8ED4D57A;111.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 70.
  ) 
 Here is how much of TeX's memory you used:
  12044 strings out of 493014
- 189287 string characters out of 6133351
- 325942 words of memory out of 5000000
+ 189424 string characters out of 6133351
+ 325949 words of memory out of 5000000
  15134 multiletter control sequences out of 15000+600000
  10660 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,12n,99p,1585b,578s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,12n,99p,1588b,578s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
@@ -1216,7 +1225,7 @@ l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
 ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texli
 ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on supplementals.pdf (25 pages, 5671568 bytes).
+Output written on supplementals.pdf (25 pages, 5677225 bytes).
 PDF statistics:
  410 PDF objects out of 1000 (max. 8388607)
  299 compressed objects within 3 object streams
