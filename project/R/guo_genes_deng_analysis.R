@@ -27,7 +27,7 @@ library(readxl)
 guo_genes <- read_excel("../external_data/Deng_Data/guo48genes.xls")
 
 guo_gene_names <- guo_genes$`Gene Symbol`
-guo_gene_names <- setdiff(guo_gene_names, c("Actb", "Gapdh"))
+guo_gene_names <- setdiff(guo_gene_names, c("Actb"))
 
 matched_indices <- match(guo_gene_names, deng.gene_names)
 matched_indices <- matched_indices[!is.na(matched_indices)]
@@ -36,7 +36,7 @@ deng_counts_guo <- deng.counts[matched_indices,]
 
 ###  topic model
 
-topic_clus <- maptpx::topics(t(deng_counts_guo), K=4, tol=0.1)
+topic_clus <- maptpx::topics(t(deng_counts_guo), K=3, tol=0.1)
 save(topic_clus, file="topic_fit_deng_counts_guo_k_4.rda")
 
 omega <- topic_clus$omega
@@ -68,13 +68,16 @@ StructureGGplot(omega = omega,
 deng_counts_guo_blast <- deng.counts[matched_indices, grep("blast", deng.meta_data$cell_type)]
 
 
+topic_clus_blast <- CountClust::FitGoM(t(deng_counts_guo_blast), K=2, tol=0.1)
+save(topic_clus_blast, file="../rdas/deng_guo_blast_47_genes_k_2.rda")
 
-topic_clus_blast <- maptpx::topics(t(deng_counts_guo_blast), K=3, tol=0.1)
-save(topic_clus_blast, file="../rdas/deng_guo_blast_48_genes_k_3.rda")
+topic_clus_blast <- CountClust::FitGoM(t(deng_counts_guo_blast), K=3, tol=0.1)
+save(topic_clus_blast, file="../rdas/deng_guo_blast_47_genes_k_3.rda")
 
 topic_clus_blast <- maptpx::topics(t(deng_counts_guo_blast), K=4, tol=0.1)
-save(topic_clus_blast, file="../rdas/deng_guo_blast_48_genes_k_4.rda")
+save(topic_clus_blast, file="../rdas/deng_guo_blast_47_genes_k_4.rda")
 
+CountClust::compGoM(t(deng_counts_guo_blast), topic_clus_blast)
 
 omega <- topic_clus_blast$omega
 
@@ -91,7 +94,7 @@ rownames(omega) <- annotation$sample_id;
 library(CountClust)
 StructureGGplot(omega = omega,
                 annotation = annotation,
-                figure_title = "Deng et al blastocyst Structure Plot(on 48 genes due to Guo et al)",
+                figure_title = "Deng et al blastocyst Structure Plot(on 47 genes due to Guo et al)",
                 palette = RColorBrewer::brewer.pal(8, "Accent"),
                 yaxis_label = "Development Phase",
                 order_sample = TRUE,
@@ -143,12 +146,6 @@ StructureGGplot(omega = omega,
                                  axis_ticks_lwd_x = .1,
                                  axis_label_size = 7,
                                  axis_label_face = "bold"))
-
-
-
-
-
-
 
 
 

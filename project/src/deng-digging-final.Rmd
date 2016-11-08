@@ -380,11 +380,11 @@ tsne_plots_48genes <-
 
 ### Combined plot
 
-```{r combined-visualization, fig.height=4, fig.width=9}
+```{r combined-visualization, fig.height=4, fig.width=10}
 cowplot::plot_grid(
   pca_plots_48genes + ggtitle("PCA"),
   tsne_plots_48genes + ggtitle("t-SNE"),
-  labels = c("A", "B"))
+  labels = c("(a)", "(b)"))
 ```
 
 
