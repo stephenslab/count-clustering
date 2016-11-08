@@ -429,14 +429,13 @@ In population genetics applications incorporating this idea into the model, by u
 can help improve identification of subtle structure \cite{Falush2003} and we would expect the same to happen here for RNA-seq data.
 
 Finally, GoM models can be viewed as one of a larger class of ``matrix factorization" approaches to understanding structure in data, which also includes PCA, non-negative matrix factorization (NMF), and sparse factor analysis (SFA); see \cite{Engelhardt2010}. This observation raises the question of
-whether methods like SFA might be useful for RNA-seq data. (NMF is so closely related to the GoM model that we do not discuss it separately here; 
-indeed, the GoM model is essentially NMF, because both grades of membership and expression levels within each cluster are required to be non-negative.)
-Informally, one way to view SFA is as a generalization of the GoM model that allows samples to have {\it negative} memberships in some ``clusters" (actually, factors).
-
-
-
-. The GoM model requires all factors to be positive and their loadings summing up to 1. While, SFA is more flexible than the GoM model and allows the factors to be sparse as well as to hold either positive or negative loadings. However, the flexibility of SFA comes at the cost of making the results harder to interpret or to visualize. We have developed methods to visualize results from SFA for this particular application, but we feel that the visualization produced by SFA does not have the immediate appeal of the Structure plot. On the other hand, the flexibility of SFA in modeling both positive and negative contribution of underlying factors might allow the model to capture features that cannot be easily captured by the GoM models. Future work is needed to investigate the application of SFAT for detecting the structure of gene expression data.
-
+whether methods like SFA might be useful for the kinds of analyses we performed here. (NMF is so closely related to the GoM model that we do not discuss it further; 
+indeed, the GoM model is a type of NMF, because both grades of membership and expression levels within each cluster are required to be non-negative.)
+Informally, SFA can be thought of as a generalization of the GoM model that allows samples to have {\it negative} memberships in some ``clusters" (actually, ``factors").
+This additional flexibility should allow SFA to capture certain patterns more easily than the GoM model. For example, a small subset of genes that are over-expressed in some samples and under-expressed in other samples could be captured by a single sparse factor, with positive loadings in the over-expressed samples and negative loadings in the other samples. However, this additional flexibility also comes at a cost of additional complexity in visualizing the results. For example, Supplementary Figures \ref{sfig:sfa-results} show results of SFA (the version from \cite{Engelhardt2010}) for the GTEx data and the mouse preimplantation data: in our opinion, these do not have the
+simplicity and immediate visual appeal of the GoM model results. Also, applying SFA to RNA-seq data requires
+several decisions to be made that can greatly impact the results: what transformation of the data to use; what method to induce sparsity (there are many; e.g. \cite{west, dunson, engelhardt, witten});  whether to induce sparsity in loadings, factors, or both; etc.. Nonetheless, we certainly view SFA as complementing the GoM model as a promising
+tool for investigating the structure of RNA-seq data, and as a promising area for further work.
 
 
 
