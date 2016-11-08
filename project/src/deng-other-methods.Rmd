@@ -66,10 +66,9 @@ plot_data_tsne <- cbind(tsne_out, meta_data)
 plot_data_tsne <- as.data.frame(plot_data_tsne)
 
 # make color scheme
-cols <- c("darkblue", 
-          "blue", "cornflowerblue", "cadetblue2",
-          "darkgreen", "darkolivegreen4", "darkolivegreen3",
-          "coral4", "coral3", "coral")
+cols <- c( rev(c("darkblue", "blue", "cornflowerblue", "cadetblue2")),
+          rev(c("darkgreen", "darkolivegreen4", "darkolivegreen3")),
+          rev(c("coral4", "coral3", "coral")) )
     
 # make plot
 tsne_plot <- ggplot(plot_data_tsne, aes(x = PC1, y = PC2)) + 
@@ -127,10 +126,9 @@ plot_data_mds <- cbind(mds_out, meta_data)
 plot_data_mds <- as.data.frame(plot_data_mds)
 
 # make color scheme
-cols <- c("darkblue", 
-          "blue", "cornflowerblue", "cadetblue2",
-          "darkgreen", "darkolivegreen4", "darkolivegreen3",
-          "coral4", "coral3", "coral")
+cols <- c( rev(c("darkblue", "blue", "cornflowerblue", "cadetblue2")),
+          rev(c("darkgreen", "darkolivegreen4", "darkolivegreen3")),
+          rev(c("coral4", "coral3", "coral")) )
     
 # make plot
 mds_plot <- ggplot(plot_data_mds, aes(x = dim1, y = dim2)) + 
@@ -158,17 +156,17 @@ cowplot::plot_grid(
 Make legend
 
 ```{r make-legend, fig.height=4, fig.width=3}
-coord_xy <- cbind(rep(1,11) - .4,
-                  c(1:11))
+coord_xy <- cbind(rep(1,10) - .4,
+                  c(1:10))
 
 library(pryr)
 plot_legend %<a-% {
     plot(coord_xy, pch = 21, lwd = .8, 
-        bg = cols, col = "grey20",
+        bg = rev(cols), col = "grey20",
         xlim = c(0, 17), ylim = c(0, 14),
         ann = F, axes = F)
     text(x = coord_xy[,1] + .8, y = coord_xy[,2],
-         labels = levels(factor(meta_data$cell_type)),
+         labels = rev(levels(factor(meta_data$cell_type))),
          cex = .6, adj = 0)
 }
 plot_legend
