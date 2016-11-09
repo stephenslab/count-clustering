@@ -309,6 +309,11 @@ In more detail: Initially, at the zygote and early 2-cell stages, the embryos ar
 
 Finally, during the blastocyst stages two new clusters (purple and orange in Fig~\ref{fig4}) dominate. The orange cluster is enriched with genes involved in the formation of trophectoderm (TE) (e.g., \textit{Tspan8}, \textit{Krt8}, \textit{Id2} \cite{Guo2010}), while the purple cluster is enriched with genes responsible for the formation of inner cell mass (ICM) (e.g., \textit{Pdgfra}, \textit{Pyy} \cite{Hou2007}).
 
+For comparison, results for PCA, MDS, $t$-SNE and hierarchical clustering are shown in Supplemental Figure \nameref{figS7}.
+All these methods show some clustering structure by pre-implantation stage; however only PCA and MDS 
+seem to capture the developmental trajectory from zygote to blastocyst, exhibiting a ``horse-shoe" pattern that is expected when
+similarities among samples approximately reflect an underlying latent ordering \cite{novembre.stephens.08, horseshoe}.
+And none of them provide any direct indication of the ICM vs TE structure in the blastocyst samples.
 
 Although the GoM model results clearly highlight some of the key biological processes underlying embryonic preimplantation development, there are
 also some expected patterns that do not appear. Specifically, just prior to implantation the embryo consists of three different cell types,
@@ -316,9 +321,8 @@ the trophectoderm (TE), the primitive endoderm (PE), and the
 epiblast (EPI) \cite{rossant.tam.2009}, with the PE and EPI being formed from the ICM.
 Thus one might expect the late blastocyst cells to show a clear division into three distinct groups, and
 for some of the earlier blastocyst cells to show partial membership in one of these groups as they begin to differentiate towards these cell types.
-Indeed, the GoM model seems well suited to capture this process. However, this is not the result we obtained.
-In particularly, although the two clusters identified by the GoM model in the blastocyst stages
-do appear to correspond roughly to the TE and ICM, even the late blastocyst cells tend to show a gradient of memberships in both these clusters, rather than a clear division into distinct groups. Our results contrast with those from the single-cell mouse preimplantation data of \cite{Guo2010}, measured by qPCR, where the late blastocyst cells showed a clear visual division into three groups using PCA (their Figure~1).
+Indeed, the GoM model seems well suited to capture this process in principle. However, this is not the result we obtained in practice.
+In particular, although the two clusters identified by the GoM model in the blastocyst stages appear to correspond roughly to the TE and ICM, even the late blastocyst cells tend to show a gradient of memberships in both these clusters, rather than a clear division into distinct groups. Our results contrast with those from the single-cell mouse preimplantation data of \cite{Guo2010}, measured by qPCR, where the late blastocyst cells showed a clear visual division into three groups using PCA (their Figure~1).
 
 To better understand the differences between our results for RNA-seq data from \cite{deng.etal} and the qPCR results from \cite{Guo2010} we applied the GoM model
 with $K=3$ to a small subset of the RNA-seq data: the blastocyst cell data at the 48 genes assayed by \cite{Guo2010}. These genes were specifically
@@ -383,6 +387,12 @@ are most distinctively expressed in each cluster, to aid interpretation of resul
 As our applications illustrate, the results can provide a richer summary of the structure in RNA-seq data than existing widely-used visualization methods such as PCA and hierarchical clustering. While it could be argued that the GoM model results sometimes raise more questions than they answer, this is
 exactly the point of an exploratory analysis tool: to highlight issues for investigation, identify anomalies, and generate hypotheses for future testing.
 
+Our results from different methods also highlight another important point: different methods have different strengths and weaknesses, and can compliment 
+one another as well as competing. For example, $t$-SNE seems provides a much clearer indication of the cluster structure in the full GTEx data than
+does PCA, but does a poorer job of capturing the ordering of the developmental samples from mouse pre-implantation embryos. While we believe
+the GoM model often provides a richer summary of the sample structure, we would expect to use it in addition to $t$-SNE and PCA when performing exploratory analyses.
+(Indeed the methods can be used in combination: both PCA and $t$-SNE can be used to visulalize the results of the GoM model, as an alternative or complement to the Structure plot.)
+
 A key feature of the GoM
 model is that it allows that each sample has a proportion of membership in each cluster, rather than a discrete cluster structure. Consequently
 it can provide insights into how well a
@@ -398,6 +408,7 @@ data from \cite{Jaitin2014} ($n=1,041; K=7$) to 3,370 minutes for the GTEx data 
 Computation time can be reduced by fitting the model to only the most highly expressed genes, and we often use this strategy to get quick initial results for a dataset.
 Because these methods are widely used for clustering very large document datasets there is considerable ongoing interest in
 computational speed-ups for very large datasets, with ``on-line" (sequential) approaches capable of dealing with millions of documents  \cite{Hoffman2010} that could be useful in the future for very large RNA-seq datasets.
+
 
 A thorny issue that arises when fitting clustering models is how to select the number of clusters, $K$. Like many software packages
 for fitting these models, the {\tt maptpx} package implements a measure of model fit that provides one useful guide. However, it is
