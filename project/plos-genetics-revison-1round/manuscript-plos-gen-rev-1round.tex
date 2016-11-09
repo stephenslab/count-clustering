@@ -192,7 +192,7 @@ whereas other tissues are represented as a mixture of multiple clusters (e.g.~Th
 Furthermore, the GoM results highlight biological similarity among some tissues by assigning similar membership proportions to samples from those tissues.  For example, samples from several different parts of the brain often have similar memberships, as do the arteries (aorta, tibial and coronary) and skin samples (sun-exposed and un-exposed).
 
 Although it is not surprising that samples cluster by tissue, other results could have occurred. For example,
-samples could have clustered according to technical variables, such as sequencing batch  \cite{yoav} or sample collection center.
+samples could have clustered according to technical variables, such as sequencing batch  \cite{Gilad2015} or sample collection center.
 While our results do not exclude the possibility that technical variables could have influenced these data, the $t$-SNE and GoM results clearly demonstrate that tissue of origin is the primary source of heterogeneity,
 and provide a useful initial assurance of data quality.
 
@@ -313,21 +313,21 @@ Finally, during the blastocyst stages two new clusters (purple and orange in Fig
 Although the GoM model results clearly highlight some of the key biological processes underlying embryonic preimplantation development, there are
 also some expected patterns that do not appear. Specifically, just prior to implantation the embryo consists of three different cell types,
 the trophectoderm (TE), the primitive endoderm (PE), and the
-epiblast (EPI) \cite{rossant.tam.2009}, with the PE and EPI being formed from the ICM.
+epiblast (EPI) \cite{Rossant2009}, with the PE and EPI being formed from the ICM.
 Thus one might expect the late blastocyst cells to show a clear division into three distinct groups, and
 for some of the earlier blastocyst cells to show partial membership in one of these groups as they begin to differentiate towards these cell types.
 Indeed, the GoM model seems well suited to capture this process. However, this is not the result we obtained.
 In particularly, although the two clusters identified by the GoM model in the blastocyst stages
 do appear to correspond roughly to the TE and ICM, even the late blastocyst cells tend to show a gradient of memberships in both these clusters, rather than a clear division into distinct groups. Our results contrast with those from the single-cell mouse preimplantation data of \cite{Guo2010}, measured by qPCR, where the late blastocyst cells showed a clear visual division into three groups using PCA (their Figure~1).
 
-To better understand the differences between our results for RNA-seq data from \cite{deng.etal} and the qPCR results from \cite{Guo2010} we applied the GoM model
+To better understand the differences between our results for RNA-seq data from \cite{Deng2014} and the qPCR results from \cite{Guo2010} we applied the GoM model
 with $K=3$ to a small subset of the RNA-seq data: the blastocyst cell data at the 48 genes assayed by \cite{Guo2010}. These genes were specifically
 chosen by them to help elucidate cell-fate decisions during early development of the mouse embryo. Still, the GoM model results (Supplemental Figure \nameref{figS8})
 do not support a clear division of these data into three distinct
 groups (and neither do PCA or $t$-SNE; Supplemental Figure \nameref{figS9}).
 Rather, the GoM model highlights one cluster (Green in figure), whose membership proportions essentially reflect expression at the ACTB gene,
-and two other clusters (Orange and Purple in figure) whose driving genes correspond to genes identified in \cite{Guo2010} as being distinctive to TE and EPI cell types respectively. The ACTB gene is a ``housekeeping gene", used by \cite{Guo2010} to normalize their qPCR data, and its prominence in the GoM results likely reflects its very high expression levels relative to other genes. However, excluding ACTB from the analysis still does not lead to a clear separation into three groups (Figure \ref{}).
-Thus, although there are clear commonalities in the structure of these RNA-seq and qPCR data sets, the structure of the single-cell RNA-seq data  from \cite{deng.etal}  is fundamentally more complex (or, perhaps, muddied), and consequently more difficult to interpret.
+and two other clusters (Orange and Purple in figure) whose driving genes correspond to genes identified in \cite{Guo2010} as being distinctive to TE and EPI cell types respectively. The ACTB gene is a ``housekeeping gene", used by \cite{Guo2010} to normalize their qPCR data, and its prominence in the GoM results likely reflects its very high expression levels relative to other genes. However, excluding ACTB from the analysis still does not lead to a clear separation into three groups (Supplemental Figure \nameref{figS8}).
+Thus, although there are clear commonalities in the structure of these RNA-seq and qPCR data sets, the structure of the single-cell RNA-seq data  from \cite{Deng2014}  is fundamentally more complex (or, perhaps, muddied), and consequently more difficult to interpret.
 
 
 
@@ -419,7 +419,7 @@ indeed, the GoM model is a type of NMF, because both grades of membership and ex
 Informally, SFA can be thought of as a generalization of the GoM model that allows samples to have {\it negative} memberships in some ``clusters" (actually, ``factors").
 This additional flexibility should allow SFA to capture certain patterns more easily than the GoM model. For example, a small subset of genes that are over-expressed in some samples and under-expressed in other samples could be captured by a single sparse factor, with positive loadings in the over-expressed samples and negative loadings in the other samples. However, this additional flexibility also comes at a cost of additional complexity in visualizing the results. For example, Supplementary Figures \nameref{figS10}, \nameref{figS11}, \nameref{figS12} show results of SFA (the version from \cite{Engelhardt2010}) for the GTEx data and the mouse preimplantation data: in our opinion, these do not have the
 simplicity and immediate visual appeal of the GoM model results. Also, applying SFA to RNA-seq data requires
-several decisions to be made that can greatly impact the results: what transformation of the data to use; what method to induce sparsity (there are many; e.g. \cite{west, dunson, engelhardt, witten});  whether to induce sparsity in loadings, factors, or both; etc.. Nonetheless, we certainly view SFA as complementing the GoM model as a promising
+several decisions to be made that can greatly impact the results: what transformation of the data to use; what method to induce sparsity (there are many; e.g. \cite{Lopes2004, Bhattacharya2011, Engelhardt2010, Witten2009});  whether to induce sparsity in loadings, factors, or both; etc.. Nonetheless, we certainly view SFA as complementing the GoM model as a promising
 tool for investigating the structure of RNA-seq data, and as a promising area for further work.
 
 
@@ -580,68 +580,67 @@ The authors have no conflict of interest.
 \section*{Supporting Information}
 \paragraph*{S1 Fig.}
 \label{figS1}
-\bf{Structure plot of GTEx V6 tissue samples for (a) $K$ = 5, (b) $K$ = 10, (c) $K$ = 15, (d) $K$ = 20.} Some tissues form a separate cluster from the other tissues from $K$ = 5 onwards (for example: Whole Blood, Skin), whereas some tissue only form a distinctive subgroup at $K$ = 20 (for example: Arteries).
+\textbf{Structure plot of GTEx V6 tissue samples for (a) $K$ = 5, (b) $K$ = 10, (c) $K$ = 15, (d) $K$ = 20.} Some tissues form a separate cluster from the other tissues from $K$ = 5 onwards (for example: Whole Blood, Skin), whereas some tissue only form a distinctive subgroup at $K$ = 20 (for example: Arteries).
 
 \paragraph*{S2 Fig.}
 \label{figS2}
-\bf{Top five principal components (PC) for GTEx V6 tissue samples.} Scatter plot
+\textbf{Top five principal components (PC) for GTEx V6 tissue samples.} Scatter plot
 representation of the top five PCs of the GTEx tissue samples. Data was transformed to log2 counts per million (CPM).
 
 \paragraph*{S3 Fig.}
 \label{figS3}
-\bf{Comparison between GoM model and hierarchical clustering under different scenarios of data transformation.} We used GTEx V6 data for model performance comparisons. Specifically, for every pair of the 53 tissues, we assessed the ability of the methods to separate samples according to their tissue of origin. The subplots of heatmaps show the results of evaluation under different scenarios. Filled squares in the heatmap indicate successful separation of the samples in corresponding tissue pair comparison. (a) Hierarchical clustering on log2 counts per million (CPM) transformed data using Euclidean distance. (b) Hierarchical clustering on the standardized log2-CPM transformed data (transformed values for each gene was mean and scale transformed) using the Euclidean distance. (d) Hierarchical clustering on counts data with the assumption that, for each gene the sample read count $c_{ng}$ has a variance $\bar{c}_{g} + 1$ that is constant across samples. And, the the gene-specific variance $\bar{c}_{g} + 1$ was used to scale the distance matrix for clustering. (c) GoM model of $K$ = 2 applied to counts. (e) Hierarchical clustering applied to adjusted count data. Each gene has a mean expression value of 0 and variance of 1. Taken together, these results suggest that regardless of the different data transformation scenarios, the GoM model with $K$ = 2 is able to separate samples of different tissue of
-origin, better than hierarchical cluster methods.
+\textbf{Comparison between GoM model and hierarchical clustering under different scenarios of data transformation.} We used GTEx V6 data for model performance comparisons. Specifically, for every pair of the 53 tissues, we assessed the ability of the methods to separate samples according to their tissue of origin. The subplots of heatmaps show the results of evaluation under different scenarios. Filled squares in the heatmap indicate successful separation of the samples in corresponding tissue pair comparison. (a) Hierarchical clustering on log2 counts per million (CPM) transformed data using Euclidean distance. (b) Hierarchical clustering on the standardized log2-CPM transformed data (transformed values for each gene was mean and scale transformed) using the Euclidean distance.  (c) GoM model of $K = 2$ applied to counts. (d) Hierarchical clustering on counts data with the assumption that, for each gene the sample read count $c_{ng}$ has a variance $\bar{c}_{g} + 1$ that is constant across samples. And, the the gene-specific variance $\bar{c}_{g} + 1$ was used to scale the distance matrix for clustering. (e) Hierarchical clustering applied to adjusted count data. Each gene has a mean expression value of 0 and variance of 1. Taken together, these results suggest that regardless of the different data transformation scenarios, the GoM model with $K = 2$ is able to separate samples of different tissue of origin, better than hierarchical cluster methods.
 
-\paragraph*{S4 Fig.}
+\paragraph{S4 Fig.}
 \label{figS4}
-{\bf GTEx brain PCA, t-SNE and MDS.}
+\textbf{ GTEx brain PCA, t-SNE and MDS.}
 
 \paragraph*{S5 Fig.}
 \label{figS5}
-\bf{Structure plot of GTEx V6 tissue samples for $K$ = 20 in two runs under different thinning parameter settings.} (a) $p_{thin}$ = 0.01 and (B) $p_{thin} = 0.0001$. The structure in these two plots closely resemble the pattern observed in Fig 1(a), though there are a few differences from the unthinned version.
+\textbf{Structure plot of GTEx V6 tissue samples for $K$ = 20 in two runs under different thinning parameter settings.} (a) $p_{thin}$ = 0.01 and (B) $p_{thin} = 0.0001$. The structure in these two plots closely resemble the pattern observed in Fig 1(a), though there are a few differences from the unthinned version.
 
 \paragraph*{S6 Fig.}
 \label{figS6}
-{\bf A comparison of \accuracy" of hierarchical clustering vs. GoM on thinned
-GTEx data, with thinning parameters of $p_{thin} = 0.01$ and $p_{thin} = 0.001.} For each pair of tissue
+\textbf{ A comparison of accuracy of hierarchical clustering vs. GoM on thinned
+GTEx data, with thinning parameters of $p_{thin} = 0.01$ and $p_{thin} = 0.001$.} For each pair of tissue
 samples from the GTEx V6 data we assessed whether or not each clustering method (with $K$ = 2 clusters) separated the samples according to their tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Fig 2), but even then
 the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
 
 \paragraph*{S7 Fig.}
 \label{figS7}
-\{bf Deng PCA/tSNE/MDS}
+\textbf{ Deng et al (2014) PCA, tSNE, MDS and dendrogram plots for hierarchical clustering.}
 
 \paragraph*{S8 Fig.}
 \label{figS8}
-\bf{Additional GoM analysis of Deng et al (2014) data including blastocyst samples and 48 blastocyst marker genes.} We considered 48 blastocyst marker genes (as chosen by Guo et al., 2010) and fitted GoM model with $K$ = 3 to 133 blastocyst samples. In the Structure plot, blastocyst samples are arranged in order of estimated membership proportion in the Green cluster. The panel
+\textbf{ Additional GoM analysis of Deng et al (2014) data including blastocyst samples and 48 blastocyst marker genes.} We considered 48 blastocyst marker genes (as chosen by Guo et al., 2010) and fitted GoM model with $K$ = 3 to 133 blastocyst samples. In the Structure plot, blastocyst samples are arranged in order of estimated membership proportion in the Green cluster. The panel
 located above the Structure plot shows the corresponding pre-implantation stage from which blastocyst samples were collected. The heatmap located below the Structure plot represents expression levels of the 48 blastocyst marker genes (log2 CPM), and the corresponding dendrogram shows results of hierarchical
 clustering (complete linkage). The table on the right of the expression heatmap displays gene information, showing, from left to right, 1) whether or not the gene is a transcription factor, 2) the driving GoM cluster if the gene was among the top five driving genes, and 3) the featured cell type (TE: trophecoderm, EPI: epiblast, PE: primitive endoderm) that was found in Guo et al., 2010.
 
 \paragraph*{S9 Fig.}
 \label{figS9}
-\bf{Visualization of PCA and t-SNE results of mouse pre-implantation embryos data from Deng et al (2014) using 48 blastocyst marker genes.}
+\textbf{Visualization of PCA and t-SNE results of mouse pre-implantation embryos data from Deng et al (2014) using 48 blastocyst marker genes.}
 
 \paragraph*{S10 Fig.}
 \label{figS10}
-\bf{Sparse Factor Analysis loadings visualization of GTEx V6 tissue samples.} The colors represent the 20 different factors. The factor loadings are presented in a stacked bar for each sample. We performed SFA under the scenarios of when the loadings are sparse (left panel) and when the factors are sparse (right panel).}
+\textbf{Sparse Factor Analysis loadings visualization of GTEx V6 tissue samples.} The colors represent the 20 different factors. The factor loadings are presented in a stacked bar for each sample. We performed SFA under the scenarios of when the loadings are sparse (left panel) and when the factors are sparse (right panel).
 
 \paragraph*{S11 Fig.}
 \label{figS11}
-\bf{Sparse Factor Analysis loadings visualization of GTEx brain tissue samples.} The colors represent the 6 different factors. The factor loadings are presented in a stacked bar for each sample. We performed SFA under the scenarios of when the loadings are sparse (left panel) and when the factors are
+\textbf{Sparse Factor Analysis loadings visualization of GTEx brain tissue samples.} The colors represent the 6 different factors. The factor loadings are presented in a stacked bar for each sample. We performed SFA under the scenarios of when the loadings are sparse (left panel) and when the factors are
 sparse (right panel).
 
 \paragraph*{S12 Fig.}
 \label{figS12}
-\bf{Sparse Factor Analysis loadings visualization of mouse pre-implantation
+\textbf{Sparse Factor Analysis loadings visualization of mouse pre-implantation
 embryos from Deng et al., (2014). The colors represent the 6 different factors. The factor loadings are presented in a stacked bar for each sample. We performed SFA under the scenarios of when the loadings are sparse (left panel) and when the factors are sparse (right panel).}
 
 \paragraph*{S1 Table.}
 \label{supptab1}
-{\bf Cluster Annotations of GTEx V6 data with top driving gene summaries.}
+\textbf{ Cluster Annotations of GTEx V6 data with top driving gene summaries.}
 
 \paragraph*{S2 Table.}
 \label{supptab2}
-{\bf Cluster Annotations of GTEx V6 Brain data with top driving gene summaries.}
+\textbf{ Cluster Annotations of GTEx V6 Brain data with top driving gene summaries.}
 
 \paragraph*{S3 Table.}
 \label{supptab3}
@@ -649,7 +648,7 @@ embryos from Deng et al., (2014). The colors represent the 6 different factors. 
 
 \paragraph*{S4 Table.}
 \label{supptab3}
-{\bf Cluster Annotation of Deng data analysis using 48 genes with top driving gene summaries.}
+\textbf{ Cluster Annotation of Deng data analysis using 48 genes with top driving gene summaries.}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -826,6 +825,22 @@ Inference of population structure using multilocus genotype data: linked loci an
 Engelhardt BE,  Stephens M. 2010.
 Analysis of Population Structure: A Unifying Framework and Novel Methods Based on Sparse Factor Analysis.
 \textit{PLOS Genetics}. DOI: 10.1371/journal.pgen.1001117.
+
+\bibitem{Witten2009}
+Witten DM, Tibshirani R. 2009.
+A penalized matrix decomposition, with applications to sparse principal components and canonical correlation analysis.
+\textit{Biostatistics}. 10(3), 515-534.
+
+\bibitem{Lopes2004}
+Lopes HF, West M.
+Bayesian model assessment in factor analysis.
+\textit{Statistica Sinica}. 14(2004), 41-67
+
+\bibitem{Bhattacharya2011}
+Bhattacharya A, Dunson D.
+Sparse Bayesian infinite factor models.
+Biometrika (2011). 98(2),  291?306
+
 
 \bibitem{Maaten2008}
 van der Maaten LJP and  Hinton GE. 2008.
@@ -1029,6 +1044,11 @@ Computational purification of individual tumor gene expression profiles leads to
  \bibitem{Guo2010}
 Guo G, Huss M, Tong GQ, Wang C, Sun LL, Clarke ND, Robson P.
 Resolution of cell fate decisions revealed by single-cell gene expression analysis from zygote to blastocyst. \textit{Developmental Cell}. 18(4), 675-685
+
+\bibitem{Rossant2009}
+Rossant, J, Tam PPL.
+Blastocyst lineage formation, early embryonic asymmetries and axis patterning in the mouse
+\textit{Development}. 136(5), 701-713, doi: 10.1242/dev.017178
 
 \bibitem{Hou2007}
 Hou J, Charters AM, Lee SC, Zhao Y, Wu, MK, Jones SJM, Marra, MA, Hoodless PA.
