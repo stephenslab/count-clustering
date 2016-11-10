@@ -15,14 +15,34 @@
 
 \begin{document}
 
-\paragraph*{S7 Fig.}
+\paragraph*{S6 Fig.}
+\label{figS6}
+{\bf A comparison of ``accuracy" of hierarchical clustering vs. GoM on thinned GTEx data, with thinning parameters of $p_{thin}=0.01$ and $p_{thin}=0.001$.}  For each pair of tissue samples from the GTEx V6 data we assessed whether or not each clustering method (with $K=2$ clusters) separated the samples according to their tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Fig~2), but even then the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
+ \begin{figure}[ht]
+    \centering
+     \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../../plots/hierarchical_separation_thinned_0_001.png}
+        \caption{hierarchy thin 0.01}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../../plots/admixture_separation_thinned_0_01.png}
+        \caption{GoM thin 0.01}
+    \end{subfigure}\\
 
-\label{figS7}
-{\bf Visualizing mouse pre-implantation embryos data from Deng et al (2014) using (a) Principle Component Analysis, (b) t-SNE, (c) Multidimensional Scaling (MDS) and (d) circular dendrogram for hierarchical clustering.} The colors represent different developmental stages. PCA, MDS seem to be effective in capturing the developmental trajectory, but t-SNE fails to do so. Hierarchical clustering fails to separate out the blastocyst cells from the cells in early stages of development completely.
-
-\begin{figure}[ht]
-\centering
-\includegraphics[height=4in, width=6in]{../../plots/deng-figures/deng-combo-plot.pdf}
+     \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../../plots/hierarchical_separation_thinned_0_001.png}
+        \caption{hierarchy 0.001}
+    \end{subfigure}%
+    ~
+    \begin{subfigure}[t]{0.5\textwidth}
+        \centering
+        \includegraphics[height=2.5in]{../../plots/admixture_separation_thinned_0_001.png}
+        \caption{GoM thin 0.001}
+    \end{subfigure}\\
 \end{figure}
 
 \end{document}

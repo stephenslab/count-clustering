@@ -380,13 +380,20 @@ tsne_plots_48genes <-
 
 ### Combined plot
 
-```{r combined-visualization, fig.height=4, fig.width=10}
+```{r combined-visualization-nolegend, fig.height=4, fig.width=8}
+cowplot::plot_grid(
+  pca_plots_48genes + ggtitle("PCA") + theme(legend.position="none"),
+  tsne_plots_48genes + ggtitle("t-SNE")  + theme(legend.position="none"),
+  labels = c("(a)", "(b)"))
+```
+
+
+```{r combined-visualization-pluslegend, fig.height=4, fig.width=10}
 cowplot::plot_grid(
   pca_plots_48genes + ggtitle("PCA"),
   tsne_plots_48genes + ggtitle("t-SNE"),
   labels = c("(a)", "(b)"))
 ```
-
 
 ## Session information
 
