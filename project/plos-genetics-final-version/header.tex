@@ -1,0 +1,109 @@
+% Template for PLoS
+% Version 3.2 March 2016
+
+% General commands for text/figures
+
+% Page margin
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+% Use Unicode characters when possible
+\usepackage[utf8x]{inputenc}
+% amsmath package, useful for mathematical formulas
+\usepackage{amsmath}
+%\usepackage{natbib}
+% amssymb package, useful for mathematical symbols
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{xspace}
+\usepackage{hyperref}
+% graphicx package, useful for including eps and pdf graphics
+% include graphics with the command \includegraphics
+\usepackage{graphicx}
+
+% Use adjustwidth environment to exceed column width (see example table in text)
+\usepackage{changepage}
+
+% textcomp package and marvosym package for additional characters
+\usepackage{textcomp,marvosym}
+
+% fixltx2e package for \textsubscript
+\usepackage{fixltx2e}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{rotating}
+
+\usepackage{color}
+
+% Use doublespacing - comment out for single spacing
+%\usepackage{setspace}
+%\doublespacing
+
+
+% Bold the 'Figure #' in the caption and separate it with a period
+% Captions will be left justified
+\usepackage[labelfont=bf,labelsep=period,justification=raggedright]{caption}
+
+% Use the PLoS provided bibtex style
+\bibliographystyle{/Users/stephens/Dropbox/Documents/stylefiles/plos2009}
+
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% Use nameref to cite supporting information files (see Supporting Information section for more info)
+\usepackage{nameref,hyperref}
+
+% line numbers
+\usepackage[right]{lineno}
+
+% ligatures disabled
+\usepackage{microtype}
+\DisableLigatures[f]{encoding = *, family = * }
+
+% Leave date blank
+\date{}
+
+\pagestyle{myheadings}
+%% ** EDIT HERE **
+\usepackage{enumerate}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{xr} %for cross-referencing
+%% ** EDIT HERE **
+%% PLEASE INCLUDE ALL MACROS BELOW
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{proposition}{Proposition}
+\newtheorem{restateproposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{result}{Result}
+\newtheorem{note}{Note}
+\newtheorem{definition}{Definition}
+
+\def\KL{\text{KL}}
+
+% Text layout
+\raggedright
+\setlength{\parindent}{0.5cm}
+\textwidth 5.25in
+\textheight 8.75in
+
+% Bold the 'Figure #' in the caption and separate it from the title/caption with a period
+% Captions will be left justified
+\usepackage[aboveskip=1pt,labelfont=bf,labelsep=period,justification=raggedright,singlelinecheck=off]{caption}
+\renewcommand{\figurename}{Fig}
+
+%------ bibliography
+% Use the PLoS provided BiBTeX style
+\bibliographystyle{plos2015}
+% Remove brackets from numbering in List of References
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+
+%% Author's settings
+\def\KL{\text{KL}}
