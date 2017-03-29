@@ -209,7 +209,7 @@ are distinguished from one another both by their degree of membership in this cl
 which is driven by genes related to neurons and synapsis. In the $t$-SNE results these three tissues simply cluster separately into visually distinct groups, with no indication that their expression profiles have something in common (Fig~\ref{fig2}(b)). Thus, although we find the $t$-SNE results visually attractive, this 2-dimensional projection contains less information than the Structure plot from the GoM (Fig~\ref{fig1}(a)), which uses color to represent the samples in a 20-dimensional space.
 
 In addition to these qualitative comparisons with other methods, we also used the GTEx data to quantitatively compare the accuracy of the GoM model with
-hierarchical clustering. Specifically, for each pair of tissues in the GTEx data we assessed whether or not each method correctly partitioned samples into the two tissue groups; see Methods. (Other methods do not provide an explicit clustering of the samples -- only a visual representation -- and so are not included in these comparisons.) The GoM model was more accurate in this test, succeeding in $88 \%$ of comparisons, compared with $79 \%$ for hierarchical clustering (Supplemental Figure \nameref{figS3} (a) vs (c)).
+hierarchical clustering. Specifically, for each pair of tissues in the GTEx data we assessed whether or not each method correctly partitioned samples into the two tissue groups; see Methods. (Other methods do not provide an explicit clustering of the samples -- only a visual representation -- and so are not included in these comparisons.) The GoM model was more accurate in this test, succeeding in $88 \%$ of comparisons, compared with $79 \%$ for hierarchical clustering (Supplemental Figure \nameref{figS3} (c) vs (a)).
 
  %The royal purple cluster (cluster 1) has memberships in most tissues and the genes distinguishing the cluster seem to be responsible for  nucleus and nucleoplasm related functionality.
 
@@ -570,121 +570,185 @@ Code for reproducing results reported here is available at \url{http://stephensl
 
 \section*{Acknowledgments}
 
-The Genotype-Tissue Expression (GTEx) Project was supported by the Common Fund of the Office of the Director of the National Institutes of Health. Additional funds were provided by the NCI, NHGRI, NHLBI, NIDA, NIMH, and NINDS. Donors were enrolled at Biospecimen Source Sites funded by NCI $\ $ SAIC-Frederick, Inc. (SAIC-F) subcontracts to the National Disease Research Interchange (10XS170), Roswell Park Cancer Institute (10XS171), and Science Care, Inc. (X10S172). The Laboratory, Data Analysis, and Coordinating Center (LDACC) was funded through a contract (HHSN268201000029C) to The Broad Institute, Inc. Biorepository operations were funded through an SAIC-F subcontract to Van Andel Institute (10ST1035). Additional data repository and project management were provided by SAIC-F (HHSN261200800001E). The Brain Bank was supported by a supplements to University of Miami grants DA006227 $\&$ DA033684 and to contract N01MH000028. Statistical Methods development grants were made to the University of Geneva (MH090941 $\&$ MH101814), the University of Chicago (MH090951, MH090937, MH101820, MH101825), the University of North Carolina - Chapel Hill (MH090936 $\&$ MH101819), Harvard University (MH090948), Stanford University (MH101782), Washington University St Louis (MH101810), and the University of Pennsylvania (MH101822). The data used for the analyses described in this manuscript were obtained from: the GTEx Portal on 10/19/2015 and  dbGaP accession number phs000424.v6.p1.
-
-The paper is supported by the grant U01CA198933 from the NIH BD2K program.
-
+%The Genotype-Tissue Expression (GTEx) Project was supported by the Common Fund of the Office of the Director of the National Institutes of Health. Additional funds were provided by the NCI, NHGRI, NHLBI, NIDA, NIMH, and NINDS. Donors were enrolled at Biospecimen Source Sites funded by NCI $\ $ SAIC-Frederick, Inc. (SAIC-F) subcontracts to the National Disease Research Interchange (10XS170), Roswell Park Cancer Institute (10XS171), and Science Care, Inc. (X10S172). The Laboratory, Data Analysis, and Coordinating Center (LDACC) was funded through a contract (HHSN268201000029C) to The Broad Institute, Inc. Biorepository operations were funded through an SAIC-F subcontract to Van Andel Institute (10ST1035). Additional data repository and project management were provided by SAIC-F (HHSN261200800001E). The Brain Bank was supported by a supplements to University of Miami grants DA006227 $\&$ DA033684 and to contract N01MH000028. Statistical Methods development grants were made to the University of Geneva (MH090941 $\&$ MH101814), the University of Chicago (MH090951, MH090937, MH101820, MH101825), the University of North Carolina - Chapel Hill (MH090936 $\&$ MH101819), Harvard University (MH090948), Stanford University (MH101782), Washington University St Louis (MH101810), and the University of Pennsylvania (MH101822). The data used for the analyses described in this manuscript were obtained from: the GTEx Portal on 10/19/2015 and  dbGaP accession number phs000424.v6.p1.
+%
+%The paper is supported by the grant U01CA198933 from the NIH BD2K program.
+%
 We thank Matt Taddy, Amos Tanay and Effi Kenigsberg for helpful discussions. We thank Po-Yuan Tung, John Blischak and Jonathan Pritchard for helpful comments on the draft manuscript.
 
-\section*{Disclosure Declaration}
-
-The authors have no conflict of interest.
-
-\nolinenumbers
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-%% <--- Supporting information
+%% <--- Acknowledgements
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
-
-\section*{Supporting Information}
-\paragraph*{S1 Fig.}
-\label{figS1}
-\textbf{Structure plot of GTEx V6 tissue samples for (a) $K$ = 5, (b) $K$ = 10, (c) $K$ = 15, (d) $K$ = 20.} Some tissues form a separate cluster from the other tissues from $K$ = 5 onwards (for example: Whole Blood, Skin), whereas some tissue only form a distinctive subgroup at $K$ = 20 (for example: Arteries).
-
-\paragraph*{S2 Fig.}
-\label{figS2}
-\textbf{Top five principal components (PC) for GTEx V6 tissue samples.} Scatter plot
-representation of the top five PCs of the GTEx tissue samples. Data was transformed to log2 counts per million (CPM).
-
-\paragraph*{S3 Fig.}
-\label{figS3}
-\textbf{Comparison between GoM model and hierarchical clustering under different scenarios of data transformation.} We used GTEx V6 data for model performance comparisons. Specifically, for every pair of the 53 tissues, we assessed the ability of the methods to separate samples according to their tissue of origin. The subplots of heatmaps show the results of evaluation under different scenarios. Filled squares in the heatmap indicate successful separation of the samples in corresponding tissue pair comparison. (a) Hierarchical clustering on log2 counts per million (CPM) transformed data using Euclidean distance. (b) Hierarchical clustering on the standardized log2-CPM transformed data (transformed values for each gene was mean and scale transformed) using the Euclidean distance.  (c) GoM model of $K = 2$ applied to counts. (d) Hierarchical clustering on counts data with the assumption that, for each gene the sample read count $c_{ng}$ has a variance $\bar{c}_{g} + 1$ that is constant across samples. And, the the gene-specific variance $\bar{c}_{g} + 1$ was used to scale the distance matrix for clustering. (e) Hierarchical clustering applied to adjusted count data. Each gene has a mean expression value of 0 and variance of 1. Taken together, these results suggest that regardless of the different data transformation scenarios, the GoM model with $K = 2$ is able to separate samples of different tissue of origin, better than hierarchical cluster methods.
-
-\paragraph{S4 Fig.}
-\label{figS4}
-\textbf{ GTEx brain PCA, t-SNE and MDS.}
-
-\paragraph*{S5 Fig.}
-\label{figS5}
-\textbf{Structure plot of GTEx V6 tissue samples for $K$ = 20 in two runs under different thinning parameter settings.} (a) $p_{thin}$ = 0.01 and (B) $p_{thin} = 0.0001$. The structure in these two plots closely resemble the pattern observed in Fig 1(a), though there are a few differences from the unthinned version.
-
-\paragraph*{S6 Fig.}
-\label{figS6}
-\textbf{ A comparison of accuracy of hierarchical clustering vs GoM on thinned
-GTEx data, with thinning parameters of $p_{thin} = 0.01$ and $p_{thin} = 0.001$.} For each pair of tissue
-samples from the GTEx V6 data we assessed whether or not each clustering method (with $K$ = 2 clusters) separated the samples according to their tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Fig 2), but even then
-the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
-
-\paragraph*{S7 Fig.}
-\label{figS7}
-\textbf{ Deng et al (2014) PCA, tSNE, MDS and dendrogram plots for hierarchical clustering.}
-
-\paragraph*{S8 Fig.}
-\label{figS8}
-\textbf{ Additional GoM analysis of Deng et al (2014) data including blastocyst samples and 48 blastocyst marker genes.} We considered 48 blastocyst marker genes (as chosen by Guo et al., 2010) and fitted GoM model with $K$ = 3 to 133 blastocyst samples. In the Structure plot, blastocyst samples are arranged in order of estimated membership proportion in the Green cluster. The panel
-located above the Structure plot shows the corresponding pre-implantation stage from which blastocyst samples were collected. The heatmap located below the Structure plot represents expression levels of the 48 blastocyst marker genes (log2 CPM), and the corresponding dendrogram shows results of hierarchical
-clustering (complete linkage). The table on the right of the expression heatmap displays gene information, showing, from left to right, 1) whether or not the gene is a transcription factor, 2) the driving GoM cluster if the gene was among the top five driving genes, and 3) the featured cell type (TE: trophecoderm, EPI: epiblast, PE: primitive endoderm) that was found in Guo et al., 2010.
-
-\paragraph*{S9 Fig.}
-\label{figS9}
-\textbf{Visualization of PCA and t-SNE results of mouse pre-implantation embryos data from Deng et al (2014) using 48 blastocyst marker genes.}
-
-\paragraph*{S10 Fig.}
-\label{figS10}
-\textbf{Sparse Factor Analysis loadings visualization of GTEx V6 tissue samples.} The colors represent the 20 different factors. The factor loadings are presented in a stacked bar for each sample. We performed SFA under the scenarios of when the loadings are sparse (left panel) and when the factors are sparse (right panel).
-
-\paragraph*{S11 Fig.}
-\label{figS11}
-\textbf{Sparse Factor Analysis loadings visualization of GTEx brain tissue samples.} The colors represent the 6 different factors. The factor loadings are presented in a stacked bar for each sample. We performed SFA under the scenarios of when the loadings are sparse (left panel) and when the factors are
-sparse (right panel).
-
-\paragraph*{S12 Fig.}
-\label{figS12}
-\textbf{Sparse Factor Analysis loadings visualization of mouse pre-implantation
-embryos from Deng et al., (2014). The colors represent the 6 different factors. The factor loadings are presented in a stacked bar for each sample. We performed SFA under the scenarios of when the loadings are sparse (left panel) and when the factors are sparse (right panel).}
-
-\paragraph*{S1 Table.}
-\label{supptab1}
-\textbf{ Cluster Annotations of GTEx V6 data with top driving gene summaries.}
-
-\paragraph*{S2 Table.}
-\label{supptab2}
-\textbf{ Cluster Annotations of GTEx V6 Brain data with top driving gene summaries.}
-
-\paragraph*{S3 Table.}
-\label{supptab3}
-{\bf Cluster Annotations of Deng data with top driving genes.}
-
-\paragraph*{S4 Table.}
-\label{supptab3}
-\textbf{ Cluster Annotation of Deng data analysis using 48 genes with top driving gene summaries.}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%
-% <--- Acknowledgements
-%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section*{Acknowledgments}
-The Genotype-Tissue Expression (GTEx) Project was supported by the Common Fund of the Office of the Director of the National Institutes of Health. Additional funds were provided by the NCI, NHGRI, NHLBI, NIDA, NIMH, and NINDS. Donors were enrolled at Biospecimen Source Sites funded by NCI $\ $ SAIC-Frederick, Inc. (SAIC-F) subcontracts to the National Disease Research Interchange (10XS170), Roswell Park Cancer Institute (10XS171), and Science Care, Inc. (X10S172). The Laboratory, Data Analysis, and Coordinating Center (LDACC) was funded through a contract (HHSN268201000029C) to The Broad Institute, Inc. Biorepository operations were funded through an SAIC-F subcontract to Van Andel Institute (10ST1035). Additional data repository and project management were provided by SAIC-F (HHSN261200800001E). The Brain Bank was supported by a supplements to University of Miami grants DA006227 $\&$ DA033684 and to contract N01MH000028. Statistical Methods development grants were made to the University of Geneva (MH090941 $\&$ MH101814), the University of Chicago (MH090951, MH090937, MH101820, MH101825), the University of North Carolina - Chapel Hill (MH090936 $\&$ MH101819), Harvard University (MH090948), Stanford University (MH101782), Washington University St Louis (MH101810), and the University of Pennsylvania (MH101822). The data used for the analyses described in this manuscript were obtained from: the GTEx Portal on 10/19/2015 and  dbGaP accession number phs000424.v6.p1.
-The paper is supported by the grant U01CA198933 from the NIH BD2K program. We thank Matt Taddy, Amos Tanay, Effi Kenigsberg, Yoav Gilad and Jonathan Pritchard for helpful discussions. We thank Po-Yuan Tung and John Blischak for helpful comments on a draft manuscript.
-
-\nolinenumbers
-
-
-
-\section*{Disclosure Declaration}
-
-The authors have no conflict of interest.
-
-\nolinenumbers
-
-
-
+%
+%\section*{Acknowledgments}
+%%The Genotype-Tissue Expression (GTEx) Project was supported by the Common Fund of the Office of the Director of the National Institutes of Health. Additional funds were provided by the NCI, NHGRI, NHLBI, NIDA, NIMH, and NINDS. Donors were enrolled at Biospecimen Source Sites funded by NCI $\ $ SAIC-Frederick, Inc. (SAIC-F) subcontracts to the National Disease Research Interchange (10XS170), Roswell Park Cancer Institute (10XS171), and Science Care, Inc. (X10S172). The Laboratory, Data Analysis, and Coordinating Center (LDACC) was funded through a contract (HHSN268201000029C) to The Broad Institute, Inc. Biorepository operations were funded through an SAIC-F subcontract to Van Andel Institute (10ST1035). Additional data repository and project management were provided by SAIC-F (HHSN261200800001E). The Brain Bank was supported by a supplements to University of Miami grants DA006227 $\&$ DA033684 and to contract N01MH000028. Statistical Methods development grants were made to the University of Geneva (MH090941 $\&$ MH101814), the University of Chicago (MH090951, MH090937, MH101820, MH101825), the University of North Carolina - Chapel Hill (MH090936 $\&$ MH101819), Harvard University (MH090948), Stanford University (MH101782), Washington University St Louis (MH101810), and the University of Pennsylvania (MH101822). The data used for the analyses described in this manuscript were obtained from: the GTEx Portal on 10/19/2015 and  dbGaP accession number phs000424.v6.p1.
+%%The paper is supported by the grant U01CA198933 from the NIH BD2K program. 
+%
+%We thank Matt Taddy, Amos Tanay, Effi Kenigsberg, Yoav Gilad and Jonathan Pritchard for helpful discussions. We thank Po-Yuan Tung and John Blischak for helpful comments on a draft manuscript.
+%
+%\nolinenumbers
+%
 %%%%%%%%%%%%%%%%%%%%%%%%
 % <--- References
 %%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\clearpage
+\begin{table}[!hp]
+\begin{adjustwidth}{-2in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+\scriptsize
+\centering
+\caption{\bf Cluster Annotations GTEx V6 data (with GO annotations).}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|p{1.0in}|p{1.5in}|p{4.5in}|}
+\hline
+Cluster & Top 5 Driving \qquad Genes  &  Top significant GO terms (function)[q-value] \\
+\hline
+1. Royal purple & \textit{NEAT1, IGFBP5, CCLN2, SRSF5, PNISR} & GO:0005654 (nucleoplasm)[2e-10], GO:0044822 (poly-A RNA binding)[3e-09], GO:0044428 (nuclear part)[1e-09], GO:0043233 (organelle lumen)[2e-08]  \\ \hline
+2. Light purple & \textit{SNAP25, FBXL16, NCDN, SNCB, SLC17A7} & GO:0097458 (neuron part)[2e-25], GO:0007268 (synaptic transmission)[9e-18], GO:0030182 (neuron differentiation)[2e-14], GO:0022008 (neurogenesis)[1e-13], GO:0007267 (cell-cell signaling)[3e-13]\\ \hline
+3. Red & \textit{FABP4, PLIN1, FASN, GPX3, LIPE} & GO:0044255 (cellular lipid metabolism)[1e-09], GO:0006629 (lipid metabolism)[1e-09], GO:0006639 (acylglycerol metabolism)[3e-08], GO:0045765 (angiogenesis regulation)[4e-08]\\ \hline
+4. Salmon & \textit{ACTG2, MYH11, SYNM, MYLK, CSRP1} & GO:0043292 (contractile fiber)[3e-13], GO:0006936 (muscle contraction)[5e-12], GO:0030016 (myofibril)[5e-12], GO:0015629 (actin cytoskeleton)[2e-12],  GO:0005925 (focal adhesion)[6e-11] \\ \hline
+5. Denim & \textit{RGS5, MGP,  AEBP1, IGFBP7, MFGE8} & GO:0005578 (proteinaceous extracellular matrix)[4e-20], GO:0030198 (extracellular matrix)[2e-18], GO:0007155 (cell adhesion)[4e-14], GO:0001568 (blood vessel development)[4e-13] \\ \hline
+6. Light denim & \textit{KRT10, KRT1, KRT2, LOR, KRT14} & GO:0008544 (epidermis development)[3e-12], GO:0043588 (skin development)[5e-10], GO:0042303 (molting cycle)[8e-06], GO:0042633 (hair cycle)[7e-06], GO:0048513 (organ development)[6e-05] \\ \hline
+7. Orange & \textit{NEB, MYH1, MYH2, MYBPC1, ACTA1} & GO:0043292 (contractile fiber)[6e-52], GO:0030016 (myofibril)[1e-51], GO:0030017 (sarcomere)[5e-40], GO:0003012 (muscle system process)[2e-25], GO:0015629 (actin cytoskeleton)[1e-25] \\ \hline
+8. Light orange & \textit{FN1, COL1A1, COL1A2, COL3A1, COL6A3} & GO:0030198 (extracellular matrix)[6e-29], GO:0043062 (extracellular structure)[4e-29], GO:0032963 (collagen metabolism)[3e-16], GO:0030199 (collagen fibril organization)[1e-14], GO:0030574 (collagen catabolism)[1e-14] \\ \hline
+9. Green & \textit{MBP, GFAP, MTURN, HIPK2, CARNS1} & GO:0043209 (myelin sheath)[4e-07], GO:0007399 (nervous system development)[4e-05], GO:0008366 (axon ensheathment)[9e-05], GO:0044430 (cytoskeletal part)[1e-04], GO:0005874 (microtubule)[3e-04] \\ \hline
+10. Light green & \textit{CYP17A1, CYP11B1, PIGR, GKN1, STAR} & GO:0006694 (steroid biosynthesis)[2e-13], GO:0008202 (steroid metabolism)[1e-12], GO:0016125 (sterol metabolism)[1e-11], GO:0042446 (hormone biosynthesis)[1e-10], GO:0008207 (C21-steroid hormone metabolism)[3e-10] \\ \hline
+11. Turquoise & \textit{MPZ, APOD, PMP22, PRX, NGFR} & GO:0007272 (ensheathment of neurons)[4e-07], GO:0008366 (axon ensheathment)[7e-07], GO:0042552 (myelination)[7e-06], GO:0048856 (anatomical structure development)[1e-06], GO:0005578 (proteinaceous extracellular matrix)[1e-06] \\ \hline
+12. Yellow & \textit{IGHM, IGHG1, IGHG2, IGHG4, CD74} & GO:0006955 (immune response)[1e-18], GO:0002252 (immune effector process)[7e-18], GO:0003823 (antigen binding)[1e-15], GO:0019724 (B-cell mediated immunity)[5e-13], GO:0002684 (positive regulation immune system)[6e-13] \\ \hline
+13. Sky blue & \textit{TG, PRL, GH1, PRM2, PRM1} & GO:0019953 (sexual reproduction)[8e-10], GO:0048232 (male gamete generation)[2e-08], GO:0035686 (sperm fibrous sheath)[4e-06], GO:0005179 (hormone activity)[6e-05], GO:0042403 (thyroid hormone metabolism)[2e-04] \\ \hline
+14. Light pink & \textit{NPPA, MYH6, TNNT2, ACTC1, MYBPC3} & GO:0045333 (cellular respiration)[2e-34], GO:0022904 (respiratory electron transport)[8e-33], GO:0015980 (energy derivation by oxidation of organic compounds)[4e-30], GO:0031966 (mitochondrial membrane)[5e-26] \\ \hline
+15. Light gray & \textit{KRT13, KRT4, MUC7, CRNN, KRT6A} & GO:0070062 (extracellular exosome)[2e-23], GO:0043230 (extracellular organelle)[3e-23], GO:0031982 (vesicle)[3e-20], GO:0008544 (epidermis development)[2e-18], GO:0043588 (skin development)[1e-13] \\ \hline
+16. Gray & \textit{SFTPB$\beta$, SFTPA1, SFTPA2, SFTPC, A2M} & GO:0001525 (angiogenesis)[5e-08], GO:0001944 (vasculature development)[2e-07], GO:0048514 (blood vessel morphogenesis)[2e-07], GO:0040012 (locomotion regulation)[4e-06], GO:2000145 (cell motility)[1e-05] \\ \hline
+17. Brown & \textit{CSF3R, MMP25, IL1R2, SELL, VNN2} & GO:0006955 (immune response)[8e-22], GO:0006952 (defense response)[9e-16], GO:0071944 (cell periphery)[7e-15], GO:0005886 (plasma membrane)[7e-15], GO:0050776 (regulation of immune response)[2e-12]\\ \hline
+18. Purple & \textit{PRSS1, CPA1, PNLIP, CELA3A, GP2} & GO:0007586 (digestion)[3e-14], GO:0004252 (serine-type endopeptidase activity)[4e-08], GO:0006508 (proteolysis)[6e-06], GO:0016787 (hydrolase activity)[6e-05], GO:0044241 (lipid digestion)[1e-04]\\ \hline
+19. Pink & \textit{HBB, HBA2, HBA1, FKBP8, HBD} & GO:0005833 (hemoglobin complex)[1e-13], GO:0015669 (gas transport)[4e-11], GO:0020037 (heme binding)[3e-07], GO:0031720 (haptoglobin binding)[3e-06], GO:0006950 (response to stress)[6e-04] \\ \hline
+20. Dark gray  & \textit{ALB, HP, FGB, FGA, ORM1} & GO:0072562 (blood microparticle)[1e-27], GO:0043230 (extracellular organelle)[1e-24],  GO:0044710 (single organism metabolism)[7e-20], GO:0019752 (carboxylic acid metabolism)[1e-18], GO:0034364 (high density lipoprotein)[3e-16] \\ \hline
+\end{tabular} \label{tab1}
+\end{adjustwidth}
+\end{table}
+
+
+
+\begin{table}[!hp]
+\begin{adjustwidth}{-2in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+\footnotesize
+\centering
+\caption{\bf Cluster Annotations for GTEx V6 Brain data.}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|p{1.0in}|p{1.5in}|p{4.3in}|}
+ \hline
+ Cluster & Top 5 Driving \qquad Genes  &  Top significant GO terms \\
+\hline
+ 1. Royal blue &  \textit{CLU, OXT,  GLUL, NDRG2, CST3} & GO:0043230 (extracellular organelle)[5e-11], GO:1903561 (extracellular vesicle)[6e-11], GO:0070062 (extracellular exosome)[2e-09], GO:0006950 (response to stress)[3e-10], GO:0031988 (membrane bound vesicle)[1e-10] \\
+ \hline
+2. Turquoise & \textit{ENC1, NCALD, YWHAH, KIF5A, NPTXR} & GO:0097458 (neuron part)[3e-11], GO:0008092 (cytoskeletal protein binding)[7e-11], GO:0031175 (neuron projection development)[7e-09], GO:0030182 (neuron differentiation)[4e-08], GO:0007268 (synaptic transmission)[1e-08] \\
+\hline
+ 3. Lime green & \textit{PKD1, CBLN3, CHGB, COL27A1, ABLIM1} & GO:0005089 (Rho guanyl-nucleotide exchange factor activity)[1e-03], GO:0016604 (nuclear body)[0.002], GO:0022008 (neurogenesis)[0.02], GO:0035239 (tube morphogenesis)[0.08], GO:0007269 (neurotransmitter secretion)[0.10] \\
+\hline
+4. Red & \textit{PPP1R1B, RGS14, NCDN, PDE1B, RAP1GAP} & GO:0065009 (regulation of molecular function)[2e-06], GO:0036477 (somatodendritic compartment)[6e-05], GO:0007268 (synaptic transmission)[1e-03], GO:0023051 (signaling regulation)[2e-03], GO:0010646 (cell communication regulation)[1e-03] \\
+\hline
+5. Yellow orange & \textit{MBP, GFAP, TF, MTURN, SCD} & GO:0043209 (myelin sheath)[2e-09], GO:0007399 (nervous system development)[1e-04], GO:0005737 (cytoplasm)[1e-04], GO:0048471 (perinuclear region of cytoplasm)[5e-04], GO:0007272 (ensheathment of neurons)[1e-02] \\
+\hline
+6. Yellow & \textit{IQGAP1, A2M, C3, MYH7, TG} & GO:0072562 (blood microparticle)[1e-10], GO:0044449 (contractile fiber part)[1e-10], GO:0043230 (extracellular organelle)[7e-10], GO:0030017 (sarcomere)[1e-08], GO:0072376 (protein activation cascade)[1e-08] \\
+\hline
+\end{tabular} \label{tab2}
+\end{adjustwidth}
+ \end{table}
+
+
+
+% Table 3
+\begin{table}[!hp]
+\begin{adjustwidth}{-2in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
+\footnotesize
+\centering
+\caption{\bf Cluster Annotations for Deng et al (2014) data.}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|p{1.0in}|p{1.5in}|p{4.3in}|}
+\hline
+Cluster & Top 10 Driving \qquad Genes &  Top significant GO terms \\
+\hline
+1. Blue & \textit{Bcl2l10}, \textit{E330034G19Rik}, \textit{Tcl1},\textit{LOC100502936}, \textit{Oas1d}, \textit{AU022751}, \textit{Spin1}, \textit{Khdc1b}, \textit{D6Ertd527e}, \textit{Btg4} & GO:0007276 (gamete generation)[7e-06], GO:0032504 (multicellular organism reproduction)[3e-06], GO:0044702 (single organism reproduction)[2e-05], GO:0048477 (oogenesis)[5e-04], GO:0048599 (oocyte development)[1e-03], GO:0009994 (oocyte differentiation)[1e-03] \\
+\hline
+2. Magenta & \textit{Obox3}, \textit{Zfp352}, \textit{Gm8300}, \textit{Usp17l5}, \textit{BB287469}, \textit{Rfpl4b}, \textit{Gm2022}, \textit{Gm5662}, \textit{Gm11544 }, \textit{Gm4850}
+& GO:0016604 (nuclear body)[1e-04], GO:0005814 (centriole)[4e-03], GO:0044450 (microtubule organizing center part) [8e-03] \\
+\hline
+3. Yellow & \textit{Rtn2}, \textit{Ebna1bp2}, \textit{Zfp259}, \textit{Nasp}, \textit{Cenpe}, \textit{Rnf216}, \textit{Ctsl}, \textit{Tor1b}, \textit{Ankrd10}, \textit{Lamp2} & GO:0044428 (nuclear part)[1e-08], GO:0031981 (nuclear lumen)[3e-08], GO:0070013 (intracellular organelle lumen)[9e-08], GO:0005730 (nucleolus)[5e-07], GO:0005654 (nucleoplasm)[4e-05],  GO:0003723 (RNA binding)[1e-04] \\
+\hline
+4. Green
+&  \textit{Timd2}, \textit{Isyna1}, \textit{Alppl2}, \textit{Prame15},  \textit{Fbxo15}, \textit{Tceb1}, \textit{Gpd1l}, \textit{Pemt}, \textit{Hsp90aa1}, \textit{Hsp90ab1}
+& GO:0005829 (cytosol)[4e-10], GO:0044444 (cytoplasmic part)[2e-05], GO:1901575 (organic substance catabolic process)[9e-04], GO:0000151 (ubiquitin ligase com- plex)[1e-04],  GO:0009056 (catabolic process)[1e-03], GO:0044265 (cellular macromolecule catabolic process)[1e-03], GO:0051082 (unfolded protein binding)[9e-04] \\
+\hline
+5. Purple & \textit{Upp1}, \textit{Tdgf1}, \textit{Aqp8}, \textit{Fabp5}, \textit{Tat}, \textit{Pdgfra}, \textit{Pyy}, \textit{Prdx1}, \textit{Col4a1}, \textit{Spp1}
+& GO:0044710 (single-organism metabolic process) [1e-05], GO:0006950 (response to stress) [1e-05], GO:0070062 (extracellular exosome)[1e-05], GO:0043230 (extracellular organelle)[2e-05], GO:1903561 (extracellular vesicle)[1e-05], GO:0006979 (response to oxidative stress)[7e-04], GO:0048514 (blood vessel morphogenesis)[7e-04], GO:0001944 (vasculature development)[3e-03] \\
+\hline
+6. Orange & \textit{Actb}, \textit{Krt18}, \textit{Fabp3}, \textit{Id2}, \textit{Tspan8}, \textit{Gm2a}, \textit{Lgals1}, \textit{Adh1}
+, \textit{Lrp2}, \textit{BC051665}
+& GO:0065010 (extracellular membrane-bounded organelle), GO:0070062 (extracellular exosome)[4e-23],  GO:0043230 (extracellular organelle)[5e-23], GO:1903561 (extracellular vesicle)[3e-23], GO:0031982 (vesicle)[4e-18], GO:0030036 (actin cytoskeleton and organization)[4e-12], GO:0032432 (actin filament bundle)[2e-09],  GO:0005912 (adherens junction)[2e-09]\\
+\hline
+\end{tabular} \label{tab3}
+\end{adjustwidth}
+ \end{table}
+
+ \clearpage
+
+ % Figure 1
+\begin{figure}[!h]
+\includegraphics[height=7in, width=5.5in]{../plots/gtex-figures/gtex-k20-05-01-2016.pdf}
+ \caption{ \textbf{(a)}: Structure plot of estimated membership proportions for GoM model with $K=20$ clusters fit to $8555$ tissue samples from $53$ tissues in GTEx data.  Each horizontal bar shows the cluster membership proportions for a single sample, ordered so that samples from the same tissue are adjacent to one another. Within each tissue, the samples are sorted by the proportional representation of the underlying clusters.\textbf{(b)}: Structure plot of estimated membership proportions for $K=4$ clusters fit to only the brain tissue samples. This analysis highlights finer-scale structure among the brain samples that is missed by the global analysis in (a).}
+\label{fig1}
+\end{figure}
+
+\begin{figure}[!h]
+\includegraphics[height=5in, width=6.5in]{../plots/hierarchical_pca_tsne_combo_plot.pdf}
+\caption{Visualization of the same GTEx data as in Figure 1 (a) across all tissues using standard and widely used approaches - Principal Component Analysis (PCA), Multi dimensional Scaling (MDS), t-SNE and hierarchical clustering.
+All the analysis are done on log CPM normalized expression data to remove library size effects. \textbf{(a)}: Plot of PC1 vs PC2 on the log CPM expression data, \textbf{(b)}: Plot of first two dimensions of the t-SNE plot, \textbf{(c)} Plot of first two dimensions of the Multi-Dimensional Scaling (MDS) plot. \textbf{(d)} Dendrogram for the hierarchical clustring of the GTEx tissue samples based on the log CPM expression data.}
+\label{fig2}
+\end{figure}
+
+
+
+%  \begin{figure}[!h]
+%    \centering
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=3.5in]{../plots/hierarchy_F_thin_0_1.png}
+%        \caption{hierarchy method}
+%    \end{subfigure}%
+%    ~
+%    \begin{subfigure}[t]{0.5\textwidth}
+%        \centering
+%        \includegraphics[height=3.5in]{../plots/admixture_F_thin_0_1.png}
+%        \caption{GoM method}
+%    \end{subfigure} \\
+%\caption{A comparison of accuracy of GoM model vs hierarchical clustering. For each pair of tissues from the GTEX data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ 
+% and the hierarchical clustering in $39 \%$ comparisons.}
+%\label{fig2}
+%\end{figure}
+%
+%% Figure 3
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[height=6in, width=5.5in]{../plots/jaitin-figures/jaitin-main2.pdf}
+\caption{Structure plot of estimated membership proportions for GoM model with $K=7$ clusters fit to $1,041$ single cells from \cite{Jaitin2014}. The samples (cells) are ordered so that samples from the same amplification batch are adjacent and within each batch, the samples are sorted by the proportional representation of the underlying clusters. In this analysis the samples do not appear to form clearly-defined clusters, with each sample being allocated membership in several ``clusters". Membership proportions are correlated with batch, and some groups of batches (e.g. 28-29; 32-45) show similar palettes.  These results suggest that batch effects are likely influencing the inferred structure in these data.}
+\label{fig3}
+\end{figure}
+
+% Figure 4
+\begin{figure}[h!]
+\centering
+\includegraphics[height=7in, width=5.5in]{../plots/deng-figures/deng-main-v4.pdf}
+\caption{Structure plot of estimated membership proportions for GoM model with $K=6$ clusters fit to $259$ single cells from  \cite{Deng2014}. The cells are ordered
+by their preimplantation development phase (and within each phase, sorted by the proportional representation of the clusters). While the very earliest developmental phases
+(zygote and early 2-cell) are essentially assigned to a single cluster, others have membership in multiple clusters. Each cluster is annotated by
+the genes that are most distinctively expressed in that cluster, and by the gene ontology categories for which these distinctive genes are most enriched (see Table \ref{tab3} for more extensive annotation results). See text for discussion of biological processes driving these results.}
+\label{fig4}
+\end{figure}
 
 \clearpage
 
@@ -1111,158 +1175,84 @@ Unstable Kinetochore-Microtubule capture and chromosomal instability following d
 
 
 \clearpage
-\begin{table}[!hp]
-\begin{adjustwidth}{-2in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\scriptsize
-\centering
-\caption{\bf Cluster Annotations GTEx V6 data (with GO annotations).}
-\renewcommand{\arraystretch}{1.7}
-\begin{tabular}{|p{1.0in}|p{1.5in}|p{4.5in}|}
-\hline
-Cluster & Top 5 Driving \qquad Genes  &  Top significant GO terms (function)[q-value] \\
-\hline
-1. Royal purple & \textit{NEAT1, IGFBP5, CCLN2, SRSF5, PNISR} & GO:0005654 (nucleoplasm)[2e-10], GO:0044822 (poly-A RNA binding)[3e-09], GO:0044428 (nuclear part)[1e-09], GO:0043233 (organelle lumen)[2e-08]  \\ \hline
-2. Light purple & \textit{SNAP25, FBXL16, NCDN, SNCB, SLC17A7} & GO:0097458 (neuron part)[2e-25], GO:0007268 (synaptic transmission)[9e-18], GO:0030182 (neuron differentiation)[2e-14], GO:0022008 (neurogenesis)[1e-13], GO:0007267 (cell-cell signaling)[3e-13]\\ \hline
-3. Red & \textit{FABP4, PLIN1, FASN, GPX3, LIPE} & GO:0044255 (cellular lipid metabolism)[1e-09], GO:0006629 (lipid metabolism)[1e-09], GO:0006639 (acylglycerol metabolism)[3e-08], GO:0045765 (angiogenesis regulation)[4e-08]\\ \hline
-4. Salmon & \textit{ACTG2, MYH11, SYNM, MYLK, CSRP1} & GO:0043292 (contractile fiber)[3e-13], GO:0006936 (muscle contraction)[5e-12], GO:0030016 (myofibril)[5e-12], GO:0015629 (actin cytoskeleton)[2e-12],  GO:0005925 (focal adhesion)[6e-11] \\ \hline
-5. Denim & \textit{RGS5, MGP,  AEBP1, IGFBP7, MFGE8} & GO:0005578 (proteinaceous extracellular matrix)[4e-20], GO:0030198 (extracellular matrix)[2e-18], GO:0007155 (cell adhesion)[4e-14], GO:0001568 (blood vessel development)[4e-13] \\ \hline
-6. Light denim & \textit{KRT10, KRT1, KRT2, LOR, KRT14} & GO:0008544 (epidermis development)[3e-12], GO:0043588 (skin development)[5e-10], GO:0042303 (molting cycle)[8e-06], GO:0042633 (hair cycle)[7e-06], GO:0048513 (organ development)[6e-05] \\ \hline
-7. Orange & \textit{NEB, MYH1, MYH2, MYBPC1, ACTA1} & GO:0043292 (contractile fiber)[6e-52], GO:0030016 (myofibril)[1e-51], GO:0030017 (sarcomere)[5e-40], GO:0003012 (muscle system process)[2e-25], GO:0015629 (actin cytoskeleton)[1e-25] \\ \hline
-8. Light orange & \textit{FN1, COL1A1, COL1A2, COL3A1, COL6A3} & GO:0030198 (extracellular matrix)[6e-29], GO:0043062 (extracellular structure)[4e-29], GO:0032963 (collagen metabolism)[3e-16], GO:0030199 (collagen fibril organization)[1e-14], GO:0030574 (collagen catabolism)[1e-14] \\ \hline
-9. Green & \textit{MBP, GFAP, MTURN, HIPK2, CARNS1} & GO:0043209 (myelin sheath)[4e-07], GO:0007399 (nervous system development)[4e-05], GO:0008366 (axon ensheathment)[9e-05], GO:0044430 (cytoskeletal part)[1e-04], GO:0005874 (microtubule)[3e-04] \\ \hline
-10. Light green & \textit{CYP17A1, CYP11B1, PIGR, GKN1, STAR} & GO:0006694 (steroid biosynthesis)[2e-13], GO:0008202 (steroid metabolism)[1e-12], GO:0016125 (sterol metabolism)[1e-11], GO:0042446 (hormone biosynthesis)[1e-10], GO:0008207 (C21-steroid hormone metabolism)[3e-10] \\ \hline
-11. Turquoise & \textit{MPZ, APOD, PMP22, PRX, NGFR} & GO:0007272 (ensheathment of neurons)[4e-07], GO:0008366 (axon ensheathment)[7e-07], GO:0042552 (myelination)[7e-06], GO:0048856 (anatomical structure development)[1e-06], GO:0005578 (proteinaceous extracellular matrix)[1e-06] \\ \hline
-12. Yellow & \textit{IGHM, IGHG1, IGHG2, IGHG4, CD74} & GO:0006955 (immune response)[1e-18], GO:0002252 (immune effector process)[7e-18], GO:0003823 (antigen binding)[1e-15], GO:0019724 (B-cell mediated immunity)[5e-13], GO:0002684 (positive regulation immune system)[6e-13] \\ \hline
-13. Sky blue & \textit{TG, PRL, GH1, PRM2, PRM1} & GO:0019953 (sexual reproduction)[8e-10], GO:0048232 (male gamete generation)[2e-08], GO:0035686 (sperm fibrous sheath)[4e-06], GO:0005179 (hormone activity)[6e-05], GO:0042403 (thyroid hormone metabolism)[2e-04] \\ \hline
-14. Light pink & \textit{NPPA, MYH6, TNNT2, ACTC1, MYBPC3} & GO:0045333 (cellular respiration)[2e-34], GO:0022904 (respiratory electron transport)[8e-33], GO:0015980 (energy derivation by oxidation of organic compounds)[4e-30], GO:0031966 (mitochondrial membrane)[5e-26] \\ \hline
-15. Light gray & \textit{KRT13, KRT4, MUC7, CRNN, KRT6A} & GO:0070062 (extracellular exosome)[2e-23], GO:0043230 (extracellular organelle)[3e-23], GO:0031982 (vesicle)[3e-20], GO:0008544 (epidermis development)[2e-18], GO:0043588 (skin development)[1e-13] \\ \hline
-16. Gray & \textit{SFTPB$\beta$, SFTPA1, SFTPA2, SFTPC, A2M} & GO:0001525 (angiogenesis)[5e-08], GO:0001944 (vasculature development)[2e-07], GO:0048514 (blood vessel morphogenesis)[2e-07], GO:0040012 (locomotion regulation)[4e-06], GO:2000145 (cell motility)[1e-05] \\ \hline
-17. Brown & \textit{CSF3R, MMP25, IL1R2, SELL, VNN2} & GO:0006955 (immune response)[8e-22], GO:0006952 (defense response)[9e-16], GO:0071944 (cell periphery)[7e-15], GO:0005886 (plasma membrane)[7e-15], GO:0050776 (regulation of immune response)[2e-12]\\ \hline
-18. Purple & \textit{PRSS1, CPA1, PNLIP, CELA3A, GP2} & GO:0007586 (digestion)[3e-14], GO:0004252 (serine-type endopeptidase activity)[4e-08], GO:0006508 (proteolysis)[6e-06], GO:0016787 (hydrolase activity)[6e-05], GO:0044241 (lipid digestion)[1e-04]\\ \hline
-19. Pink & \textit{HBB, HBA2, HBA1, FKBP8, HBD} & GO:0005833 (hemoglobin complex)[1e-13], GO:0015669 (gas transport)[4e-11], GO:0020037 (heme binding)[3e-07], GO:0031720 (haptoglobin binding)[3e-06], GO:0006950 (response to stress)[6e-04] \\ \hline
-20. Dark gray  & \textit{ALB, HP, FGB, FGA, ORM1} & GO:0072562 (blood microparticle)[1e-27], GO:0043230 (extracellular organelle)[1e-24],  GO:0044710 (single organism metabolism)[7e-20], GO:0019752 (carboxylic acid metabolism)[1e-18], GO:0034364 (high density lipoprotein)[3e-16] \\ \hline
-\end{tabular} \label{tab1}
-\end{adjustwidth}
-\end{table}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% <--- Supporting information
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Include only the SI item label in the paragraph heading. Use the \nameref{label} command to cite SI items in the text.
 
+\section*{Supporting Information}
+\paragraph*{S1 Fig.}
+\label{figS1}
+\textbf{Structure plot of GTEx V6 tissue samples for (a) $K$ = 5, (b) $K$ = 10, (c) $K$ = 15, (d) $K$ = 20.} Some tissues form a separate cluster from the other tissues from $K$ = 5 onwards (for example: Whole Blood, Skin), whereas some tissue only form a distinctive subgroup at $K$ = 20 (for example: Arteries).
 
-\begin{table}[!hp]
-\begin{adjustwidth}{-2in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\footnotesize
-\centering
-\caption{\bf Cluster Annotations for GTEx V6 Brain data.}
-\renewcommand{\arraystretch}{1.7}
-\begin{tabular}{|p{1.0in}|p{1.5in}|p{4.3in}|}
- \hline
- Cluster & Top 5 Driving \qquad Genes  &  Top significant GO terms \\
-\hline
- 1. Royal blue &  \textit{CLU, OXT,  GLUL, NDRG2, CST3} & GO:0043230 (extracellular organelle)[5e-11], GO:1903561 (extracellular vesicle)[6e-11], GO:0070062 (extracellular exosome)[2e-09], GO:0006950 (response to stress)[3e-10], GO:0031988 (membrane bound vesicle)[1e-10] \\
- \hline
-2. Turquoise & \textit{ENC1, NCALD, YWHAH, KIF5A, NPTXR} & GO:0097458 (neuron part)[3e-11], GO:0008092 (cytoskeletal protein binding)[7e-11], GO:0031175 (neuron projection development)[7e-09], GO:0030182 (neuron differentiation)[4e-08], GO:0007268 (synaptic transmission)[1e-08] \\
-\hline
- 3. Lime green & \textit{PKD1, CBLN3, CHGB, COL27A1, ABLIM1} & GO:0005089 (Rho guanyl-nucleotide exchange factor activity)[1e-03], GO:0016604 (nuclear body)[0.002], GO:0022008 (neurogenesis)[0.02], GO:0035239 (tube morphogenesis)[0.08], GO:0007269 (neurotransmitter secretion)[0.10] \\
-\hline
-4. Red & \textit{PPP1R1B, RGS14, NCDN, PDE1B, RAP1GAP} & GO:0065009 (regulation of molecular function)[2e-06], GO:0036477 (somatodendritic compartment)[6e-05], GO:0007268 (synaptic transmission)[1e-03], GO:0023051 (signaling regulation)[2e-03], GO:0010646 (cell communication regulation)[1e-03] \\
-\hline
-5. Yellow orange & \textit{MBP, GFAP, TF, MTURN, SCD} & GO:0043209 (myelin sheath)[2e-09], GO:0007399 (nervous system development)[1e-04], GO:0005737 (cytoplasm)[1e-04], GO:0048471 (perinuclear region of cytoplasm)[5e-04], GO:0007272 (ensheathment of neurons)[1e-02] \\
-\hline
-6. Yellow & \textit{IQGAP1, A2M, C3, MYH7, TG} & GO:0072562 (blood microparticle)[1e-10], GO:0044449 (contractile fiber part)[1e-10], GO:0043230 (extracellular organelle)[7e-10], GO:0030017 (sarcomere)[1e-08], GO:0072376 (protein activation cascade)[1e-08] \\
-\hline
-\end{tabular} \label{tab2}
-\end{adjustwidth}
- \end{table}
+\paragraph*{S2 Fig.}
+\label{figS2}
+\textbf{Top five principal components (PC) for GTEx V6 tissue samples.} Scatter plot
+representation of the top five PCs of the GTEx tissue samples. Data was transformed to log2 counts per million (CPM).
 
+\paragraph*{S3 Fig.}
+\label{figS3}
+\textbf{Comparison between GoM model and hierarchical clustering under different scenarios of data transformation.} We used GTEx V6 data for model performance comparisons. Specifically, for every pair of the 53 tissues, we assessed the ability of the methods to separate samples according to their tissue of origin. The subplots of heatmaps show the results of evaluation under different scenarios. Filled squares in the heatmap indicate successful separation of the samples in corresponding tissue pair comparison. (a) Hierarchical clustering on log2 counts per million (CPM) transformed data using Euclidean distance. (b) Hierarchical clustering on the standardized log2-CPM transformed data (transformed values for each gene was mean and scale transformed) using the Euclidean distance.  (c) GoM model of $K = 2$ applied to counts. (d) Hierarchical clustering on counts data with the assumption that, for each gene the sample read count $c_{ng}$ has a variance $\bar{c}_{g} + 1$ that is constant across samples. And, the the gene-specific variance $\bar{c}_{g} + 1$ was used to scale the distance matrix for clustering. (e) Hierarchical clustering applied to adjusted count data. Each gene has a mean expression value of 0 and variance of 1. Taken together, these results suggest that regardless of the different data transformation scenarios, the GoM model with $K = 2$ is able to separate samples of different tissue of origin, better than hierarchical cluster methods.
 
+\paragraph{S4 Fig.}
+\label{figS4}
+\textbf{ GTEx brain PCA, t-SNE and MDS.}
 
-% Table 3
-\begin{table}[!hp]
-\begin{adjustwidth}{-2in}{0in} % Comment out/remove adjustwidth environment if table fits in text column.
-\footnotesize
-\centering
-\caption{\bf Cluster Annotations for Deng et al (2014) data.}
-\renewcommand{\arraystretch}{1.7}
-\begin{tabular}{|p{1.0in}|p{1.5in}|p{4.3in}|}
-\hline
-Cluster & Top 10 Driving \qquad Genes &  Top significant GO terms \\
-\hline
-1. Blue & \textit{Bcl2l10}, \textit{E330034G19Rik}, \textit{Tcl1},\textit{LOC100502936}, \textit{Oas1d}, \textit{AU022751}, \textit{Spin1}, \textit{Khdc1b}, \textit{D6Ertd527e}, \textit{Btg4} & GO:0007276 (gamete generation)[7e-06], GO:0032504 (multicellular organism reproduction)[3e-06], GO:0044702 (single organism reproduction)[2e-05], GO:0048477 (oogenesis)[5e-04], GO:0048599 (oocyte development)[1e-03], GO:0009994 (oocyte differentiation)[1e-03] \\
-\hline
-2. Magenta & \textit{Obox3}, \textit{Zfp352}, \textit{Gm8300}, \textit{Usp17l5}, \textit{BB287469}, \textit{Rfpl4b}, \textit{Gm2022}, \textit{Gm5662}, \textit{Gm11544 }, \textit{Gm4850}
-& GO:0016604 (nuclear body)[1e-04], GO:0005814 (centriole)[4e-03], GO:0044450 (microtubule organizing center part) [8e-03] \\
-\hline
-3. Yellow & \textit{Rtn2}, \textit{Ebna1bp2}, \textit{Zfp259}, \textit{Nasp}, \textit{Cenpe}, \textit{Rnf216}, \textit{Ctsl}, \textit{Tor1b}, \textit{Ankrd10}, \textit{Lamp2} & GO:0044428 (nuclear part)[1e-08], GO:0031981 (nuclear lumen)[3e-08], GO:0070013 (intracellular organelle lumen)[9e-08], GO:0005730 (nucleolus)[5e-07], GO:0005654 (nucleoplasm)[4e-05],  GO:0003723 (RNA binding)[1e-04] \\
-\hline
-4. Green
-&  \textit{Timd2}, \textit{Isyna1}, \textit{Alppl2}, \textit{Prame15},  \textit{Fbxo15}, \textit{Tceb1}, \textit{Gpd1l}, \textit{Pemt}, \textit{Hsp90aa1}, \textit{Hsp90ab1}
-& GO:0005829 (cytosol)[4e-10], GO:0044444 (cytoplasmic part)[2e-05], GO:1901575 (organic substance catabolic process)[9e-04], GO:0000151 (ubiquitin ligase com- plex)[1e-04],  GO:0009056 (catabolic process)[1e-03], GO:0044265 (cellular macromolecule catabolic process)[1e-03], GO:0051082 (unfolded protein binding)[9e-04] \\
-\hline
-5. Purple & \textit{Upp1}, \textit{Tdgf1}, \textit{Aqp8}, \textit{Fabp5}, \textit{Tat}, \textit{Pdgfra}, \textit{Pyy}, \textit{Prdx1}, \textit{Col4a1}, \textit{Spp1}
-& GO:0044710 (single-organism metabolic process) [1e-05], GO:0006950 (response to stress) [1e-05], GO:0070062 (extracellular exosome)[1e-05], GO:0043230 (extracellular organelle)[2e-05], GO:1903561 (extracellular vesicle)[1e-05], GO:0006979 (response to oxidative stress)[7e-04], GO:0048514 (blood vessel morphogenesis)[7e-04], GO:0001944 (vasculature development)[3e-03] \\
-\hline
-6. Orange & \textit{Actb}, \textit{Krt18}, \textit{Fabp3}, \textit{Id2}, \textit{Tspan8}, \textit{Gm2a}, \textit{Lgals1}, \textit{Adh1}
-, \textit{Lrp2}, \textit{BC051665}
-& GO:0065010 (extracellular membrane-bounded organelle), GO:0070062 (extracellular exosome)[4e-23],  GO:0043230 (extracellular organelle)[5e-23], GO:1903561 (extracellular vesicle)[3e-23], GO:0031982 (vesicle)[4e-18], GO:0030036 (actin cytoskeleton and organization)[4e-12], GO:0032432 (actin filament bundle)[2e-09],  GO:0005912 (adherens junction)[2e-09]\\
-\hline
-\end{tabular} \label{tab3}
-\end{adjustwidth}
- \end{table}
+\paragraph*{S5 Fig.}
+\label{figS5}
+\textbf{Structure plot of GTEx V6 tissue samples for $K$ = 20 in two runs under different thinning parameter settings.} (a) $p_{thin}$ = 0.01 and (B) $p_{thin} = 0.0001$. The structure in these two plots closely resemble the pattern observed in Fig 1(a), though there are a few differences from the unthinned version.
 
- \clearpage
+\paragraph*{S6 Fig.}
+\label{figS6}
+\textbf{ A comparison of accuracy of hierarchical clustering vs GoM on thinned
+GTEx data, with thinning parameters of $p_{thin} = 0.01$ and $p_{thin} = 0.001$.} For each pair of tissue
+samples from the GTEx V6 data we assessed whether or not each clustering method (with $K$ = 2 clusters) separated the samples according to their tissue of origin, with successful separation indicated by a filled square. Thinning deteriorates accuracy compared with the unthinned data (Fig 2), but even then
+the model-based method remains more successful than the hierarchical clustering in separating the samples by tissue or origin.
 
- % Figure 1
-\begin{figure}[!h]
-\includegraphics[height=7in, width=5.5in]{../plots/gtex-figures/gtex-k20-05-01-2016.pdf}
- \caption{ \textbf{(a)}: Structure plot of estimated membership proportions for GoM model with $K=20$ clusters fit to $8555$ tissue samples from $53$ tissues in GTEx data.  Each horizontal bar shows the cluster membership proportions for a single sample, ordered so that samples from the same tissue are adjacent to one another. Within each tissue, the samples are sorted by the proportional representation of the underlying clusters.\textbf{(b)}: Structure plot of estimated membership proportions for $K=4$ clusters fit to only the brain tissue samples. This analysis highlights finer-scale structure among the brain samples that is missed by the global analysis in (a).}
-\label{fig1}
-\end{figure}
+\paragraph*{S7 Fig.}
+\label{figS7}
+\textbf{ Deng et al (2014) PCA, tSNE, MDS and dendrogram plots for hierarchical clustering.}
 
-\begin{figure}[h!]
-\includegraphics[height=5in, width=6.5in]{../plots/hierarchical_pca_tsne_combo_plot.pdf}
-\caption{Visualization of the same GTEx data as in Figure 1 (a) across all tissues using standard and widely used approaches - Principal Component Analysis (PCA), Multi dimensional Scaling (MDS), t-SNE and hierarchical clustering.
-All the analysis are done on log CPM normalized expression data to remove library size effects. \textbf{(a)}: Plot of PC1 vs PC2 on the log CPM expression data, \textbf{(b)}: Plot of first two dimensions of the t-SNE plot, \textbf{(c)} Plot of first two dimensions of the Multi-Dimensional Scaling (MDS) plot. \textbf{(d)} Dendrogram for the hierarchical clustring of the GTEx tissue samples based on the log CPM expression data.}
-\label{fig2}
-\end{figure}
+\paragraph*{S8 Fig.}
+\label{figS8}
+\textbf{ Additional GoM analysis of Deng et al (2014) data including blastocyst samples and 48 blastocyst marker genes.} We considered 48 blastocyst marker genes (as chosen by Guo et al., 2010) and fitted GoM model with $K$ = 3 to 133 blastocyst samples. In the Structure plot, blastocyst samples are arranged in order of estimated membership proportion in the Green cluster. The panel
+located above the Structure plot shows the corresponding pre-implantation stage from which blastocyst samples were collected. The heatmap located below the Structure plot represents expression levels of the 48 blastocyst marker genes (log2 CPM), and the corresponding dendrogram shows results of hierarchical
+clustering (complete linkage). The table on the right of the expression heatmap displays gene information, showing, from left to right, 1) whether or not the gene is a transcription factor, 2) the driving GoM cluster if the gene was among the top five driving genes, and 3) the featured cell type (TE: trophecoderm, EPI: epiblast, PE: primitive endoderm) that was found in Guo et al., 2010.
 
+\paragraph*{S9 Fig.}
+\label{figS9}
+\textbf{Visualization of PCA and t-SNE results of mouse pre-implantation embryos data from Deng et al (2014) using 48 blastocyst marker genes.}
 
+\paragraph*{S10 Fig.}
+\label{figS10}
+\textbf{Sparse Factor Analysis loadings visualization of GTEx V6 tissue samples.} The colors represent the 20 different factors. The factor loadings are presented in a stacked bar for each sample. We performed SFA under the scenarios of when the loadings are sparse (left panel) and when the factors are sparse (right panel).
 
-%  \begin{figure}[!h]
-%    \centering
-%    \begin{subfigure}[t]{0.5\textwidth}
-%        \centering
-%        \includegraphics[height=3.5in]{../plots/hierarchy_F_thin_0_1.png}
-%        \caption{hierarchy method}
-%    \end{subfigure}%
-%    ~
-%    \begin{subfigure}[t]{0.5\textwidth}
-%        \centering
-%        \includegraphics[height=3.5in]{../plots/admixture_F_thin_0_1.png}
-%        \caption{GoM method}
-%    \end{subfigure} \\
-%\caption{A comparison of accuracy of GoM model vs hierarchical clustering. For each pair of tissues from the GTEX data we assessed whether or not each method (with $K=2$ clusters) separated the samples precisely according to their actual tissue of origin, with successful separation indicated by a filled square. Some pairs of tissues (e.g. pairs of brain tissues) are more difficult to distinguish than others. Overall the GoM model is successful in $86 \%$ comparisons and the hierarchical clustering in $39 \%$ comparisons.}
-%\label{fig2}
-%\end{figure}
-%
-%% Figure 3
+\paragraph*{S11 Fig.}
+\label{figS11}
+\textbf{Sparse Factor Analysis loadings visualization of GTEx brain tissue samples.} The colors represent the 6 different factors. The factor loadings are presented in a stacked bar for each sample. We performed SFA under the scenarios of when the loadings are sparse (left panel) and when the factors are
+sparse (right panel).
 
+\paragraph*{S12 Fig.}
+\label{figS12}
+\textbf{Sparse Factor Analysis loadings visualization of mouse pre-implantation
+embryos from Deng et al., (2014). The colors represent the 6 different factors. The factor loadings are presented in a stacked bar for each sample. We performed SFA under the scenarios of when the loadings are sparse (left panel) and when the factors are sparse (right panel).}
 
-\begin{figure}[h!]
-\centering
-\includegraphics[height=6in, width=5.5in]{../plots/jaitin-figures/jaitin-main2.pdf}
-\caption{Structure plot of estimated membership proportions for GoM model with $K=7$ clusters fit to $1,041$ single cells from \cite{Jaitin2014}. The samples (cells) are ordered so that samples from the same amplification batch are adjacent and within each batch, the samples are sorted by the proportional representation of the underlying clusters. In this analysis the samples do not appear to form clearly-defined clusters, with each sample being allocated membership in several ``clusters". Membership proportions are correlated with batch, and some groups of batches (e.g. 28-29; 32-45) show similar palettes.  These results suggest that batch effects are likely influencing the inferred structure in these data.}
-\label{fig3}
-\end{figure}
+\paragraph*{S1 Table.}
+\label{supptab1}
+\textbf{ Cluster Annotations of GTEx V6 data with top driving gene summaries.}
 
-% Figure 4
-\begin{figure}[h!]
-\centering
-\includegraphics[height=7in, width=5.5in]{../plots/deng-figures/deng-main-v4.pdf}
-\caption{Structure plot of estimated membership proportions for GoM model with $K=6$ clusters fit to $259$ single cells from  \cite{Deng2014}. The cells are ordered
-by their preimplantation development phase (and within each phase, sorted by the proportional representation of the clusters). While the very earliest developmental phases
-(zygote and early 2-cell) are essentially assigned to a single cluster, others have membership in multiple clusters. Each cluster is annotated by
-the genes that are most distinctively expressed in that cluster, and by the gene ontology categories for which these distinctive genes are most enriched (see Table \ref{tab3} for more extensive annotation results). See text for discussion of biological processes driving these results.}
-\label{fig4}
-\end{figure}
+\paragraph*{S2 Table.}
+\label{supptab2}
+\textbf{ Cluster Annotations of GTEx V6 Brain data with top driving gene summaries.}
+
+\paragraph*{S3 Table.}
+\label{supptab3}
+{\bf Cluster Annotations of Deng data with top driving genes.}
+
+\paragraph*{S4 Table.}
+\label{supptab3}
+\textbf{ Cluster Annotation of Deng data analysis using 48 genes with top driving gene summaries.}
 
 
 
