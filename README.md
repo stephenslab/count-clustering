@@ -15,13 +15,6 @@ All documents related to this work are in the `project` folder. It hosts several
 
 `project/plots` hosts all the plots obtained by running the R and RMD scripts.
 
-`project/internal_data` the data derived from external data by running some methods. 
-
-`project/external_data` data available from external sources and the data obtained by running some heavy duty codes on cluster.
-
-`project/old_codes`  contains old codes, not connected to the paper. There are 6 folders in the old_codes folder- In each of these subfolders, there is a RmD file that contains the entire code starting from simulation, to preprocessing to final estimation along with the HTML file.
-
-
 `project/rdas` hosts the rda files storing lists or complex data derived from running R/RMD scripts.
 
 `project/talks` hosts the presentations related to this project
