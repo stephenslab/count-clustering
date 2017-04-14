@@ -1,0 +1,165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Model-based clustering of RNA-seq data</title>
+    <meta name="description" content="Code and data reproducing results from "Clustering RNA-seq expression data using grade of membership models"">
+    <meta name="author" content="Kushal K. Dey">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="https://stephenslab.github.io/count-clustering/assets/themes/twitter/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="https://stephenslab.github.io/count-clustering/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="https://stephenslab.github.io/count-clustering/assets/themes/twitter/css/kbroman.css" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+
+    <!-- atom & rss feed -->
+    <link href="https://stephenslab.github.io/count-clusteringnil" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="https://stephenslab.github.io/count-clusteringnil" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="https://stephenslab.github.io/count-clustering">Clustering of RNA-Seq data</a>
+          <a class="brand" href="https://stephenslab.github.io/count-clustering/pages/about.html">About</a>
+          <a class="brand" href="https://stephenslab.github.io/count-clustering/pages/license.html">License</a>
+          <a class="brand" href="https://github.com/stephenslab/count-clustering">Github repository</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h2>Model-based clustering of RNA-seq data </h2>
+</div>
+
+<div class="row-fluid">
+  <div class="span12">
+    <h3 id="gtex-v6-analysis">GTEX V6 analysis</h3>
+
+<p>The Genotype Tissue Expression (GTEx) Project is a large scale project
+collecting tissue samples from actual human tissues. Check the
+<a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC4010069/">paper</a>.</p>
+
+<p>We apply model based clustering of the bulk-RNA GTEx V6 data (check
+the official release:
+<a href="http://www.gtexportal.org/home/">GTEx portal</a>). The data contained
+8555 tissue samples coming from 53 different tissues and we focussed
+on 16069 genes chosen using a filtering criterion. Below, we present
+the cluster analysis and Structure plot visualizations for number of
+clusters K=15 on all the tissues as well as clustering of brain
+samples using K=4.</p>
+
+<ul>
+  <li><a href="/count-clustering/project/src/gtex_v6_structure_genes.html">GTEX V6 analysis</a></li>
+</ul>
+
+<p>An alternative representation of the clustering besides the Structure
+plot is t-SNE representation. We present the results from applying
+t-SNE on the original GTEx read counts data and also on the topic
+proportions from the topic model fit.</p>
+
+<ul>
+  <li><a href="/count-clustering/project/src/tissues_tSNE_2.html">GTEX V6: t-SNE representation</a></li>
+</ul>
+
+<p>We annotate the genes that drive the clusters. For each cluster, we
+find a set of few top genes that distinguish that cluster from the
+rest (we term these as cluster annotating genes).</p>
+
+<ul>
+  <li><a href="/count-clustering/project/src/gene_annotation_2.html">GTEX V6: Gene Annotations</a></li>
+</ul>
+
+<h3 id="jaitin-et-al-2014-single-cell-analysis">Jaitin et al (2014) single cell analysis</h3>
+
+<p>We apply the model based clustering on the dataset due to Jaitin <em>et
+al</em> 2014, <a href="http://science.sciencemag.org/content/343/6172/776">paper</a>.</p>
+
+<p>Jaitin <em>et al</em> sequenced over 4000 single cells from mouse
+spleen. Following the original authors protocol, we also filtered out
+16 genes that they found to show significant batch-specific
+expression. Here we analyze 1041 of these cells that were categorized
+as CD11c+ in the <em>sorting markers</em> column of their data
+(<a href="http://compgenomics.weizmann.ac.il/tanay/?page_id=519">link</a>), and
+which had total number of reads mapping to non-ERCC genes greater
+than 600. (We believe these cells correspond roughly to the 1040 cells
+in their Figure S7.)</p>
+
+<p>Below we fit our model on the above data for K=7.</p>
+
+<ul>
+  <li><a href="/count-clustering/project/src/jaitin_structure_genes.html">Jaitin et al 2014 sc-RNA analysis</a></li>
+</ul>
+
+<h3 id="deng-et-al-2014-single-cell-analysis">Deng et al (2014) single cell analysis</h3>
+
+<p>We apply the model based clustering on the dataset due to Deng <em>et al</em>
+2014, <a href="http://science.sciencemag.org/content/343/6167/193">paper</a>.</p>
+
+<p>Deng <em>et al</em> collected expression data from individual cells from
+zygote to blastocyst stages of mouse preimplantation development. Deng
+<em>et al</em>’s analysis focussed particularly on allele-specific expression
+from the two contributing mouse strains (CAST/EiJ and C57BL/6J).</p>
+
+<p>Here we present the topic model fit and Structure plot on this data
+for a range of values of K (number of clusters) to see how patterns
+change with increasing number of topics.</p>
+
+<p><a href="/count-clustering/project/src/deng_structure_all_genes.html">Deng et al 2014 sc-RNA analysis</a></p>
+
+<p>The cluster annotations of the clusters for the data are given in the
+script below.</p>
+
+<p><a href="/count-clustering/project/src/deng_cluster_annotations.html">Deng et al 2014 cluster annotations</a></p>
+
+<h3 id="other-applications-of-countclust">Other applications of CountClust</h3>
+
+<p>We apply a batch correction procedure <code class="highlighter-rouge">BatchCorrectedCounts()</code> to
+remove known technical effects using a voom type framework in the
+package <code class="highlighter-rouge">CountClust</code>. We present 3 simulation scenarios to present the
+effectiveness of the batch correction mechanism.</p>
+
+<p><a href="/count-clustering/project/src/batch_correction_scenarios.html">Batch Correction scenarios using CountClust</a></p>
+
+<p>We also validated the clusters we obtained in GTEx V6 and the Deng
+2014 data by considering some of the genes with interesting biological
+properties and checking the trends of log of expression across the
+different tissue samples for that gene.</p>
+
+<p><a href="/count-clustering/project/src/extracted_genes_expr_study.html">Gene expression study of genes from cluster annotation of GTEx + Deng data</a></p>
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p><small>
+	  <!-- Footer -->
+        </small></p>
+      </footer>
+
+    </div>
+
+    
+
+  </body>
+</html>
+

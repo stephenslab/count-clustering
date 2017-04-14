@@ -41,8 +41,10 @@ downloading data in order to be able to run the R scripts/notebooks.
 
 ### Repository organization
 
-All documents related to this work are in the `project` folder. It
-hosts several sub-directories- we list their functionalities below:
+All documents related to this work are in the `project` folder. The
+remaining folders contain files used to generate the webpages. The
+`project` folder hosts several sub-directories---we list their
+functionalities below:
 
 + `project/src` hosts the RMD scripts as well as the HTML output files
 obtained by running the RMD scripts.
