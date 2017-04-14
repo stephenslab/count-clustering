@@ -4,6 +4,9 @@ Code and data reproducing results from
 ["Clustering RNA-seq expression data using grade of membership models"](http://dx.doi.org/10.1371/journal.pgen.1006599),
 now published in *PLoS Genetics.*
 
+View [here](index.html) to start browsing the R Markdown notebooks
+implementing the data analyses.
+
 ### Overview
 
 **TO DO:** Add a paragraph here giving a brief description of this
