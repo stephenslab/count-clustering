@@ -1,7 +1,8 @@
 ---
 layout: page
 title: "Model based clustering of RNA-seq data"
-tagline:
+tagline: Tagline goes here.
+description: Description goes here.
 ---
 
 ### GTEX V6 analysis

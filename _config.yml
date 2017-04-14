@@ -10,8 +10,8 @@ highlighter: rouge
 #
 title : Clustering of RNA-Seq data 
 author :
-  name : Kushal K Dey 
-  email : kkdey@uchicago.com
+  name : Kushal K. Dey 
+  email : kkdey@uchicago.edu
   github : kkdey
   twitter : kanishkadey
 
@@ -28,7 +28,8 @@ JB :
 
   # All links will be namespaced by BASE_PATH if defined.
   # Links in your website should always be prefixed with {{BASE_PATH}}
-  # however this value will be dynamically changed depending on your deployment situation.
+  # however this value will be dynamically changed depending on your
+  # deployment situation.
   #
   # CNAME (http://yourcustomdomain.com)
   #   DO NOT SET BASE_PATH 
@@ -40,18 +41,21 @@ JB :
   #
   # GitHub Project Pages (http://username.github.io/project-name)
   #
-  #   A GitHub Project site exists in the `gh-pages` branch of one of your repositories.
+  #   A GitHub Project site exists in the `gh-pages` branch of one of your
+  #  repositories.
   #  REQUIRED! Set BASE_PATH to: http://username.github.io/project-name
   #
   # CAUTION:
-  #   - When in Localhost, your site will run from root "/" regardless of BASE_PATH
+  #   - When in Localhost, your site will run from root "/" regardless of
+  #     BASE_PATH
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
-  #     This means always setting the protocol (http|https) or prefixing with "/"
+  #     This means always setting the protocol (http|https) or
+  #     prefixing with "/"
   BASE_PATH : http://stephenslab.github.io/count-clustering
 
-
-  # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
+  # By default, the asset_path is automatically defined relative to
+  # BASE_PATH plus the enabled theme.
   # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
   #
   # Override this by defining an absolute path to assets here.
@@ -63,7 +67,6 @@ JB :
 
   # These paths are to the main pages Jekyll-Bootstrap ships with.
   # Some JB helpers refer to these paths; change them here if needed.
-  #
   archive_path: nil
   categories_path : nil
   tags_path : nil
