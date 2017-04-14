@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About us
-description: 
+description: More details about authors
 ---
 
 Kushal K. Dey is a doctoral student in the Department of Statistics at

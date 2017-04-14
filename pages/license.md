@@ -1,7 +1,7 @@
 ---
 layout: page
 title: License
-description: 
+description: License details for content
 ---
 
 Copyright (C) 2015 Kushal K Dey 

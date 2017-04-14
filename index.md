@@ -1,8 +1,7 @@
 ---
 layout: page
 title: Model-based clustering of RNA-seq data
-tagline: Tagline goes here.
-description: Description goes here.
+description: Code and data reproducing results from "Clustering RNA-seq expression data using grade of membership models"
 ---
 
 ### GTEX V6 analysis
