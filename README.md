@@ -1,43 +1,43 @@
 # count-clustering
 
-*Add Zenodo badge here.*
-
-Code and data reproducing results for
-[Clustering RNA-seq expression data using grade of membership models](http://dx.doi.org/10.1371/journal.pgen.1006599)
-published in *PLoS Genetics.*
+Code and data reproducing results from
+["Clustering RNA-seq expression data using grade of membership models"](http://dx.doi.org/10.1371/journal.pgen.1006599),
+now published in *PLoS Genetics.*
 
 ### Overview
 
-*Add a paragraph here giving a brief description of this repository,
-and what is contained in the repository. Refer to "repository
-organization" below for more details.*
+**TO DO:** Add a paragraph here giving a brief description of this
+repository, and what is contained in the repository. Refer to
+"repository organization" below for more details.
 
 The R package corresponding to this work is `CountClust`. Check the
 package details [here](https://github.com/kkdey/CountClust).
 
-*More details to add here in this section: (1) Link to Zenodo
-resource(s) containing code and data relevant to PLoS Genetics paper,
-(2) Link to R package on Bioconductor, (3) give platform and software
-version(s) used to run the R code (e.g., Mac OS X, R and/or RStudio).*
+**TO DO:** More details to add here in this section: (1) Link to
+Zenodo other resource(s) containing code and data relevant to PLoS
+Genetics paper, (2) Link to R package on Bioconductor, (3) give
+platform and software version(s) used to run the R code (e.g., Mac OS
+X, R and/or RStudio).*
 
 ### Citing this repository
 
-If the data or code in this repository is useful for your research
-project, please cite our paper as well as the Zenodo resource:
+If the data or code in this repository are useful for your research
+project, please cite the Zenodo resource, as well as our paper
+published in *PloS Genetics*:
 
-K Dey, C Hsiao, and M Stephens. Clustering RNA-seq expression data
-using grade of membership models. PLoS Genetics 13(3): e1006599
-
-*Zenodo citation here.*
+Dey K, Hsiao C, and Stephens M (2017). Clustering RNA-seq expression
+data using grade of membership models. *PLoS Genetics* **13**:
+e1006599
 
 ### Code and data licenses
 
-*Add license details here.*
+**TO DO:** Add licenses appropriate for code and for data/images;
+e.g., CC-BY and GPL.
 
 ### Running the code
 
-*Give instructions here on installing software and downloading data in
-order to be able to run the R scripts/notebooks.*
+**TO DO:** Give instructions here on installing software and
+downloading data in order to be able to run the R scripts/notebooks.
 
 ### Repository organization
 
