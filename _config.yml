@@ -2,7 +2,7 @@
 # For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink: /:categories/:year/:month/:day/:title 
 
-exclude: [..., "Readme.md", "Rakefile"]
+exclude: ["Readme.md", "Rakefile"]
 highlighter: rouge
 
 # Themes are encouraged to use these universal variables 
