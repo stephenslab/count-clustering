@@ -1,14 +1,15 @@
 ---
 layout: page
 title: License
-description: 
+description: License details for content
 ---
 
 Copyright (C) 2015 Kushal K Dey 
 
 Code is released under the GPLv3 license.
 
-Text is released under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+Text is released under the Creative Commons
+Attribution-NonCommercial-NoDerivatives 4.0 International License.
 
 Text of both licenses is below.
 
