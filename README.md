@@ -28,8 +28,7 @@ If the data or code in this repository are useful for your research
 project, please cite the Zenodo resource, as well as our paper
 published in *PloS Genetics*:
 
-Dey K, Hsiao C, and Stephens M (2017). Clustering RNA-seq expression
-data using grade of membership models. *PLoS Genetics* **13**:
+Dey K, Hsiao C, and Stephens M (2017). Visualizing the structure of RNA-seq expression data using grade of membership models. *PLoS Genetics* **13**:
 e1006599
 
 ### Code and data licenses
