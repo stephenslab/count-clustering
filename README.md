@@ -1,7 +1,7 @@
 # count-clustering
 
 Code and data reproducing results from
-["Clustering RNA-seq expression data using grade of membership models"](http://dx.doi.org/10.1371/journal.pgen.1006599),
+["Visualizing the structure of RNA-seq expression data using grade of membership models"](http://dx.doi.org/10.1371/journal.pgen.1006599),
 now published in *PLoS Genetics.*
 
 View [here](index.html) to start browsing the R Markdown notebooks
@@ -49,12 +49,10 @@ remaining folders contain files used to generate the webpages. The
 `project` folder hosts several sub-directories---we list their
 functionalities below:
 
-+ `project/src` hosts the RMD scripts as well as the HTML output files
-obtained by running the RMD scripts.
++ `project/src` hosts the RMD scripts as well as the HTML outputs from these files.
 
 + `project/R` hosts the R scripts, mostly scripts that run specific
-analysis on data or derived data and outputs some other files that can
-be used later.
+analysis on data or derived data. Also includes scripts generating figures for the paper.
 
 + `project/plots` hosts all the plots obtained by running the R and RMD
 scripts.
@@ -62,13 +60,11 @@ scripts.
 + `project/rdas` hosts the rda files storing lists or complex data
 derived from running R/RMD scripts.
 
-+ `project/talks` hosts the presentations related to this project
++ `project/talks`  talks and presentations related to this project
 
-+ `project/docs` hosts the current draft of the paper along with
-necessary other supplementary materials.
++ `project/docs` current draft, submitted draft and bioRxiv draft of the paper.
 
-+ `project/utilities` hosts files not connected to the current draft of
-the paper but are related to future directions of the work.
++ `project/utilities` hosts supplementary data - gene lists from the analysis, gene annotations etc.
 
 ### Authors
 
