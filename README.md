@@ -4,8 +4,7 @@ Code and data reproducing results from
 ["Visualizing the structure of RNA-seq expression data using grade of membership models"](http://dx.doi.org/10.1371/journal.pgen.1006599),
 now published in *PLoS Genetics.*
 
-View [here](index.html) to start browsing the R Markdown notebooks
-implementing the data analyses.
+View [here](http://stephenslab.github.io/count-clustering/) to start browsing the R Markdown notebooks implementing the data analyses.
 
 ### Overview
 
