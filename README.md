@@ -4,7 +4,8 @@ Code and data reproducing results from
 ["Visualizing the structure of RNA-seq expression data using grade of membership models"](http://dx.doi.org/10.1371/journal.pgen.1006599),
 now published in *PLoS Genetics.*
 
-View [here](http://stephenslab.github.io/count-clustering/) to start browsing the R Markdown notebooks implementing the data analyses.
+View [here](http://stephenslab.github.io/count-clustering/) to start
+browsing the R Markdown notebooks implementing the data analyses.
 
 ### Overview
 
@@ -27,8 +28,9 @@ If the data or code in this repository are useful for your research
 project, please cite the Zenodo resource, as well as our paper
 published in *PloS Genetics*:
 
-Dey K, Hsiao C, and Stephens M (2017). Visualizing the structure of RNA-seq expression data using grade of membership models. *PLoS Genetics* **13**:
-e1006599
+Dey K, Hsiao C, and Stephens M (2017). Visualizing the structure of
+RNA-seq expression data using grade of membership models. *PLoS
+Genetics* **13**: e1006599
 
 ### Code and data licenses
 
@@ -47,10 +49,12 @@ remaining folders contain files used to generate the webpages. The
 `project` folder hosts several sub-directories---we list their
 functionalities below:
 
-+ `project/src` hosts the RMD scripts as well as the HTML outputs from these files.
++ `project/src` hosts the RMD scripts as well as the HTML outputs from
+these files.
 
 + `project/R` hosts the R scripts, mostly scripts that run specific
-analysis on data or derived data. Also includes scripts generating figures for the paper.
+analysis on data or derived data. Also includes scripts generating
+figures for the paper.
 
 + `project/plots` hosts all the plots obtained by running the R and RMD
 scripts.
@@ -60,9 +64,11 @@ derived from running R/RMD scripts.
 
 + `project/talks`  talks and presentations related to this project
 
-+ `project/docs` current draft, submitted draft and bioRxiv draft of the paper.
++ `project/docs` current draft, submitted draft and bioRxiv draft of
+the paper.
 
-+ `project/utilities` hosts supplementary data - gene lists from the analysis, gene annotations etc.
++ `project/utilities` hosts supplementary data - gene lists from the
+analysis, gene annotations etc.
 
 ### Authors
 
