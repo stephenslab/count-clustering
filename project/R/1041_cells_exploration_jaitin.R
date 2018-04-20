@@ -7,7 +7,7 @@
 ######   wise distruct plots, and also do the PCA analysis
 
 library(data.table)
-Data=data.frame(fread("D:/Matthew_Stephens_Project/Jaitin_single_cell/Data/GSE54006_umitab.txt"));
+Data=data.frame(fread("../external/GSE54006_umitab.txt"));
 gene_names=as.matrix(Data[,1]);
 Exp_details=read.table(file="D:/Matthew_Stephens_Project/Jaitin_single_cell/Data/jaitin_etal_experimental_design.txt",fill=T,header=T);
 
