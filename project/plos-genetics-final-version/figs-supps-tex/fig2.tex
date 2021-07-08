@@ -1,0 +1,25 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[top=0.85in,left=2.75in,footskip=0.75in]{geometry}
+
+\input{../header.tex}
+
+% Text layout specific to Supplemental Materials
+\topmargin 0.0cm
+\oddsidemargin 0.5cm
+\evensidemargin 0.5cm
+\textwidth 16cm
+\textheight 21cm
+
+\setlength{\parskip}{1em}
+
+\begin{document}
+
+\begin{figure}[!h]
+\includegraphics[height=5in, width=6.5in]{../../plots/hierarchical_pca_tsne_combo_plot.pdf}
+\caption{Visualization of the same GTEx data as in Figure 1 (a) across all tissues using standard and widely used approaches - Principal Component Analysis (PCA), Multi dimensional Scaling (MDS), t-SNE and hierarchical clustering.
+All the analysis are done on log CPM normalized expression data to remove library size effects. \textbf{(a)}: Plot of PC1 vs PC2 on the log CPM expression data, \textbf{(b)}: Plot of first two dimensions of the t-SNE plot, \textbf{(c)} Plot of first two dimensions of the Multi-Dimensional Scaling (MDS) plot. \textbf{(d)} Dendrogram for the hierarchical clustring of the GTEx tissue samples based on the log CPM expression data.}
+\label{fig:fig2}
+\end{figure}
+
+
+\end{document}
